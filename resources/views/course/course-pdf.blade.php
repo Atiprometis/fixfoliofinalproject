@@ -1,10 +1,9 @@
 @include('component.header')
 @extends('layout.master')
 
-@section('title', 'Home Page')
+@section('title', 'PDF)
 
 
 @section('content')
     <div> hi sshihssi</div>
 @endsection
-

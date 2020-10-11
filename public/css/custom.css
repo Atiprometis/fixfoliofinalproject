@@ -1,0 +1,45 @@
+/* _________ MARGIN _____________ */
+
+.m-t-20{
+    margin-top: 20px;
+    }
+.m-b-40{
+        margin-bottom: 40px;
+}
+.m-r10p{
+    margin-right: 10px;
+}
+.m-l10p{
+    margin-left: 10px;
+}
+/* _________ END MARGIN _________ */
+
+/* _______ BOX __________ */
+.b-h60p-w100s{
+height: 60px;
+width: 100%;
+}
+.b-h60p-w90s{
+    height: 60px;
+    width: 90%;
+    }
+/* ______ END BOX _______ */
+/* +++++++ BORDER +++++++++++ */
+.b-r-5p{
+    border-radius: 5px;
+    }
+.b-r-10p{
+border-radius: 10px;
+}
+/* ++++++ END BORDER ++++++++ */
+
+.t-a-c{
+    text-align: center;
+    height: 100%;
+}
+/* ++++++++++++++++ COLOR ++++++++++++++++ */
+.b-c-r{
+
+background-color: red;
+}
+/* ++++++++++++++++ END COLOR ++++++++++++++++ */

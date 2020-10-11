@@ -13,12 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home2', 'HomeController@index')->name('home2');
 
-Route::resource('backoffice', 'CourseController');
+// Route::resource('backoffice', 'CourseController');
+
+Route::get('/', 'HomeController@home');
+
+Route::get('/home', 'HomeController@home');
+
+Route::get('/login', 'LoginSigninController@Login');
+Route::get('/singup', 'LoginSigninController@Singup');
+
+Route::get('/course', 'CourseController@course');
+Route::get('/registercourse', 'CourseController@registercourse');
+Route::get('/coursedetail', 'CourseController@coursedetail');
+
+Route::get('/portfolio', 'PortfolioController@portfolio');

@@ -1,0 +1,83 @@
+.select-item{
+    background-color: #C4C4C4;
+    width: 40%;
+    height: 88px;
+    padding: 15px;
+    border-radius: 10px;
+}
+.b-c-t{
+    background-color: transparent;
+
+}
+.select-item-wrapper{
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border-radius: 10px;
+}
+.c-p{
+    background-color: #9B4BB0;
+    color: #fff;
+}
+.select-icon{
+line-height: 22px;
+color: #9B4BB0;
+}
+.select-text{
+
+}
+
+.course-select-row{
+    height: 320px;
+    width: 30%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    border: solid 1px rgb(104, 104, 104);
+}
+.course-part{
+    height: 100%;
+    width: 100%;
+
+}
+.course-part-image{
+    height: 60%;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    background-image:  url('../access/images/photo-2.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #C4C4C4;
+    border-bottom: solid 1px rgb(104, 104, 104);
+}
+.course-part-detail{
+    height: 40%;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #fff;
+}
+.open-course{
+    padding: 2%;
+    background-color: #9B4BB0;
+    border-radius: 15px;
+    font-size: 1em;
+    color: #fff;
+}
+.open-online{
+    padding: 2%;
+    background-color: #9B4BB0;
+    border-radius: 15px;
+    font-size: 1em;
+    color: #fff;
+}
+.course-name{
+    font-size: 1.250em;
+}
+.course-time{
+    font-size: 1em;
+}
+.course-hour {
+    font-size: 1em;
+}

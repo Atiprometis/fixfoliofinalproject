@@ -1,0 +1,171 @@
+html, body{
+    height: 100%;
+    width: 100%;
+}
+body{
+    height: 100%;
+    width: 100%;
+    font-family: 'Prompt', sans-serif;
+    /* background: rgb(253,116,155);
+    background: linear-gradient(180deg, rgba(253,116,155,1) 0%, rgba(113,26,200,1) 90%);
+background-repeat: no-repeat; */
+
+}
+
+.wraper-login{
+    height: 100%;
+    width: 100%;
+    /* background-size: 100%; */
+    /* background-attachment: fixed; */
+    /* background: rgb(253,116,155);
+    background: linear-gradient(180deg, rgba(253,116,155,1) 0%, rgba(40,26,200,1) 72%); */
+}
+.form-login1{
+    width: 100%;
+
+
+    /* background-color: #fff; */
+
+    background-image:  url('../access/images/photo-1.png');
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+.form-login2{
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 40px;
+    font-family: 'Prompt', sans-serif;
+
+    padding: 3% 8% 5% 8%;
+}
+.form-login2 h1{
+    font-weight: bold;
+    font-size: 1.5em;
+    background: -webkit-linear-gradient(#FD749B, #281ACB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    /* color: inear-gradient(180deg, rgba(253,116,155,1) 0%, rgba(40,26,200,1) 65%);; */
+}
+.h1-page{
+    font-weight: bold;
+    font-size: 1.5em;
+    background: -webkit-linear-gradient(#FD749B, #281ACB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.form-login2 p{
+    font-weight: 400;
+    font-size: 1em;
+}
+
+.email-login{
+    height: 60px;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+.re-password{
+    font-weight: bold;
+    color: #000;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.register-text{
+    font-weight: bold;
+    color: #000;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.password-login{
+    height: 60px;
+    border-radius: 10px;
+    padding-left: 20px;
+}
+.btn-login{
+    height: 55px;
+    width: 150px;
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: bold;
+    font-family: 'Prompt', sans-serif;
+    border-radius: 50px;
+    outline: none;
+    background: rgb(253,116,155);
+
+}
+
+.btn-facebook{
+    height: 54px;
+    width: 150px;
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: bold;
+    font-family: 'Prompt', sans-serif;
+    border-radius: 50px;
+    outline: none;
+    background: rgba(19,1,227,1);
+
+}
+
+/* -------------------------------- sigup page ---------------------------------------- */
+
+.form-sigup1{
+    width: 100%;
+    height: 100%;
+    /* background-color: #fff; */
+    float: left;
+
+    /* background-image:  url('../access/images/photo-2.png'); */
+    background-repeat: no-repeat;
+    border-radius: 20px;
+}
+.form-sigup2{
+    width: 100%;
+    height: auto;
+
+    background-color: #fff;
+    border-radius: 40px;
+    font-family: 'Prompt', sans-serif;
+
+    padding: 3% 3% 3% 3%;
+}
+.p-and{
+    height: 55px;
+    line-height: 55px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-content: center;
+}
+/* -------------------------------- END sigup page ---------------------------------------- */
+
+/* --------------------------------  COURSE ---------------------------------------- */
+.course-banner{
+    height: 540px;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+.course-search{
+    height: 200px;
+    width: 100%;
+    background-color: #fff;
+}
+.course-popular{
+
+    width: 100%;
+    background-color: #c515c6;
+
+}
+.course-all{
+
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+
+}
+.course-pop-name{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.875em;
+}
+/* -------------------------------- END COURSE ---------------------------------------- */
+
