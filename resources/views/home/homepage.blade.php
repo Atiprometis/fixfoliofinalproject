@@ -7,7 +7,7 @@
 @section('content')
     <div class=" container-fluid">
         <div class="row">
-            <img class=" img-fluid col-12 p-0" src="https://f.ptcdn.info/127/055/000/p0u2ez28mA0aNpZ5M0q-o.jpg" alt="Responsive image" style="background-color: red; height: 50vh;">
+            <img class=" img-fluid col-12 p-0" src="{{ asset('/access/images/hero-banner-1.png') }}" alt="Responsive image" style="background-color: red; height: 50vh;">
         </div>
     </div>
     <div class="container">
@@ -77,14 +77,95 @@
             </div>
         </div>
     </div>
-    <div class="contaier">
+    <div class="container">
         <div class="row">
-            <div class="col-12 rounded  d-flex flex-row">
-                <i class="fas fa-chevron-left"></i>
-                <div class=" d-flex flex-column">
-                    <img class=" img-thumbnail" src="{{ asset('/access/images/photo-1.png') }}">
+            <div class="col-12 rounded pt-3 pb-3 d-flex w-100 justify-content-md-between flex-row align-items-center p-4" style="background-color: #F7EDFF;">
+                <i class="fas fa-chevron-left fa-2x"></i>
+                <div class=" d-flex flex-column pt-3 text-center justify-content-center align-items-center">
+                    <img class=" rounded-circle " style="width: 200px; height: 200px; " src="{{ asset('/access/images/photo-4.jpeg') }}">
+                    <h1 class=" text-break mt-3" style="font-size: 1.775em; font-weight:600;">“ที่นี่ทำให้ผมได้พัฒนาตนเอง </h1>
+                    <h1  class="m-0 p-0" style="font-size: 1.775em; font-weight:600;">และมีผู้ติดต่อเข้ามาเพื่อไปทำงานกับบริษัทมากขึ้นอีกด้วย”</h1>
+                    <h2 class="mt-3 " style="font-size: 1.5em; font-weight:400;">นายประสิทธิ์ แสงสว่างจ้า</h2>
+                    <p style="font-size: 1em;font-weight:400;">จบจากคอร์สเรียน ศูนย์ฝึกอาชีพมีนบุรี</p>
                 </div>
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right fa-2x"></i>
+            </div>
+        </div>
+    </div>
+    <div class=" " style="background-color: #69299C">
+        <div class="container" style="background-color: #69299C">
+            <div class="row d-flex flex-row " style="margin-top: 100px">
+                <div class="col-7 p-3 text-light">
+                    <div class="col-12 d-inline-flex p-1 flex-column align-items-end justify-content-center">
+                        <h1 class=" text-break mt-3" style="font-size: 1.775em; font-weight:600;">ประชาสัมพันธ์หลักสูตรสถาบันของคุณ </h1>
+                        <h1  class="mb-4 p-0" style="font-size: 1.775em; font-weight:600;">ฟรี! ไม่เสียค่าใช้จ่าย</h1>
+                        <p class="m-0 p-0" style="font-size: 1em;font-weight:400;">หากท่านเป็นสถาบันหรือสถานที่สอนวิชาชีพต่างๆ</p>
+                        <p class="m-0 p-0" style="font-size: 1em;font-weight:400;">ให้เราเป็นอีกทางเลือกในการเข้าถึงคนที่สนใจมากขึ้น</p>
+                        <p class="m-0 p-0" style="font-size: 1em;font-weight:400;">“เพราะเราเป็นแหล่งรวบรวมคอร์สเรียนและผู้ใช้ที่รักพัฒนาตนเองมากที่สุด”</p>
+                        <button class="btn mt-3 " style="
+                        border-radius:30px;
+                        width: 300px;
+
+                        background-color: #F9C226;
+                        font-size: 1.5em;">
+                        <p class="m-0 p-0" style="font-weight: 500">สมัครลงหลักสูตร</p>
+                        </button>
+                    </div>
+
+
+                </div>
+                <div class="col-5 position-relative">
+                        <img class=" rounded image-home" style=" height: 350px; width:350px " src="{{ asset('/access/images/photo-5.png') }}">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="  " style="background-color: #7395F9">
+        <div class="container" style="background-color: #7395F9">
+            <div class="row d-flex flex-row  " style="margin-top: 120px">
+
+                <div class="col-5 position-relative">
+                        <img class=" rounded image-home" style=" height: 350px; width:350px " src="{{ asset('/access/images/photo-6.png') }}">
+                </div>
+                <div class="col-7 text-light" style="padding: 60px 0px 60px 0px">
+                    <div class="col-12 d-inline-flex p-1 flex-column align-items-start justify-content-center">
+
+                        <h1  class="mb-4 p-0" style="font-size: 1.775em; font-weight:600;">ค้นหาคนที่ใช่สำหรับบริษัทของคุณ</h1>
+                        <p class="m-0 p-0" style="font-size: 1em;font-weight:400;">หากคุณกำลังมองหาพนักงานที่ใช่ ทักษะความสามารถที่ตรงใจ</p>
+                        <p class="m-0 p-0" style="font-size: 1em;font-weight:400;">เรารวบรวมรายชื่อผู้ที่ผ่านการอบรมหลักสูตรวิชาชีพไว้มากที่สุด</p>
+                        <button class="btn mt-3 " style="
+                        border-radius:30px;
+                        width: 300px;
+
+                        background-color: #F9C226;
+                        font-size: 1.5em;">
+                        <p class="m-0 p-0" style="font-weight: 500">สมัครลงหลักสูตร</p>
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex flex-column mt-5 p-4">
+                <h1>บทความ</h1>
+                <div class=" d-flex flex-row col-12 p-0 m-0">
+                    <div class="col-6 " style="">
+                        <img class=" w-100  p-0 mr-2 rounded  " style=" height: 300px;" src="{{ asset('/access/images/photo-7.png') }}">
+                    </div>
+                    <div class="col-6 w-100  p-0 ml-2 rounded" style="">
+                        <img class=" w-100  p-0 mr-2 rounded  " style=" height: 300px;" src="{{ asset('/access/images/photo-8.png') }}"></div>
+                </div>
+                <div class=" d-flex flex-row align-items-center justify-content-center ">
+                        <a href="#" class=" d-flex flex-row align-items-center justify-content-center">
+                            <p class=" text-center mt-3">แสดงเพิ่มเติม</p>
+                            <i class="fas fa-chevron-down ml-2"></i>
+                        </a>
+                </div>
             </div>
         </div>
     </div>
