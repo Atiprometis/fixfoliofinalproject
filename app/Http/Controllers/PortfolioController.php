@@ -47,8 +47,6 @@ class PortfolioController extends Controller
 
         ]);
 
-        dd($request);
-
     }
 
     /**

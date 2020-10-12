@@ -66,7 +66,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
 
-                                    <a href="/portfolio" class="dropdown-item" for="auth-name">
+                                    <a href="/portfolio" class="dropdown-item">
 
                                         {{('โปรไฟล์')}}
 
