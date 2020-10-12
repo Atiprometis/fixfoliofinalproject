@@ -169,3 +169,10 @@ background-repeat: no-repeat; */
 }
 /* -------------------------------- END COURSE ---------------------------------------- */
 
+.dsad{
+    width: 230px;
+    height: 230px;
+    margin-bottom: 20px;
+    background-color: #69299C;
+    border-radius: 20px;
+}
