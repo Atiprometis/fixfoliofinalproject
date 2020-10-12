@@ -174,5 +174,13 @@ background-repeat: no-repeat; */
     height: 230px;
     margin-bottom: 20px;
     background-color: #69299C;
-    border-radius: 20px;
+    border-radius: 20px;font-weight: ;
+
+}
+.image-home{
+    position: absolute;
+    left: 40;
+    top:-30px;
+
+
 }
