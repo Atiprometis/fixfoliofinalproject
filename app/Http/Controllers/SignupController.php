@@ -4,35 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class SignupController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-         $this->middleware('auth');
-    }
-
     public function index()
     {
-         return view('home2');
-        // return view('component/header');
-
+        //
     }
 
-
-    public function home()
-    {
-        return view('home2');
-        // return view('component/header');
-
-    }
-    public function course(){
-        return view('course/course');
-    }
     /**
      * Show the form for creating a new resource.
      *

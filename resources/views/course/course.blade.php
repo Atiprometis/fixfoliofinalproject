@@ -1,4 +1,5 @@
 @include('component.header')
+{{--@extends('layout.app')--}}
 @extends('layout.master')
 
 @section('title', 'COURSE PAGE')
@@ -29,19 +30,32 @@
                     </div>
                     <div class="col-12 ">
                         <div class="row d-flex ">
-                            ​​<?php
 
-                            $coursenames = array('เบเกอรี่', 'ช่างไฟ', 'ช่างแอร์', );
-                            $coursetimes = array('80' , '120','20');
+                            @foreach($dataCourse as $row)
 
-                            // foreach ($locations as  $location)
+                                <a href="{{route('course.edit', $row->id)}}" class="course-select-row d-flex flex-row  m-2 mb-4" style="text-decoration: none;">
+                                    <div class="course-part d-flex flex-column">
+                                        <div class="course-part-image img-responsive">
+                                            <div class="d-flex flex-row justify-content-md-between p-2">
+                                                <div class="open-course ">เปิดรับสมัคร</div>
+                                                <div class="open-online">มีสอนออนไลน์</div>
+                                            </div>
+                                        </div>
+                                        <div class="course-part-detail p-3 d-flex flex-column">
 
-                            foreach ($coursenames as  $coursename) {
-                            ?>
-                            @include('component.course-select')
-                            <?php
-                            }
-                            ?>
+                                            <h3 class="course-name">{{$row->course_name}}</h3>
+                                            <div class=" course-time d-flex flex-row">
+                                                <i class="fab fa-accusoft mr-2"></i>
+                                                <p class="m-0">จ-ศ 9:00-15:00 </p>
+                                            </div>
+                                            <div class="course-hour d-flex flex-row">
+                                                <i class="fab fa-accessible-icon mr-2"></i>
+                                                <p class="m-0">80 ชั่วโมง</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                     </div>

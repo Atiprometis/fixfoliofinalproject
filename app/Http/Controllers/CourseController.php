@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -15,22 +16,22 @@ class CourseController extends Controller
     public function index()
     {
         //
+        $dataCourse = DB::table('courses')
+            ->select('id','course_name','course_type')->paginate(25);
 
-        $courseData = Course::all();
-
-        return view('backoffice.dashboard', compact(['courseData']));
+        return view('course/course',compact('dataCourse'));
 
     }
 
-    public function course(){
-        return view('course/course');
-    }
+//    public function course(){
+//        return view('course/course');
+//    }
     public function registercourse(){
         return view('course/course-register');
     }
-    public function coursedetail(){
-        return view('course/course-detail');
-    }
+//    public function coursedetail(){
+//        return view('course/course-detail');
+//    }
 
 
     /**
@@ -42,7 +43,7 @@ class CourseController extends Controller
     {
         //
 
-        return view('backoffice.create_course');
+
 
     }
 
@@ -55,15 +56,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         //
-        $request -> validate([
 
-            'course_name'=>'required',
-            'course_type'=>'required'
-
-        ]);
-
-        Course::create($request->all());
-        return redirect('/backoffice');
 
     }
 
@@ -86,10 +79,10 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
-        $courseData = Course::find($id);
 
-        return view('backoffice.edit_course', compact(['courseData']));
+        $dataCourse = Course::find($id);
+
+        return view('course.course-detail', compact('dataCourse'));
 
     }
 
@@ -103,15 +96,7 @@ class CourseController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $request -> validate([
 
-            'course_name'=>'required',
-            'course_type'=>'required'
-
-        ]);
-
-        Course::find($id)->update($request->all());
-        return redirect('/backoffice');
 
     }
 
@@ -124,8 +109,7 @@ class CourseController extends Controller
     public function destroy($id)
     {
         //
-        Course::find($id)->delete();
-        return  redirect('/backoffice');
+
 
     }
 }

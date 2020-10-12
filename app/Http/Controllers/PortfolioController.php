@@ -15,6 +15,8 @@ class PortfolioController extends Controller
     public function index()
     {
 
+
+
     }
     public function portfolio()
     {
@@ -39,6 +41,14 @@ class PortfolioController extends Controller
     public function store(Request $request)
     {
         //
+        $request -> validate([
+
+            'auth-name'=> 'required'
+
+        ]);
+
+        dd($request);
+
     }
 
     /**

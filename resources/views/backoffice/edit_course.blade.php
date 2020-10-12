@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.app')
 
 @section('content')
 
@@ -22,7 +22,7 @@
 
         <h1 class="center"> แก้ไขข้อมูลคอร์สเรียน </h1>
 
-        {!! Form::open(['action' => ['CourseController@update', $courseData->id], 'method'=>'PUT']) !!}
+        {!! Form::open(['action' => ['BackofficeController@update', $courseData->id], 'method'=>'PUT']) !!}
 
         <div class="col-md-6">
 

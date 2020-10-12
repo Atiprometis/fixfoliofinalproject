@@ -10,7 +10,7 @@
         <div class="row">
             <div class="1 col-lg-12 d-flex flex-row p-4 mt-4">
                 <div class="class-all d-flex flex-column col-lg-6 offset-lg-1">
-                    <h1 class="" style="font-size: 1.500em">อาหารไทย  โรงเรียน Au Pon Pain</h1>
+                    <h1 class="" style="font-size: 1.500em">{{$dataCourse->course_name}} โรงเรียน Au Pon Pain</h1>
                     <p class="mt-3 ">Lorem Ipsum is simply dummy text of the printing and typesetting
                         industry. Lorem Ipsum has been the industry's standard dummy text
                         ever since the 1500s, when an unknown printer took Lorem Ipsum is
@@ -22,7 +22,7 @@
                     </p>
                 </div>
                 <div class="box-register-all d-flex flex-column col-lg-3 offset-lg-0 p-0" >
-                    <button class="btn btn-warning btn-dark register-open-website-b rounded" style="height: 40px">เข็าสู่เว็บไซต์</button>
+                    <a href="/course" class="btn btn-warning btn-dark register-open-website-b rounded" style="height: 40px">เข็าสู่เว็บไซต์</a>
                     <div class="register-time d-flex flex-column mt-3" >
                         <div class="time-text rounded-top text-center align-items-center p-2" style="border: solid #000 1px;">
                             <h1 style="font-size: 1.125em;">ช่วงรับสมัคร</h1>

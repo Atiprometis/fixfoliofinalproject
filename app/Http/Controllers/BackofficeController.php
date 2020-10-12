@@ -2,37 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Backoffice;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class HomeController extends Controller
+class BackofficeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-         $this->middleware('auth');
-    }
-
     public function index()
     {
-         return view('home2');
-        // return view('component/header');
+        //
+        $courseData = Backoffice::all();
 
+        return view('backoffice.dashboard', compact(['courseData']));
     }
 
-
-    public function home()
-    {
-        return view('home2');
-        // return view('component/header');
-
-    }
-    public function course(){
-        return view('course/course');
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -41,6 +29,7 @@ class HomeController extends Controller
     public function create()
     {
         //
+        return view('backoffice.create_course');
     }
 
     /**
@@ -52,6 +41,15 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         //
+        $request -> validate([
+
+            'course_name'=>'required',
+            'course_type'=>'required'
+
+        ]);
+        Backoffice::create($request->all());
+
+        return redirect('/backoffice');
     }
 
     /**
@@ -74,6 +72,9 @@ class HomeController extends Controller
     public function edit($id)
     {
         //
+        $courseData = Backoffice::find($id);
+
+        return view('backoffice.edit_course', compact(['courseData']));
     }
 
     /**
@@ -86,6 +87,15 @@ class HomeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request -> validate([
+
+            'course_name'=>'required',
+            'course_type'=>'required'
+
+        ]);
+
+        Backoffice::find($id)->update($request->all());
+        return redirect('/backoffice');
     }
 
     /**
@@ -97,5 +107,7 @@ class HomeController extends Controller
     public function destroy($id)
     {
         //
+        Backoffice::find($id)->delete();
+        return  redirect('/backoffice');
     }
 }

@@ -18,8 +18,8 @@
                             <div class=" d-flex flex-column ">
                                 <div class="name d-flex flex-column">
                                     <div class=" d-flex flex-row">
-                                        <h1 style="font-size: 1.500em">ประสิทธิ์</h1>
-                                        <h1 style="font-size: 1.500em">สงสว่างจ้า</h1>
+                                        <h1 style="font-size: 1.500em">{{ Auth::user()->name }}</h1>
+                                        <h1 style="font-size: 1.500em; margin-left: 10px;">{{ Auth::user()->lastname }}</h1>
                                     </div>
                                 </div>
                                 <div class="name ">
