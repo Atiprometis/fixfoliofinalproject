@@ -5,6 +5,6 @@
 
 
 @section('content')
-    <div> hi sshihssi</div>
+    <div> hi sshisdfsdfsdfsdfsdhssi</div>
 @endsection
 
