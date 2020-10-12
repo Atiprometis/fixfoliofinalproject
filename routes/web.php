@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-// Route::get('/home2', 'HomeController@index')->name('home2');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::resource('backoffice', 'CourseController');
 
