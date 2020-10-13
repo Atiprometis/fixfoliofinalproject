@@ -5,10 +5,28 @@
 
 
 @section('content')
-    <div class=" container-fluid">
-        <div class="row">
-            <img class=" img-fluid col-12 p-0" src="{{ asset('/access/images/hero-banner-1.png') }}" alt="Responsive image" style="background-color: red; height: 50vh;">
-        </div>
+    <div class="herobanner">
+                    {{-- <img class=" img-fluid col-12 p-0" src="{{ asset('/access/images/hero-banner-1.png') }}" alt="Responsive image" style="background-color: red; height: 50vh;"> --}}
+                    <div class="container">
+                        <div class="row d-flex flex-row" style="height: 50vh;">
+                            <div class="col-12 d-flex flex-row">
+                                <div class="col-5 text-light d-flex flex-column  justify-content-end align-items-start">
+                                    <h2 class="dropshadow">ค้นหาหลักสูตรที่ใช่สำหรับคุณ</h2>
+                                    <p class="dropshadow">เพื่อพัฒนาตนเอง และนำไปเป็นอาชีพต่อไป</p>
+                                </div>
+                                <div class="co-7 h-100 w-100">
+                                    <div class="col-12 d-flex flex-row  h-100 w-100 align-items-end justify-content-start" style="">
+                                        <div class=" d-flex flex-row " >
+                                            {{-- <div class=" location d-flex flex-row justify-content-around align-items-center p-2 bg-light  rounded ml-2 mr-2" >
+
+                                            </div> --}}
+                                            @include('component.select-home')
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
     </div>
     <div class="container">
         <div class="row">

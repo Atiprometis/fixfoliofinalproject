@@ -16,6 +16,13 @@
     padding: 5px;
     border-radius: 10px;
 }
+.select-item-wrapper-home{
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    border-radius: 10px;
+}
 .c-p{
     background-color: #9B4BB0;
     color: #fff;

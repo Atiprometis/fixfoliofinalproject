@@ -184,3 +184,14 @@ background-repeat: no-repeat; */
 
 
 }
+.herobanner{
+background-image: url('/access/images/hero-banner-1.png') ;
+background-repeat: no-repeat;
+background-size: cover;
+height: 50vh;
+}
+
+.dropshadow{
+    text-shadow: -4px 4px 3px rgba(0, 0, 0, 1);
+
+}
