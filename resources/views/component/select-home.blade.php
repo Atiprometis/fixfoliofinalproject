@@ -18,7 +18,7 @@
                 <div class="select-text ml-1 mr-1">ค้นหา</div>
                 <input class="pl-2 pr-2" placeholder="ชื่อคอร์สเรียน, ชื่อวิชาเรียน, อื่นๆ" style="border:none;">
             </div>
-            <button class=" btn  d-flextext-center" style="border-radius: 20px; width:200px;height: 50px; background-color:#FFC00F;" >
+            <button type="submit" class=" btn  d-flextext-center" style="border-radius: 20px; width:200px;height: 50px; background-color:#FFC00F;" >
                 <p class="p-0 m-0">ค้นหา</p>
             </button>
         </div>

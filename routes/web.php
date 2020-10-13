@@ -35,3 +35,5 @@ Route::get('/registercourse', 'CourseController@registercourse');
 Route::get('/coursedetail', 'CourseController@coursedetail');
 
 Route::get('/portfolio', 'PortfolioController@portfolio');
+
+Route::get('/institution', 'InstitutionController@institution');
