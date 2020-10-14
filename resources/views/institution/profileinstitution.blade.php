@@ -46,12 +46,12 @@
                 </div>
             </div>
 
-                    <div class="d-flex flex-row w-100 text-institution align-items-end justify-content-between">
+                <div class="d-flex flex-row w-100 text-institution align-items-end justify-content-between">
                         <h1 class="p-0 m-0 ml-2" style="font-size: 1.750em;">คอร์สเรียนสอนโดย Foodpandy</h1>
                         <div class=" d-flex flex-row">
                             <p class="p-0 m-2"></p>
                         </div>
-                    </div>
+                </div>
                 <div class="col-12 p-0 m-0">
                     <?php
                         for ($i = 1; $i <= 12; $i++) {

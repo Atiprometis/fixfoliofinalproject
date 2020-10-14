@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="d-flex flex-row">
+
+    <div class="d-flex w-100 flex-row">
 
         <?php
         $locations = array('คลองถม','พระปาแดง','บ้าน');
@@ -107,30 +107,17 @@
 
 <div class="select-item b-c-t ml-1 mr-1">
     <button class="btn select-item-wrapper c-p d-flex align-items-lg-center justify-content-lg-center "
-    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+    style="background-color: #F9C226;"
+    >
         <div class=" d-flex flex-row">
             {{-- <i class="fas fa-search fa-lg select-icon ml-1 mr-1"></i> --}}
             <div class="select-text ml-1 mr-1">ค้นหา</div>
 
         </div>
     </button>
-
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <?php
-    $locations = array('คลองถม','พระปาแดง','บ้าน');
-    foreach ($locations as  $location) {
-    ?>
-
-
-        <a class="dropdown-item" href="#"><?php print $location?></a>
-
-
-    <?php
-    }
-    ?>
-    </div>
 </div>
 
     </div>
-</div>
+
 

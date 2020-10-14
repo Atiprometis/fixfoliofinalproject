@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-12 d-flex flex-row pt-5 pb-5 align-items-center ">
                     <div class="box-image col-3  ">
-                        <img  class="img-thumbnail bg-light" src=" {{ asset('/access/images/photo-1.png') }}" style="width: 100%; height: 260px;border-radius: 20px; ">
+                        <img  class=" bg-light" src=" {{ asset('/access/images/photo-10.png') }}" style="width: 100%; height: 260px;border-radius: 20px; ">
                     </div>
                     <div class=" d-flex flex-column ml-5">
                         <h2 style="font-size: 1.5em; font-werght:300;">เรียนกับเราได้พัฒนาตัวเอง</h2>
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    {{-- <div class="container">
         <div class="row">
             <div class="col-12 d-flex flex-column p-0 m-0 mt-5 mb-5">
                 <div class=" d-flex flex-row mb-3">
@@ -92,6 +92,67 @@
                     @include('component/course-select-home')
                     @include('component/course-select-home')
                 </div>
+            </div>
+        </div>
+    </div> --}}
+
+    <div class="course-all  pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="d-flex flex-row w-100 text-institution align-items-end justify-content-between">
+                    <div class=" d-flex flex-row mb-3 justify-content-between align-items-center w-100">
+                        <h1 class="p-0 m-0 ml-2" style="font-size: 1.750em;">คอร์สเรียนยอดนิยม</h1>
+                        <button class="btn  " style="
+                        border-radius:20px;
+                        width: 300px;
+
+                        background-color: #F9C226;
+                        font-size: 1.2em;">
+                        <p class="m-0 p-0" style="font-weight: 500">ค้นหาคอร์สเรียน</p>
+                        </button>
+                    </div>
+
+                    <div class=" d-flex flex-row">
+                        <p class="p-0 m-2"></p>
+                    </div>
+            </div>
+            <div class="col-12 p-0 m-0">
+                <?php
+                    for ($i = 1; $i <= 3; $i++) {
+                ?>
+                    <div class=" col-4  p-2   float-left " >
+                        <div class=" w-100 ">
+                                <div class=" position-relative">
+                                    <div class="d-flex flex-row w-100 justify-content-md-between p-3 position-absolute">
+                                        <div class="open-course ">เปิดรับสมัคร</div>
+                                        <div class="open-online  ">มีสอนออนไลน์</div>
+                                    </div>
+                                    <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
+                                </div>
+                            <div class="  d-flex flex-column text-insutition pl-3 pt-" style="">
+                                <div class=" d-flex justify-content-between mt-2">
+                                    <p class="" style="font-size: 1em;">เบเกอรี่</p>
+                                    <p class=" mr-3" style="font-size: 1em;">ฟรี</p>
+                                </div>
+                                <div class=" d-flex flex-row ">
+                                    <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
+                                    <p class="ml-2 mr-2 mb-1 p-0">จ-ศ 9:00 - 15:00</p>
+                                </div>
+                                <div class=" d-flex justify-content-between">
+                                    <div class=" d-flex flex-row ">
+                                        <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
+                                        <p class="ml-2 mr-2">90 ชั่วโมง</p>
+                                    </div>
+                                    <p class=" mr-3" style="font-size: 1em;">ศูนย์ฝึกอาชีพเขตมีนบุรี</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php
+                }
+                ?>
+            </div>
             </div>
         </div>
     </div>
