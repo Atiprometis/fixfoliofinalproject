@@ -18,6 +18,11 @@ class InstitutionController extends Controller
 
     public function institution(){
         return view('institution/institution');
+
+    }
+    public function profileinstitution(){
+        return view('institution/profileinstitution');
+
     }
     /**
      * Show the form for creating a new resource.

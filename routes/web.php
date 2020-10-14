@@ -37,3 +37,4 @@ Route::get('/coursedetail', 'CourseController@coursedetail');
 Route::get('/portfolio', 'PortfolioController@portfolio');
 
 Route::get('/institution', 'InstitutionController@institution');
+Route::get('/profileinstitution', 'InstitutionController@profileinstitution');
