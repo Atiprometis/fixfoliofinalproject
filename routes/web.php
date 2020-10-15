@@ -26,6 +26,7 @@ Route::resource('backoffice', 'BackofficeController');
 Route::get('/', 'HomeController@home');
 
 Route::get('/home', 'HomeController@home');
+Route::get('/test', 'HomeController@test');
 
 Route::get('/loginsignin', 'LoginSigninController@Login');
 Route::get('/singup', 'LoginSigninController@Singup');
@@ -35,6 +36,7 @@ Route::get('/registercourse', 'CourseController@registercourse');
 Route::get('/coursedetail', 'CourseController@coursedetail');
 
 Route::get('/portfolio', 'PortfolioController@portfolio');
+Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
 
 Route::get('/institution', 'InstitutionController@institution');
 Route::get('/profileinstitution', 'InstitutionController@profileinstitution');
