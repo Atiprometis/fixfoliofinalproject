@@ -15,11 +15,11 @@
         document.getElementById("businesssignup").required = true;
     }
 </script>
-<<<<<<< HEAD
 
 
-=======
+
+
 <script>
     $('.my-select').selectpicker();
 </script>
->>>>>>> 52527ae672593e8defe3d47a5645101f2518b5a9
+
