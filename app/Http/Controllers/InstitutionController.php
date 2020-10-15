@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class InstitutionController extends Controller
 {
@@ -14,7 +15,23 @@ class InstitutionController extends Controller
     public function index()
     {
         //
+
+        //$dataInstitution = DB::table('course_detail')
+            //->select('id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end');
+//
+//        $dataDistinct = DB::select('SELECT DISTINCT `course_school_name` FROM course_detail');
+
+        $dataCount = DB::select('SELECT COUNT(`id`) AS "count" ,`course_school_name` FROM course_detail GROUP BY `course_school_name`');
+
+
+        //dd($dataCount);
+
+
+        return view('institution.Institution', compact('dataInstitution','dataDistinct','dataCount'));
+
+
     }
+
 
     public function institution(){
         return view('institution/institution');

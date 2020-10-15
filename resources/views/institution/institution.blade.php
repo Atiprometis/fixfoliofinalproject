@@ -48,27 +48,31 @@
                         </div>
                     </div>
                 <div class="col-12 p-0 m-0">
-                    <?php
-                        for ($i = 1; $i <= 12; $i++) {
-                    ?>
+
+                    @foreach($dataCount as $row)
+
                         <a class="" href="/profileinstitution" style="color: inherit; ">
                             <div class=" col-3  p-2   float-left " >
-                                <div class="  ">
+                                <div class="">
                                     <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
                                     <div class="  d-flex flex-column text-insutition pl-3 pt-2" style="">
-                                        <p class="" style="font-size: 1.375em;">Foodpanda</p>
+                                        <p class="" style="font-size: 1.375em;">{{$row->course_school_name}}</p>
                                         <div class=" d-flex flex-row ">
                                             <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                            <p class="ml-2 mr-2">400 คอร์ส</p>
+
+
+                                                <p class="ml-2 mr-2">
+                                                    จำนวน {{$row->count}} คอร์ส
+                                                </p>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </a>
 
-                    <?php
-                    }
-                    ?>
+                    @endforeach
+
                 </div>
                 <div class=" d-flex w-100 flex-row align-items-center justify-content-center ">
                     <a href="#" class=" d-flex flex-row align-items-center justify-content-center">
@@ -76,6 +80,8 @@
                         <i class="fas fa-chevron-down ml-2"></i>
                     </a>
                 </div>
+
+
             </div>
 
         </div>
