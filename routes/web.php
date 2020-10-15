@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function(){
+    return redirect('/home');
+});
 
 Route::resource('backoffice', 'BackofficeController');
 
@@ -37,3 +40,5 @@ Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
 
 Route::resource('/institution', 'InstitutionController');
 Route::get('/profileinstitution', 'InstitutionController@profileinstitution');
+
+Route::get('/print', 'PrintController@print');

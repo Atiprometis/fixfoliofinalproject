@@ -20,6 +20,14 @@
 
 
 <script>
-    $('.my-select').selectpicker();
+        function buttonprint(){
+            window.print();
+            var removeprint = document.getElementById("button-print");
+            element.classList.add('d-none');
+
+        }
 </script>
 
+<script>
+    $('.my-select').selectpicker();
+</script>

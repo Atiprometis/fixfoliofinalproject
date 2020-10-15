@@ -25,13 +25,9 @@
                     <a href="/course" class="btn btn-warning btn-dark register-open-website-b rounded" style="height: 40px">เข็าสู่เว็บไซต์</a>
                     <div class="register-time d-flex flex-column mt-3" >
                         <div class="time-text rounded-top text-center align-items-center p-2" style="border: solid #000 1px;">
-                            <h1 style="font-size: 1.125em;">ช่วงรับสมัคร</h1>
+                            <h1 style="font-size: 1.125em;">ใบประกอบวิชาชีพ</h1>
                         </div>
                         <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
-                            <div class=" d-flex flex-row  ">
-                                <i class="fab fa-accusoft mr-2"></i>
-                                <p>เปิด 15 กค - 15 สค 2020</p>
-                            </div>
                             <div class=" d-flex flex-row ">
                                 <i class="fab fa-accusoft mr-2 "></i>
                                 <p class="p-0">เปิด 15 กค - 15 สค 2020</p>

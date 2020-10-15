@@ -15,6 +15,7 @@
     <link rel="stylesheet" href=" {{ asset('css/master.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/custom.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/component.css') }}">
+    <link rel="stylesheet" href=" {{ asset('css/grid.scss') }}">
 
 
 
@@ -27,7 +28,13 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
-
+    <style>
+        @media print{
+    #hid{
+        display: none;
+        }
+    }
+    </style>
 </head>
 <body>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -36,7 +43,7 @@
     @yield('content')
 
     @yield('footer')
-    {{-- @include('footer.footer') --}}
+    @include('footer.footer')
 
     @include('../script/script')
 

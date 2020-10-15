@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm " style="background-color: #69299C;">
     <div class="container">
-        <a class="navbar-brand text-light" href="{{ url('/') }}">
+        <a class="navbar-brand text-light" href="{{ url('/home') }}">
             FIXFOLIO
         </a>
 
