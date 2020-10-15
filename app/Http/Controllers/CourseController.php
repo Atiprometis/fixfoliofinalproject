@@ -17,7 +17,7 @@ class CourseController extends Controller
     {
         //
         $dataCourse = DB::table('course_detail')
-            ->select('course_id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end')->paginate(25);
+            ->select('id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end')->paginate(25);
 
 
 
