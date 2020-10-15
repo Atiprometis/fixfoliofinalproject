@@ -89,6 +89,9 @@ class HomeController extends Controller
     public function show($id)
     {
         //
+        $dataHomeEdit = Home::find($id);
+
+        return view('home/home-course-detail', compact('dataHomeEdit'));
     }
 
     /**
@@ -100,9 +103,7 @@ class HomeController extends Controller
     public function edit($id)
     {
         //
-        $dataHomeEdit = Home::find($id);
 
-        return view('home/home-course-detail', compact('dataHomeEdit'));
 
     }
 

@@ -150,7 +150,7 @@
 
                 @foreach($dataHome as $row)
 
-                    <a href="{{route('home.edit',$row->id)}}">
+                    <a href="{{route('home.show',$row->id)}}">
 
                         <div class=" col-4  p-2   float-left " >
                             <div class=" w-100 ">

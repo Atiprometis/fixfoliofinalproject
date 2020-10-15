@@ -24,18 +24,18 @@
 
         {!! Form::open(['action' => 'BackofficeController@store', 'method'=>'POST']) !!}
 
-        <div class="col-md-6 form-type">
+        <div class="col-md-6">
 
             <div class="form-group">
 
-                {!! Form::label('Course Name') !!}
-                {!! Form::text('course_name',null,["class"=>"form-control"]) !!}
+                {!! Form::label('Course Name','ชื่อคอร์ส') !!}
+                <input type="text" name="course_name" class="form-control">
 
             </div>
 
         </div>
 
-        <div class="col-md-6 form-type">
+        <div class="col-md-6">
 
                 <div class="form-group">
 
