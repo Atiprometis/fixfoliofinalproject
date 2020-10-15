@@ -27,7 +27,7 @@ class InstitutionController extends Controller
         //dd($dataCount);
 
 
-        return view('institution.Institution', compact('dataInstitution','dataDistinct','dataCount'));
+        return view('institution.Institution', compact('dataCount'));
 
 
     }
