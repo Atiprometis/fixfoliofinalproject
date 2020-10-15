@@ -349,9 +349,5 @@
         </div>
     </div>
 
-
-
-
-
 @endsection
 

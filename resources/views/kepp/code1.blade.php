@@ -115,3 +115,15 @@
         </div>
     </div>
 </div>
+
+{{-- course detail  --}}
+
+<div class="youtube-all d-flex flex-row col-lg-12 p-0 justify-content-center align-items-center">
+                    <div class="embed-responsive embed-responsive-16by9 rounded">
+                        <iframe class="embed-responsive-item m-2 rounded" src="https://www.youtube.com/embed/vRXZj0DzXIA" allowfullscreen></iframe>
+                    </div>
+                    <div class="embed-responsive embed-responsive-16by9 rounded">
+                        <iframe class="embed-responsive-item m-2 rounded" src="https://www.youtube.com/embed/dyRsYk0LyA8" allowfullscreen></iframe>
+                    </div>
+
+                </div>
