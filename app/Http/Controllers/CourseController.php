@@ -16,8 +16,10 @@ class CourseController extends Controller
     public function index()
     {
         //
-        $dataCourse = DB::table('courses')
-            ->select('id','course_name','course_type')->paginate(25);
+        $dataCourse = DB::table('course_detail')
+            ->select('course_id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end')->paginate(25);
+
+
 
         return view('course/course',compact('dataCourse'));
 

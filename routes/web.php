@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
- Route::get('/', function () {
-     return view('welcome');
- });
 
 Auth::routes();
 
@@ -23,9 +20,9 @@ Auth::routes();
 
 Route::resource('backoffice', 'BackofficeController');
 
-Route::get('/', 'HomeController@home');
+//Route::resource('/', 'HomeController');
 
-Route::get('/home', 'HomeController@home');
+Route::resource('/home', 'HomeController');
 Route::get('/test', 'HomeController@test');
 
 Route::get('/loginsignin', 'LoginSigninController@Login');

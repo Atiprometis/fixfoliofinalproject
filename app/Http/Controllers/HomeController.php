@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\Home;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,8 +27,16 @@ class HomeController extends Controller
 //        FROM course_detail
 //        INNER JOIN course_learn_finish
 //        ON course_detail.course_id = course_learn_finish.course_id
+//        SELECT
+//        TIME_FORMAT(opentime, "%H:%i") as opentime,
+//        TIME_FORMAT(closetime, "%H:%i") as closetime
+//        FROM hours;
 
-         return view('home2');
+        $dataHome = DB::table('course_detail')
+            ->select('id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end')->paginate(3);
+//        $dataHomeTime = DB::select(TIME_FORMAT('course_learn_start', "%H:%i"),TIME_FORMAT('course_learn_end', "%H:%i"));
+
+        return view('home/homepage', compact('dataHome'));
 
     }
     public function test()
@@ -44,9 +56,9 @@ class HomeController extends Controller
 
     }
 
-    public function course(){
-        return view('course/course');
-    }
+//    public function course(){
+//        return view('course/course');
+//    }
     /**
      * Show the form for creating a new resource.
      *
@@ -88,6 +100,10 @@ class HomeController extends Controller
     public function edit($id)
     {
         //
+        $dataHomeEdit = Home::find($id);
+
+        return view('home/home-course-detail', compact('dataHomeEdit'));
+
     }
 
     /**
