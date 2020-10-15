@@ -10,8 +10,8 @@
         <div class="row">
             <div class="col-12 d-flex flex-column">
                 <div class="d-flex flex-column justify-content-center align-items-md-center w-100">
-                    <div class=" d-flex mt-3 mb-4 flex-row">
-                        <div class=" bg-danger" style="width: 50px; height:50px;"></div>
+                    <div class=" d-flex mt-3 mb-2 flex-row">
+                        {{-- <div class=" bg-danger" style="width: 50px; height:50px;"></div> --}}
                         <h1 class="p-0 m-0">FIX-Folio</h1>
                     </div>
                     <h2 class="p-0 m-0" style="font-size: 1.500em;">ใบสมัครเรียน/ใบรายงานตัว</h2>
