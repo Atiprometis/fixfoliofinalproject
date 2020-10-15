@@ -15,6 +15,7 @@
     <link rel="stylesheet" href=" {{ asset('css/master.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/custom.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/component.css') }}">
+    <link rel="stylesheet" href=" {{ asset('css/grid.scss') }}">
 
 
 

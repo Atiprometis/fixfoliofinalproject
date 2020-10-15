@@ -248,4 +248,16 @@ height: 50vh;
     border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
+    border: solid 1px #5e5e5e;
+
 }
+
+/* .parent{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .child{
+    width: 25%;
+
+  } */
