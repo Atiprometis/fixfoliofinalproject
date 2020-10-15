@@ -23,6 +23,9 @@ class CourseController extends Controller
 
     }
 
+    public function viewcoursedetail(){
+        return view('course.course-detail');
+    }
 //    public function course(){
 //        return view('course/course');
 //    }

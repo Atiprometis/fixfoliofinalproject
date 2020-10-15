@@ -22,6 +22,10 @@ class PortfolioController extends Controller
     {
         return view('portfolio/portfoliopage');
     }
+    public function searchportfolio()
+    {
+        return view('portfolio/search-portfolio');
+    }
     /**
      * Show the form for creating a new resource.
      *

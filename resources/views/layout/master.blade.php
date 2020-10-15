@@ -29,7 +29,7 @@
     @yield('content')
 
     @yield('footer')
-    @include('footer.footer')
+    {{-- @include('footer.footer') --}}
 
     @include('../script/script')
 

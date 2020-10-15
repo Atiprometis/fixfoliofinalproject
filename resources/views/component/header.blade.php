@@ -21,7 +21,7 @@
                     <a class="nav-link text-light"style="font-weight: 300;" href="/course">คอร์สเรียนทั้งหมด <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="#">ค้นหาผลงาน <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light"style="font-weight: 300;" href="/searchportfolio">ค้นหาผลงาน <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link text-light"style="font-weight: 300;" href="#">บทความ <span class="sr-only">(current)</span></a>

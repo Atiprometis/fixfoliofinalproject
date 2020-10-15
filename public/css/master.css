@@ -236,3 +236,16 @@ height: 50vh;
     border-radius: 50%;
 }
 /* <<<<<<<< insutition end >>>>> */
+
+/* <<<< PORTFOLIO +++++ */
+.people-port{
+    /* position: absolute; */
+
+    height: 140px;
+    width: 140px;
+    position: relative;
+    top: -20px;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
