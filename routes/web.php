@@ -26,6 +26,7 @@ Route::resource('backoffice', 'BackofficeController');
 Route::get('/', 'HomeController@home');
 
 Route::get('/home', 'HomeController@home');
+Route::get('/test', 'HomeController@test');
 
 Route::get('/loginsignin', 'LoginSigninController@Login');
 Route::get('/singup', 'LoginSigninController@Singup');

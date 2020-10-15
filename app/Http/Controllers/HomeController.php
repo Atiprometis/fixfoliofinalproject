@@ -22,7 +22,12 @@ class HomeController extends Controller
         // return view('component/header');
 
     }
+    public function test()
+    {
+         return view('home');
+        // return view('component/header');
 
+    }
 
     public function home()
     {

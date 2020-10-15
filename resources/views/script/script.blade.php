@@ -15,3 +15,6 @@
         document.getElementById("businesssignup").required = true;
     }
 </script>
+<script>
+    $('.my-select').selectpicker();
+</script>
