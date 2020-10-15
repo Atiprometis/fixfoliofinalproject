@@ -18,8 +18,13 @@ class HomeController extends Controller
 
     public function index()
     {
+
+//        SELECT course_detail.course_id,course_detail.course_name,course_learn_finish.course_learn_finish_detail
+//        FROM course_detail
+//        INNER JOIN course_learn_finish
+//        ON course_detail.course_id = course_learn_finish.course_id
+
          return view('home2');
-        // return view('component/header');
 
     }
 
@@ -33,6 +38,7 @@ class HomeController extends Controller
         // return view('component/header');
 
     }
+
     public function course(){
         return view('course/course');
     }
