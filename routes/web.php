@@ -40,3 +40,5 @@ Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
 
 Route::get('/institution', 'InstitutionController@institution');
 Route::get('/profileinstitution', 'InstitutionController@profileinstitution');
+
+Route::get('/print', 'PrintController@print');
