@@ -20,14 +20,41 @@ background-repeat: no-repeat; */
     /* background: rgb(253,116,155);
     background: linear-gradient(180deg, rgba(253,116,155,1) 0%, rgba(40,26,200,1) 72%); */
 }
+.bg-login{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    /* background-size: 100%; */
+    /* background-attachment: fixed; */
+    background: rgb(253,116,155);
+    background: linear-gradient(180deg, rgba(253,116,155,1) 0%, rgba(40,26,200,1) 72%);
+
+
+    /* background-image:  url('../access/images/photo-2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px; */
+}
+.img-login{
+
+    position: absolute;
+    top:17%;
+    left: 15%;
+    width: 50%;
+    height: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .form-login1{
     width: 100%;
-
+height: 100%;
 
     /* background-color: #fff; */
 
-    background-image:  url('../access/images/photo-1.png');
+    background-image:  url('../access/images/photo-2.png');
     background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 20px;
 }
 .form-login2{
@@ -51,8 +78,8 @@ background-repeat: no-repeat; */
     font-weight: bold;
     font-size: 1.5em;
     background: -webkit-linear-gradient(#FD749B, #281ACB);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .form-login2 p{
     font-weight: 400;

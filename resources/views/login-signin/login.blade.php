@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <div class="wraper-login d-flex flex-row justify-content-lg-center align-items-center">
+<div class="wraper-login d-flex flex-row justify-content-lg-center align-items-center">
         <div class="container">
             <div class="row">
                 <div class="form-login1 col-6 ">
