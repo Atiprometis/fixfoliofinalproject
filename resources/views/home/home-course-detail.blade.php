@@ -9,7 +9,7 @@
             <div class="1 col-lg-12 d-flex flex-row p-4 mt-4 justify-content-between">
                 <div class="class-all d-flex flex-column col-lg-7 ">
                     <h2 class="">{{$dataHomeEdit->course_name}}</h2>
-                    <h4 class="">ชื่อโรงเรียน {{$dataHomeEdit->course_school_name}}</h4>
+                    {{-- <h4 class="">ชื่อโรงเรียน {{$dataHomeEdit->course_school_name}}</h4> --}}
                     <p class="mt-3 ">Lorem Ipsum is simply dummy text of the printing and typesetting
                         industry. Lorem Ipsum has been the industry's standard dummy text
                         ever since the 1500s, when an unknown printer took Lorem Ipsum is
@@ -21,7 +21,7 @@
                     </p>
                 </div>
                 <div class="box-register-all d-flex flex-column col-lg-3 offset-lg-0 p-0" >
-                    <a href="/course" class="btn  register-open-website-b " style="height: 40px; background-color: #F9C226; border-radius: 20px;">เข็าสู่เว็บไซต์</a>
+                    <a href="/registercourse" class="btn  register-open-website-b " style="height: 40px; background-color: #F9C226; border-radius: 20px;">ลงทะเบียนเรียน</a>
                     <div class="register-time d-flex flex-column mt-3" >
                         <div class="time-text rounded-top text-light text-center align-items-center p-2" style="border: solid #000 1px; background-color: #69299C;">
                             <h1 class=" p-0 m-0" style="font-size: 1.125em;">ใบประกอบวิชาชีพ</h1>

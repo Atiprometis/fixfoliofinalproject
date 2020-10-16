@@ -94,6 +94,7 @@ class HomeController extends Controller
         return view('home/home-course-detail', compact('dataHomeEdit'));
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *

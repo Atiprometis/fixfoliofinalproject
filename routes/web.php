@@ -32,8 +32,15 @@ Route::get('/loginsignin', 'LoginSigninController@Login');
 Route::get('/singup', 'LoginSigninController@Singup');
 
 Route::resource('/course', 'CourseController');
-Route::get('/registercourse', 'CourseController@registercourse');
+
 Route::get('/coursedetail', 'CourseController@coursedetail');
+
+Route::get('/registercourse', function() {
+     return view("course/course-register'");
+});
+
+Route::get('/registercourse', 'CourseController@registercourse');
+Route::get('/print', 'PrintController@print');
 
 Route::get('/portfolio', 'PortfolioController@portfolio');
 Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
@@ -41,4 +48,4 @@ Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
 Route::resource('/institution', 'InstitutionController');
 Route::get('/profileinstitution', 'InstitutionController@profileinstitution');
 
-Route::get('/print', 'PrintController@print');
+
