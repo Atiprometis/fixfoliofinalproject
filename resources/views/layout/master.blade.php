@@ -15,7 +15,15 @@
     <link rel="stylesheet" href=" {{ asset('css/master.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/custom.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/component.css') }}">
+<<<<<<< HEAD
     {{-- <link rel="stylesheet" href=" {{ asset('css/grid.scss') }}"> --}}
+=======
+    <link rel="stylesheet" href=" {{ asset('css/grid.scss') }}">
+
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+
+>>>>>>> ice
 
     <title>@yield('title')</title>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -56,6 +64,8 @@
 
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->
 {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script> --}}
+
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 
 
 </body>
