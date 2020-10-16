@@ -15,7 +15,7 @@
     <link rel="stylesheet" href=" {{ asset('css/master.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/custom.css') }}">
     <link rel="stylesheet" href=" {{ asset('css/component.css') }}">
-    <link rel="stylesheet" href=" {{ asset('css/grid.scss') }}">
+    {{-- <link rel="stylesheet" href=" {{ asset('css/grid.scss') }}"> --}}
 
 
 
@@ -28,6 +28,12 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
+
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
     <style>
         @media print{
     #hid{
@@ -48,10 +54,10 @@
     @include('../script/script')
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script> --}}
 
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script> --}}
 
 
 </body>

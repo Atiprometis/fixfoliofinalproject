@@ -35,8 +35,9 @@ class HomeController extends Controller
         $dataHome = DB::table('course_detail')
             ->select('id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end')->paginate(3);
 //        $dataHomeTime = DB::select(TIME_FORMAT('course_learn_start', "%H:%i"),TIME_FORMAT('course_learn_end', "%H:%i"));
-
+// error_log('message here.sadas');
         return view('home/homepage', compact('dataHome'));
+
 
     }
     public function test()
@@ -50,7 +51,9 @@ class HomeController extends Controller
     {
 //HEAD
 //        return view('home2');
+        // error_log('message here.');
         return view('home/homepage');
+
 // main
         // return view('component/header');
 

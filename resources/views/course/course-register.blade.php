@@ -20,7 +20,7 @@
 
             <div class="col-12 d-flex  flex-column  ">
 
-                    <form class="" name="frm"  action="#"   method="get">
+                    <form class="" name="frm"  action="print"   method="post">
                         @include('course.register-form.register-basic')
                         @include('course.register-form.register-aboutme')
                         @include('course.register-form.register-location')

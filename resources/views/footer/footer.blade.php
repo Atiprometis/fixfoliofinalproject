@@ -1,5 +1,5 @@
 
-    <div class="" style="height: 50px; background-color:#F9C226;">
+    <div class="" style="height: 50px; background-color:#F9C226;" id="hid">
         <div class="container">
             <div class="row">
                 <div class=" w-100 d-flex align-items-center " style="height: 50px; background-color:#F9C226;">

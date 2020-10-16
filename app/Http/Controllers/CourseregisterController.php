@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Courseregister;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CourseregisterController extends Controller
 {
@@ -14,8 +15,22 @@ class CourseregisterController extends Controller
      */
     public function index()
     {
-        //
+        return view("course/course-register");
+
     }
+
+        public function registercourse(){
+                return view('course/course-register');
+     }
+
+     public function test(){
+
+
+        // error_log($user);
+        // // $userId = Auth::id();
+        // return view('kepp/test',[$id]);
+
+     }
 
     /**
      * Show the form for creating a new resource.

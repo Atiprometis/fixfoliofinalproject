@@ -31,9 +31,13 @@ class CourseController extends Controller
 //    public function course(){
 //        return view('course/course');
 //    }
+
+
     public function registercourse(){
         return view('course/course-register');
     }
+
+
 //    public function coursedetail(){
 //        return view('course/course-detail');
 //    }
