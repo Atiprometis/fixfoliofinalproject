@@ -1,4 +1,4 @@
-@include('component.header')
+{{-- @include('component.header') --}}
 @extends('layout.master')
 
 @section('title', 'COURSE REGISTER')
@@ -20,7 +20,7 @@
 
             <div class="col-12 d-flex  flex-column  ">
 
-                    <form class="" name="frm"  action="print"   method="post">
+                    <form class="" name="frm"  action="/registercourse/print"   method="post">
                         @include('course.register-form.register-basic')
                         @include('course.register-form.register-aboutme')
                         @include('course.register-form.register-location')
