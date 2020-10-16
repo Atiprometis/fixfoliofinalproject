@@ -20,7 +20,9 @@
 
             <div class="col-12 d-flex  flex-column  ">
 
-                    <form class="" name="frm"  action="/registercourse/print"   method="post">
+                {!! Form::open(['action' => 'PrintController@store', 'method'=>'POST']) !!}
+
+
                         @include('course.register-form.register-basic')
                         @include('course.register-form.register-aboutme')
                         @include('course.register-form.register-location')
@@ -30,7 +32,7 @@
 
                             <button type="submit" class="btn btn-facebook m-2">ยกเลิก</button>
                         </div>
-                    </form>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>

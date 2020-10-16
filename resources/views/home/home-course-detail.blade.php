@@ -10,14 +10,7 @@
                 <div class="class-all d-flex flex-column col-lg-7 ">
                     <h2 class="">{{$dataHomeEdit->course_name}}</h2>
                     {{-- <h4 class="">ชื่อโรงเรียน {{$dataHomeEdit->course_school_name}}</h4> --}}
-                    <p class="mt-3 ">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took Lorem Ipsum is
-                        simply dummy text of the printing and typesetting industry. Lorem
-                        Ipsum has been the industry's standard dummy text ever since the
-                        1500s, when an unknown printer took Lorem Ipsum is simply dummy text
-                        of the printing and typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s, when an unknown
+                    <p class="mt-3 ">{{$dataHomeEdit->course_text_detail}}
                     </p>
                 </div>
                 <div class="box-register-all d-flex flex-column col-lg-3 offset-lg-0 p-0" >
@@ -29,7 +22,16 @@
                         <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
-                                <p>มี</p>
+                                @if($dataHomeEdit->course_certificate === 1)
+
+                                    <p>มี</p>
+
+                                @else
+
+                                    <p>ไม่มี</p>
+
+                                @endif
+
                             </div>
 
                         </div>
@@ -41,7 +43,16 @@
                         <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
-                                <p>ไม่เสียค่าใช้จ่าย</p>
+                                @if($dataHomeEdit->course_price != 0)
+
+                                    <p>{{$dataHomeEdit->course_price}} บาท</p>
+
+                                @else
+
+                                    <p>ไม่เสียค่าใช้จ่าย</p>
+
+                                @endif
+
                             </div>
 
                         </div>
@@ -65,8 +76,8 @@
                     <div class="time-text rounded-bottom d-flex flex-column p-3  " style="border: solid #000 1px;">
                         <div class=" d-flex flex-column  justify-content-center text-center">
                             {{-- <i class="fab fa-accusoft mr-2"></i> --}}
-                            <p>เปิด 15 กค - 15 สค 2020</p>
-                            <p>ปิด  15 สค 2020</p>
+                            <p>เปิด {{$dataHomeEdit->course_open}}</p>
+                            <p>ปิด  {{$dataHomeEdit->course_close}}</p>
                             <p>หรือปิดรับสมัครเมื่อคอร์สเต็ม</p>
                         </div>
 
@@ -90,10 +101,10 @@
                     <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
                         <div class=" d-flex flex-column  justify-content-center text-center">
                             {{-- <i class="fab fa-accusoft mr-2"></i> --}}
-                            <p>80 ชั่วโมง </p>
+                            <p>{{$dataHomeEdit->course_hours}} ชั่วโมง </p>
                             <div class=" d-flex flex-row justify-content-center">
-                                <p class=" m-0 p-0 mr-3">จันทร์ - ศุกร์</p>
-                                <p class=" m-0 p-0 mr-3">9:00 - 14:00 น.</p>
+                                <p class=" m-0 p-0 mr-3">{{$dataHomeEdit->course_date}}</p>
+                                <p class=" m-0 p-0 mr-3">{{$dataHomeEdit->course_learn_start}} - {{$dataHomeEdit->course_learn_end}} น.</p>
                             </div>
 
                         </div>

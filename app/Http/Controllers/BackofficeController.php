@@ -180,8 +180,22 @@ class BackofficeController extends Controller
         //
         $request -> validate([
 
+            'course_school_name'=>'required',
             'course_name'=>'required',
-            'course_type'=>'required'
+            'course_type'=>'required',
+            'course_certificate'=>'required',
+            'course_price'=>'required',
+            'course_text_detail'=>'required',
+            'course_linkYoutube'=>'required',
+            'course_open'=>'required',
+            'course_close'=>'required',
+            'course_hours'=>'required',
+            'course_date'=>'required',
+            'course_learn_start'=>'required',
+            'course_learn_end'=>'required',
+            'course_pattern'=>'required',
+            'course_pic'=>'required',
+            'course_school_link'=>'required',
 
         ]);
 

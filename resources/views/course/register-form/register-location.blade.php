@@ -91,7 +91,7 @@
     <div class="form-group form-row d-flex align-items-center   ">
         <div class="col-12 d-flex flex-row">
             <div class="col-6 offset-3 pl-0">
-                <input type="email" class="form-control " style="width: 100%" name="postalcode-present" maxlength="5" pattern="[0-9]{5}"  id="postalcode-present" aria-describedby="postalcode-present" placeholder="รหัสไปรษณีย์">
+                <input type="text" class="form-control " style="width: 100%" name="postalcode-present" maxlength="5" pattern="[0-9]{5}"  id="postalcode-present" aria-describedby="postalcode-present" placeholder="รหัสไปรษณีย์">
             </div>
         </div>
     </div>

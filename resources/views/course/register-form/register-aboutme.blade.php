@@ -8,7 +8,7 @@
                 <input type="text" class="form-control "  style="width: 100%" name="religion" id="religion" maxlength="20" aria-describedby="religion" placeholder="นับถือศาสนา">
             </div>
             <div class="col-3 ">
-                <input type="email" class="form-control " style="width: 100%" name="nationality" id="nationality" maxlength="20" aria-describedby="nationality" placeholder="สัญชาติ">
+                <input type="text" class="form-control " style="width: 100%" name="nationality" id="nationality" maxlength="20" aria-describedby="nationality" placeholder="สัญชาติ">
             </div>
         </div>
     </div>
@@ -36,7 +36,7 @@
                 <input type="text" class="form-control " style="width: 100%" name="qualification" maxlength="30" id="qualification" aria-describedby="qualification" placeholder="วุฒิที่จบ">
             </div>
             <div class="col-3 ">
-                <input type="text" class="form-control " style="width: 100%" maxlength="30" id="result" aria-describedby="result" placeholder="ผลการเรียน">
+                <input type="text" class="form-control " style="width: 100%" maxlength="30" name="result" id="result" aria-describedby="result" placeholder="ผลการเรียน">
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
     <div class="form-group form-row d-flex align-items-center   ">
         <div class="col-12 d-flex flex-row">
             <div class="col-6 offset-3 pl-0">
-                <input type="email" class="form-control " style="width: 100%" name="momname" maxlength="30" id="momname" aria-describedby="momname" placeholder="ชื่อ-นามสกุล มารดา">
+                <input type="text" class="form-control " style="width: 100%" name="momname" maxlength="30" id="momname" aria-describedby="momname" placeholder="ชื่อ-นามสกุล มารดา">
             </div>
         </div>
     </div>

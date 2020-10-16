@@ -1,4 +1,3 @@
-{{-- @include('component.header') --}}
 @extends('layout.master')
 
 @section('title', 'Print')
@@ -37,22 +36,18 @@
                 <div class=" d-flex flex-column">
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
-                            ชื่อนาย <p class="p-0 m-0 mr-3 font-weight-normal">ประสิทธิ์  แสงสว่างจ้า</p>
+                            ชื่อนาย <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->name}} {{$request->lastname}}</p>
                         </p>
-                        <p class="p-0 m-0 mr-3  font-weight-bold" style="font-size: 1em;">
-                            วันที่มอบตัว <p class="p-0 m-0 mr-3 font-weight-normal">31/10/2563</p>
-                        </p>
+
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            เลขประจำตัวประชาชน <p class="p-0 m-0 mr-3 font-weight-normal">1100110011001</p>
+                            เลขประจำตัวประชาชน <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->idcard}}</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            วัน/เดือน/ปีเกิด <p class="p-0 m-0 mr-3 font-weight-normal">31/10/2530</p>
+                            วัน/เดือน/ปีเกิด <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->birthday}}</p>
                         </p>
-                        <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            อายุ<p class="p-0 m-0 mr-3 font-weight-normal">33 </p>ปี
-                        </p>
+
                     </div>
                 </div>
 
@@ -66,24 +61,24 @@
                 <div class=" d-flex flex-column">
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
-                            ประวัติส่วนตัว นับถือศาสนา <p class="p-0 m-0 mr-3 font-weight-normal">พุทธ</p>
+                            ประวัติส่วนตัว นับถือศาสนา <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->religion}}</p>
                         </p>
                         <p class="p-0 m-0 mr-3  font-weight-bold" style="font-size: 1em;">
-                            สัญชาติ <p class="p-0 m-0 mr-3 font-weight-normal">ไทย</p>
+                            สัญชาติ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->nationality}}</p>
                         </p>
                         <p class="p-0 m-0 mr-3  font-weight-bold" style="font-size: 1em;">
-                            เชื้อชาติ <p class="p-0 m-0 mr-3 font-weight-normal">ไทย</p>
+                            เชื้อชาติ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->nationality}}</p>
                         </p>
                         <p class="p-0 m-0 mr-3  font-weight-bold" style="font-size: 1em;">
-                            อาชีพ <p class="p-0 m-0 mr-3 font-weight-normal">ผู้ช่วยเชฟ</p>
+                            อาชีพ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->career}}</p>
                         </p>
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            เบอร์โทรศัพท์ <p class="p-0 m-0 mr-3 font-weight-normal">0811111110</p>
+                            เบอร์โทรศัพท์ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->telphone}}</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            อีเมล์ <p class="p-0 m-0 mr-3 font-weight-normal">AAasalsdksl@gmail.com</p>
+                            อีเมล์ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->email}}</p>
                         </p>
 
 
@@ -91,26 +86,26 @@
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            ชื่อสถานศึกษา<p class="p-0 m-0 mr-3 font-weight-normal">โรงเรียนอนุอนุอนุ </p>
+                            ชื่อสถานศึกษา<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->school}} </p>
                         </p>
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            สาขาที่จบ<p class="p-0 m-0 mr-3 font-weight-normal">วิท-คณิต </p>
+                            สาขาที่จบ<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->branch}}</p>
                         </p>
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            วุฒิที่จบ<p class="p-0 m-0 mr-3 font-weight-normal">มัธยมศึกษาปีที่ 6  </p>
+                            วุฒิที่จบ<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->qualification}}</p>
                         </p>
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            ผลการเรียน<p class="p-0 m-0 mr-3 font-weight-normal">3.00 </p>
-                        </p>
-                    </div>
-                    <div class=" d-flex flex-row align-items-start">
-                        <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            ชื่อบิดา<p class="p-0 m-0 mr-3 font-weight-normal">นายกอกอกอกอกอ ขอขอขอขขอ </p>
+                            ผลการเรียน<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->result}}</p>
                         </p>
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            ชื่อมารดา<p class="p-0 m-0 mr-3 font-weight-normal">นายกอกอกอกอกอ ขอขอขอขขอ </p>
+                            ชื่อบิดา<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->dadname}}</p>
+                        </p>
+                    </div>
+                    <div class=" d-flex flex-row align-items-start">
+                        <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
+                            ชื่อมารดา<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->momname}}</p>
                         </p>
                     </div>
 
@@ -126,19 +121,19 @@
                 <div class=" d-flex flex-column">
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
-                            ภูมิลำเนาตามทะเบียนบ้าน <p class="p-0 m-0 mr-3 font-weight-normal">บ้านเลขที่ 1100/2-4 หมู่ 23 ซอย กอกอขอขอขอ ตำบล/แขวง กอขอขออขขอขอ</p>
+                            ภูมิลำเนาตามทะเบียนบ้าน <p class="p-0 m-0 mr-3 font-weight-normal">บ้านเลขที่ {{$request->momname}} หมู่ {{$request->swine}} ซอย {{$request->alley}} ตำบล/แขวง {{$request->district}}</p>
                         </p>
 
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">ชานเมือง</p>
+                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->county}}</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">กรุงเทพมหานคร</p>
+                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->province}}</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">10400</p>
+                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->postalcode}}</p>
                         </p>
                     </div>
                 </div>
@@ -152,19 +147,19 @@
                 <div class=" d-flex flex-column">
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
-                            ที่อยู่ระหว่างพักอาศัย <p class="p-0 m-0 mr-3 font-weight-normal">บ้านเลขที่ 1100/2-4 หมู่ 23 ซอย กอกอขอขอขอ ตำบล/แขวง กอขอขออขขอขอ</p>
+                            ที่อยู่ระหว่างพักอาศัย <p class="p-0 m-0 mr-3 font-weight-normal">บ้านเลขที่ {{$request->momname}} หมู่ {{$request->swine}} ซอย {{$request->alley}} ตำบล/แขวง {{$request->district}}</p>
                         </p>
 
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">ชานเมือง</p>
+                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->county}}</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">กรุงเทพมหานคร</p>
+                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->province}}</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">10400</p>
+                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->postalcode}}</p>
                         </p>
                     </div>
                 </div>

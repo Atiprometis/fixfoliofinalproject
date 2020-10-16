@@ -4,11 +4,17 @@
             <h3 class="" style="font-size: 1em">ข้อมูลเบื้องต้น</h3>
         </div>
         <div class="col-12 d-flex  flex-sm-row flex-column">
+
             <div class="col-lg-3 col-12 offset-0 offset-sm-3 pl-0 ">
+
                 <input type="text" class="form-control " style="width: 100%" name="name" id="name" maxlength="25" aria-describedby="name" placeholder="ชื่อ">
+
             </div>
+
             <div class="col-lg-3 col-12 offset-0 offset-sm-0  pl-0 pt-3  pt-sm-0 ">
+
                 <input type="text" class="form-control " style="width: 100%" name="lastname" id="lastname" maxlength="25"  aria-describedby="emailHelp" placeholder="นามสกุล">
+
             </div>
         </div>
     </div>

@@ -3,14 +3,14 @@
         <div class="col-3 offset-3 align-self-center">
             <h3 class="" style="font-size: 1em">ข้าพเจ้าทราบข่าวสารการรับสมัครจาก</h3>
         </div>
-        <div class="col-12 ">
-            <div class="col-3 offset-3 p-0 d-flex flex-column">
+        <div class="col-12">
+            <div class="col-3 offset-3 p-0 d-flex flex-column" >
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">หนังสือพิมพ์</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" >
                     <label class="form-check-label" for="exampleCheck1">วิทยุ</label>
                 </div>
                 <div class="form-check">

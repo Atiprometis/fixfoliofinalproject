@@ -46,7 +46,7 @@ Route::get('/test', 'CourseregisterController@test');
 
 // Route::get('/registercourse', 'CourseController@registercourse');
 
-Route::get('/registercourse/print', 'PrintController@print');
+Route::resource('/print', 'PrintController');
 
 Route::get('/registercourse', function () {
     return view('course/course-register');
