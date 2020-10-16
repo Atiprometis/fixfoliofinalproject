@@ -1,4 +1,4 @@
-@include('component.header')
+{{-- @include('component.header') --}}
 
 @extends('layout.master')
 

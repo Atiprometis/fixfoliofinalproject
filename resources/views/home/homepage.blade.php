@@ -1,4 +1,5 @@
-@include('component.header')
+{{-- @include('component.header') --}}
+
 @extends('layout.master')
 
 @section('title', 'Home Page')

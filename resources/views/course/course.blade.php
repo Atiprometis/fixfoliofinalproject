@@ -1,5 +1,6 @@
-@include('component.header')
+{{-- @include('component.header') --}}
 {{--@extends('layout.app')--}}
+
 @extends('layout.master')
 
 @section('title', 'COURSE PAGE')

@@ -53,16 +53,16 @@ Route::get('/registercourse', function () {
 });
 
 
-Route::post('print', function (Request $request) {
-    $name = $request->input('name');
-    $lastname = $request->input('lastname');
-    $data = array(
-        'name' => $name,
-        'lastname' => $lastname,
-    );
+// Route::post('print', function (Request $request) {
+//     $name = $request->input('name');
+//     $lastname = $request->input('lastname');
+//     $data = array(
+//         'name' => $name,
+//         'lastname' => $lastname,
+//     );
 
-    return view("print/print",$data);
-});
+//     return view("print/print",$data);
+// });
 
 
 

@@ -42,7 +42,7 @@
 </head>
 <body>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-
+    @include('component.header')
 
     @yield('content')
 
