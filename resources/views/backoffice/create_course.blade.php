@@ -1,4 +1,3 @@
-@include('component.header')
 @extends('layout.master')
 
 @section('content')
