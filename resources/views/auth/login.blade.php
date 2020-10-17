@@ -115,7 +115,7 @@
                                         <button type="submit" class="btn text-light ml-2 mr-2" style="background-color: #4151F0;border-radius: 20px;" >FACEBOOK</button>
 
                                     </div>
-                                    <small id="passwordlHelp" class="form-text text-muted d-flex justify-content-center m-t-20">คุณยังไม่ได้ลงทะเบียนใช่หรือไม่? <a class="register-text" href="/singup">ลงทะเบียน</a></small>
+                                    <small id="passwordlHelp" class="form-text text-muted d-flex justify-content-center m-t-20">คุณยังไม่ได้ลงทะเบียนใช่หรือไม่? <a class="register-text" href="/register">ลงทะเบียน</a></small>
                                     {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('คุณยังไม่ได้ลงทะเบียนใช่หรือไม่') }}
