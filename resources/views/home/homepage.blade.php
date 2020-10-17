@@ -225,7 +225,9 @@
 
                         background-color: #F9C226;
                         font-size: 1.5em;">
-                        <p class="m-0 p-0" style="font-weight: 500">สมัครลงหลักสูตร</p>
+                        <a href="/institution" style="color: inherit;">
+                            <p class="m-0 p-0" style="font-weight: 500">สมัครลงหลักสูตร</p>
+                        </a>
                         </button>
                     </div>
 
@@ -257,7 +259,10 @@
 
                         background-color: #F9C226;
                         font-size: 1.5em;">
-                        <p class="m-0 p-0" style="font-weight: 500">สมัครลงหลักสูตร</p>
+                        <a href="/searchportfolio" style="color: inherit;">
+                            <p class="m-0 p-0" style="font-weight: 500">ค้นหาคนที่ใช่</p>
+                        </a>
+                        {{-- <p class="m-0 p-0" style="font-weight: 500">สมัครลงหลักสูตร</p> --}}
                         </button>
                     </div>
 

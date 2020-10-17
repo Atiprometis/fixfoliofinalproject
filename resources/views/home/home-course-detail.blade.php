@@ -2,7 +2,7 @@
 @extends('layout.master')
 
 @section('content')
-    <img class=" img-fluid col-12 p-0" src="{{ asset('access/images/hero-banner-1.png') }}" alt="Responsive image" style="background-color: red; height: 50vh;">
+    <img class=" img-fluid col-12 p-0" src="{{ asset('access/images/hero-banner-2.jpg') }}" alt="Responsive image" style="background-color: red; height: 50vh;">
     <div class="container">
         <div class="row">
             {{-- 1 --}}
