@@ -16,21 +16,21 @@ class CourseregisterController extends Controller
     public function index()
     {
         return view("course/course-register");
-
     }
 
-        public function registercourse(){
-                return view('course/course-register');
-     }
+    public function registercourse()
+    {
+        return view('course/course-register');
+    }
 
-     public function test(){
+    public function test()
+    {
 
 
         // error_log($user);
         // // $userId = Auth::id();
-        // return view('kepp/test',[$id]);
-
-     }
+        return view('kepp/test');
+    }
 
     /**
      * Show the form for creating a new resource.
