@@ -40,7 +40,8 @@
     <script src="https://kit.fontawesome.com/7f0bb538bf.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-
+    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
@@ -66,15 +67,11 @@
     @include('footer.footer')
 
     @include('../script/script')
-
-    <!-- Latest compiled and minified JavaScript -->
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script> --}}
-
-    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script> --}}
+    @include('../script/magicscript')
+    
 
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    
+    {{-- <script src="js/scrollmagic/minified/ScrollMagic.min.js"></script> --}}
 
 </body>
 

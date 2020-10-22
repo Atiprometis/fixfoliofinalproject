@@ -14,23 +14,16 @@
 </div> -->
 
 <!-- Swiper -->
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        <div class="swiper-slide">Slide 4</div>
-        <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
-        <div class="swiper-slide">Slide 10</div>
+<section class="demo">
+    <div class="spacer s2"></div>
+    <div id="trigger" class="spacer s0"></div>
+    <div id="animate" class="box1 blue">
+        <p>Now you see me...</p>
+        <a href="#" class="viewsource">view source</a>
     </div>
-    <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-</div>
+    <div class="spacer s2"></div>
+    
+</section>
 
 
 

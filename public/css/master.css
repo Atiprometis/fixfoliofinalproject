@@ -309,4 +309,19 @@ height: 50vh;
     align-items: center;
   }
 
+
+  .ntc-test{
+      width: 100px;
+      height: 100px;
+      background-color: #281ACB;
+  }
+  .ntc-test:nth-child(1){
+    background-color: #cb1a7b;
+  }
+  .ntc-test:nth-child(2){
+    background-color: #1acb40;
+  }
+  .ntc-test:nth-child(3){
+    background-color: #d85f26;
+  }
 /* home end */

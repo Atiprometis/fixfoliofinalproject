@@ -40,3 +40,11 @@
       },
     });
 </script>
+
+<script>
+   $(doucument).ready(function(){
+
+    
+});
+    
+</script>
