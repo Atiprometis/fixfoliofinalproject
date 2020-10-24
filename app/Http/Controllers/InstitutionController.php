@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\CourseSchoolDetail;
+use App\Models\Schools;
 
 class InstitutionController extends Controller
 {
@@ -14,32 +16,104 @@ class InstitutionController extends Controller
      */
     public function index()
     {
-        //
-
-        //$dataInstitution = DB::table('course_detail')
-            //->select('id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end');
-//
-//        $dataDistinct = DB::select('SELECT DISTINCT `course_school_name` FROM course_detail');
-
-        $dataCount = DB::select('SELECT COUNT(`id`) AS "count" ,`course_school_name` FROM course_detail GROUP BY `course_school_name`');
 
 
-        //dd($dataCount);
+        //         SELECT `course_id`, `school_id`, `school_name`, COUNT(school_name) FROM `course_school_details` 
+        // GROUP BY `school_name`
+
+        //         SELECT schools.school_image FROM `course_school_details` 
+        // INNER JOIN schools 
+        // ON course_school_details.school_id = schools.schools_id
+
+        // $courseschooldetails = DB::table('course_school_details')
+        //     // ->where('course_school_details.school_id', '=', $school_id)
+
+        //     ->join('schools', 'schools.schools_id', '=', 'course_school_details.school_id')
+        //     ->select(
+        //         DB::raw('count(course_school_details.school_name) as countcourse'),
+        //         'course_school_details.school_id',
+        //         'course_school_details.school_name',
+        //         'schools.school_image',
 
 
-        return view('institution.Institution', compact('dataCount'));
+        //     )
+
+        //     ->groupBy('course_school_details.school_name', 'school_id', 'schools.school_image')
+        //     ->get();
+
+        $courseschooldetails =  CourseSchoolDetail::select(
+            DB::raw('count(course_school_details.school_name) as countcourse'),
+            'course_school_details.school_id',
+            'course_school_details.school_name',
+            'schools.school_image',
 
 
+        )
+
+            ->join('schools', 'schools.schools_id', '=', 'course_school_details.school_id')
+            // ->find('course_school_details.school_name')
+            // ->count();distinct
+            // ->distinct()
+            ->groupBy('course_school_details.school_name', 'school_id', 'schools.school_image')
+
+            ->get();
+
+
+
+        // $courseCount = CourseSchoolDetail::select('course_school_details.school_name')->count();
+
+        // $courseschooldetails =  CourseSchoolDetail::all();
+
+        // echo $courseschooldetails;
+        // echo $courseCount;
+
+
+        return view('institution.Institution')->with(compact('courseschooldetails'));
     }
 
 
-    public function institution(){
+    public function institution()
+    {
+
         return view('institution/institution');
-
     }
-    public function profileinstitution(){
-        return view('institution/profileinstitution');
+    public function profileinstitution($school_id, $countcourse)
+    {
 
+        // SELECT `course_name`, `course_cost` , `course_start`,`course_end`,course_learn_start,`course_learn_end`,`course_hours`,course_school_details.school_name 
+        // FROM `courses` 
+        // INNER JOIN course_school_details 
+        // ON courses.course_id = course_school_details.course_id
+
+        $coursesdetails = DB::table('courses')
+            ->where('course_school_details.school_id', '=', $school_id)
+            ->join('course_school_details', 'course_school_details.course_id', '=', 'courses.course_id')
+
+            ->select(
+                'courses.course_name',
+                'courses.course_cost',
+                'courses.course_start',
+                'courses.course_end',
+                DB::raw('TIME_FORMAT(course_learn_start, "%H:%i") as course_learn_start'),
+                DB::raw('TIME_FORMAT(course_learn_end, "%H:%i") as course_learn_end'),
+                'courses.course_hours',
+                'course_school_details.school_name',
+                'image_herobanner'
+            )
+            // ->where('course_school_details.school_id ', '=', 1)
+            ->get();
+
+        // echo $coursesdetails;
+
+        // echo $school_id;
+        $schoolsdetails =  Schools::where('schools_id', $school_id)
+            ->get();
+
+
+
+        // echo $countcourse;
+        // echo $schoolsdetails;
+        return view('institution/profileinstitution')->with(compact('schoolsdetails', 'countcourse', 'coursesdetails'));
     }
     /**
      * Show the form for creating a new resource.

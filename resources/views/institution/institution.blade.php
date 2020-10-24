@@ -49,21 +49,25 @@
                     </div>
                 <div class="col-12 p-0 m-0">
 
-                    @foreach($dataCount as $row)
+                    @foreach($courseschooldetails as $courseschooldetail)
 
-                        <a class="" href="/profileinstitution" style="color: inherit; ">
+                        <a class="" href="/profileinstitution/{{$courseschooldetail->school_id}}/{{ $courseschooldetail->countcourse }}" style="color: inherit; ">
                             <div class=" col-3  p-2   float-left " >
                                 <div class="">
-                                    <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
+                                    <img src="{{ $courseschooldetail->school_image }}" class="insutition-all">
                                     <div class="  d-flex flex-column text-insutition pl-3 pt-2" style="">
-                                        <p class="" style="font-size: 1.375em;">{{$row->course_school_name}}</p>
+                                        <p class="" style="font-size: 1.375em;">{{$courseschooldetail->school_name}}</p>
+                                        {{-- <p class="" style="font-size: 1.375em;">asdasd</p> --}}
                                         <div class=" d-flex flex-row ">
                                             <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
 
 
                                                 <p class="ml-2 mr-2">
-                                                    จำนวน {{$row->count}} คอร์ส
+                                                    จำนวน {{$courseschooldetail->countcourse}} คอร์ส
                                                 </p>
+                                                {{-- <p class="ml-2 mr-2">
+                                                    จำนวน 45 คอร์ส
+                                                </p> --}}
 
                                         </div>
                                     </div>

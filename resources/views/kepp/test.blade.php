@@ -6,25 +6,23 @@
 
 @section('content')
 
-<!-- <div class="container">
-    test
+
+@foreach ($createcourses as $createcourse)
+<p>{{ $createcourse->course_id }}</p>
+<p>{{ $createcourse->course_name }}</p>
+
+@endforeach
 
 
-
-</div> -->
-
-<!-- Swiper -->
-<section class="demo">
-    <div class="spacer s2"></div>
-    <div id="trigger" class="spacer s0"></div>
-    <div id="animate" class="box1 blue">
-        <p>Now you see me...</p>
-        <a href="#" class="viewsource">view source</a>
-    </div>
-    <div class="spacer s2"></div>
+@foreach ($schools as $school)
     
-</section>
+<p>{{ $school->shcool_name }}</p>
 
+@endforeach
+
+{{-- <a href="{{ action('TestDataController@index') }}">test</a> --}}
+
+<a href="{{ action('TestDataController@create') }}">create</a>
 
 
 @endsection
