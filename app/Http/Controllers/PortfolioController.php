@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\ProfilePortfolio;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 class PortfolioController extends Controller
@@ -14,17 +17,63 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-
-
-
     }
     public function portfolio()
     {
-        return view('portfolio/portfoliopage');
+        // echo  $user = Auth::user();
+        $id = Auth::id();
+        $profiledatas = ProfilePortfolio::where('user_id', '=', $id)
+            ->get();
+
+        // echo $profiledatas;
+        return view('portfolio/portfoliopage')->with(compact('profiledatas'));
     }
     public function searchportfolio()
     {
         return view('portfolio/search-portfolio');
+    }
+    public function profileedit()
+    {
+
+
+        return view('portfolio/profileedit');
+    }
+
+    public function updateprofile(Request $request, $id)
+    {
+        // $name = $request->input('name');
+        $profile_location = $request->input('profile_location');
+        $profile_aboutme = $request->input('profile_aboutme');
+        $profile_age = $request->input('profile_age');
+        $profile_sex = $request->input('profile_sex');
+        $profile_instinct = $request->input('profile_instinct');
+        $profile_province = $request->input('profile_province');
+        $profile_education = $request->input('profile_education');
+        $profile_facebook = $request->input('profile_facebook');
+        $profile_phone = $request->input('profile_phone');
+        $profile_email = $request->input('profile_email');
+        $profile_line = $request->input('profile_line');
+
+        $id = Auth::id();
+        $users = ProfilePortfolio::where('user_id', '=', $id)
+            ->update(array(
+                'profile_location' => $profile_location,
+                'profile_aboutme' => $profile_aboutme,
+                'profile_age' => $profile_age,
+                'profile_sex' => $profile_sex,
+                'profile_instinct' => $profile_instinct,
+                'profile_province' => $profile_province,
+                'profile_education' => $profile_education,
+                'profile_facebook' => $profile_facebook,
+                'profile_phone' => $profile_phone,
+                'profile_email' => $profile_email,
+                'profile_line' => $profile_line,
+
+            ));
+        // $users = DB::table('profile_portfolios')->where('user_id', '=', $id)
+        echo $id;
+        // return redirect()->route('institution');
+        return redirect('/portfolio');
     }
     /**
      * Show the form for creating a new resource.
@@ -45,12 +94,11 @@ class PortfolioController extends Controller
     public function store(Request $request)
     {
         //
-        $request -> validate([
+        $request->validate([
 
-            'auth-name'=> 'required'
+            'auth-name' => 'required'
 
         ]);
-
     }
 
     /**

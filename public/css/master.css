@@ -325,3 +325,27 @@ height: 50vh;
     background-color: #d85f26;
   }
 /* home end */
+
+.text-over{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-width: 1000px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:140px /* fallback */
+}
+.text-over-2{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-width: 1000px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:55px /* fallback */
+}
+.outline-none{
+    outline: none;
+box-shadow:none !important;
+border:1px solid #ccc !important;
+}

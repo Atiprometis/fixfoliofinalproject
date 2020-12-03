@@ -54,6 +54,9 @@ Route::get('/registercourse', function () {
 
 Route::get('/portfolio', 'PortfolioController@portfolio');
 Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
+Route::get('/profileedit/{user_id}', 'PortfolioController@profileedit');
+
+Route::get('/updateprofile/{id}', 'PortfolioController@updateprofile');
 
 Route::resource('/institution', 'InstitutionController');
 
