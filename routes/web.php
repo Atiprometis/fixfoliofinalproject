@@ -66,3 +66,7 @@ Route::get('/profileinstitution/{school_id}/{countcourse}', 'InstitutionControll
 Route::get('/clicktest', 'TestDataController@index');
 
 Route::get('createtest', 'TestDataController@create');
+// Route::get('upload', 'TestDataController@uploadphoto');
+
+Route::get('/upload/create', 'UploadImagesController@create');
+Route::post('/upload', 'UploadImagesController@store');

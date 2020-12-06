@@ -7,13 +7,23 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <form class=" form-group w-100" action="/updateprofile/{id}" method="get">
+            
+                {{-- {{ csrf_field() }}
+                {{ method_field('POST') }} --}}
                 <div class="profile rounded col-12 d-flex flex-row mt-5 align-items-start justify-content-between ">
                     <div class="card p-3 col-3" style=" height: 340px">
-                        <img class="card-img-top rounded" src='../access/images/people-1.png' alt="Card image cap" style="height: 250px;">
-                          <button type="summit" class="btn btn-light mt-2" style="width: 100%; border-radius: 20px;">+ Upload new photo</button>
+                        @foreach($avatar_images as $avatar_image)
+                        <img class="card-img-top rounded" src='../storage/{{ $avatar_image->avatar_path }}' alt="Card image cap" style="height: 250px;">
+                        @endforeach
+                        <form action="{{ url('/upload') }}" method="POST" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                {{ method_field('POST') }}
+                                <input type="file" name="image" > 
+                                <button type="submit" class="btn btn-light mt-2" style="width: 100%; border-radius: 20px;">+ Upload new photo</button>
+                        </form>
                     </div>
-                    <div class="profile-about col-9 h-100 d-flex flex-column justify-content-between">
+                    <form class=" form-group w-100" action="/updateprofile/{id}" method="get" enctype="multipart/form-data">
+                    <div class="profile-about col-12 h-100 d-flex flex-column justify-content-between">
                         <div class=" d-flex flex-column h-100 mb-4 ">
                             <div class=" d-flex flex-row h-100  justify-content-between ">
                                 <div class=" d-flex flex-column border  mr-2" style="width: 70%">
@@ -43,7 +53,12 @@
                                         <div class="form-group form-row d-flex align-items-center   ">
                                             <div class="col-12 d-flex flex-row">
                                                 <div class="col-6  pl-0">
-                                                    <input type="text" class="form-control " style="width: 100%" name="profile_location" maxlength="30" id="profile_location" aria-describedby="profile_location" placeholder="ที่อยู่">
+                                                    <input type="text" class="form-control " style="width: 100%" name="profile_location" maxlength="30" id="profile_location" 
+                                                    aria-describedby="profile_location" placeholder="ที่อยู่" 
+                                                    @foreach($users as $user)
+                                                        value={{ $user->profile_location }}
+                                                    @endforeach                                                   
+                                                    >
                                                 </div>
                                             </div>
                                         </div>
@@ -74,7 +89,11 @@
                         </div>
                         <h1 class=" font-weight-normal" style="font-size: 1.250em;   ">แนะนำตัว</h1>                  
                         <input type="text" class="form-control input-lg aboutme rounded p-3 pb-2" style="width: 100%;height: 100%;" name="profile_aboutme" 
-                                id="profile_aboutme" aria-describedby="profile_aboutme" placeholder="แนะนำตัว" >
+                                id="profile_aboutme" aria-describedby="profile_aboutme" placeholder="แนะนำตัว" 
+                                @foreach($users as $user)
+                                    value={{ $user->profile_aboutme }}
+                                @endforeach     
+                                >
                     </div>
                 </div>
                 <div class=" col-12 d-flex flex-row">
@@ -88,7 +107,11 @@
                                 <div class=" d-flex flex-row">
                                     <p class="m-0 p-2">อายุ </p>
                                     <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_age" 
-                                id="profile_age" aria-describedby="profile_age" placeholder="10" >
+                                id="profile_age" aria-describedby="profile_age" placeholder="อายุ" 
+                                @foreach($users as $user)
+                                value={{ $user->profile_age }}
+                                @endforeach
+                                >
                                     
                                 </div>
     
@@ -101,7 +124,11 @@
                                 <div class=" d-flex flex-row">
                                     <p class="m-0 p-2">เพศ </p>
                                     <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_sex" 
-                                id="profile_sex" aria-describedby="profile_sex" placeholder="ชาย" >
+                                id="profile_sex" aria-describedby="profile_sex" placeholder="" 
+                                @foreach($users as $user)
+                                value={{ $user->profile_sex }}
+                                @endforeach
+                                >
                                     
                                 </div>
     
@@ -113,7 +140,11 @@
                                 <div class=" d-flex flex-row">
                                     <p class="m-0 p-2">สัญชาติ</p>
                                     <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_instinct" 
-                                id="profile_instinct" aria-describedby="profile_instinct" placeholder="ไทย" >
+                                id="profile_instinct" aria-describedby="profile_instinct" placeholder="" 
+                                @foreach($users as $user)
+                                value={{ $user->profile_instinct }}
+                                @endforeach
+                                >
                                     
                                 </div>
     
@@ -124,7 +155,11 @@
                                 </div>
                                 <div class=" d-flex flex-row">                    
                                     <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_province" 
-                                id="profile_province" aria-describedby="profile_province" placeholder="จตุจักร  กรุงเทพมหานคร" >
+                                id="profile_province" aria-describedby="profile_province" placeholder="จังหวัดที่อยู่" 
+                                @foreach($users as $user)
+                                value={{ $user->profile_province }}
+                                @endforeach
+                                >
                                 </div>
                                 
     
@@ -136,7 +171,11 @@
                                 </div>
                                 <div class=" d-flex flex-row">                    
                                     <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_education" 
-                                id="profile_education" aria-describedby="profile_education" placeholder="ปริญญาตรี" >
+                                id="profile_education" aria-describedby="profile_education" placeholder="การศึกษา" 
+                                @foreach($users as $user)
+                                value={{ $user->profile_education }}
+                                @endforeach
+                                >
                                 </div>
     
                             </div>
@@ -148,7 +187,11 @@
                                 </div>
                                 <div class=" d-flex flex-row">                    
                                     <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_facebook" 
-                                id="profile_facebook" aria-describedby="profile_facebook" placeholder="ระบุ facebook" >
+                                id="profile_facebook" aria-describedby="profile_facebook" placeholder="ระบุ facebook" 
+                                @foreach($users as $user)
+                                value={{ $user->profile_facebook }}
+                                @endforeach
+                                >
                                 </div>
     
                             </div>
@@ -158,7 +201,11 @@
                                 </div>
                                 <div class=" d-flex flex-row">                    
                                     <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_phone" 
-                                id="profile_phone" aria-describedby="profile_phone" placeholder="ระบุเบอร์โทร" >
+                                id="profile_phone" aria-describedby="profile_phone" placeholder="ระบุเบอร์โทร" 
+                                @foreach($users as $user)
+                                value={{ $user->profile_phone }}
+                                @endforeach
+                                >
                                 </div>
     
                             </div>
@@ -168,7 +215,11 @@
                                 </div>
                                 <div class=" d-flex flex-row">                    
                                     <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_email" 
-                                id="profile_email" aria-describedby="profile_email" placeholder="ระบุ E-mail" >
+                                id="profile_email" aria-describedby="profile_email" placeholder="ระบุ E-mail" 
+                                @foreach($users as $user)
+                                value={{ $user->profile_email }}
+                                @endforeach
+                                >
                                 </div>
                             </div>
                             <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
@@ -178,7 +229,11 @@
                                 </div>
                                 <div class=" d-flex flex-row">                    
                                     <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_line" 
-                                id="profile_line" aria-describedby="profile_line" placeholder="ระบุ Line ID" >
+                                id="profile_line" aria-describedby="profile_line" placeholder="ระบุ Line ID" 
+                                @foreach($users as $user)
+                                value={{ $user->profile_line }}
+                                @endforeach
+                                >
                                 </div>
                             </div>
                         </div>

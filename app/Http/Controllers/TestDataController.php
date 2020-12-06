@@ -51,6 +51,11 @@ class TestDataController extends Controller
         return view('kepp/test')->with(compact('createcourses', 'schools'));
     }
 
+    public function uploadphoto()
+    {
+        return view('upload/upload');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -59,11 +64,13 @@ class TestDataController extends Controller
     public function create()
     {
         //
-        $id = Auth::id();
+        // $id = Auth::id();
 
-        DB::table('schools')->insert(
-            ['schools_owner' => $id, 'schools_name' => 'Ma la di', 'schools_detail' => 'ทำอาหารนะจ๊ะ']
-        );
+        // DB::table('schools')->insert(
+        //     ['schools_owner' => $id, 'schools_name' => 'Ma la di', 'schools_detail' => 'ทำอาหารนะจ๊ะ']
+        // );
+
+        return view('upload/upload');
     }
 
     /**
@@ -74,7 +81,13 @@ class TestDataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ////Save upload image to 'avatar' folder which in 'storage/app/public' folder
+        // $id = Auth::id();
+        $path = $request->file('image')->store('upload', 'public');
+        //echo $path;
+        //Save $path to database or anything else
+        //...
+        return redirect('/');
     }
 
     /**

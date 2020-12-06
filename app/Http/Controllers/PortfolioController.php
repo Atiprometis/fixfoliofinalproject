@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\ProfilePortfolio;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
+use App\UploadImages;
 
 class PortfolioController extends Controller
 {
@@ -25,18 +26,31 @@ class PortfolioController extends Controller
         $profiledatas = ProfilePortfolio::where('user_id', '=', $id)
             ->get();
 
+        $avatar_images = UploadImages::where('user_id', '=', $id)
+            ->get();
         // echo $profiledatas;
-        return view('portfolio/portfoliopage')->with(compact('profiledatas'));
+        // echo $avatar_image;
+        return view('portfolio/portfoliopage')->with(compact('profiledatas', 'avatar_images'));
     }
+
     public function searchportfolio()
     {
         return view('portfolio/search-portfolio');
     }
+
     public function profileedit()
     {
+        $id = Auth::id();
+        $avatar_images = UploadImages::where('user_id', '=', $id)
+            ->get();
+        // echo $profiledatas;
+        // echo $avatar_images;
+
+        $users = ProfilePortfolio::where('user_id', '=', $id)
+            ->get();
 
 
-        return view('portfolio/profileedit');
+        return view('portfolio/profileedit')->with(compact('avatar_images', 'users'));
     }
 
     public function updateprofile(Request $request, $id)

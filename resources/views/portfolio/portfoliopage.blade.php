@@ -9,7 +9,10 @@
         <div class="row">
             <div class="profile rounded col-12 d-flex flex-row mt-5 align-items-start justify-content-between ">
                 <div class="card p-3 col-3" style=" height: 340px">
-                    <img class="card-img-top rounded" src='../access/images/people-1.png' alt="Card image cap" style="height: 250px;">
+                    @foreach($avatar_images as $avatar_image)
+                        <img class="card-img-top rounded" src='../storage/{{ $avatar_image->avatar_path }}' alt="Card image cap" style="height: 250px;">
+                    @endforeach
+                    {{-- <img class="card-img-top rounded" src='../access/images/people-1.png' alt="Card image cap" style="height: 250px;"> --}}
                       {{-- <button type="summit" class="btn btn-light mt-2" style="width: 100%; border-radius: 20px;">+ Upload new photo</button> --}}
                 </div>
                 <div class="profile-about col-9 h-100 d-flex flex-column justify-content-between">
@@ -22,14 +25,13 @@
                                         <h1 class="p-1 m-0"  style="font-size: 1.500em; margin-left: 10px;">{{ Auth::user()->lastname }}</h1>
                                     </div>
                                 </div>
-                                @foreach($profiledatas as $profiledata)
 
-                                
-                    
+                                @foreach($profiledatas as $profiledata)
                                 <div class="name  pl-3 pr-2 mt-2">
                                     <p class="p-1 m-0 text-over-2" >{{ $profiledata->profile_location }}</p>
                                 </div>
                                 @endforeach
+
                             </div>
                             <div class="" style="width: 30%">
                                 <div class=" d-flex flex-column w-100">
