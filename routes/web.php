@@ -67,6 +67,10 @@ Route::get('/clicktest', 'TestDataController@index');
 
 Route::get('createtest', 'TestDataController@create');
 // Route::get('upload', 'TestDataController@uploadphoto');
+Route::get('test', 'TestDataController@test');
+
 
 Route::get('/upload/create', 'UploadImagesController@create');
 Route::post('/upload', 'UploadImagesController@store');
+
+Route::post('filecourse', 'CreateCourseFinalController@store');

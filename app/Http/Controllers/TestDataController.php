@@ -55,6 +55,10 @@ class TestDataController extends Controller
     {
         return view('upload/upload');
     }
+    public function test()
+    {
+        return view('test/test');
+    }
 
     /**
      * Show the form for creating a new resource.

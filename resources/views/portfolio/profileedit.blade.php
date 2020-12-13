@@ -254,19 +254,17 @@
                                     </div>
                                 </div>
                                 <div class=" d-flex flex-row  w-100 flex-wrap  justify-content-start ">
-                                   <?php
-                                    for($i=0; $i<8; $i++){
-                                   ?>
-    
-                                        <div class=" bg-info m-1 mr-auto ml-auto" style="width: 23%; height:125px; border-radius:10px;" >
-                                            <img src="" alt="">
+                                    @foreach($imagecourses as $imagecourse)
+                                        <div class="  m-1 " style="width: 23%; height:125px; border-radius:10px;" >
+                                            <img src="../courseimages/{{ $imagecourse->images_path }}" alt="" style="width: 100%; height:125px;">
                                         </div>
-    
-                                   <?php
-                                    }
-                                    ?>
+                                        
+                                    @endforeach
+                                    <button  class=" bg-warning m-1 " onclick="" id="openerupdate"  style="width: 23%; height:125px; border-radius:10px;" >update</button>
+                                    <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
                                 </div>
-                                <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
+                                
+                                <div class=" bg-warning m-1 " id="opener" style="width: 100%; height:80px; border-radius:10px;">เพิ่มประสบการณ์</div>
                             </div>
                         </div>
                         <div class="col-9 d-flex flex-column">
@@ -290,7 +288,78 @@
                     </div>
                 </div>
             </form>
-            
+            <div id="dialog" title="show" style="display: none">
+                {{-- <div>
+                    <p class=" p-0 m-0">รุ่นที่</p>
+                    <input type="text">
+                </div>
+                <div>
+                    <p class=" p-0 m-0">ชื่อหลักสูตร</p>
+                    <input type="text">
+                </div>
+                <div>
+                    <p class=" p-0 m-0">สถานที่ศึกษาจบ</p>
+                    <input type="text">
+                </div>
+                <div>
+                    <p class=" p-0 m-0">อัพโหลดรูปภาพ</p>
+                    <input name="upload[]" type="file" multiple="multiple" />
+                </div>
+        
+                <button>ยืนยัน</button>
+                <button data-role="close">ยกเลิก</button> --}}
+
+                <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                      <div class="input-group hdtuto control-group lst increment" >
+                        <input type="file" name="images[]" class="myfrm form-control">
+                        <div class="input-group-btn"> 
+                          <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                        </div>
+                      </div>
+                      <div class="clone hide">
+                        <div class="hdtuto control-group lst input-group" style="margin-top:10px">
+                          <input type="file" name="images[]" class="myfrm form-control">
+                          <div class="input-group-btn"> 
+                            <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
+                          </div>
+                        </div>
+                      </div>
+                  
+                  
+                      <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
+                </form>  
+            </div>
+            <div class="" id="updateimages" title="update" >
+                <form method="post" action="{{url('updateimages')}}" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                      
+                        <div class="input-group hdtuto control-group lst increment d-flex flex-row " >
+                            <div class=" col-12">
+                                @foreach ($imagecourses as $imagecourse)
+                                    <img src="../courseimages/{{ $imagecourse->images_path }}" alt="" style="width: 25%; height:125px;">
+                                @endforeach
+                            </div>
+                            <div class="input-group-btn"> 
+                              <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                            </div>
+                        </div>
+                     
+                      <div class="clone hide">
+                        {{-- <div class="hdtuto control-group lst input-group"  style="margin-top:10px">
+                          <input type="file" name="updateimages[]" class="myfrm form-control">
+                          <div class="input-group-btn"> 
+                            <button class="btn btn-danger" id="removeall" type="button">
+                                <i class="fldemo glyphicon glyphicon-remove"></i> Remove
+                            </button>
+                          </div>
+                        </div> --}}
+                      </div>
+                  
+                  
+                      <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
+                </form>  
+            </div>
 
         </div>
     </div>
