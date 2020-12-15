@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Institution extends Model
 {
     //
-    protected $table = 'school';
+    protected $table = 'schools';
 
     protected $fillable = [
 
-        'school_id','school_name','school_detail','school_course','course_school'
+        'schools_id','schools_name','schools_detail',
 
     ];
 }

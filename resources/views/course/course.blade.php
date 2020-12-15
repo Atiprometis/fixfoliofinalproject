@@ -10,14 +10,19 @@
             <div class="row">
                 <div class="col-12 mt-3 mb-4">
                     <?php
-                    for ($i = 1; $i <= 7; $i++) {
+                    $category = [];
+                    $coursenames = array('อาหารและการครัว','ตัดเย็บ', 'งานช่าง', 'เสริมสวย', 'ภาษาต่างประเทศ', 'นวด', 'งานฝีมือ');
+                    // $count = array('80' ,'เบเกอรี่','80' ,'เบเกอรี่',);
+                    $count = 1;
+                    foreach ($coursenames as  $coursename) {
                 ?>
                     <div class="col-2 mt-3 float-left position-relative d-flex justify-content-center  " >
                         <div class="b-image " style="height: 106px; border-radius: 20px; background-color:#000;"></div>
-                        <img src=" {{ asset('/access/images/photo-6.png') }}" class="w-100 "  style="height: 106px; border-radius: 20px;">
-                        <p class="  text-c  text-light m-0 p-0 ">อาหารและการครัว</p>
+                        <img src=" {{ asset('/access/images/category-'.$count.'.png') }}" class="w-100 "  style="height: 106px; border-radius: 20px;">
+                        <p class="  text-c  text-light m-0 p-0 "><?php echo $coursename?></p>
                     </div>
                     <?php
+                    $count++;
                 }
                 ?>
                 </div>
@@ -62,7 +67,9 @@
 
                         @foreach($readSchoolname as $data)
 
-                            <a href="{{route('course.show',$data->id)}}" style="color: inherit;">
+{{--                            <a href="{{route('course.show',$data->id)}}" style="color: inherit;">--}}
+
+                            <a href="{{route('course.show',$data->course_id)}}" style="color: inherit;">
 
                                 <div class=" col-4  p-2   float-left " >
                                     <div class=" w-100 ">
@@ -88,7 +95,7 @@
                                                     <p class="ml-2 mr-2">{{$data->course_hours}} ชั่วโมง</p>
                                                 </div>
 
-                                                <p class=" mr-3" style="font-size: 1em;">{{$data->school_name}}</p>
+                                                <p class=" mr-3" style="font-size: 1em;">{{$data->schools_name}}</p>
 
                                             </div>
                                         </div>

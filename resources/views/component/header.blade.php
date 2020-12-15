@@ -12,16 +12,16 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto" >
                 <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="/home">หน้าหลัก <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light"style="font-weight: 300;" href="/home">หน้าหลัก<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="/institution">สถาบันทั้งหมด <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light"style="font-weight: 300;" href="/institution">สถาบันทั้งหมด<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="/course">คอร์สเรียนทั้งหมด <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light"style="font-weight: 300;" href="/course">คอร์สเรียนทั้งหมด<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="/searchportfolio">ค้นหาผลงาน <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light"style="font-weight: 300;" href="/searchportfolio">ค้นหาผลงาน<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link text-light"style="font-weight: 300;" href="#">บทความ <span class="sr-only">(current)</span></a>
@@ -49,12 +49,19 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
+
                             <a href="/backoffice" class="dropdown-item">{{ __('Backoffice') }}</a>
+
+                            <a class="dropdown-item" href="/portfolio">
+                                portfolio
+                            </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
+
+
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf

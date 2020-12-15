@@ -33,7 +33,7 @@ class HomeController extends Controller
 //        FROM hours;
 
 
-        $dataHome = DB::select('SELECT courses.id, school.school_name, courses.course_name, courses.course_category, courses.course_cost, courses.course_start, courses.course_end, courses.course_learn_start, courses.course_learn_end, courses.course_hours FROM school INNER JOIN courses ON courses.course_school = school.course_school');
+        $dataHome = DB::select('SELECT courses.course_id, schools.schools_name, courses.course_name, courses.course_category, courses.course_cost, courses.course_start, courses.course_end, courses.course_learn_start, courses.course_learn_end, courses.course_hours FROM schools INNER JOIN courses ON courses.course_school = schools.schools_name');
 
 
         return view('home/homepage', compact('dataHome'));

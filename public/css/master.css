@@ -134,6 +134,8 @@ height: 100%;
 
 }
 
+
+
 /* -------------------------------- sigup page ---------------------------------------- */
 
 .form-sigup1{
@@ -216,12 +218,12 @@ height: 100%;
     height: 230px;
     margin-bottom: 20px;
     background-color: #69299C;
-    border-radius: 20px;font-weight: ;
+    border-radius: 20px;
 
 }
 .image-home{
     position: absolute;
-    left: 40;
+    left: 40px;
     top:-30px;
 
 
@@ -280,3 +282,116 @@ height: 50vh;
 }
 
 
+/* home  */
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+
+  .ntc-test{
+      width: 100px;
+      height: 100px;
+      background-color: #281ACB;
+  }
+  .ntc-test:nth-child(1){
+    background-color: #cb1a7b;
+  }
+  .ntc-test:nth-child(2){
+    background-color: #1acb40;
+  }
+  .ntc-test:nth-child(3){
+    background-color: #d85f26;
+  }
+/* home end */
+
+.text-over{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-width: 1000px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:140px /* fallback */
+}
+.text-over-2{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    max-width: 1000px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:55px /* fallback */
+}
+.outline-none{
+    outline: none;
+box-shadow:none !important;
+border:1px solid #ccc !important;
+}
+
+.custom-dialog{
+    width: 500px;
+    height: 500px;
+}
+
+.ui-widget.success-dialog {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: .8em;
+}
+
+.ui-widget-content.success-dialog {
+    background: #F9F9F9;
+    border: 1px solid #90d93f;
+    color: #222222;
+}
+
+.ui-dialog.success-dialog {
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+}
+
+.ui-dialog.success-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    padding: 0 !important;
+    margin: 0;
+}
+
+.ui-dialog.success-dialog .ui-widget-header {
+    background: #b0de78;
+    border: 0;
+    color: #fff;
+    font-weight: normal;
+}
+
+.ui-dialog.success-dialog .ui-dialog-titlebar {
+    padding: 0.1em .5em;
+    position: relative;
+    font-size: 1em;
+}
