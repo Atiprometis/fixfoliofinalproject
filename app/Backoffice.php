@@ -7,29 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 class Backoffice extends Model
 {
     //
-    protected $table = 'course_detail';
+    protected $table = 'courses';
 
     protected $fillable = [
-        'course_school_name',
+
+        'course_id',
+        'course_school',
         'course_name',
-        'course_type',
+        'course_category',
         'course_certificate',
-        'course_price',
-        'course_text_detail',
-        'course_learnning',
-        'course_learn_finish',
+        'course_cost',
+        'course_detail',
+        'course_learn',
+        'course_result',
         'course_career',
-        'course_linkYoutube',
+        'course_youtube',
         'course_open',
         'course_close',
         'course_hours',
-        'course_date',
         'course_learn_start',
         'course_learn_end',
-        'course_pattern',
-        'course_pic',
-        'course_pic_study',
-        'course_school_link',
+        'course_start',
+        'course_end',
+        'course_online',
+        'image_course',
+        'image_herobanner',
 
     ];
 }

@@ -169,18 +169,18 @@
 
                                         <div class=" d-flex justify-content-between mt-2">
                                             <p class="" style="font-size: 1em;">{{$row->course_name}}</p>
-                                            <p class=" mr-3" style="font-size: 1em;">{{$row->course_price}}.-</p>
+                                            <p class=" mr-3" style="font-size: 1em;">{{$row->course_cost}}.-</p>
                                         </div>
                                     <div class=" d-flex flex-row ">
                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                        <p class="ml-2 mr-2 mb-1 p-0">{{$row->course_date}} {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_end)->format('H:i')}} น.</p>
+                                        <p class="ml-2 mr-2 mb-1 p-0">{{$row->course_start}} ถึง  {{$row->course_end}} เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_end)->format('H:i')}} น.</p>
                                     </div>
                                     <div class=" d-flex justify-content-between">
                                         <div class=" d-flex flex-row ">
                                             <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
                                             <p class="ml-2 mr-2">{{$row->course_hours}} ชั่วโมง</p>
                                         </div>
-                                        <p class=" mr-3" style="font-size: 1em;">{{$row->course_school_name}}</p>
+                                        <p class=" mr-3" style="font-size: 1em;">{{$row->school_name}}</p>
                                     </div>
                                 </div>
                             </div>

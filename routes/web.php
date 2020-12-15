@@ -23,6 +23,7 @@ Route::get('/', function(){
 });
 
 Route::resource('backoffice', 'BackofficeController');
+Route::resource('createCourseDetail', 'CreateCourseDetailController');
 
 //Route::resource('/', 'HomeController');
 
@@ -52,26 +53,10 @@ Route::get('/registercourse', function () {
     return view('course/course-register');
 });
 
-
-// Route::post('print', function (Request $request) {
-//     $name = $request->input('name');
-//     $lastname = $request->input('lastname');
-//     $data = array(
-//         'name' => $name,
-//         'lastname' => $lastname,
-//     );
-
-//     return view("print/print",$data);
-// });
-
-
-
-
-
 Route::get('/portfolio', 'PortfolioController@portfolio');
 Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
 
 Route::resource('/institution', 'InstitutionController');
 Route::get('/profileinstitution', 'InstitutionController@profileinstitution');
 
-
+//Route::resource('/search','InstitutionController');

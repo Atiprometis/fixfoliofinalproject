@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Institution;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Table;
 
 class InstitutionController extends Controller
 {
@@ -14,18 +16,8 @@ class InstitutionController extends Controller
      */
     public function index()
     {
-        //
 
-        //$dataInstitution = DB::table('course_detail')
-            //->select('id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end');
-//
-//        $dataDistinct = DB::select('SELECT DISTINCT `course_school_name` FROM course_detail');
-
-        $dataCount = DB::select('SELECT COUNT(`id`) AS "count" ,`course_school_name` FROM course_detail GROUP BY `course_school_name`');
-
-
-        //dd($dataCount);
-
+        $dataCount = DB::select('SELECT COUNT(`id`) AS "count" ,`course_school` FROM courses GROUP BY `course_school`');
 
         return view('institution.Institution', compact('dataCount'));
 
@@ -59,7 +51,20 @@ class InstitutionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+
+            'search'=>'required',
+        ]);
+
+        //$institutions = DB::table('school')->select('school_name')->where('school_name','LIKE',$request->search);
+
+        //$institutions = Institution::where('school_name','LIKE','%'.$request->search.'%')->with('Institution')->get();
+
+        $institutions = Institution::where('school_name', 'like','%'.$request->search.'%')->get();
+
+        return view('institution.search',compact('institutions'));
+
     }
 
     /**
@@ -106,4 +111,17 @@ class InstitutionController extends Controller
     {
         //
     }
+
+//    public function search()
+//    {
+//
+//
+//        $search_text = $_GET['search'];
+//
+//        $institutions = Institution::where('school_name','LIKE','%'.$search_text.'%')->with('Institution')->get();
+//
+//        return view('institution.search',compact('institutions'));
+//
+//    }
+
 }

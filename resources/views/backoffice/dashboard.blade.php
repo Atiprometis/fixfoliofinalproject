@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.master')
 
 @section('content')
 
@@ -7,6 +7,8 @@
         <h1 class="center"> DASH BOARD </h1>
 
         <a href="backoffice/create" class="btn btn-primary my-2"> เพิ่มคอร์สเรียน </a>
+
+
 
         <table class="table table-striped">
             <thead>
@@ -21,30 +23,71 @@
             </thead>
             <tbody>
 
-            @foreach($courseData as $row)
-                <tr>
-                    <th scope="row">{{$row->id}}
-                    <td>{{$row->course_name}}</td>
-                    <td>{{$row->course_school_name}}</td>
-                    <td>{{$row->course_type}}</td>
-                    <td>
+            <?php
+            foreach($readSchoolname as $school):
 
-                        <a href="{{route('backoffice.edit', $row->id)}}" class="btn btn-success">แก้ไข</a>
+                if ($school->school_name === Auth::user()->name) {
 
-                    </td>
-                    <td>
+                    ?>
+                        <tr>
 
-                        <form action="{{route('backoffice.destroy', $row->id)}}" method="POST">
+                            <th scope="row">{{$school->id}}
+                            <td>{{$school->course_name}}</td>
+                            <td>{{$school->school_name}}</td>
+                            <td>{{$school->course_category}}</td>
 
-                            @csrf @method('DELETE')
+                            <td>
 
-                            <input type="submit" value="ลบ" data-name="{{$row->course_name}}" class="btn btn-danger deleteForm">
+                                <a href="{{route('backoffice.edit', $school->id)}}" class="btn btn-success">แก้ไข</a>
 
-                        </form>
+                            </td>
+                            <td>
 
-                    </td>
-                </tr>
-            @endforeach
+                                <form action="{{route('backoffice.destroy', $school->id)}}" method="POST">
+
+                                    @csrf @method('DELETE')
+
+                                    <input type="submit" value="ลบ" data-name="{{$school->course_name}}" class="btn btn-danger deleteForm">
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+
+            <?php }else if(Auth::user()->name === "Yanapalt") {
+
+                    ?>
+
+                        <tr>
+
+                            <th scope="row">{{$school->id}}
+                            <td>{{$school->course_name}}</td>
+                            <td>{{$school->school_name}}</td>
+                            <td>{{$school->course_category}}</td>
+
+                            <td>
+
+                                <a href="{{route('backoffice.edit', $school->id)}}" class="btn btn-success">แก้ไข</a>
+
+                            </td>
+                            <td>
+
+                                <form action="{{route('backoffice.destroy', $school->id)}}" method="POST">
+
+                                    @csrf @method('DELETE')
+
+                                    <input type="submit" value="ลบ" data-name="{{$school->course_name}}" class="btn btn-danger deleteForm">
+
+                                </form>
+
+                            </td>
+
+                        </tr>
+
+
+            <?php } endforeach; ?>
+
             </tbody>
         </table>
 
