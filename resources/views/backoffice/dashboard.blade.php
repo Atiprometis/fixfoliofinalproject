@@ -26,24 +26,24 @@
             <?php
             foreach($readSchoolname as $school):
 
-                if ($school->school_name === Auth::user()->name) {
+                if ($school->schools_name === Auth::user()->name) {
 
                     ?>
                         <tr>
 
-                            <th scope="row">{{$school->id}}
+                            <th scope="row">{{$school->course_id}}
                             <td>{{$school->course_name}}</td>
                             <td>{{$school->school_name}}</td>
                             <td>{{$school->course_category}}</td>
 
                             <td>
 
-                                <a href="{{route('backoffice.edit', $school->id)}}" class="btn btn-success">แก้ไข</a>
+                                <a href="{{route('backoffice.edit', $school->course_id)}}" class="btn btn-success">แก้ไข</a>
 
                             </td>
                             <td>
 
-                                <form action="{{route('backoffice.destroy', $school->id)}}" method="POST">
+                                <form action="{{route('backoffice.destroy', $school->course_id)}}" method="POST">
 
                                     @csrf @method('DELETE')
 
@@ -61,19 +61,19 @@
 
                         <tr>
 
-                            <th scope="row">{{$school->id}}
+                            <th scope="row">{{$school->course_id}}
                             <td>{{$school->course_name}}</td>
-                            <td>{{$school->school_name}}</td>
+                            <td>{{$school->schools_name}}</td>
                             <td>{{$school->course_category}}</td>
 
                             <td>
 
-                                <a href="{{route('backoffice.edit', $school->id)}}" class="btn btn-success">แก้ไข</a>
+                                <a href="{{route('backoffice.edit', $school->course_id)}}" class="btn btn-success">แก้ไข</a>
 
                             </td>
                             <td>
 
-                                <form action="{{route('backoffice.destroy', $school->id)}}" method="POST">
+                                <form action="{{route('backoffice.destroy', $school->course_id)}}" method="POST">
 
                                     @csrf @method('DELETE')
 
