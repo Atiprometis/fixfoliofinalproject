@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="herobanner">
-   
+
     {{-- <img class=" img-fluid col-12 p-0" src="{{ asset('/access/images/hero-banner-1.png') }}" alt="Responsive image" style="background-color: red; height: 50vh;"> --}}
     <div class="container">
         <div class="row d-flex flex-row" style="height: 50vh;">
@@ -96,7 +96,7 @@
                 <div id="my-sticky-element" class="box-image col-3  ">
                     <img class=" bg-light" src=" {{ asset('/access/images/photo-10.png') }}" style="width: 100%; height: 260px;border-radius: 20px; ">
                 </div>
-                <div class=" d-flex flex-column ml-5" style="font-weight: ">
+                <div class=" d-flex flex-column ml-5">
                     <h2 style="font-size: 1.5em; font-weight: 300;">เรียนกับเราได้พัฒนาตัวเอง</h2>
                     <h2 class="mb-4" style="font-size: 1.5em;  font-weight:500;">และยังได้ใบประกาศนียบัตรอีกด้วย</h2>
                     <p class="m-0 font-weight-light" style="font-size: 1.2em;">ผู้ใช้สามารถเลือกเรียนได้ ทั้งคอร์สเรียนออนไลน์ที่สามารถเริ่มเรียนเมื่อไร </p>
@@ -152,7 +152,6 @@
                 @foreach($dataHome as $row)
 
 
-                <a href="{{route('home.show',$row->id)}}" style="color: inherit;">
 
                     <div class=" col-4  p-2   float-left ">
                         <div class=" w-100 ">
@@ -167,26 +166,42 @@
                             </div>
                             <div class="  d-flex flex-column text-insutition pl-3 pt-" style="">
 
+
                                 <div class=" d-flex justify-content-between mt-2">
                                     <p class="" style="font-size: 1em;">{{$row->course_name}}</p>
-                                    <p class=" mr-3" style="font-size: 1em;">{{$row->course_price}}.-</p>
+                                    <p class=" mr-3" style="font-size: 1em;">{{$row->course_cost}}.-</p>
                                 </div>
                                 <div class=" d-flex flex-row ">
                                     <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                    <p class="ml-2 mr-2 mb-1 p-0">{{$row->course_date}} {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_end)->format('H:i')}} น.</p>
+                                    <p class="ml-2 mr-2 mb-1 p-0">{{$row->course_start}} ถึง  {{$row->course_end}} เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_end)->format('H:i')}} น.</p>
                                 </div>
                                 <div class=" d-flex justify-content-between">
                                     <div class=" d-flex flex-row ">
                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
                                         <p class="ml-2 mr-2">{{$row->course_hours}} ชั่วโมง</p>
                                     </div>
-                                    <p class=" mr-3" style="font-size: 1em;">{{$row->course_school_name}}</p>
+                                    <p class=" mr-3" style="font-size: 1em;">{{$row->school_name}}</p>
+
+                                    <div class=" d-flex justify-content-between mt-2">
+                                        <p class="" style="font-size: 1em;">{{$row->course_name}}</p>
+                                        <p class=" mr-3" style="font-size: 1em;">{{$row->course_cost}}.-</p>
+                                    </div>
+                                    <div class=" d-flex flex-row ">
+                                        <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
+                                        <p class="ml-2 mr-2 mb-1 p-0">{{$row->course_start}} {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$row->course_learn_end)->format('H:i')}} น.</p>
+                                    </div>
+                                    <div class=" d-flex justify-content-between">
+                                        <div class=" d-flex flex-row ">
+                                            <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
+                                            <p class="ml-2 mr-2">{{$row->course_hours}} ชั่วโมง</p>
+
+                                        </div>
+                                        <p class=" mr-3" style="font-size: 1em;">{{$row->school_name}}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-                @endforeach
+                        @endforeach
             </div>
 
 
@@ -196,7 +211,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class=" swiper-container col-12 rounded pt-3 pb-3 d-flex w-100 justify-content-md-between flex-row align-items-center p-4" style="background-color: #F7EDFF;"> 
+        <div class=" swiper-container col-12 rounded pt-3 pb-3 d-flex w-100 justify-content-md-between flex-row align-items-center p-4" style="background-color: #F7EDFF;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide d-flex flex-column pt-3 text-center justify-content-center align-items-center" style="background-color: #F7EDFF;">
                         <img class=" rounded-circle " style="width: 200px; height: 200px; " src="{{ asset('/access/images/photo-4.jpeg') }}">
@@ -222,8 +237,8 @@
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-               
-                  
+
+
         </div>
     </div>
 </div>

@@ -28,19 +28,8 @@
 
             <div class="form-group">
 
-                {!! Form::label('Course Name','ชื่อสถาบัน') !!}
-                <input type="text" name="course_school_name" class="form-control" placeholder="{{$courseData->course_school_name}}">
-
-            </div>
-
-        </div>
-
-        <div class="col-md-6">
-
-            <div class="form-group">
-
                 {!! Form::label('Course Detail','ชื่อคอร์ส') !!}
-                <input type="text" name="course_name" class="form-control" placeholder="{{$courseData->course_name}}">
+                <input type="text" name="course_name" class="form-control" value="{{$courseData->course_name}}">
 
             </div>
 
@@ -81,106 +70,28 @@
             <div class="form-group">
 
                 {!! Form::label('Course Learned','ราคา') !!}
-                <input type="text" name="course_price" class="form-control" placeholder="{{$courseData->course_price}}">
+                <input type="text" name="course_price" class="form-control" value="{{$courseData->course_cost}}">
 
             </div>
 
             <div class="form-group">
 
                 {!! Form::label('Course Learned','รายละเอียดคอร์ส') !!}
-                <textarea name="course_text_detail" for="course_text_detail" class="form-control" id="exampleFormControlTextarea1" rows="10" placeholder="{{$courseData->course_text_detail}}"></textarea>
+                {!! Form::textarea('course_detail',$courseData->course_detail,["class"=>"form-control"]) !!}
 
             </div>
-
-{{--            <div class="table-responsive">--}}
-
-{{--                {!! Form::label('Course Learned','เรียนอะไรบ้าง') !!}--}}
-
-{{--                <table class="table table-bordered" id="dynamic_field">--}}
-
-{{--                    <tr>--}}
-
-{{--                        <td>--}}
-
-{{--                            <input type="text" name="course_learnning[]" placeholder="เรียนอะไรบ้าง" class="form-control">--}}
-
-{{--                        </td>--}}
-
-{{--                        <td>--}}
-
-{{--                            <button type="button" name="add" id="add" class="btn btn-success">เพิ่ม</button>--}}
-
-{{--                        </td>--}}
-
-{{--                    </tr>--}}
-
-{{--                </table>--}}
-
-{{--            </div>--}}
-
-{{--            <div class="table-responsive">--}}
-
-{{--                {!! Form::label('Course Learned','เรียนจบแล้วทำอะไรได้') !!}--}}
-
-{{--                <table class="table table-bordered" id="dynamic_field1">--}}
-
-{{--                    <tr>--}}
-
-{{--                        <td>--}}
-
-{{--                            <input type="text" name="course_learn_finish[]" placeholder="เรียนจบแล้วทำอะไรได้" class="form-control">--}}
-
-{{--                        </td>--}}
-
-{{--                        <td>--}}
-
-{{--                            <button type="button" name="add1" id="add1" class="btn btn-success">เพิ่ม</button>--}}
-
-{{--                        </td>--}}
-
-{{--                    </tr>--}}
-
-{{--                </table>--}}
-
-{{--            </div>--}}
-
-{{--            <div class="table-responsive">--}}
-
-{{--                {!! Form::label('Course Learned','ประกอบอาชีพอะไรได้') !!}--}}
-
-{{--                <table class="table table-bordered" id="dynamic_field2">--}}
-
-{{--                    <tr>--}}
-
-{{--                        <td>--}}
-
-{{--                            <input type="text" name="course_career[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control">--}}
-
-{{--                        </td>--}}
-
-{{--                        <td>--}}
-
-{{--                            <button type="button" name="add2" id="add2" class="btn btn-success">เพิ่ม</button>--}}
-
-{{--                        </td>--}}
-
-{{--                    </tr>--}}
-
-{{--                </table>--}}
-
-{{--            </div>--}}
 
             <div class="form-group">
 
                 {!! Form::label('Course Learned','Link Youtube') !!}
-                <input type="text" name="course_linkYoutube" class="form-control" placeholder="{{$courseData->course_linkYoutube}}">
+                <input type="text" name="course_linkYoutube" class="form-control" value="{{$courseData->course_youtube}}">
 
             </div>
 
             <div class="form-group">
 
                 {!! Form::label('Course Learned','เปิดรับสมัคร') !!}
-                <input type="date" name="course_open" class="form-control" placeholder="{{$courseData->course_open}}">
+                <input type="date" name="course_open" class="form-control" value="{{$courseData->course_open}}">
 
 
             </div>
@@ -188,24 +99,41 @@
             <div class="form-group">
 
                 {!! Form::label('Course Learned','ปิดรับสมัคร') !!}
-                <input type="date" name="course_close" class="form-control" placeholder="{{$courseData->course_close}}">
+                <input type="date" name="course_close" class="form-control" value="{{$courseData->course_close}}">
 
             </div>
 
             <div class="form-group">
 
                 {!! Form::label('Course Learned','เรียนทั้งหมดกี่ชั่วโมง') !!}
-                <input type="text" name="course_hours" class="form-control" placeholder="{{$courseData->course_hours}}">
+                <input type="text" name="course_hours" class="form-control" value="{{$courseData->course_hours}}">
 
             </div>
 
             <div class="form-group">
 
-                {!! Form::label('Course Learned','เรียนวันไหน') !!}
-                <select class="form-control" id="exampleFormControlSelect1" name="course_date">
-                    <option>{{$courseData->course_date}}</option>
-                    <option>จันทร์-ศุกร์</option>
-                    <option>เสาร์-อาทิตย์</option>
+                {!! Form::label('course_start','เรียนวันไหน') !!}
+                <select class="form-control" id="exampleFormControlSelect1" name="course_start">
+                    <option>{{$courseData->course_start}}</option>
+                    <option>จันทร์</option>
+                    <option>อังคาร</option>
+                    <option>พุธ</option>
+                    <option>พฤหัสบดี</option>
+                    <option>ศุกร์</option>
+                    <option>เสาร์</option>
+                    <option>อาทิตย์</option>
+                </select>
+
+                {!! Form::label('course_end','ถึง') !!}
+                <select class="form-control" id="exampleFormControlSelect1" name="course_end">
+                    <option>{{$courseData->course_end}}</option>
+                    <option>จันทร์</option>
+                    <option>อังคาร</option>
+                    <option>พุธ</option>
+                    <option>พฤหัสบดี</option>
+                    <option>ศุกร์</option>
+                    <option>เสาร์</option>
+                    <option>อาทิตย์</option>
                 </select>
 
             </div>
@@ -213,14 +141,14 @@
             <div class="form-group">
 
                 {!! Form::label('Course Learned','เริ่มเรียนกี่โมง') !!}
-                <input type="time" name="course_learn_start" class="form-control" placeholder="{{$courseData->course_learn_start}}">
+                <input type="time" name="course_learn_start" class="form-control" value="{{$courseData->course_learn_start}}">
 
             </div>
 
             <div class="form-group">
 
                 {!! Form::label('Course Learned','เลิกเรียนกี่โมง') !!}
-                <input type="time" name="course_learn_end" class="form-control" placeholder="{{$courseData->course_learn_end}}">
+                <input type="time" name="course_learn_end" class="form-control" value="{{$courseData->course_learn_end}}">
 
             </div>
 
@@ -237,7 +165,7 @@
             <div class="form-group">
 
                 {!! Form::label('Course Learned','รูปคอร์ส') !!}
-                <input type="text" name="course_pic" class="form-control" placeholder="{{$courseData->course_pic}}">
+                <input type="text" name="course_pic" class="form-control" value="{{$courseData->image_course}}">
 
             </div>
 
@@ -266,13 +194,6 @@
 {{--                </table>--}}
 
 {{--            </div>--}}
-
-            <div class="form-group">
-
-                {!! Form::label('Course Learned','Link ของสถาบัน') !!}
-                <input type="text" name="course_school_link" class="form-control" placeholder="{{$courseData->course_school_link}}">
-
-            </div>
 
         </div>
 

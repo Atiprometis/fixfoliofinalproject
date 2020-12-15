@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::resource('backoffice', 'BackofficeController');
+Route::resource('createCourseDetail', 'CreateCourseDetailController');
 
 //Route::resource('/', 'HomeController');
 
@@ -54,11 +55,13 @@ Route::get('/registercourse', function () {
 
 Route::get('/portfolio', 'PortfolioController@portfolio');
 Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
+
+Route::resource('/institution', 'InstitutionController');
+
 Route::get('/profileedit/{user_id}', 'PortfolioController@profileedit');
 
 Route::get('/updateprofile/{id}', 'PortfolioController@updateprofile');
 
-Route::resource('/institution', 'InstitutionController');
 
 Route::get('/profileinstitution/{school_id}/{countcourse}', 'InstitutionController@profileinstitution');
 
@@ -69,6 +72,7 @@ Route::get('createtest', 'TestDataController@create');
 // Route::get('upload', 'TestDataController@uploadphoto');
 Route::get('test', 'TestDataController@test');
 
+Route::resource('/search','InstitutionController');
 
 Route::get('/upload/create', 'UploadImagesController@create');
 Route::post('/upload', 'UploadImagesController@store');

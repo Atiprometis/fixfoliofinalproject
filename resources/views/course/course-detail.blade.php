@@ -10,14 +10,7 @@
                 <div class="class-all d-flex flex-column col-lg-7 ">
                     <h2 class="">{{$dataHomeEdit->course_name}}</h2>
                     {{-- <h4 class="">ชื่อโรงเรียน {{$dataHomeEdit->course_school_name}}</h4> --}}
-                    <p class="mt-3 ">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an unknown printer took Lorem Ipsum is
-                        simply dummy text of the printing and typesetting industry. Lorem
-                        Ipsum has been the industry's standard dummy text ever since the
-                        1500s, when an unknown printer took Lorem Ipsum is simply dummy text
-                        of the printing and typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s, when an unknown
+                    <p class="mt-3 ">{{$dataHomeEdit->course_detail}}
                     </p>
                 </div>
                 <div class="box-register-all d-flex flex-column col-lg-3 offset-lg-0 p-0" >
@@ -29,7 +22,7 @@
                         <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
-                                <p>มี</p>
+                                <p>{{$dataHomeEdit->course_certificate}}</p>
                             </div>
 
                         </div>
@@ -41,7 +34,7 @@
                         <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
-                                <p>ไม่เสียค่าใช้จ่าย</p>
+                                <p>{{$dataHomeEdit->course_cost}}</p>
                             </div>
 
                         </div>
@@ -53,9 +46,18 @@
                 <div class="class-all d-flex flex-column col-lg-6">
                     <h1 class="" style="font-size: 1.500em">คอร์สนี้เรียนอะไรบ้าง</h1>
                     <ul>
-                        <li>Coffee</li>
-                        <li>Tea</li>
-                        <li>Milk</li>
+
+                        @foreach($callCourse_learn as $dataLearn)
+                        <?php
+
+                            if ($dataLearn->course_id === $dataHomeEdit->id) {
+
+                        ?>
+
+                                <li>{{$dataLearn->course_name}}</li>
+
+                        <?php } endforeach; ?>
+
                     </ul>
                 </div>
                 <div class="register-time d-flex flex-column mt-3 p-0 m-0 col-3 w-100" >
@@ -65,8 +67,8 @@
                     <div class="time-text rounded-bottom d-flex flex-column p-3  " style="border: solid #000 1px;">
                         <div class=" d-flex flex-column  justify-content-center text-center">
                             {{-- <i class="fab fa-accusoft mr-2"></i> --}}
-                            <p>เปิด 15 กค - 15 สค 2020</p>
-                            <p>ปิด  15 สค 2020</p>
+                            <p>{{$dataHomeEdit->course_open}} ถึง  {{$dataHomeEdit->course_close}}</p>
+                            <p>ปิด  {{$dataHomeEdit->course_close}}</p>
                             <p>หรือปิดรับสมัครเมื่อคอร์สเต็ม</p>
                         </div>
 
@@ -76,11 +78,18 @@
             {{-- 3 --}}
             <div class="3 col-lg-12 d-flex flex-row p-4 mt-4 justify-content-between">
                 <div class="class-all d-flex flex-column col-lg-6 ">
-                    <h1 class="" style="font-size: 1.500em">คอร์สนี้เรียนอะไรบ้าง</h1>
+                    <h1 class="" style="font-size: 1.500em">คอร์สนี้เรียนจบแล้วได้อะไร</h1>
                     <ul>
-                        <li>Coffee</li>
-                        <li>Tea</li>
-                        <li>Milk</li>
+                        @foreach($callCourse_result as $dataResult)
+                            <?php
+
+                            if ($dataResult->course_id === $dataHomeEdit->id) {
+
+                            ?>
+
+                            <li>{{$dataResult->course_result_name}}</li>
+
+                            <?php } endforeach; ?>
                     </ul>
                 </div>
                 <div class="register-time d-flex flex-column mt-3 p-0 m-0 col-3 w-100" >
@@ -92,8 +101,8 @@
                             {{-- <i class="fab fa-accusoft mr-2"></i> --}}
                             <p>80 ชั่วโมง </p>
                             <div class=" d-flex flex-row justify-content-center">
-                                <p class=" m-0 p-0 mr-3">จันทร์ - ศุกร์</p>
-                                <p class=" m-0 p-0 mr-3">9:00 - 14:00 น.</p>
+                                <p class=" m-0 p-0 mr-3">{{$dataHomeEdit->course_start}} ถึง {{$dataHomeEdit->course_end}}</p>
+                                <p class=" m-0 p-0 mr-3">เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$dataHomeEdit->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$dataHomeEdit->course_learn_end)->format('H:i')}} น.</p>
                             </div>
 
                         </div>
@@ -104,11 +113,18 @@
             {{-- 4 --}}
             <div class="4 col-lg-12 d-flex flex-row p-4 mt-4 justify-content-between">
                 <div class="class-all d-flex flex-column col-lg-6 ">
-                    <h1 class="" style="font-size: 1.500em">คอร์สนี้เรียนอะไรบ้าง</h1>
+                    <h1 class="" style="font-size: 1.500em">ประกอบอาชีพอะไรได้บ้าง</h1>
                     <ul>
-                        <li>Coffee</li>
-                        <li>Tea</li>
-                        <li>Milk</li>
+                        @foreach($callCourse_career as $dataCareer)
+                            <?php
+
+                            if ($dataCareer->course_id === $dataHomeEdit->id) {
+
+                            ?>
+
+                            <li>{{$dataCareer->course_career_name}}</li>
+
+                            <?php } endforeach; ?>
                     </ul>
                 </div>
 

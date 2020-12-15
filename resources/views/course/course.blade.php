@@ -1,5 +1,3 @@
-{{-- @include('component.header') --}}
-{{--@extends('layout.app')--}}
 
 @extends('layout.master')
 
@@ -66,41 +64,46 @@
                             </div>
                     </div>
                     <div class="col-12 p-0 m-0">
-                        <?php
-                            for ($i = 1; $i <= 12; $i++) {
-                        ?>
-                            <div class=" col-4  p-2   float-left " >
-                                <div class=" w-100 ">
-                                        <div class=" position-relative">
-                                            <div class="d-flex flex-row w-100 justify-content-md-between p-3 position-absolute">
-                                                <div class="open-course ">เปิดรับสมัคร</div>
-                                                <div class="open-online  ">มีสอนออนไลน์</div>
+
+                        @foreach($readSchoolname as $data)
+
+{{--                            <a href="{{route('course.show',$data->id)}}" style="color: inherit;">--}}
+
+                            <a href="{{route('course.show',$data->course_id)}}" style="color: inherit;">
+
+                                <div class=" col-4  p-2   float-left " >
+                                    <div class=" w-100 ">
+                                            <div class=" position-relative">
+                                                <div class="d-flex flex-row w-100 justify-content-md-between p-3 position-absolute">
+                                                    <div class="open-course ">เปิดรับสมัคร</div>
+                                                    <div class="open-online  ">มีสอนออนไลน์</div>
+                                                </div>
+                                                <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
                                             </div>
-                                            <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
-                                        </div>
-                                    <div class="  d-flex flex-column text-insutition pl-3 pt-" style="">
-                                        <div class=" d-flex justify-content-between mt-2">
-                                            <p class="" style="font-size: 1em;">เบเกอรี่</p>
-                                            <p class=" mr-3" style="font-size: 1em;">ฟรี</p>
-                                        </div>
-                                        <div class=" d-flex flex-row ">
-                                            <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                            <p class="ml-2 mr-2 mb-1 p-0">จ-ศ 9:00 - 15:00</p>
-                                        </div>
-                                        <div class=" d-flex justify-content-between">
+                                        <div class="  d-flex flex-column text-insutition pl-3 pt-" style="">
+                                            <div class=" d-flex justify-content-between mt-2">
+                                                <p class="" style="font-size: 1em;">{{$data->course_name}}</p>
+                                                <p class=" mr-3" style="font-size: 1em;">{{$data->course_cost}}</p>
+                                            </div>
                                             <div class=" d-flex flex-row ">
                                                 <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                                <p class="ml-2 mr-2">90 ชั่วโมง</p>
+                                                <p class="ml-2 mr-2 mb-1 p-0">{{$data->course_start}} - {{$data->course_end}} เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$data->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$data->course_learn_end)->format('H:i')}} น.</p>
                                             </div>
-                                            <p class=" mr-3" style="font-size: 1em;">ศูนย์ฝึกอาชีพเขตมีนบุรี</p>
+                                            <div class=" d-flex justify-content-between">
+                                                <div class=" d-flex flex-row ">
+                                                    <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
+                                                    <p class="ml-2 mr-2">{{$data->course_hours}} ชั่วโมง</p>
+                                                </div>
+
+                                                <p class=" mr-3" style="font-size: 1em;">{{$data->schools_name}}</p>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
+                        @endforeach
 
-                        <?php
-                        }
-                        ?>
                     </div>
                     </div>
                 </div>

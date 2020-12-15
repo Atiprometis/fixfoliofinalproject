@@ -7,11 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 class Home extends Model
 {
     //
-    protected $table = 'course_detail';
+    protected $table = 'courses';
 
     protected $fillable = [
 
-        'id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end'
+        'course_id',
+        'course_school',
+        'course_name',
+        'course_category',
+        'course_certificate',
+        'course_cost',
+        'course_detail',
+        'course_learn',
+        'course_result',
+        'course_career',
+        'course_youtube',
+        'course_open',
+        'course_close',
+        'course_hours',
+        'course_learn_start',
+        'course_learn_end',
+        'course_start',
+        'course_end',
+        'course_online',
+        'image_course',
+        'image_herobanner',
 
     ];
 }

@@ -1,8 +1,4 @@
-{{-- @include('component.header') --}}
-
 @extends('layout.master')
-
-@section('title', 'institution')
 
 @section('content')
     <div class="container">
@@ -10,10 +6,11 @@
             <div class="col-12 d-flex flex-column p-0 m-1">
                 <div class=" col-12 w-100 p-0 m-0 mt-5 search-institution">
                     <h1 style="font-size: 1.750em;">ค้นหาสถาบัน</h1>
-                        <form>
+
+                    {!! Form::open(['action' => 'InstitutionController@store', 'method'=>'POST']) !!}
                             <div class=" d-flex flex-column mb-5">
                                 <div class=" d-flex flex-row">
-                                    <input type="email" class="form-control mr-3 " style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
+                                    <input type="search" class="form-control mr-3 " name="search" style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
                                     <button class="btn " type="submit" style="background-color: #F9C226; width:150px; border-radius: 20px;"> ค้นหา</button>
                                 </div>
                                 <div class="col-8 d-flex flex-row p-0 m-0 mt-3">
@@ -28,9 +25,9 @@
                                       </select>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+
                 </div>
+            </div>
 
                     <div class="d-flex flex-row w-100 text-institution align-items-end justify-content-between">
                         <h1 class="p-0 m-0 ml-2" style="font-size: 1.750em;">สถาบันทั้งหมด</h1>
@@ -56,6 +53,8 @@
                                 <div class="">
                                     <img src="{{ $courseschooldetail->school_image }}" class="insutition-all">
                                     <div class="  d-flex flex-column text-insutition pl-3 pt-2" style="">
+
+                                        <p class="" style="font-size: 1.375em;">{{$courseschooldetail->course_school}}</p>
                                         <p class="" style="font-size: 1.375em;">{{$courseschooldetail->school_name}}</p>
                                         {{-- <p class="" style="font-size: 1.375em;">asdasd</p> --}}
                                         <div class=" d-flex flex-row ">

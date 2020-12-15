@@ -72,13 +72,6 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="form-group row mb-0">
-                                    <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Register') }}
-                                        </button>
-                                    </div>
-                                </div> --}}
                                 <div class="form-group p-0 m-0 mb-0 w-100">
                                     <div class="w-100 d-flex flex-column justify-content-xl-center">
                                         <div class=" d-flex flex-row mt-3 mb-3 justify-content-xl-center align-items-center">
@@ -87,12 +80,7 @@
                                             <button type="submit" class="btn text-light ml-2 mr-2" style="background-color: #4151F0;border-radius: 20px;" >FACEBOOK</button>
 
                                         </div>
-                                        {{-- <small id="passwordlHelp" class="form-text text-muted d-flex justify-content-center m-t-20">คุณยังไม่ได้ลงทะเบียนใช่หรือไม่? <a class="register-text" href="/singup">ลงทะเบียน</a></small> --}}
-                                        {{-- @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('คุณยังไม่ได้ลงทะเบียนใช่หรือไม่') }}
-                                        </a>
-                                        @endif --}}
+
                                     </div>
                                 </div>
                             </form>

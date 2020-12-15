@@ -40,7 +40,7 @@
     <script src="https://kit.fontawesome.com/7f0bb538bf.js" crossorigin="anonymous"></script>
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> --}}
-    
+
     {{-- <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"> --}}
 
     <!-- Latest compiled and minified JavaScript -->
@@ -52,7 +52,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script> --}}
 
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
@@ -72,7 +72,6 @@
     @yield('content')
 
     @yield('footer')
-    {{-- @include('footer.footer') --}}
 
     @include('../script/script')
     @include('../script/magicscript')
