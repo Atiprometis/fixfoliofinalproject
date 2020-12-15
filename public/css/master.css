@@ -1,3 +1,7 @@
+ul {
+    list-style-type: none;
+}
+
 html, body{
     height: 100%;
     width: 100%;
@@ -394,4 +398,8 @@ border:1px solid #ccc !important;
     padding: 0.1em .5em;
     position: relative;
     font-size: 1em;
+}
+
+#listlimited li:nth-of-type(1n+9){
+    display: none;
 }
