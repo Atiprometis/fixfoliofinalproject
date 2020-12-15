@@ -19,7 +19,7 @@ class BackofficeController extends Controller
     {
         //
         $courseData = Backoffice::all();
-        $readSchoolname = DB::select('SELECT courses.id, school.school_name, courses.course_name, courses.course_category FROM school INNER JOIN courses ON courses.course_school = school.course_school');
+        $readSchoolname = DB::select('SELECT courses.course_id, schools.schools_name, courses.course_name, courses.course_category FROM schools INNER JOIN courses ON courses.course_school = schools.schools_id');
 
         return view('backoffice.dashboard', compact('courseData','readSchoolname'));
 
