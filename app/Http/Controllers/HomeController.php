@@ -32,10 +32,10 @@ class HomeController extends Controller
 //        TIME_FORMAT(closetime, "%H:%i") as closetime
 //        FROM hours;
 
-        $dataHome = DB::table('course_detail')
-            ->select('id','course_name','course_type','course_date','course_hours','course_school_name','course_price','course_learn_start','course_learn_end')->paginate(3);
-//        $dataHomeTime = DB::select(TIME_FORMAT('course_learn_start', "%H:%i"),TIME_FORMAT('course_learn_end', "%H:%i"));
-// error_log('message here.sadas');
+
+        $dataHome = DB::select('SELECT courses.course_id, schools.schools_name, courses.course_name, courses.course_category, courses.course_cost, courses.course_start, courses.course_end, courses.course_learn_start, courses.course_learn_end, courses.course_hours FROM schools INNER JOIN courses ON courses.course_school = schools.schools_name');
+
+
         return view('home/homepage', compact('dataHome'));
 
 
@@ -94,7 +94,13 @@ class HomeController extends Controller
         //
         $dataHomeEdit = Home::find($id);
 
-        return view('home/home-course-detail', compact('dataHomeEdit'));
+        $callCourse_learn = DB::select('SELECT course_learn.course_id, course_learn.course_name FROM course_learn INNER JOIN courses ON course_learn.course_id = courses.course_learn');
+
+        $callCourse_result = DB::select('SELECT course_result.course_id, course_result.course_result_name FROM course_result INNER JOIN courses ON course_result.course_id = courses.course_result');
+
+        $callCourse_career = DB::select('SELECT course_career.course_id, course_career.course_career_name FROM course_career INNER JOIN courses ON course_career.course_id = courses.course_career');
+
+        return view('home/home-course-detail', compact('dataHomeEdit','callCourse_learn','callCourse_result','callCourse_career'));
     }
 
 

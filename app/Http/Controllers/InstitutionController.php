@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Institution;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Table;
+
 use App\Models\CourseSchoolDetail;
 use App\Models\Schools;
 
@@ -17,12 +20,14 @@ class InstitutionController extends Controller
     public function index()
     {
 
+        $dataCount = DB::select('SELECT COUNT(`course_id`) AS "count" ,`course_school` FROM courses GROUP BY `course_school`');
 
-        //         SELECT `course_id`, `school_id`, `school_name`, COUNT(school_name) FROM `course_school_details` 
+
+        //         SELECT `course_id`, `school_id`, `school_name`, COUNT(school_name) FROM `course_school_details`
         // GROUP BY `school_name`
 
-        //         SELECT schools.school_image FROM `course_school_details` 
-        // INNER JOIN schools 
+        //         SELECT schools.school_image FROM `course_school_details`
+        // INNER JOIN schools
         // ON course_school_details.school_id = schools.schools_id
 
         // $courseschooldetails = DB::table('course_school_details')
@@ -45,9 +50,7 @@ class InstitutionController extends Controller
             DB::raw('count(course_school_details.school_name) as countcourse'),
             'course_school_details.school_id',
             'course_school_details.school_name',
-            'schools.school_image',
-
-
+            'schools.school_image'
         )
 
             ->join('schools', 'schools.schools_id', '=', 'course_school_details.school_id')
@@ -77,12 +80,13 @@ class InstitutionController extends Controller
 
         return view('institution/institution');
     }
+
     public function profileinstitution($school_id, $countcourse)
     {
 
-        // SELECT `course_name`, `course_cost` , `course_start`,`course_end`,course_learn_start,`course_learn_end`,`course_hours`,course_school_details.school_name 
-        // FROM `courses` 
-        // INNER JOIN course_school_details 
+        // SELECT `course_name`, `course_cost` , `course_start`,`course_end`,course_learn_start,`course_learn_end`,`course_hours`,course_school_details.school_name
+        // FROM `courses`
+        // INNER JOIN course_school_details
         // ON courses.course_id = course_school_details.course_id
 
         $coursesdetails = DB::table('courses')
@@ -133,7 +137,33 @@ class InstitutionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // $dataCount = DB::select('SELECT COUNT(`course_id`) AS "count" ,`course_school` FROM courses GROUP BY `course_school`');
+
+
+        // return view('institution.Institution')->with(compact('courseschooldetails'));
+
+
+        $request->validate([
+
+            'search' => 'required',
+        ]);
+
+        $searchchools =  CourseSchoolDetail::select(
+            DB::raw('count(course_school_details.school_name) as countcourse'),
+            'course_school_details.school_name',
+            'course_school_details.school_id',
+            'course_school_details.school_name',
+            'schools.school_image'
+        )
+            ->join('schools', 'schools.schools_id', '=', 'course_school_details.school_id')
+
+            ->where('course_school_details.school_name', 'LIKE', '%' . $request->search . '%')
+            ->groupBy('course_school_details.school_name', 'school_id', 'schools.school_image')
+            ->get();
+
+
+        return view('institution.search', compact('searchchools'));
     }
 
     /**
@@ -180,4 +210,17 @@ class InstitutionController extends Controller
     {
         //
     }
+
+    //    public function search()
+    //    {
+    //
+    //
+    //        $search_text = $_GET['search'];
+    //
+    //        $institutions = Institution::where('school_name','LIKE','%'.$search_text.'%')->with('Institution')->get();
+    //
+    //        return view('institution.search',compact('institutions'));
+    //
+    //    }
+
 }

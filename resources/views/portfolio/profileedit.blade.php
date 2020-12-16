@@ -253,15 +253,29 @@
                                         <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ศูนย์ฝึกอาชีพ จตุจักร</p>
                                     </div>
                                 </div>
-                                <div class=" d-flex flex-row  w-100 flex-wrap  justify-content-start ">
-                                    @foreach($imagecourses as $imagecourse)
-                                        <div class="  m-1 " style="width: 23%; height:125px; border-radius:10px;" >
-                                            <img src="../courseimages/{{ $imagecourse->images_path }}" alt="" style="width: 100%; height:125px;">
-                                        </div>
+                                <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
+                                    <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
+                                        @foreach($imagecourses as $imagecourse)
                                         
-                                    @endforeach
-                                    <button  class=" bg-warning m-1 " onclick="" id="openerupdate"  style="width: 23%; height:125px; border-radius:10px;" >update</button>
-                                    <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
+                                        <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
+                                                <img src="../courseimages/{{ $imagecourse->images_path }}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                        </li>
+                                                                          
+                                        @endforeach
+                                        
+                                        <li class="col-3 p-0 m-0 mt-2" id="myList">
+                                            <label class="col-12 p-0 m-0" >
+                                                <div  class="bg-warning " id="openerupdate"  style="width: 90%; height:150px; border-radius:10px;" >
+                                                    <i class="fas fa-plus"></i>
+                                                    <p class="p-0 m-0">เพิ่มรูป</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        
+                                        
+                                        
+                                    </ul>
+                                    <ul class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></ul>
                                 </div>
                                 
                                 <div class=" bg-warning m-1 " id="opener" style="width: 100%; height:80px; border-radius:10px;">เพิ่มประสบการณ์</div>
@@ -337,7 +351,7 @@
                         <div class="input-group hdtuto control-group lst increment d-flex flex-row " >
                             <div class=" col-12">
                                 @foreach ($imagecourses as $imagecourse)
-                                    <img src="../courseimages/{{ $imagecourse->images_path }}" alt="" style="width: 25%; height:125px;">
+                                    <img src="../courseimages/{{ $imagecourse->images_path }}"  alt="" style="width: 25%; height:125px;">
                                 @endforeach
                             </div>
                             <div class="input-group-btn"> 

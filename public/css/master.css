@@ -1,3 +1,7 @@
+ul {
+    list-style-type: none;
+}
+
 html, body{
     height: 100%;
     width: 100%;
@@ -70,8 +74,8 @@ height: 100%;
     font-weight: bold;
     font-size: 1.5em;
     background: -webkit-linear-gradient(#FD749B, #281ACB);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     /* color: inear-gradient(180deg, rgba(253,116,155,1) 0%, rgba(40,26,200,1) 65%);; */
 }
 .h1-page{
@@ -218,12 +222,12 @@ height: 100%;
     height: 230px;
     margin-bottom: 20px;
     background-color: #69299C;
-    border-radius: 20px;font-weight: ;
+    border-radius: 20px;
 
 }
 .image-home{
     position: absolute;
-    left: 40;
+    left: 40px;
     top:-30px;
 
 
@@ -394,4 +398,8 @@ border:1px solid #ccc !important;
     padding: 0.1em .5em;
     position: relative;
     font-size: 1em;
+}
+
+#listlimited li:nth-of-type(1n+9){
+    display: none;
 }

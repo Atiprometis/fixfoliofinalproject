@@ -20,7 +20,7 @@
             </ul>
         @endif
 
-        <h1 class="center my-2"> แก้ไขคอร์สเรียน </h1>
+        <h1 class="center my-2"> เพิ่มคอร์สเรียน </h1>
 
         {!! Form::open(['action' => 'BackofficeController@store', 'method'=>'POST']) !!}
 
@@ -28,8 +28,8 @@
 
             <div class="form-group">
 
-                {!! Form::label('Course Name','ชื่อสถาบัน') !!}
-                <input type="text" name="course_school_name" class="form-control">
+                {!! Form::label('course_name','ชื่อคอร์ส') !!}
+                {!! Form::text('course_name',null,["class"=>"form-control"]) !!}
 
             </div>
 
@@ -39,19 +39,8 @@
 
             <div class="form-group">
 
-                {!! Form::label('Course Detail','ชื่อคอร์ส') !!}
-                <input type="text" name="course_name" class="form-control">
-
-            </div>
-
-        </div>
-
-        <div class="col-md-6">
-
-            <div class="form-group">
-
-                {!! Form::label('Course Type','หมวดหมู่') !!}
-                <select class="form-control" id="exampleFormControlSelect1" name="course_type">
+                {!! Form::label('course_category','หมวดหมู่') !!}
+                <select class="form-control" id="exampleFormControlSelect1" name="course_category">
                     <option>อาหาร</option>
                     <option>ตัดเย็บ</option>
                     <option>เสริมสวย</option>
@@ -69,10 +58,10 @@
 
             <div class="form-group">
 
-                {!! Form::label('Course Learned','ใบประกาศนียบัตร') !!}
+                {!! Form::label('course_certificate','ใบประกาศนียบัตร') !!}
                 <select class="form-control" id="exampleFormControlSelect1" name="course_certificate">
-                    <option value="1">มี</option>
-                    <option value="0">ไม่มี</option>
+                    <option >มี</option>
+                    <option >ไม่มี</option>
 
                 </select>
 
@@ -80,107 +69,29 @@
 
             <div class="form-group">
 
-                {!! Form::label('Course Learned','ราคา') !!}
-                <input type="text" name="course_price" class="form-control">
+                {!! Form::label('course_cost','ราคา') !!}
+                {!! Form::number('course_cost',null,["class"=>"form-control"]) !!}
 
             </div>
 
             <div class="form-group">
 
                 {!! Form::label('Course Learned','รายละเอียดคอร์ส') !!}
-                <textarea name="course_text_detail" for="course_text_detail" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-
-            </div>
-
-            <div class="table-responsive">
-
-                {!! Form::label('Course Learned','เรียนอะไรบ้าง') !!}
-
-                <table class="table table-bordered" id="dynamic_field">
-
-                    <tr>
-
-                        <td>
-
-                            <input type="text" name="course_learnning[]" placeholder="เรียนอะไรบ้าง" class="form-control">
-
-                        </td>
-
-                        <td>
-
-                            <button type="button" name="add" id="add" class="btn btn-success">เพิ่ม</button>
-
-                        </td>
-
-                    </tr>
-
-                </table>
-
-            </div>
-
-            <div class="table-responsive">
-
-                {!! Form::label('Course Learned','เรียนจบแล้วทำอะไรได้') !!}
-
-                <table class="table table-bordered" id="dynamic_field1">
-
-                    <tr>
-
-                        <td>
-
-                            <input type="text" name="course_learn_finish[]" placeholder="เรียนจบแล้วทำอะไรได้" class="form-control">
-
-                        </td>
-
-                        <td>
-
-                            <button type="button" name="add1" id="add1" class="btn btn-success">เพิ่ม</button>
-
-                        </td>
-
-                    </tr>
-
-                </table>
-
-            </div>
-
-            <div class="table-responsive">
-
-                {!! Form::label('Course Learned','ประกอบอาชีพอะไรได้') !!}
-
-                <table class="table table-bordered" id="dynamic_field2">
-
-                    <tr>
-
-                        <td>
-
-                            <input type="text" name="course_career[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control">
-
-                        </td>
-
-                        <td>
-
-                            <button type="button" name="add2" id="add2" class="btn btn-success">เพิ่ม</button>
-
-                        </td>
-
-                    </tr>
-
-                </table>
+                {!! Form::textarea('course_detail',null,["class"=>"form-control"]) !!}
 
             </div>
 
             <div class="form-group">
 
                 {!! Form::label('Course Learned','Link Youtube') !!}
-                <input type="text" name="course_linkYoutube" class="form-control">
+                {!! Form::text('course_youtube',null,["class"=>"form-control"]) !!}
 
             </div>
 
             <div class="form-group">
 
-                {!! Form::label('Course Learned','เปิดรับสมัคร') !!}
-                <input type="date" name="course_open" class="form-control">
+                {!! Form::label('course_open','เปิดรับสมัคร') !!}
+                {!! Form::date('course_open',null,["class"=>"form-control"]) !!}
 
 
             </div>
@@ -188,46 +99,61 @@
             <div class="form-group">
 
                 {!! Form::label('Course Learned','ปิดรับสมัคร') !!}
-                <input type="date" name="course_close" class="form-control">
+                {!! Form::date('course_close',null,["class"=>"form-control"]) !!}
+
 
             </div>
 
             <div class="form-group">
 
-                {!! Form::label('Course Learned','เรียนทั้งหมดกี่ชั่วโมง') !!}
-                <input type="text" name="course_hours" class="form-control">
+                {!! Form::label('course_hours','เรียนทั้งหมดกี่ชั่วโมง') !!}
+                {!! Form::number('course_hours',null,["class"=>"form-control"]) !!}
 
             </div>
 
             <div class="form-group">
 
-                {!! Form::label('Course Learned','เรียนวันไหน') !!}
-                <select class="form-control" id="exampleFormControlSelect1" name="course_date">
-                    <option></option>
-                    <option>จันทร์-ศุกร์</option>
-                    <option>เสาร์-อาทิตย์</option>
+                {!! Form::label('course_start','เรียนวันไหน') !!}
+                <select class="form-control" id="exampleFormControlSelect1" name="course_start">
+                    <option>จันทร์</option>
+                    <option>อังคาร</option>
+                    <option>พุธ</option>
+                    <option>พฤหัสบดี</option>
+                    <option>ศุกร์</option>
+                    <option>เสาร์</option>
+                    <option>อาทิตย์</option>
+                </select>
+                {!! Form::label('course_end','ถึง') !!}
+                <select class="form-control" id="exampleFormControlSelect1" name="course_end">
+                    <option>จันทร์</option>
+                    <option>อังคาร</option>
+                    <option>พุธ</option>
+                    <option>พฤหัสบดี</option>
+                    <option>ศุกร์</option>
+                    <option>เสาร์</option>
+                    <option>อาทิตย์</option>
                 </select>
 
             </div>
 
             <div class="form-group">
 
-                {!! Form::label('Course Learned','เริ่มเรียนกี่โมง') !!}
-                <input type="time" name="course_learn_start" class="form-control">
+                {!! Form::label('course_learn_start','เริ่มเรียนกี่โมง') !!}
+                {!! Form::time('course_learn_start',null,["class"=>"form-control"]) !!}
 
             </div>
 
             <div class="form-group">
 
-                {!! Form::label('Course Learned','เลิกเรียนกี่โมง') !!}
-                <input type="time" name="course_learn_end" class="form-control">
+                {!! Form::label('course_learn_end','เลิกเรียนกี่โมง') !!}
+                {!! Form::time('course_learn_end',null,["class"=>"form-control"]) !!}
 
             </div>
 
             <div class="form-group">
 
-                {!! Form::label('Course Learned','เรียนออนไลน์หรือไม่ ?') !!}
-                <select class="form-control" id="exampleFormControlSelect1" name="course_pattern">
+                {!! Form::label('course_online','เรียนออนไลน์หรือไม่ ?') !!}
+                <select class="form-control" id="exampleFormControlSelect1" name="course_online">
                     <option>คอร์สออนไลน์</option>
                     <option>ไม่มีคอร์สออนไลน์</option>
                 </select>
@@ -237,40 +163,7 @@
             <div class="form-group">
 
                 {!! Form::label('Course Learned','รูปคอร์ส') !!}
-                <input type="text" name="course_pic" class="form-control">
-
-            </div>
-
-            <div class="table-responsive">
-
-                {!! Form::label('Course Learned','รูปประกอบการเรียน') !!}
-
-                <table class="table table-bordered" id="dynamic_field3">
-
-                    <tr>
-
-                        <td>
-
-                            <input type="text" name="course_pic_study[]" placeholder="รูปประกอบการเรียน" class="form-control">
-
-                        </td>
-
-                        <td>
-
-                            <button type="button" name="add3" id="add3" class="btn btn-success">เพิ่ม</button>
-
-                        </td>
-
-                    </tr>
-
-                </table>
-
-            </div>
-
-            <div class="form-group">
-
-                {!! Form::label('Course Learned','Link ของสถาบัน') !!}
-                <input type="text" name="course_school_link" class="form-control">
+                <input type="file" name="image_course" class="form-control">
 
             </div>
 
@@ -279,7 +172,6 @@
         <div class="col my-2">
 
             <input type="submit" value="บันทึก" class="btn btn-primary">
-
             <a href="/backoffice" class="btn btn-success">กลับ</a>
 
         </div>
@@ -296,7 +188,7 @@
             $('#add').click(function() {
 
                 i++;
-                $('#dynamic_field').append('<tr id="row1'+i+'"><td><input type="text" name="course_learnning[]" class="form-control course_learnning_list"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button></td></tr>')
+                $('#dynamic_field').append('<tr id="row1'+i+'"><td><input type="text" name="course_learn[]" class="form-control course_learn_list"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button></td></tr>')
 
             })
 
@@ -319,7 +211,7 @@
             $('#add1').click(function() {
 
                 i++;
-                $('#dynamic_field1').append('<tr id="row2'+i+'"><td><input type="text" name="course_learn_finish[]" class="form-control course_learnning_list"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove2">ลบ</button></td></tr>')
+                $('#dynamic_field1').append('<tr id="row2'+i+'"><td><input type="text" name="course_result[]" class="form-control course_learnning_list"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove2">ลบ</button></td></tr>')
 
             })
 
@@ -365,7 +257,7 @@
             $('#add3').click(function() {
 
                 i++;
-                $('#dynamic_field3').append('<tr id="row4'+i+'"><td><input type="text" name="course_pic_study[]" class="form-control course_pic_study"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove4">ลบ</button></td></tr>')
+                $('#dynamic_field3').append('<tr id="row4'+i+'"><td><input type="file" name="image_herobanner[]" class="form-control course_pic_study"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove4">ลบ</button></td></tr>')
 
             })
 

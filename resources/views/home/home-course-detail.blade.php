@@ -10,7 +10,7 @@
                 <div class="class-all d-flex flex-column col-lg-7 ">
                     <h2 class="">{{$dataHomeEdit->course_name}}</h2>
                     {{-- <h4 class="">ชื่อโรงเรียน {{$dataHomeEdit->course_school_name}}</h4> --}}
-                    <p class="mt-3 ">{{$dataHomeEdit->course_text_detail}}
+                    <p class="mt-3 ">{{$dataHomeEdit->course_detail}}
                     </p>
                 </div>
                 <div class="box-register-all d-flex flex-column col-lg-3 offset-lg-0 p-0" >
@@ -64,9 +64,16 @@
                 <div class="class-all d-flex flex-column col-lg-6">
                     <h1 class="" style="font-size: 1.500em">คอร์สนี้เรียนอะไรบ้าง</h1>
                     <ul>
-                        <li>Coffee</li>
-                        <li>Tea</li>
-                        <li>Milk</li>
+                        @foreach($callCourse_learn as $dataResult)
+                            <?php
+
+                            if ($dataResult->course_id === $dataHomeEdit->id) {
+
+                            ?>
+
+                            <li>{{$dataResult->course_name}}</li>
+
+                            <?php } endforeach; ?>
                     </ul>
                 </div>
                 <div class="register-time d-flex flex-column mt-3 p-0 m-0 col-3 w-100" >
@@ -89,9 +96,16 @@
                 <div class="class-all d-flex flex-column col-lg-6 ">
                     <h1 class="" style="font-size: 1.500em">คอร์สนี้เรียนอะไรบ้าง</h1>
                     <ul>
-                        <li>Coffee</li>
-                        <li>Tea</li>
-                        <li>Milk</li>
+                        @foreach($callCourse_result as $dataResult)
+                            <?php
+
+                            if ($dataResult->course_id === $dataHomeEdit->id) {
+
+                            ?>
+
+                            <li>{{$dataResult->course_result_name}}</li>
+
+                            <?php } endforeach; ?>
                     </ul>
                 </div>
                 <div class="register-time d-flex flex-column mt-3 p-0 m-0 col-3 w-100" >
@@ -117,9 +131,16 @@
                 <div class="class-all d-flex flex-column col-lg-6 ">
                     <h1 class="" style="font-size: 1.500em">คอร์สนี้เรียนอะไรบ้าง</h1>
                     <ul>
-                        <li>Coffee</li>
-                        <li>Tea</li>
-                        <li>Milk</li>
+                        @foreach($callCourse_career as $dataResult)
+                            <?php
+
+                            if ($dataResult->course_id === $dataHomeEdit->id) {
+
+                            ?>
+
+                            <li>{{$dataResult->course_career_name}}</li>
+
+                            <?php } endforeach; ?>
                     </ul>
                 </div>
 

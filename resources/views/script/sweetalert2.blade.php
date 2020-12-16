@@ -42,3 +42,6 @@ Swal.fire(`You selected: ${fruit}`)
 
 </script>
 
+<script>
+  
+</script>
