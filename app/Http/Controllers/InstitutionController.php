@@ -50,7 +50,8 @@ class InstitutionController extends Controller
             DB::raw('count(course_school_details.school_name) as countcourse'),
             'course_school_details.school_id',
             'course_school_details.school_name',
-            'schools.school_image')
+            'schools.school_image'
+        )
 
             ->join('schools', 'schools.schools_id', '=', 'course_school_details.school_id')
             // ->find('course_school_details.school_name')
@@ -79,6 +80,7 @@ class InstitutionController extends Controller
 
         return view('institution/institution');
     }
+
     public function profileinstitution($school_id, $countcourse)
     {
 
@@ -136,19 +138,32 @@ class InstitutionController extends Controller
     public function store(Request $request)
     {
 
+        // $dataCount = DB::select('SELECT COUNT(`course_id`) AS "count" ,`course_school` FROM courses GROUP BY `course_school`');
+
+
+        // return view('institution.Institution')->with(compact('courseschooldetails'));
+
+
         $request->validate([
 
-            'search'=>'required',
+            'search' => 'required',
         ]);
 
-        //$institutions = DB::table('school')->select('school_name')->where('school_name','LIKE',$request->search);
+        $searchchools =  CourseSchoolDetail::select(
+            DB::raw('count(course_school_details.school_name) as countcourse'),
+            'course_school_details.school_name',
+            'course_school_details.school_id',
+            'course_school_details.school_name',
+            'schools.school_image'
+        )
+            ->join('schools', 'schools.schools_id', '=', 'course_school_details.school_id')
 
-        //$institutions = Institution::where('school_name','LIKE','%'.$request->search.'%')->with('Institution')->get();
+            ->where('course_school_details.school_name', 'LIKE', '%' . $request->search . '%')
+            ->groupBy('course_school_details.school_name', 'school_id', 'schools.school_image')
+            ->get();
 
-        $institutions = Institution::where('schools_name', 'like','%'.$request->search.'%')->get();
 
-        return view('institution.search',compact('institutions'));
-
+        return view('institution.search', compact('searchchools'));
     }
 
     /**
@@ -196,16 +211,16 @@ class InstitutionController extends Controller
         //
     }
 
-//    public function search()
-//    {
-//
-//
-//        $search_text = $_GET['search'];
-//
-//        $institutions = Institution::where('school_name','LIKE','%'.$search_text.'%')->with('Institution')->get();
-//
-//        return view('institution.search',compact('institutions'));
-//
-//    }
+    //    public function search()
+    //    {
+    //
+    //
+    //        $search_text = $_GET['search'];
+    //
+    //        $institutions = Institution::where('school_name','LIKE','%'.$search_text.'%')->with('Institution')->get();
+    //
+    //        return view('institution.search',compact('institutions'));
+    //
+    //    }
 
 }

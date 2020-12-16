@@ -5,7 +5,7 @@
             <div class="col-12 d-flex flex-column p-0 m-1">
                 <div class=" col-12 w-100 p-0 m-0 mt-5 search-institution">
                     <h1 style="font-size: 1.750em;">ค้นหาสถาบัน</h1>
-                    <form>
+                    {!! Form::open(['action' => 'InstitutionController@store', 'method'=>'POST']) !!}
                         <div class=" d-flex flex-column mb-5">
                             <div class=" d-flex flex-row" type="get" action="{{ url('/search') }}">
                                 <input type="search" class="form-control mr-3 " name="search" style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
@@ -23,7 +23,7 @@
                                 </select>
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
             </div>
 
@@ -44,27 +44,33 @@
             </div>
             <div class="col-12 p-0 m-0">
 
-                @foreach($institutions as $row)
+                @foreach($searchchools as $listschools)
 
-                    <a class="" href="/profileinstitution" style="color: inherit; ">
-                        <div class=" col-3  p-2   float-left " >
-                            <div class="">
-                                <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
-                                <div class="  d-flex flex-column text-insutition pl-3 pt-2" style="">
-                                    <p class="" style="font-size: 1.375em;">{{$row->schools_name}}</p>
-                                    <div class=" d-flex flex-row ">
-                                        <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
+                <a class="" href="/profileinstitution/{{$listschools->school_id}}/{{ $listschools->countcourse }}" style="color: inherit; ">
+                    <div class=" col-3  p-2   float-left " >
+                        <div class="">
+                            <img src="{{ $listschools->school_image }}" class="insutition-all">
+                            <div class="  d-flex flex-column text-insutition pl-3 pt-2" style="">
+
+                                <p class="" style="font-size: 1.375em;">{{$listschools->course_school}}</p>
+                                <p class="" style="font-size: 1.375em;">{{$listschools->school_name}}</p>
+                                {{-- <p class="" style="font-size: 1.375em;">asdasd</p> --}}
+                                <div class=" d-flex flex-row ">
+                                    <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
 
 
                                         <p class="ml-2 mr-2">
-                                            จำนวน {{$row->count}} คอร์ส
+                                            จำนวน {{$listschools->countcourse}} คอร์ส
                                         </p>
+                                        {{-- <p class="ml-2 mr-2">
+                                            จำนวน 45 คอร์ส
+                                        </p> --}}
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                </a>
 
                 @endforeach
 
