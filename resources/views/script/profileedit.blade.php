@@ -1,32 +1,23 @@
 <script>
-  
+
     $(document).ready(function () {
-     
-      // $( "#dialog" ).dialog({
-      //   autoOpen: false,
-      //   show: {
-      //     effect: "blind",
-      //     duration: 1000
-      //   },
-      //   hide: {
-      //     effect: "explode",
-      //     duration: 1000
-      //   }
-      // });
-      
 
       $( "#opener" ).click(function() {
-          
-        $( "#dialog" ).dialog( "open" );
-      });
-    
-  
+        $( "#insertimage" ).dialog( {
+	height: 500,
+	width: 500,
+	modal: true,
+    resizable: false,
+	dialogClass: 'no-close success-dialog'
+});
+
+});
   });
 
 </script>
 
 <script>
-  
+
   $(document).ready(function () {
 
     $( "#openerupdate" ).click(function() {
@@ -38,9 +29,9 @@
 	modal: true,
     resizable: false,
 	dialogClass: 'no-close success-dialog'
-} );
+});
     });
-  
+
 
 });
 
@@ -48,9 +39,9 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $(".btn-success").click(function(){ 
+    $(".btn-success").click(function(){
         $(".clone").append(
-          
+
             '<div class="hdtuto control-group lst input-group" style="margin-top:10px>'
                +'<div class="input-group-btn">'
                 +'<input type="file" name="updateimages[]" class="myfrm form-control">'
@@ -58,8 +49,8 @@
                   +'<i class="fldemo glyphicon glyphicon-remove"></i> Remove'
                 +'</button>'
                +'</div>'
-            +'</div>' 
-          
+            +'</div>'
+
           );
     });
 

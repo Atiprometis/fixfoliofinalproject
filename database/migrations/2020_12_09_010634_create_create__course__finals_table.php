@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateCreateCourseFinalsTable extends Migration
 {
@@ -35,6 +36,6 @@ class CreateCreateCourseFinalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('create__course__finals');
+        Schema::dropIfExists('create_course_finals');
     }
 }

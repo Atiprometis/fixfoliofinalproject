@@ -57,16 +57,6 @@ class PortfolioController extends Controller
         // echo $imagecourses;
         return view('portfolio/profileedit')->with(compact('avatar_images', 'users', 'imagecourses'));
     }
-    public function destroyImagecourses($course_final_id)
-    {
-        $id = Auth::id();
-        $delete = Create_Course_Final::where('course_final_id', '=', $course_final_id)->delete();
-
-        return back();
-
-        // return redirect()->action([PortfolioController::class, 'profileedit' ]);
-    }
-
 
 
     public function updateprofile(Request $request, $id)

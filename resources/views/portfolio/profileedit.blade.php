@@ -292,7 +292,9 @@
                                     <ul class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></ul>
                                 </div>
 
-                                <div class=" bg-warning m-1 " id="opener" style="width: 100%; height:80px; border-radius:10px;">เพิ่มประสบการณ์</div>
+                                <a id="opener">
+                                    <div class=" bg-warning m-1 "  style="width: 100%; height:80px; border-radius:10px;">เพิ่มประสบการณ์</div>
+                                </a>
                             </div>
                         </div>
                         <div class="col-9 d-flex flex-column">
@@ -316,8 +318,9 @@
                     </div>
                 </div>
             </form>
-            <div id="dialog" title="show" style="display: none">
-                {{-- <div>
+
+            <div id="insertimage" title="show" >
+                <div>
                     <p class=" p-0 m-0">รุ่นที่</p>
                     <input type="text">
                 </div>
@@ -329,13 +332,6 @@
                     <p class=" p-0 m-0">สถานที่ศึกษาจบ</p>
                     <input type="text">
                 </div>
-                <div>
-                    <p class=" p-0 m-0">อัพโหลดรูปภาพ</p>
-                    <input name="upload[]" type="file" multiple="multiple" />
-                </div>
-
-                <button>ยืนยัน</button>
-                <button data-role="close">ยกเลิก</button> --}}
 
                 <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
                     {{csrf_field()}}
@@ -346,19 +342,21 @@
                         </div>
                       </div>
                       <div class="clone hide">
-                        <div class="hdtuto control-group lst input-group" style="margin-top:10px">
+                        {{-- <div class="hdtuto control-group lst input-group" style="margin-top:10px">
                           <input type="file" name="images[]" class="myfrm form-control">
                           <div class="input-group-btn">
                             <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
                           </div>
-                        </div>
+                        </div> --}}
                       </div>
 
 
                       <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
                 </form>
+
+
             </div>
-            <div class="" id="updateimages" title="update" >
+            <div class="" id="updateimages" title="update" style="display: none">
                 <form method="post" action="{{url('updateimages')}}" enctype="multipart/form-data">
                     {{csrf_field()}}
 

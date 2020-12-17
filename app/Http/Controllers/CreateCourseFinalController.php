@@ -59,6 +59,16 @@ class CreateCourseFinalController extends Controller
         return back()->with('success', 'Data Your files has been successfully added');
     }
 
+    public function destroyImagecourses($course_final_id)
+    {
+        $id = Auth::id();
+        $delete = Create_Course_Final::where('course_final_id', '=', $course_final_id)->delete();
+
+        return back();
+
+        // return redirect()->action([PortfolioController::class, 'profileedit' ]);
+    }
+
     /**
      * Display the specified resource.
      *

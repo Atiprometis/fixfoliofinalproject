@@ -77,7 +77,7 @@ Route::resource('/search','InstitutionController');
 Route::get('/addid', 'UploadImagesController@create');
 
 Route::post('/upload', 'UploadImagesController@store');
-Route::get('/destroyImagecourses/{course_final_id}', 'PortfolioController@destroyImagecourses');
+Route::get('/destroyImagecourses/{course_final_id}', 'CreateCourseFinalController@destroyImagecourses');
 // Route::get('/delete/{deleteid}', function($id){});
 
 Route::post('filecourse', 'CreateCourseFinalController@store');
