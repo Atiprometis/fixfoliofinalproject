@@ -54,7 +54,7 @@ Route::get('/registercourse', function () {
 });
 
 Route::get('/portfolio', 'PortfolioController@portfolio');
-Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
+Route::resource('/searchportfolio', 'SearchportfolioController');
 
 Route::resource('/institution', 'InstitutionController');
 

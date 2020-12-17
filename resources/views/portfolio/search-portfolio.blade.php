@@ -13,7 +13,7 @@
                         <form>
                             <div class=" d-flex flex-column mb-5">
                                 <div class=" d-flex flex-row">
-                                    <input type="email" class="form-control mr-3 " style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
+                                    <input type="email" name="search" class="form-control mr-3 " style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
                                     <button class="btn " type="submit" style="background-color: #F9C226; width:150px; border-radius: 20px;"> ค้นหา</button>
                                 </div>
                                 <div class="col-8 d-flex flex-row p-0 m-0 mt-3">

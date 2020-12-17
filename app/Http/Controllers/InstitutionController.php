@@ -141,10 +141,6 @@ class InstitutionController extends Controller
             'search'=>'required',
         ]);
 
-        //$institutions = DB::table('school')->select('school_name')->where('school_name','LIKE',$request->search);
-
-        //$institutions = Institution::where('school_name','LIKE','%'.$request->search.'%')->with('Institution')->get();
-
         $institutions = Institution::where('schools_name', 'like','%'.$request->search.'%')->get();
 
         return view('institution.search',compact('institutions'));
