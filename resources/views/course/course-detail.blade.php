@@ -54,7 +54,7 @@
 
                         ?>
 
-                                <li>{{$dataLearn->course_name}}</li>
+                                <li>{{$dataLearn->course_learnning_detail}}</li>
 
                         <?php } endforeach; ?>
 
@@ -87,7 +87,7 @@
 
                             ?>
 
-                            <li>{{$dataResult->course_result_name}}</li>
+                            <li>{{$dataResult->course_learn_finish_detail}}</li>
 
                             <?php } endforeach; ?>
                     </ul>
@@ -122,7 +122,7 @@
 
                             ?>
 
-                            <li>{{$dataCareer->course_career_name}}</li>
+                            <li>{{$dataCareer->course_career_detail}}</li>
 
                             <?php } endforeach; ?>
                     </ul>
