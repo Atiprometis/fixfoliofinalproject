@@ -74,7 +74,8 @@ Route::get('test', 'TestDataController@test');
 
 Route::resource('/search','InstitutionController');
 
-Route::get('/upload/create', 'UploadImagesController@create');
+Route::get('/addid', 'UploadImagesController@create');
+
 Route::post('/upload', 'UploadImagesController@store');
 
 Route::post('filecourse', 'CreateCourseFinalController@store');

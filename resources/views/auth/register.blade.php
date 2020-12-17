@@ -75,7 +75,7 @@
                                 <div class="form-group p-0 m-0 mb-0 w-100">
                                     <div class="w-100 d-flex flex-column justify-content-xl-center">
                                         <div class=" d-flex flex-row mt-3 mb-3 justify-content-xl-center align-items-center">
-                                            <button  type="submit" class="btn text-light ml-2 mr-2 " style="background-color: #741CC7;border-radius: 20px; width: 100px" >{{ __('สมัคร') }}</button>
+                                            <button  type="submit"  class="btn text-light ml-2 mr-2 " style="background-color: #741CC7;border-radius: 20px; width: 100px" >{{ __('สมัคร') }}</button>
                                             <p class="p-0 m-0">หรือ</p>
                                             <button type="submit" class="btn text-light ml-2 mr-2" style="background-color: #4151F0;border-radius: 20px;" >FACEBOOK</button>
 
