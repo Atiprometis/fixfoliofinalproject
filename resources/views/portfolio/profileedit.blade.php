@@ -254,11 +254,25 @@
                                     </div>
                                 </div>
                                 <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
+
                                     <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
                                         @foreach($imagecourses as $imagecourse)
 
                                         <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
-                                                <img src="../courseimages/{{ $imagecourse->images_path }}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+
+                                        {{-- <a href="/destroyImagecourses/{{$imagecourse->course_final_id}}" > --}}
+
+                                        <a class="con-img"  onclick="deleteimages({{$imagecourse->course_final_id}})">
+                                            <img class="hover-image" src="../courseimages/{{ $imagecourse->images_path }}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                            <div class="overlay">
+                                                <div class="overred d-flex justify-content-center align-items-center ">
+                                                    <div class="icon">
+                                                        <i class="fas fa-trash-alt fa-sm "></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                                {{-- <button onclick=""></button> --}}
                                         </li>
 
                                         @endforeach
@@ -266,7 +280,7 @@
                                         <li class="col-3 p-0 m-0 mt-2" id="myList">
                                             <label class="col-12 p-0 m-0" >
                                                 <div  class="bg-warning " id="openerupdate"  style="width: 90%; height:150px; border-radius:10px;" >
-                                                    <i class="fas fa-plus"></i>
+                                                    <i class="fas fa-plus "></i>
                                                     <p class="p-0 m-0">เพิ่มรูป</p>
                                                 </div>
                                             </label>

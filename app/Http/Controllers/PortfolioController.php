@@ -9,6 +9,7 @@ use App\ProfilePortfolio;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 use App\UploadImages;
 use App\Models\Create_Course_Final;
+use PDO;
 
 class PortfolioController extends Controller
 {
@@ -50,12 +51,23 @@ class PortfolioController extends Controller
         $users = ProfilePortfolio::where('user_id', '=', $id)
             ->get();
 
-        $imagecourses = Create_Course_Final::where('user_id', '=', $id)
+         $imagecourses = Create_Course_Final::where('user_id', '=', $id)
             ->get();
 
         // echo $imagecourses;
         return view('portfolio/profileedit')->with(compact('avatar_images', 'users', 'imagecourses'));
     }
+    public function destroyImagecourses($course_final_id)
+    {
+        $id = Auth::id();
+        $delete = Create_Course_Final::where('course_final_id', '=', $course_final_id)->delete();
+
+        return back();
+
+        // return redirect()->action([PortfolioController::class, 'profileedit' ]);
+    }
+
+
 
     public function updateprofile(Request $request, $id)
     {
@@ -161,6 +173,6 @@ class PortfolioController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

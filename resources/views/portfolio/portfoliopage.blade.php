@@ -36,7 +36,7 @@
                             <div class="" style="width: 30%">
                                 <div class=" d-flex flex-column w-100">
                                     <div class=" d-flex flex-row align-items-center justify-content-end ">
-                                        <a href="/profileedit/{{ Auth::user()->id }}"><i class="fas fa-pen fa-lg p-2"></i></a>
+                                        <a href="/profileedit"><i class="fas fa-pen fa-lg p-2"></i></a>
                                         <button onclick="window.print();" class="btn " style="background-color: #F2C94C">
                                         <p class="p-0 m-0" style="font-size: 1em">บันทึกแฟ้มสะสมผลงาน</p>
                                         </button>

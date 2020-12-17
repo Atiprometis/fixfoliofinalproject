@@ -58,7 +58,7 @@ Route::get('/searchportfolio', 'PortfolioController@searchportfolio');
 
 Route::resource('/institution', 'InstitutionController');
 
-Route::get('/profileedit/{user_id}', 'PortfolioController@profileedit');
+Route::get('/profileedit', 'PortfolioController@profileedit');
 
 Route::get('/updateprofile/{id}', 'PortfolioController@updateprofile');
 
@@ -77,5 +77,7 @@ Route::resource('/search','InstitutionController');
 Route::get('/addid', 'UploadImagesController@create');
 
 Route::post('/upload', 'UploadImagesController@store');
+Route::get('/destroyImagecourses/{course_final_id}', 'PortfolioController@destroyImagecourses');
+// Route::get('/delete/{deleteid}', function($id){});
 
 Route::post('filecourse', 'CreateCourseFinalController@store');
