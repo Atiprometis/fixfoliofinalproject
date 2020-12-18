@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\Event\ViewEvent;
 use App\UploadImages;
 use App\Models\Create_Course_Final;
 use App\Models\course_final_images;
+use App\Models\Exp_work;
 
 use PDO;
 
@@ -34,7 +35,22 @@ class PortfolioController extends Controller
             ->get();
         // echo $profiledatas;
         // echo $avatar_image;
-        return view('portfolio/portfoliopage')->with(compact('profiledatas', 'avatar_images'));
+        $imagecourses = Create_Course_Final::where('user_id', '=', $id)
+
+        ->get();
+
+          $imagecoursefinals = course_final_images::select(
+            'course_final_images_id',
+            'images_path',
+            'course_final_id',
+
+        )
+        ->where('course_final_id', '=', 67)
+        ->get();
+
+     $expworks = Exp_work::where('user_id', '=', $id)->get();
+
+        return view('portfolio/portfoliopage')->with(compact('profiledatas', 'avatar_images','imagecourses','imagecoursefinals','expworks'));
     }
 
     public function searchportfolio()
@@ -78,12 +94,14 @@ class PortfolioController extends Controller
         ->where('course_final_id', '=', 67)
         ->get();
 
+     $expworks = Exp_work::where('user_id', '=', $id)->get();
+
         // echo $imagecourses;
-        return view('portfolio/profileedit')->with(compact('avatar_images', 'users', 'imagecourses','imagecoursefinals'));
+        return view('portfolio/profileedit')->with(compact('avatar_images', 'users', 'imagecourses','imagecoursefinals','expworks'));
     }
 
 
-    public function updateprofile(Request $request, $id)
+    public function updateprofile(Request $request)
     {
         // $name = $request->input('name');
         $profile_location = $request->input('profile_location');
@@ -114,11 +132,46 @@ class PortfolioController extends Controller
                 'profile_line' => $profile_line,
 
             ));
+            // $users = ProfilePortfolio::firstOrCreate(
+            //     ['user_id' => $id],
+            //     ['profile_location' => $profile_location],
+            //     ['profile_aboutme' => $profile_aboutme],
+            //     ['profile_age' => $profile_age],
+            //     ['profile_sex' => $profile_sex],
+            //     ['profile_instinct' => $profile_instinct],
+            //     ['profile_province' => $profile_province],
+            //     ['profile_education' => $profile_education],
+            //     ['profile_facebook' => $profile_facebook],
+            //     ['profile_phone' => $profile_phone],
+            //     ['profile_email' => $profile_email],
+            //     ['profile_line' => $profile_line],
+            // );
         // $users = DB::table('profile_portfolios')->where('user_id', '=', $id)
         echo $id;
         // return redirect()->route('institution');
         return redirect('/portfolio');
     }
+
+    public function expwork(Request $request)
+    {
+
+        $id = Auth::id();
+        $flight = Exp_work::create([
+            'user_id' => $id,
+            'position' => $request->input('position'),
+            'company' => $request->input('company'),
+            'county' => $request->input('county'),
+            'province' => $request->input('province'),
+            'year' => $request->input('year'),
+            'month' => $request->input('month'),
+
+        ]);
+
+        return back();
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

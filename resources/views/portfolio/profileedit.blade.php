@@ -22,7 +22,7 @@
                                 <button type="submit" class="btn btn-light mt-2" style="width: 100%; border-radius: 20px;">+ Upload new photo</button>
                         </form>
                     </div>
-                    <form class=" form-group w-100" action="/updateprofile/{id}" method="get" enctype="multipart/form-data">
+                    <form class=" form-group w-100" action="/updateprofile" method="get" enctype="multipart/form-data">
                     <div class="profile-about col-12 h-100 d-flex flex-column justify-content-between">
                         <div class=" d-flex flex-column h-100 mb-4 ">
                             <div class=" d-flex flex-row h-100  justify-content-between ">
@@ -87,14 +87,18 @@
                                 </div>
                             </div>
                         </div>
-                        <h1 class=" font-weight-normal" style="font-size: 1.250em;   ">แนะนำตัว</h1>
+
+                            <h1 class=" font-weight-normal" style="font-size: 1.250em;   ">แนะนำตัว</h1>
                         <input type="text" class="form-control input-lg aboutme rounded p-3 pb-2" style="width: 100%;height: 100%;" name="profile_aboutme"
                                 id="profile_aboutme" aria-describedby="profile_aboutme" placeholder="แนะนำตัว"
                                 @foreach($users as $user)
                                     value={{ $user->profile_aboutme }}
                                 @endforeach
                                 >
+
+
                     </div>
+
                 </div>
                 <div class=" col-12 d-flex flex-row">
                     <div class="contact col-3 pr-0 p-0  d-flex flex-column ">
@@ -290,45 +294,40 @@
                                         </div>
                                         @endforeach
                                     </li>
-
                                 </ul>
-
                                 {{-- <a id="opener" > --}}
-
-
                                 <label id="addExp" class=" p-0 m-0 ">
                                     <div class=" p-0 m-0 d-flex justify-content-center align-items-center text-center" style="width: 100%; height:50px; border-radius:10px;background-color: #8541B4;color:#fff;cursor: pointer;">เพิ่มประสบการณ์</div>
                                 </label>
                             </div>
-
-
 {{-- // ทั้ทงหมด --}}
-
                         </div>
                         <div class="col-9 d-flex flex-column">
                             <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
                             <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
-                                <ul class="p-0 m-0">
-                                    <li class="p-0 m-0">
-                                        <div class=" d-flex flex-row pt-4">
-                                            <div class=" d-flex flex-column w-50 ml-2" >
-                                                <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">ร้านอาหาร กอขอคองอจอฉอ</h1>
-                                                {{-- <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p> --}}
-                                            </div>
-                                            <div class=" d-flex flex-column w-50">
-                                                <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">เบเกอรี่</h1>
-                                                <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ศูนย์ฝึกอาชีพ จตุจักร</p>
-                                            </div>
+                               @foreach ($expworks as $expwork)
+                               <ul class="p-0 m-0">
+                                <li class="p-0 m-0">
+                                    <div class=" d-flex flex-row pt-4">
+                                        <div class=" d-flex flex-column w-50 ml-2" >
+                                            <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$expwork->company}}</h1>
+                                            {{-- <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p> --}}
                                         </div>
-                                        <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
-                                    </li>
-                                </ul>
+                                        <div class=" d-flex flex-column w-50">
+                                            <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$expwork->position}}</h1>
+                                            <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$expwork->province}}</p>
+                                        </div>
+                                    </div>
+                                    <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
+                                </li>
+                            </ul>
+                               @endforeach
+
                                 <label data-toggle="modal" data-target="#Expwork" class=" p-0 m-0 ">
                                     <div class=" p-0 m-0 d-flex justify-content-center align-items-center text-center" style="width: 100%; height:50px; border-radius:10px;background-color: #8541B4;color:#fff;cursor: pointer;">เพิ่มประสบการณ์ทำงาน</div>
                                 </label>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </form>
@@ -491,7 +490,7 @@
 
         </div>
         <div class="modal-body">
-          <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
+          <form method="post" action="{{url('expwork')}}" enctype="multipart/form-data">
               {{csrf_field()}}
               <ul class="m-0 p-0 text-left">
                 <li class="m-0 p-0">
@@ -513,9 +512,6 @@
                     <input id="month" name="month" class="swal2-input m-0" placeholder="ระบุจำนวนเดือน" required>
                 </li>
             </ul>
-
-
-
                 <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
           </form>
         </div>

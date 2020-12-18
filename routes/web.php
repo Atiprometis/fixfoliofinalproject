@@ -60,8 +60,8 @@ Route::resource('/institution', 'InstitutionController');
 
 Route::get('/profileedit', 'PortfolioController@profileedit');
 
-Route::get('/updateprofile/{id}', 'PortfolioController@updateprofile');
-
+Route::get('/updateprofile', 'PortfolioController@updateprofile');
+Route::post('/expwork', 'PortfolioController@expwork');
 
 Route::get('/profileinstitution/{school_id}/{countcourse}', 'InstitutionController@profileinstitution');
 

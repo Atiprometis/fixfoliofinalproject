@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Redirector;
 use App\Http\Controllers\PortfolioController;
-
+use App\ProfilePortfolio;
 
 class UploadImagesController extends Controller
 {
@@ -32,7 +32,7 @@ class UploadImagesController extends Controller
          $id = Auth::id();
 
          $flight = UploadImages::firstOrCreate(['user_id' => $id]);
-
+         $user = ProfilePortfolio::firstOrCreate(['user_id' => $id]);
         //  $flight = UploadImages::create([
         //     'user_id' => $id,
         // ]);
