@@ -88,8 +88,9 @@ class CreateCourseDetailController extends Controller
         $countCourseID = DB::table('courses')->orderBy('course_id','desc')->first();
 
         DB::table('courses')
-            ->where('id', $countCourseID->course_id)
+            ->where('course_id', $countCourseID->course_id)
             ->update([
+                'id'=>$countCourseID->course_id,
                 'course_learn' => $countCourseID->course_id,
                 'course_result' => $countCourseID->course_id,
                 'course_career' => $countCourseID->course_id
