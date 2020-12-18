@@ -10,7 +10,7 @@ class Backoffice extends Model
     protected $table = 'courses';
 
     protected $fillable = [
-
+        'id',
         'course_id',
         'course_school',
         'course_name',

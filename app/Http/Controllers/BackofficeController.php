@@ -19,7 +19,7 @@ class BackofficeController extends Controller
     {
         //
         $courseData = Backoffice::all();
-        $readSchoolname = DB::select('SELECT courses.course_id, schools.schools_name, courses.course_name, courses.course_category FROM schools INNER JOIN courses ON courses.course_school = schools.schools_id');
+        $readSchoolname = DB::select('SELECT courses.id,courses.course_id, schools.schools_name, courses.course_name, courses.course_category FROM schools INNER JOIN courses ON courses.course_school = schools.schools_id');
 
         return view('backoffice.dashboard', compact('courseData','readSchoolname'));
 
@@ -67,11 +67,13 @@ class BackofficeController extends Controller
 
         ]);
 
+        $countCourseID = DB::table('courses')->orderBy('course_id','desc')->first();
 
 
         DB::table('courses')
             ->insert([
 
+                'id'=>$countCourseID->course_id+1,
                 'course_school'=>$id,
                 'course_name'=>$request->course_name,
                 'course_category'=>$request->course_category,
