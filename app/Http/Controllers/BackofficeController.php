@@ -66,14 +66,10 @@ class BackofficeController extends Controller
             'image_course',
 
         ]);
-
-        $countCourseID = DB::table('courses')->orderBy('course_id','desc')->first();
-
-
+        
         DB::table('courses')
             ->insert([
 
-                'id'=>$countCourseID->course_id+1,
                 'course_school'=>$id,
                 'course_name'=>$request->course_name,
                 'course_category'=>$request->course_category,
