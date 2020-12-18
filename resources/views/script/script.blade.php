@@ -41,10 +41,10 @@
     });
 </script>
 
-<script>
+{{-- <script>
    $(doucument).ready(function(){
 
-    
+
 });
-    
-</script>
+
+</script> --}}

@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\UploadImages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Redirector;
+use App\Http\Controllers\PortfolioController;
 
 
 class UploadImagesController extends Controller
@@ -27,8 +29,17 @@ class UploadImagesController extends Controller
      */
     public function create()
     {
-        echo $id = Auth::id();
-        return view('upload/upload');
+         $id = Auth::id();
+
+         $flight = UploadImages::firstOrCreate(['user_id' => $id]);
+
+        //  $flight = UploadImages::create([
+        //     'user_id' => $id,
+        // ]);
+
+
+        return redirect()->action([PortfolioController::class, 'portfolio']);
+        // return view('upload/upload');
     }
 
     /**
@@ -39,17 +50,25 @@ class UploadImagesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-        $id = Auth::id();
+        echo $id = Auth::id();
+        echo '<br>';
+        echo $avatarName = time() . '.' . $request->image->getClientOriginalName();
+
+        $request->image->move(public_path('avatar'), $avatarName);
+
         $avatar = new UploadImages;
         ////Save upload image to 'avatar' folder which in 'storage/app/public' folder
-        $path = $request->file('image')->store('avatar', 'public');
+        // $path = $request->file('image')->store('avatar', 'public');
         //echo $path;
         //Save $path to database or anything else
 
         $avatar = UploadImages::where('user_id', $id)
             // ->where('avatar_path', $path)
-            ->update(['avatar_path' => $path]);
+            ->update(['avatar_path' => $avatarName]);
 
         // $avatar->avatar_path = $path;
 
@@ -60,6 +79,7 @@ class UploadImagesController extends Controller
         // $avatar->save();
         //...
         // return redirect('/');
+
         return redirect('/profileedit/' . $id);
     }
 

@@ -15,7 +15,7 @@
                     ​<p class="d-flex justify-content-center m-b-20">DSP ศูนย์ฝึกอาชีพเขตกรุงเทพมหานคร</p>
 
 
-                    <form class="form-login " name="frm"  action="/home"   method="get">
+                    <form class="form-login" name="frm"  action="/home"   method="get">
                         <div class="signincheck " id="signincheck">
                             <div class="form-group d-flex flex-row">
                                 <div class="form-row">

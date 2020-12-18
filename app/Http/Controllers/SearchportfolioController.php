@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
+use App\ProfilePortfolio;
+use App\UploadImages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SearchportfolioController extends Controller
 {
@@ -14,7 +18,9 @@ class SearchportfolioController extends Controller
     public function index()
     {
         //
-        return view('portfolio.search-portfolio');
+        $profile_port = DB::select('SELECT profile_portfolios.id, users.id, users.name, users.lastname FROM users INNER JOIN profile_portfolios ON profile_portfolios.user_id = users.id');
+        $profile_image = UploadImages::all();
+        return view('portfolio.search-portfolio',compact('profile_port','profile_image'));
     }
 
     /**
@@ -41,9 +47,18 @@ class SearchportfolioController extends Controller
             'search'=>'required',
         ]);
 
-        $institutions = Institution::where('schools_name', 'like','%'.$request->search.'%')->get();
+        $profile_search = Profile::select(
 
-        return view('institution.search',compact('institutions'));
+            'profile_portfolios.id', 'users.id', 'users.name', 'users.lastname'
+
+        )
+            ->join('users', 'profile_portfolios.user_id','=','users.id')
+            ->where('users.name','LIKE','%'.$request->search.'%')
+            ->get();
+
+        $profile_image = UploadImages::all();
+
+        return view('portfolio.search',compact('profile_search','profile_image'));
     }
 
     /**
@@ -55,6 +70,18 @@ class SearchportfolioController extends Controller
     public function show($id)
     {
         //
+
+        $profile_id = Profile::find($id);
+
+        $profiledatas = ProfilePortfolio::where('user_id', '=', $id)
+            ->get();
+        $avatar_images = UploadImages::where('user_id', '=', $id)
+            ->get();
+
+        $profile_port = DB::select('SELECT profile_portfolios.id, users.id, users.name, users.lastname FROM users INNER JOIN profile_portfolios ON profile_portfolios.user_id = users.id');
+
+        return view('portfolio/profile-detail',compact('profile_id','profiledatas','avatar_images','profile_port'));
+
     }
 
     /**

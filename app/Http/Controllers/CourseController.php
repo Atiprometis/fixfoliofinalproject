@@ -19,6 +19,7 @@ class CourseController extends Controller
 
         $readSchoolname = DB::select('SELECT courses.course_id, schools.schools_name, courses.course_name, courses.course_category, courses.course_cost, courses.course_start, courses.course_end, courses.course_learn_start, courses.course_learn_end, courses.course_hours FROM schools INNER JOIN courses ON courses.course_school = schools.schools_id');
 
+        // echo json_encode($readSchoolname);
         return view('course/course',compact('readSchoolname'));
 
     }

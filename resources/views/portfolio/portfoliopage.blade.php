@@ -1,4 +1,3 @@
-{{-- @include('component.header') --}}
 @extends('layout.master')
 
 @section('title', 'Portfolio')
@@ -10,7 +9,7 @@
             <div class="profile rounded col-12 d-flex flex-row mt-5 align-items-start justify-content-between ">
                 <div class="card p-3 col-3" style=" height: 340px">
                     @foreach($avatar_images as $avatar_image)
-                        <img class="card-img-top rounded" src='../storage/{{ $avatar_image->avatar_path }}' alt="Card image cap" style="height: 250px;">
+                        <img class="card-img-top rounded" src='../avatar/{{ $avatar_image->avatar_path }}' alt="Card image cap" style="height: 250px;">
                     @endforeach
                     {{-- <img class="card-img-top rounded" src='../access/images/people-1.png' alt="Card image cap" style="height: 250px;"> --}}
                       {{-- <button type="summit" class="btn btn-light mt-2" style="width: 100%; border-radius: 20px;">+ Upload new photo</button> --}}
@@ -36,12 +35,12 @@
                             <div class="" style="width: 30%">
                                 <div class=" d-flex flex-column w-100">
                                     <div class=" d-flex flex-row align-items-center justify-content-end ">
-                                        <a href="/profileedit/{{ Auth::user()->id }}"><i class="fas fa-pen fa-lg p-2"></i></a>
+                                        <a href="/profileedit"><i class="fas fa-pen fa-lg p-2"></i></a>
                                         <button onclick="window.print();" class="btn " style="background-color: #F2C94C">
                                         <p class="p-0 m-0" style="font-size: 1em">บันทึกแฟ้มสะสมผลงาน</p>
                                         </button>
                                     </div>
-                                    
+
                                     <div class=" d-flex flex-row  text-center pl-4 ml-2">
                                         <label class="switch m-0 mt-1">
                                             <input type="checkbox" class="success" id="customSwitch1">
@@ -50,7 +49,7 @@
                                         <div class=" d-flex align-items-center">
                                             <label for="customSwitch1" class="m-0 mt-1 ml-2" >หางาน</label>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -86,14 +85,14 @@
                         </div>
                         <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
                             <div class="" style="width: 30px ;background:#FF6660; border-radius: 5px;">
-                                
+
                                 <i class="fas fa-venus-mars fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
                             <div >
                                 @foreach($profiledatas as $profiledata)
                                 <p class="m-0 p-2">เพศ {{ $profiledata->profile_sex }}</p>
                                 @endforeach
-                                
+
                             </div>
 
                         </div>
@@ -105,7 +104,7 @@
                                 @foreach($profiledatas as $profiledata)
                                 <p class="m-0 p-2">สัญชาติ {{ $profiledata->profile_instinct }} </p>
                                 @endforeach
-                                
+
                             </div>
 
                         </div>
@@ -117,20 +116,20 @@
                                 @foreach($profiledatas as $profiledata)
                                 <p class="m-0 p-2"> {{ $profiledata->profile_province }} </p>
                                 @endforeach
-                                
+
                             </div>
 
                         </div>
                         <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
                             <div class="" style="width: 30px ;background:#5181B8; border-radius: 5px;">
-                                
+
                                 <i class="fas fa-graduation-cap fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
                             <div >
                                 @foreach($profiledatas as $profiledata)
                                 <p class="m-0 p-2"> {{ $profiledata->profile_education }} </p>
                                 @endforeach
-                                
+
                             </div>
 
                         </div>
@@ -138,13 +137,13 @@
                         <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                             <div class="" style="width: 30px ;background:#4267B2; border-radius: 5px;">
                                 <i class="fab fa-facebook-f fa-sm p-2  rounded" style="color: #fff"></i>
-                                
+
                             </div>
                             <div >
                                 @foreach($profiledatas as $profiledata)
                                 <p class="m-0 p-2"> {{ $profiledata->profile_facebook }} </p>
                                 @endforeach
-                                
+
                             </div>
 
                         </div>
@@ -167,19 +166,19 @@
                                 @foreach($profiledatas as $profiledata)
                                 <p class="m-0 p-2"> {{ $profiledata->profile_email }} </p>
                                 @endforeach
-                                
+
                             </div>
                         </div>
                         <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                             <div class="" style="width: 30px ;background:#3ACE01; border-radius: 5px;">
                                 <i class="fab fa-line fa-sm p-2  rounded" style="color: #fff"></i>
-                                
+
                             </div>
                             <div >
                                 @foreach($profiledatas as $profiledata)
                                 <p class="m-0 p-2"> {{ $profiledata->profile_line }} </p>
                                 @endforeach
-                                
+
                             </div>
                         </div>
                     </div>

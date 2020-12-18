@@ -52,7 +52,7 @@
 
                             <a href="/backoffice" class="dropdown-item">{{ __('Backoffice') }}</a>
 
-                            <a class="dropdown-item" href="/portfolio">
+                            <a class="dropdown-item" href="/addid">
                                 portfolio
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"

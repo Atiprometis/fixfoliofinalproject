@@ -58,7 +58,7 @@ Route::resource('/searchportfolio', 'SearchportfolioController');
 
 Route::resource('/institution', 'InstitutionController');
 
-Route::get('/profileedit/{user_id}', 'PortfolioController@profileedit');
+Route::get('/profileedit', 'PortfolioController@profileedit');
 
 Route::get('/updateprofile/{id}', 'PortfolioController@updateprofile');
 
@@ -70,11 +70,20 @@ Route::get('/clicktest', 'TestDataController@index');
 
 Route::get('createtest', 'TestDataController@create');
 // Route::get('upload', 'TestDataController@uploadphoto');
-Route::get('test', 'TestDataController@test');
+Route::get('/test', 'TestDataController@test');
+Route::post('/testpost', 'TestDataController@test');
+// Route::post('/getmsg', 'TestDataController@test');
 
 Route::resource('/search','InstitutionController');
 
-Route::get('/upload/create', 'UploadImagesController@create');
+Route::get('/addid', 'UploadImagesController@create');
+
 Route::post('/upload', 'UploadImagesController@store');
+Route::get('/destroyImagecourses/{course_final_id}', 'CreateCourseFinalController@destroyImagecourses');
+// Route::get('/delete/{deleteid}', function($id){});
 
 Route::post('filecourse', 'CreateCourseFinalController@store');
+
+Route::post('/addExpp', 'CreateCourseFinalController@create');
+
+Route::post('/testexp', 'CreateCourseFinalController@test');
