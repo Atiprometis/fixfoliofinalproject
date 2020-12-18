@@ -22,7 +22,6 @@
 
     $( "#openerupdate" ).click(function() {
       // var height = $( "#updateimages" ).dialog( "option", "height" );
-
       $( "#updateimages" ).dialog( {
 	height: 500,
 	width: 500,
@@ -44,7 +43,7 @@
 
             '<div class="hdtuto control-group lst input-group" style="margin-top:10px>'
                +'<div class="input-group-btn">'
-                +'<input type="file" name="updateimages[]" class="myfrm form-control">'
+                +'<input type="file" name="images[]" class="myfrm form-control">'
                 +'<button class="btn btn-danger" id="removeall" type="button">'
                   +'<i class="fldemo glyphicon glyphicon-remove"></i> Remove'
                 +'</button>'

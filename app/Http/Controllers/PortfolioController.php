@@ -9,6 +9,8 @@ use App\ProfilePortfolio;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
 use App\UploadImages;
 use App\Models\Create_Course_Final;
+use App\Models\course_final_images;
+
 use PDO;
 
 class PortfolioController extends Controller
@@ -51,11 +53,33 @@ class PortfolioController extends Controller
         $users = ProfilePortfolio::where('user_id', '=', $id)
             ->get();
 
-         echo $imagecourses = Create_Course_Final::where('user_id', '=', $id)
-            ->get();
+        //  echo   $imagecourses = Create_Course_Final::select(
+        //     'course_final_id',
+        //     'user_id',
+        //     'generation',
+        //     'corse_name',
+        //     'location',
+        //  )
+        // //  ->where('user_id', '=', $id)
+        // //  ->join('course_final_images', 'create_course_finals.course_final_id', '=', 'course_final_images.course_final_id')
+        // // ->groupBy('course_final_id')
+        //  ->where('create_course_finals.user_id', '=', $id)
+        // ->get();
+         $imagecourses = Create_Course_Final::where('user_id', '=', $id)
+
+        ->get();
+
+          $imagecoursefinals = course_final_images::select(
+            'course_final_images_id',
+            'images_path',
+            'course_final_id',
+
+        )
+        ->where('course_final_id', '=', 67)
+        ->get();
 
         // echo $imagecourses;
-        return view('portfolio/profileedit')->with(compact('avatar_images', 'users', 'imagecourses'));
+        return view('portfolio/profileedit')->with(compact('avatar_images', 'users', 'imagecourses','imagecoursefinals'));
     }
 
 
