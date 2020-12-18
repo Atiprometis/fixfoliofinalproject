@@ -72,7 +72,7 @@
                             <a href="{{route('course.show',$data->course_id)}}" style="color: inherit;">
 
                                 <div class=" col-4  p-2   float-left " >
-                                    <div class=" w-100 ">
+                                    <div class=" w-100 " >
                                             <div class=" position-relative">
                                                 <div class="d-flex flex-row w-100 justify-content-md-between p-3 position-absolute">
                                                     <div class="open-course ">เปิดรับสมัคร</div>
@@ -80,10 +80,10 @@
                                                 </div>
                                                 <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
                                             </div>
-                                        <div class="  d-flex flex-column text-insutition pl-3 pt-" style="">
+                                        <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 130px">
                                             <div class=" d-flex justify-content-between mt-2">
-                                                <p class="" style="font-size: 1em;">{{$data->course_name}}</p>
-                                                <p class=" mr-3" style="font-size: 1em;">{{$data->course_cost}}</p>
+                                                <p class="d-inline-block text-truncate" style="font-size: 1em;">{{$data->course_name}}</p>
+                                                <p class="pl-2 mr-3" style="font-size: 1em;">{{$data->course_cost}}</p>
                                             </div>
                                             <div class=" d-flex flex-row ">
                                                 <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>

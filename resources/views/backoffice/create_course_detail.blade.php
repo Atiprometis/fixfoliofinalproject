@@ -62,7 +62,7 @@
 
                         <td>
 
-                            <input type="text" name="course_result[]" placeholder="เรียนจบแล้วทำอะไรได้" class="form-control">
+                            <input type="text" name="course_result[]" placeholder="เรียนจบแล้วทำอะไรได้" class="form-control" required>
 
                         </td>
 
@@ -88,7 +88,7 @@
 
                         <td>
 
-                            <input type="text" name="course_career[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control">
+                            <input type="text" name="course_career[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
 
                         </td>
 
@@ -126,7 +126,7 @@
             $('#add').click(function() {
 
                 i++;
-                $('#dynamic_field').append('<tr id="row1'+i+'"><td><input type="text" name="course_learn[]" class="form-control course_learn_list"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button></td></tr>')
+                $('#dynamic_field').append('<tr id="row1'+i+'"><td><input type="text" name="course_learn[]" class="form-control course_learn_list" required></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button></td></tr>')
 
             })
 
@@ -149,7 +149,7 @@
             $('#add1').click(function() {
 
                 i++;
-                $('#dynamic_field1').append('<tr id="row2'+i+'"><td><input type="text" name="course_result[]" class="form-control course_learnning_list"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove2">ลบ</button></td></tr>')
+                $('#dynamic_field1').append('<tr id="row2'+i+'"><td><input type="text" name="course_result[]" class="form-control course_learnning_list" required></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove2">ลบ</button></td></tr>')
 
             })
 
@@ -172,7 +172,7 @@
             $('#add2').click(function() {
 
                 i++;
-                $('#dynamic_field2').append('<tr id="row3'+i+'"><td><input type="text" name="course_career[]" class="form-control course_career"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove3">ลบ</button></td></tr>')
+                $('#dynamic_field2').append('<tr id="row3'+i+'"><td><input type="text" name="course_career[]" class="form-control course_career" required></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove3">ลบ</button></td></tr>')
 
             })
 
@@ -195,7 +195,7 @@
             $('#add3').click(function() {
 
                 i++;
-                $('#dynamic_field3').append('<tr id="row4'+i+'"><td><input type="file" name="image_herobanner[]" class="form-control course_pic_study"></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove4">ลบ</button></td></tr>')
+                $('#dynamic_field3').append('<tr id="row4'+i+'"><td><input type="file" name="image_herobanner[]" class="form-control course_pic_study" required></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove4">ลบ</button></td></tr>')
 
             })
 

@@ -204,10 +204,10 @@
                                     <i class="fas fa-phone-alt fa-sm p-2  rounded" style="color: #fff"></i>
                                 </div>
                                 <div class=" d-flex flex-row">
-                                    <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_phone"
+                                    <input type="text" class="form-control outline-none aboutme rounded " pattern="[0]{1}[0-9]{9}" maxlength="10" style="width: 100%;height: 100%;" name="profile_phone"
                                 id="profile_phone" aria-describedby="profile_phone" placeholder="ระบุเบอร์โทร"
                                 @foreach($users as $user)
-                                value={{ $user->profile_phone }}
+                                value="0{{ $user->profile_phone }}"
                                 @endforeach
                                 >
                                 </div>
@@ -218,7 +218,7 @@
                                     <i class="fas fa-envelope fa-sm p-2  rounded" style="color: #fff"></i>
                                 </div>
                                 <div class=" d-flex flex-row">
-                                    <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_email"
+                                    <input type="email" maxlength="40" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_email"
                                 id="profile_email" aria-describedby="profile_email" placeholder="ระบุ E-mail"
                                 @foreach($users as $user)
                                 value={{ $user->profile_email }}
@@ -232,7 +232,7 @@
 
                                 </div>
                                 <div class=" d-flex flex-row">
-                                    <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_line"
+                                    <input type="text" maxlength="40" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_line"
                                 id="profile_line" aria-describedby="profile_line" placeholder="ระบุ Line ID"
                                 @foreach($users as $user)
                                 value={{ $user->profile_line }}
