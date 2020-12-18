@@ -84,9 +84,6 @@ $(document).ready(function () {
 </script>
 
 <script>
-
-
-
 $('#addExp').click(async function () {
     // var generation: $('#generation').val();
     // var corse_name: $('#corse_name').val();
@@ -153,6 +150,85 @@ $('#addExp').click(async function () {
 
     });
 </script>
+<script>
+    $('#addExpwork').click(async function () {
+        // var generation: $('#generation').val();
+        // var corse_name: $('#corse_name').val();
+        // var location: $('#location').val();
+
+        const {value: songRequest} = await swal({
+
+
+        title: 'เพิ่มหลักสูตรที่เรียนจบ',
+        html:
+
+                    '<ul class="m-0 p-0 text-left">'
+                        +'<li class="m-0 p-0">'
+                            +'<p class=" p-0 m-0 mt-2 mb-2">ตำแหน่ง</p>'
+                            +'<input id="position" name="position" class="swal2-input m-0" placeholder="ระบุตำแหน่ง" required>'
+                        +'</li>'
+                        +'<li>'
+                            +'<p class=" p-0 m-0 mt-2 mb-2">ชื่อบริษัท</p>'
+                            +'<input id="company" name="company" class="swal2-input m-0" placeholder="ระบุชื่อบริษัท" required>'
+                        +'</li>'
+                        +'<li>'
+                            +'<p class=" p-0 m-0 mt-2 mb-2">สถานที่ตั้งบริษัท</p>'
+                            +'<input id="county" name="county" class="swal2-input m-0" placeholder="ระบุเขต" required>'
+                            +'<input id="province" name="province" class="swal2-input m-0" placeholder="ระบุจังหวัด" required>'
+                        +'</li>'
+                        +'<li>'
+                            +'<p class=" p-0 m-0 mt-2 mb-2">ระยะเวลาทำงาน</p>'
+                            +'<input id="year" name="year" class="swal2-input m-0" placeholder="ระบุจำนวนปี" required>'
+                            +'<input id="month" name="month" class="swal2-input m-0" placeholder="ระบุจำนวนเดือน" required>'
+                        +'</li>'
+                    +'</ul>',
+                    preConfirm: () => ({
+                        position: $('#position').val(),
+                        company: $('#company').val(),
+                        county: $('#county').val(),
+                        province: $('#province').val(),
+                        year: $('#year').val(),
+                        month: $('#month').val(),
+                        // window.location.href = '{{url('/generation/corse_name')}}/';
+
+                })
+        });
+        if (songRequest){
+            $.ajax({
+                   type:'POST',
+                   url:'/addExpp',
+                   data:{
+                    position: songRequest.position,
+                    company: songRequest.company,
+                    county: songRequest.county,
+                    province: songRequest.province,
+                    year: songRequest.year,
+                    month: songRequest.month,
+                    _token: '{{csrf_token()}}',
+                   }
+                   ,
+                   success:function(data) {
+                swal(
+                "บันทึกข้อมูลสำเร็จ",
+                "กำลังทำการบันทึกข้อมูล",
+                "success"
+                )
+            },
+            failure: function (data) {
+                swal(
+                "Internal Error",
+                "Oops, your note was not saved.", // had a missing comma
+                "error"
+                )
+            }
+                });
+            // Swal.fire(JSON.stringify(songRequest))
+
+            // swal(`${songRequest.generation} ${songRequest.corse_name}`);
+        }
+
+        });
+    </script>
 {{-- <script>
     function getMessage() {
             $.ajax({

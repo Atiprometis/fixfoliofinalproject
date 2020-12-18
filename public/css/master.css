@@ -436,6 +436,7 @@ position: absolute;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 
+
 }
   .con-img:hover .overlay {
     opacity: 0.6;

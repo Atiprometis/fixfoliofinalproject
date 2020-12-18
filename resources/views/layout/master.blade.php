@@ -40,7 +40,11 @@
 
     <script src="https://kit.fontawesome.com/7f0bb538bf.js" crossorigin="anonymous"></script>
 
+
 {{--    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>--}}
+
+
+
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> --}}
 
@@ -85,7 +89,7 @@
 
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     {{-- <script src="js/scrollmagic/minified/ScrollMagic.min.js"></script> --}}
-
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </body>
 
 </html>

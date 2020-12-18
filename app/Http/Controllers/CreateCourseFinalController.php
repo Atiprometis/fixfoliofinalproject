@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Create_Course_Final;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\course_final_images;
 
 class CreateCourseFinalController extends Controller
 {
@@ -33,7 +34,7 @@ class CreateCourseFinalController extends Controller
     {
         // return view('test/test');
         $id = Auth::id();
-        $gen = $request->input('generation');
+        // $gen = $request->input('generation');
 
         echo $id;
 
@@ -101,9 +102,11 @@ class CreateCourseFinalController extends Controller
 
                 // echo $images[] = $name;
 
-                Create_Course_Final::insert([
-                    'images_path' =>  time() . '.' . $file->getClientOriginalName(),
+                course_final_images::insert([
+                    'course_final_id' => 67,
                     'user_id' => $id,
+                    'images_path' =>  time() . '.' . $file->getClientOriginalName(),
+
                 ]);
             }
         }
@@ -113,7 +116,7 @@ class CreateCourseFinalController extends Controller
     public function destroyImagecourses($course_final_id)
     {
         $id = Auth::id();
-        $delete = Create_Course_Final::where('course_final_id', '=', $course_final_id)->delete();
+        $delete = course_final_images::where('course_final_images_id', '=', $course_final_id)->delete();
 
         return back();
 

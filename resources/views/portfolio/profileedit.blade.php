@@ -11,7 +11,7 @@
                 {{-- {{ csrf_field() }}
                 {{ method_field('POST') }} --}}
                 <div class="profile rounded col-12 d-flex flex-row mt-5 align-items-start justify-content-between ">
-                    <div class="card p-3 col-3" style=" height: 340px">
+                    <div class="card p-3 col-3" style=" height: 360px">
                         @foreach($avatar_images as $avatar_image)
                         <img class="card-img-top rounded" src='../avatar/{{ $avatar_image->avatar_path }}' alt="Card image cap" style="height: 250px;">
                         @endforeach
@@ -245,54 +245,58 @@
                             {{-- //เริ่ม  ทั้ทงหมด --}}
 
                             <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
-                                @foreach($imagecourses as $imagecourse)
-                                <div class=" d-flex flex-row pt-4">
-                                    <div class=" d-flex flex-column w-50 ml-2" >
-                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">รุ่นที่ {{$imagecourse->generation}}</h1>
-                                        <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p>
-                                    </div>
-                                    <div class=" d-flex flex-column w-50">
-                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$imagecourse->corse_name}}</h1>
-                                        <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$imagecourse->location}}</p>
-                                    </div>
-                                </div>
-                                <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
-
-                                    <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
-                                        <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
-
-                                        {{-- <a href="/destroyImagecourses/{{$imagecourse->course_final_id}}" > --}}
-
-                                        <a class="con-img"  onclick="deleteimages({{$imagecourse->course_final_id}})">
-                                            <img class="hover-image" src="../courseimages/{{ $imagecourse->images_path }}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
-                                            <div class="overlay">
-                                                <div class="overred d-flex justify-content-center align-items-center ">
-                                                    <div class="icon">
-                                                        <i class="fas fa-trash-alt fa-sm "></i>
-                                                    </div>
-                                                </div>
+                                <ul class="p-0 m-0">
+                                    <li class="p-0 m-0">
+                                        @foreach($imagecourses as $imagecourse)
+                                        <div class=" d-flex flex-row pt-4">
+                                            <div class=" d-flex flex-column w-50 ml-2" >
+                                                <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">รุ่นที่ {{$imagecourse->generation}}</h1>
+                                                <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p>
                                             </div>
-                                        </a>
-                                                {{-- <button onclick=""></button> --}}
-                                        </li>
-                                        <li class="col-3 p-0 m-0 mt-2" id="myList">
-                                            <label class="col-12 p-0 m-0" >
-                                                <div  class="bg-warning " id="openerupdate"  style="width: 90%; height:150px; border-radius:10px;" >
-                                                    <i class="fas fa-plus "></i>
-                                                    <p class="p-0 m-0">เพิ่มรูป</p>
-                                                </div>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                    <ul class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></ul>
+                                            <div class=" d-flex flex-column w-50">
+                                                <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$imagecourse->corse_name}}</h1>
+                                                <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$imagecourse->location}}</p>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                        <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
+                                            <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
+                                                @foreach ($imagecoursefinals as $imagecoursefinal)
+                                                <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
+                                                <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})">
+                                                    <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                                    <div class="overlay">
+                                                        <div class="overred d-flex justify-content-center align-items-center ">
+                                                            <div class="icon">
+                                                                <i class="fas fa-trash-alt fa-sm "></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                        {{-- <button onclick=""></button> --}}
+                                                </li>
+                                                @endforeach
+                                                <li class="col-3 p-0 m-0 mt-2" id="myList">
+                                                    <label class="col-12 p-0 m-0" style="cursor: pointer;">
+                                                        <div  class="bg-light d-flex flex-row justify-content-center align-items-center" id="openerupdate"  style="width: 90%; height:150px; border-radius:10px;" >
+                                                                <i class="fas fa-plus bg-danger mr-1 ml-1 p-2" style="border-radius: 20px;color:#fff;"></i>
+                                                            <p class="p-0 m-0">เพิ่มรูป</p>
+                                                        </div>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                            <ul class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></ul>
+                                        </div>
+                                        @endforeach
+                                    </li>
+
+                                </ul>
 
                                 {{-- <a id="opener" > --}}
 
-                                @endforeach
-                                <label id="addExp" class=" p-0 m-0">
-                                    <div class=" bg-warning p-0 m-0 " style="width: 100%; height:80px; border-radius:10px;">เพิ่มประสบการณ์</div>
+
+                                <label id="addExp" class=" p-0 m-0 ">
+                                    <div class=" p-0 m-0 d-flex justify-content-center align-items-center text-center" style="width: 100%; height:50px; border-radius:10px;background-color: #8541B4;color:#fff;cursor: pointer;">เพิ่มประสบการณ์</div>
                                 </label>
                             </div>
 
@@ -303,18 +307,24 @@
                         <div class="col-9 d-flex flex-column">
                             <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
                             <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
-                                <div class=" d-flex flex-row pt-4">
-                                    <div class=" d-flex flex-column w-50 ml-2" >
-                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">ร้านอาหาร กอขอคองอจอฉอ</h1>
-                                        {{-- <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p> --}}
-                                    </div>
-                                    <div class=" d-flex flex-column w-50">
-                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">เบเกอรี่</h1>
-                                        <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ศูนย์ฝึกอาชีพ จตุจักร</p>
-                                    </div>
-                                </div>
-                                <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
-
+                                <ul class="p-0 m-0">
+                                    <li class="p-0 m-0">
+                                        <div class=" d-flex flex-row pt-4">
+                                            <div class=" d-flex flex-column w-50 ml-2" >
+                                                <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">ร้านอาหาร กอขอคองอจอฉอ</h1>
+                                                {{-- <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p> --}}
+                                            </div>
+                                            <div class=" d-flex flex-column w-50">
+                                                <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">เบเกอรี่</h1>
+                                                <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ศูนย์ฝึกอาชีพ จตุจักร</p>
+                                            </div>
+                                        </div>
+                                        <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
+                                    </li>
+                                </ul>
+                                <label id="addExpwork" class=" p-0 m-0 ">
+                                    <div class=" p-0 m-0 d-flex justify-content-center align-items-center text-center" style="width: 100%; height:50px; border-radius:10px;background-color: #8541B4;color:#fff;cursor: pointer;">เพิ่มประสบการณ์ทำงาน</div>
+                                </label>
                             </div>
                         </div>
 
@@ -365,15 +375,31 @@
 
             </div>
             <div class="" id="updateimages" title="update" style="display: none">
-                <form method="post" action="{{url('updateimages')}}" enctype="multipart/form-data">
+                <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
                     {{csrf_field()}}
 
                         <div class="input-group hdtuto control-group lst increment d-flex flex-row " >
                             <div class=" col-12">
-                                @foreach ($imagecourses as $imagecourse)
-                                    <img src="../courseimages/{{ $imagecourse->images_path }}"  alt="" style="width: 25%; height:125px;">
-                                @endforeach
+                                <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
+                                    @foreach ($imagecoursefinals as $imagecoursefinal)
+                                    <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
+                                    <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})">
+                                        <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                        <div class="overlay">
+                                            <div class="overred d-flex justify-content-center align-items-center ">
+                                                <div class="icon">
+                                                    <i class="fas fa-trash-alt fa-sm "></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                            {{-- <button onclick=""></button> --}}
+                                    </li>
+                                    @endforeach
+
+                                </ul>
                             </div>
+
                             <div class="input-group-btn">
                               <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
                             </div>

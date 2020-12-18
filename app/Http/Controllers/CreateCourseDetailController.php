@@ -85,12 +85,14 @@ class CreateCourseDetailController extends Controller
 
         ]);
 
+        $countCourseID = DB::table('courses')->orderBy('course_id','desc')->first();
+
         DB::table('courses')
-            ->where('id', $id)
+            ->where('id', $countCourseID->course_id)
             ->update([
-                'course_learn' => $id,
-                'course_result' => $id,
-                'course_career' => $id
+                'course_learn' => $countCourseID->course_id,
+                'course_result' => $countCourseID->course_id,
+                'course_career' => $countCourseID->course_id
 
             ]);
 
@@ -98,10 +100,10 @@ class CreateCourseDetailController extends Controller
         for ($i = 0;$i < count($request->course_learn); $i++) {
 
             $course_learn[] = [
-                'course_learn_id' => $id."0000".$i+1,
-                'course_name' => $request->course_learn[$i],
-                'course_learn' => $id,
-                'course_id' => $id,
+                //'course_learn_id' => $id."0000".$i+1,
+                'course_learnning_detail' => $request->course_learn[$i],
+                //'course_learn' => $id,
+                'course_id' => $countCourseID->course_id,
             ];
 
         }
@@ -112,10 +114,10 @@ class CreateCourseDetailController extends Controller
         for ($i = 0;$i < count($request->course_result); $i++) {
 
             $course_result[] = [
-                'course_result_id' => $id."0000".$i+1,
-                'course_result_name' => $request->course_result[$i],
-                'course_result' => $id,
-                'course_id' => $id,
+                //'course_result_id' => $id."0000".$i+1,
+                'course_learn_finish_detail' => $request->course_result[$i],
+                //'course_result' => $id,
+                'course_id' => $countCourseID->course_id,
             ];
 
         }
@@ -126,10 +128,10 @@ class CreateCourseDetailController extends Controller
         for ($i = 0;$i < count($request->course_career); $i++) {
 
             $course_career[] = [
-                'course_career_id' => $id."0000".$i+1,
-                'course_career_name' => $request->course_career[$i],
-                'course_career' => $id,
-                'course_id' => $id,
+                //'course_career_id' => $id."0000".$i+1,
+                'course_career_detail' => $request->course_career[$i],
+                //'course_career' => $id,
+                'course_id' => $countCourseID->course_id,
             ];
 
         }
