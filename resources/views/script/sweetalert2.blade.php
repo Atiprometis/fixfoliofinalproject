@@ -82,3 +82,86 @@ $(document).ready(function () {
         })
     }
 </script>
+
+<script>
+
+
+
+$('#addExp').click(async function () {
+    // var generation: $('#generation').val();
+    // var corse_name: $('#corse_name').val();
+    // var location: $('#location').val();
+
+    const {value: songRequest} = await swal({
+
+
+    title: 'เพิ่มหลักสูตรที่เรียนจบ',
+    html:
+
+                '<ul class="m-0 p-0 text-left">'
+                    +'<li class="m-0 p-0">'
+                        +'<p class=" p-0 m-0 mt-2 mb-2">รุ่นที่</p>'
+                        +'<input id="generation" name="generation" class="swal2-input m-0" required>'
+                    +'</li>'
+                    +'<li>'
+                        +'<p class=" p-0 m-0 mt-2 mb-2">ชื่อหลักสูตร</p>'
+                        +'<input id="corse_name" name="corse_name" class="swal2-input m-0" required>'
+                    +'</li>'
+                    +'<li>'
+                        +'<p class=" p-0 m-0 mt-2 mb-2">สถานที่ศึกษาจบ</p>'
+                        +'<input id="location" name="location" class="swal2-input m-0" required>'
+                    +'</li>'
+                +'</ul>',
+                preConfirm: () => ({
+                    generation: $('#generation').val(),
+                    corse_name: $('#corse_name').val(),
+                    location: $('#location').val(),
+                    // window.location.href = '{{url('/generation/corse_name')}}/';
+
+            })
+    });
+    if (songRequest){
+        $.ajax({
+               type:'POST',
+               url:'/addExpp',
+               data:{
+                generation: songRequest.generation,
+                corse_name: songRequest.corse_name,
+                location: songRequest.location,
+                _token: '{{csrf_token()}}',
+               }
+               ,
+               success:function(data) {
+            swal(
+            "บันทึกข้อมูลสำเร็จ",
+            "กำลังทำการบันทึกข้อมูล",
+            "success"
+            )
+        },
+        failure: function (data) {
+            swal(
+            "Internal Error",
+            "Oops, your note was not saved.", // had a missing comma
+            "error"
+            )
+        }
+            });
+        // Swal.fire(JSON.stringify(songRequest))
+
+        // swal(`${songRequest.generation} ${songRequest.corse_name}`);
+    }
+
+    });
+</script>
+{{-- <script>
+    function getMessage() {
+            $.ajax({
+               type:'GET',
+               url:'/test',
+               data:'1123311',
+               success:function(data) {
+                  $("#msg").html(data.msg);
+               }
+            });
+         }
+</script> --}}

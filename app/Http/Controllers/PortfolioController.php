@@ -51,7 +51,7 @@ class PortfolioController extends Controller
         $users = ProfilePortfolio::where('user_id', '=', $id)
             ->get();
 
-         $imagecourses = Create_Course_Final::where('user_id', '=', $id)
+         echo $imagecourses = Create_Course_Final::where('user_id', '=', $id)
             ->get();
 
         // echo $imagecourses;

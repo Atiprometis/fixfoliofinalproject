@@ -23,9 +23,60 @@ class CreateCourseFinalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function test(Request $request)
     {
-        //
+        echo 'aasd';
+        return view('test/test');
+    }
+
+    public function create(Request $request)
+    {
+        // return view('test/test');
+        $id = Auth::id();
+        $gen = $request->input('generation');
+
+        echo $id;
+
+        $flight = Create_Course_Final::create([
+            'user_id' => $id,
+            'generation' => $request->input('generation'),
+            'corse_name' => $request->input('corse_name'),
+            'location' => $request->input('location'),
+            // 'month_start' => 'London to Paris',
+            // 'month_end' => 'London to Paris',
+        ]);
+
+
+
+
+
+        // if($request->ajax()){
+        //     $input = $request->all();
+        //     // $data = array(
+        //     //     'generation' => $input['generation'],
+        //     //     'corse_name' => $input['corse_name'],
+        //     //     'location' => $input['location']
+
+        //     //  );
+
+        //     $id = Auth::id();
+        //     $flight = Create_Course_Final::create([
+        //     'user_id' => $id,
+        //     'generation' => $input['generation'],
+        //     'corse_name' => $input['corse_name'],
+        //     'location' => $input['location'],
+        //     // 'month_start' => 'London to Paris',
+        //     // 'month_end' => 'London to Paris',
+        // ]);
+        // return back();
+        // }
+
+
+        // echo $generation;
+        // echo $corse_name;
+
+
+        // return back();
     }
 
     /**

@@ -70,7 +70,9 @@ Route::get('/clicktest', 'TestDataController@index');
 
 Route::get('createtest', 'TestDataController@create');
 // Route::get('upload', 'TestDataController@uploadphoto');
-Route::get('test', 'TestDataController@test');
+Route::get('/test', 'TestDataController@test');
+Route::post('/testpost', 'TestDataController@test');
+// Route::post('/getmsg', 'TestDataController@test');
 
 Route::resource('/search','InstitutionController');
 
@@ -81,3 +83,7 @@ Route::get('/destroyImagecourses/{course_final_id}', 'CreateCourseFinalControlle
 // Route::get('/delete/{deleteid}', function($id){});
 
 Route::post('filecourse', 'CreateCourseFinalController@store');
+
+Route::post('/addExpp', 'CreateCourseFinalController@create');
+
+Route::post('/testexp', 'CreateCourseFinalController@test');

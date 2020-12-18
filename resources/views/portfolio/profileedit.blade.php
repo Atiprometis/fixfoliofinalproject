@@ -242,22 +242,23 @@
                     <div class=" d-flex flex-column w-100 col-12 p-0 m-0">
                         <div class="col-9 d-flex flex-column">
                             <h1 class="m-0 mt-2 p-0 font-weight-normal" style="font-size: 1.250em;   font-weight: bold;">คอร์สที่เรียนจบ</h1>
+                            {{-- //เริ่ม  ทั้ทงหมด --}}
+
                             <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
+                                @foreach($imagecourses as $imagecourse)
                                 <div class=" d-flex flex-row pt-4">
                                     <div class=" d-flex flex-column w-50 ml-2" >
-                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">รุ่นที่ 10</h1>
+                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">รุ่นที่ {{$imagecourse->generation}}</h1>
                                         <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p>
                                     </div>
                                     <div class=" d-flex flex-column w-50">
-                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">เบเกอรี่</h1>
-                                        <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ศูนย์ฝึกอาชีพ จตุจักร</p>
+                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$imagecourse->corse_name}}</h1>
+                                        <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$imagecourse->location}}</p>
                                     </div>
                                 </div>
                                 <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
 
                                     <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
-                                        @foreach($imagecourses as $imagecourse)
-
                                         <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
 
                                         {{-- <a href="/destroyImagecourses/{{$imagecourse->course_final_id}}" > --}}
@@ -274,9 +275,6 @@
                                         </a>
                                                 {{-- <button onclick=""></button> --}}
                                         </li>
-
-                                        @endforeach
-
                                         <li class="col-3 p-0 m-0 mt-2" id="myList">
                                             <label class="col-12 p-0 m-0" >
                                                 <div  class="bg-warning " id="openerupdate"  style="width: 90%; height:150px; border-radius:10px;" >
@@ -285,17 +283,22 @@
                                                 </div>
                                             </label>
                                         </li>
-
-
-
                                     </ul>
                                     <ul class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></ul>
+
                                 </div>
 
-                                <a id="opener">
-                                    <div class=" bg-warning m-1 "  style="width: 100%; height:80px; border-radius:10px;">เพิ่มประสบการณ์</div>
-                                </a>
+                                {{-- <a id="opener" > --}}
+
+                                @endforeach
+                                <label id="addExp" class=" p-0 m-0">
+                                    <div class=" bg-warning p-0 m-0 " style="width: 100%; height:80px; border-radius:10px;">เพิ่มประสบการณ์</div>
+                                </label>
                             </div>
+
+
+{{-- // ทั้ทงหมด --}}
+
                         </div>
                         <div class="col-9 d-flex flex-column">
                             <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
@@ -319,19 +322,24 @@
                 </div>
             </form>
 
-            <div id="insertimage" title="show" >
-                <div>
-                    <p class=" p-0 m-0">รุ่นที่</p>
-                    <input type="text">
-                </div>
-                <div>
-                    <p class=" p-0 m-0">ชื่อหลักสูตร</p>
-                    <input type="text">
-                </div>
-                <div>
-                    <p class=" p-0 m-0">สถานที่ศึกษาจบ</p>
-                    <input type="text">
-                </div>
+            <div id="insertimage" title="show" style="display: none">
+                <form method="get" action="addExpp/'sadasd'/'asda'" enctype="multipart/form-data">
+                    <ul class="m-0 p-0 text-left">
+                        <li class="m-0 p-0">
+                            <p class=" p-0 m-0 mt-2 mb-2">รุ่นที่</p>
+                            <input id="swal-input1" name="generation" class="swal2-input m-0">
+                        </li>
+                        <li>
+                            <p class=" p-0 m-0 mt-2 mb-2">ชื่อหลักสูตร</p>
+                            <input id="swal-input2" name="corse_name" class="swal2-input m-0">
+                        </li>
+                        <li>
+                            <p class=" p-0 m-0 mt-2 mb-2">สถานที่ศึกษาจบ</p>
+                            <input id="swal-input3" name="location" class="swal2-input m-0">
+                        </li>
+                    </ul>
+                    <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
+                </form>
 
                 <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
                     {{csrf_field()}}
@@ -385,6 +393,7 @@
 
                       <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
                 </form>
+
             </div>
 
         </div>

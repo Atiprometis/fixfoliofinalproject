@@ -55,8 +55,9 @@ class TestDataController extends Controller
     {
         return view('upload/upload');
     }
-    public function test()
+    public function test(Request $request)
     {
+        echo 'aasd';
         return view('test/test');
     }
 
