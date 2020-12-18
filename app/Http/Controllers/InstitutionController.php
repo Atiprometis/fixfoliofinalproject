@@ -149,6 +149,9 @@ class InstitutionController extends Controller
             'search' => 'required',
         ]);
 
+
+        $institutions = Institution::where('schools_name', 'like','%'.$request->search.'%')->get();
+
         $searchchools =  CourseSchoolDetail::select(
             DB::raw('count(course_school_details.school_name) as countcourse'),
             'course_school_details.school_name',

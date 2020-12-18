@@ -66,6 +66,7 @@ class CourseController extends Controller
         //
 
 
+
     }
 
     /**
@@ -80,11 +81,12 @@ class CourseController extends Controller
 
         $dataHomeEdit = Course::find($id);
 
-        $callCourse_learn = DB::select('SELECT course_learn.course_id, course_learn.course_name FROM course_learn INNER JOIN courses ON course_learn.course_id = courses.course_learn');
+         $callCourse_learn = DB::select('SELECT course_learn.course_id, course_learn.course_learnning_detail FROM course_learn INNER JOIN courses ON course_learn.course_id = courses.course_learn');
+        //  echo json_encode($dataHomeEdit);
+        //  echo json_encode($callCourse_learn);
+         $callCourse_result = DB::select('SELECT course_result.course_id, course_result.course_learn_finish_detail FROM course_result INNER JOIN courses ON course_result.course_id = courses.course_result');
 
-        $callCourse_result = DB::select('SELECT course_result.course_id, course_result.course_result_name FROM course_result INNER JOIN courses ON course_result.course_id = courses.course_result');
-
-        $callCourse_career = DB::select('SELECT course_career.course_id, course_career.course_career_name FROM course_career INNER JOIN courses ON course_career.course_id = courses.course_career');
+         $callCourse_career = DB::select('SELECT course_career.course_id, course_career.course_career_detail FROM course_career INNER JOIN courses ON course_career.course_id = courses.course_career');
 
         return view('course/course-detail', compact('dataHomeEdit','callCourse_learn','callCourse_result','callCourse_career'));
     }

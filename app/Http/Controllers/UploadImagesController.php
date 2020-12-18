@@ -80,7 +80,8 @@ class UploadImagesController extends Controller
         //...
         // return redirect('/');
 
-        return redirect('/profileedit/' . $id);
+        // return redirect('/profileedit/' . $id);
+        return back();
     }
 
     /**

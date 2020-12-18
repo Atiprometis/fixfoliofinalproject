@@ -161,7 +161,6 @@ $('#addExp').click(async function () {
 
         title: 'เพิ่มหลักสูตรที่เรียนจบ',
         html:
-
                     '<ul class="m-0 p-0 text-left">'
                         +'<li class="m-0 p-0">'
                             +'<p class=" p-0 m-0 mt-2 mb-2">ตำแหน่ง</p>'

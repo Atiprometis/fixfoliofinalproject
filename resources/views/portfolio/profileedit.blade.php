@@ -277,10 +277,11 @@
                                                 </li>
                                                 @endforeach
                                                 <li class="col-3 p-0 m-0 mt-2" id="myList">
-                                                    <label class="col-12 p-0 m-0" style="cursor: pointer;">
-                                                        <div  class="bg-light d-flex flex-row justify-content-center align-items-center" id="openerupdate"  style="width: 90%; height:150px; border-radius:10px;" >
+
+                                                    <label class="col-12 p-0 m-0" style="cursor: pointer;"  data-toggle="modal" data-target="#exampleModalCenter">
+                                                        <div  class="bg-light d-flex flex-row justify-content-center align-items-center"   style="width: 90%; height:150px; border-radius:10px;" >
                                                                 <i class="fas fa-plus bg-danger mr-1 ml-1 p-2" style="border-radius: 20px;color:#fff;"></i>
-                                                            <p class="p-0 m-0">เพิ่มรูป</p>
+                                                                <p class="p-0 m-0">เพิ่มรูป</p>
                                                         </div>
                                                     </label>
                                                 </li>
@@ -322,7 +323,7 @@
                                         <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
                                     </li>
                                 </ul>
-                                <label id="addExpwork" class=" p-0 m-0 ">
+                                <label data-toggle="modal" data-target="#Expwork" class=" p-0 m-0 ">
                                     <div class=" p-0 m-0 d-flex justify-content-center align-items-center text-center" style="width: 100%; height:50px; border-radius:10px;background-color: #8541B4;color:#fff;cursor: pointer;">เพิ่มประสบการณ์ทำงาน</div>
                                 </label>
                             </div>
@@ -374,6 +375,8 @@
 
 
             </div>
+
+
             <div class="" id="updateimages" title="update" style="display: none">
                 <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
                     {{csrf_field()}}
@@ -422,6 +425,104 @@
 
             </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">เพิ่มรูป</h5>
+
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
+            {{csrf_field()}}
+
+                <div class="input-group hdtuto control-group lst increment d-flex flex-row " >
+                    <div class=" col-12">
+                        <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
+                            @foreach ($imagecoursefinals as $imagecoursefinal)
+                            <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
+                            <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})">
+                                <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                <div class="overlay">
+                                    <div class="overred d-flex justify-content-center align-items-center ">
+                                        <div class="icon">
+                                            <i class="fas fa-trash-alt fa-sm "></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                                    {{-- <button onclick=""></button> --}}
+                            </li>
+                            @endforeach
+
+                        </ul>
+                    </div>
+
+                    <div class="input-group-btn mt-2 mb-2">
+                      <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                    </div>
+                </div>
+
+              <div class="clone hide">
+                {{-- <div class="hdtuto control-group lst input-group"  style="margin-top:10px">
+                  <input type="file" name="updateimages[]" class="myfrm form-control">
+                  <div class="input-group-btn">
+                    <button class="btn btn-danger" id="removeall" type="button">
+                        <i class="fldemo glyphicon glyphicon-remove"></i> Remove
+                    </button>
+                  </div>
+                </div> --}}
+              </div>
+              <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Modal exp work -->
+<div class="modal fade" id="Expwork" tabindex="-1" role="dialog" aria-labelledby="Expwork" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">เพิ่มประสบการณ์ทำงาน</h5>
+
+        </div>
+        <div class="modal-body">
+          <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
+              {{csrf_field()}}
+              <ul class="m-0 p-0 text-left">
+                <li class="m-0 p-0">
+                    <p class=" p-0 m-0 mt-2 mb-2">ตำแหน่ง</p>
+                    <input id="position" name="position" class="swal2-input m-0" placeholder="ระบุตำแหน่ง" required>
+                </li>
+                <li>
+                    <p class=" p-0 m-0 mt-2 mb-2">ชื่อบริษัท</p>
+                    <input id="company" name="company" class="swal2-input m-0" placeholder="ระบุชื่อบริษัท" required>
+                </li>
+                <li>
+                    <p class=" p-0 m-0 mt-2 mb-2">สถานที่ตั้งบริษัท</p>
+                    <input id="county" name="county" class="swal2-input m-0" placeholder="ระบุเขต" required>
+                    <input id="province" name="province" class="swal2-input m-0" placeholder="ระบุจังหวัด" required>
+                </li>
+                <li>
+                    <p class=" p-0 m-0 mt-2 mb-2">ระยะเวลาทำงาน</p>
+                    <input id="year" name="year" class="swal2-input m-0" placeholder="ระบุจำนวนปี" required>
+                    <input id="month" name="month" class="swal2-input m-0" placeholder="ระบุจำนวนเดือน" required>
+                </li>
+            </ul>
+
+
+
+                <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
         </div>
     </div>
 

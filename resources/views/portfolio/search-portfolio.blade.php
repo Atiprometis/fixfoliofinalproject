@@ -1,5 +1,3 @@
-{{-- @include('component.header') --}}
-
 @extends('layout.master')
 
 @section('title', 'ค้นหาผลงาน')
@@ -13,7 +11,7 @@
                         <form>
                             <div class=" d-flex flex-column mb-5">
                                 <div class=" d-flex flex-row">
-                                    <input type="email" class="form-control mr-3 " style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
+                                    <input type="search" name="search" class="form-control mr-3 " style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
                                     <button class="btn " type="submit" style="background-color: #F9C226; width:150px; border-radius: 20px;"> ค้นหา</button>
                                 </div>
                                 <div class="col-8 d-flex flex-row p-0 m-0 mt-3">
@@ -50,18 +48,26 @@
                             </div>
                         </div>
                     </div>
-                <div class="col-12 p-0 m-0">
-                    <?php
-                        for ($i = 1; $i <= 12; $i++) {
-                    ?>
-                        <a class="" href="/profileinstitution" style="color: inherit; ">
+
+
+
+                @foreach ($profile_port as $profile_port):
+
+                    <div class="col-12 p-0 m-0">
+                        <a class="" href="{{route('searchportfolio.show',$profile_port->id)}}" style="color: inherit; ">
                             <div class=" col-4  p-2   float-left " >
                                 <div class=" d-flex flex-column w-100 position-relative" style="border-radius: 15px 15px 0px 0px;">
 
                                     <div class=" w-100" style="height: 130px; background-color: #69299C;border-radius: 15px 15px 0px 0px;border: solid 1px #E5E5E5;"></div>
                                     <div class=" w-100 p-3 d-flex flex-column justify-content-center align-items-center" style="height: 200px; background-color: #fff;border-radius: 0px 0px 15px 15px;border: solid 1px #E5E5E5;">
-                                        <img src="{{ asset('/access/images/photo-5.png') }}" class="people-port ">
-                                        <h1 class=" p-0 m-0  font-weight-bold" style="font-size: 1.375em;">ประสิท แสงสว่างจ้า</h1>
+                                        @foreach($profile_image as $profile_image)
+
+                                            @if($profile_port->id === $profile_image->user_id)
+                                                <img src="../avatar/{{ $profile_image->avatar_path }}" class="people-port ">
+                                            @endif
+
+                                        @endforeach
+                                        <h1 class=" p-0 m-0  font-weight-bold" style="font-size: 1.375em;">{{$profile_port->name}} {{$profile_port->lastname}}</h1>
                                         <p class="p-0 m-0  font-weight-light" style="font-size: 1.375em;">ประสบการณ์ทำงานผู้ช่วยเชฟ 2 ปี </p>
                                         <p class="p-0 m-0 pb-5 mb-4 mt-2 font-weight-light" style="font-size: 1em; color:#69299C;">ทักษะ อาหารคาว, เบเกอรี่, ภาษาอังกฤษ</p>
                                     </div>
@@ -70,11 +76,11 @@
                                 </div>
                             </div>
                         </a>
+                    </div>
 
-                    <?php
-                    }
-                    ?>
-                </div>
+                @endforeach
+
+
                 {{-- <div class=" d-flex w-100 flex-row align-items-center justify-content-center ">
                     <a href="#" class=" d-flex flex-row align-items-center justify-content-center">
                         <p class=" text-center mt-3">แสดงเพิ่มเติม</p>

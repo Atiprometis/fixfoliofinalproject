@@ -3,10 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\QueryException;
-use Illuminate\Support\Facades\DB;
 
-class AddTimestamp extends Migration
+class AddIdCourses extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +13,12 @@ class AddTimestamp extends Migration
      */
     public function up()
     {
+        //
+        Schema::table('courses', function (Blueprint $table) {
 
-            // $table->timestamp('created_at')->useCurrent();
-            // $table->timestamp('updated_at')->default(DB::raw('NULL ON UPDATE CURRENT_TIMESTAMP'))->nullable();
+            $table->string('id')->first();
 
-
-
+        });
     }
 
     /**
@@ -31,6 +29,5 @@ class AddTimestamp extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('courses');
     }
 }

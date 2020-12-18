@@ -117,7 +117,7 @@ class BackofficeController extends Controller
         //
         $courseData = Backoffice::find($id);
 
-        return view('backoffice.edit_course', compact(['courseData']));
+        return view('backoffice.edit_course', compact('courseData'));
     }
 
     /**
