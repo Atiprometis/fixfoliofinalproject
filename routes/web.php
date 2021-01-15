@@ -61,6 +61,7 @@ Route::resource('/institution', 'InstitutionController');
 Route::get('/profileedit', 'PortfolioController@profileedit');
 
 Route::get('/updateprofile', 'PortfolioController@updateprofile');
+Route::get('/updateFnameSname', 'PortfolioController@updateFnameSname');
 Route::post('/expwork', 'PortfolioController@expwork');
 
 Route::get('/profileinstitution/{school_id}/{countcourse}', 'InstitutionController@profileinstitution');
@@ -82,8 +83,10 @@ Route::post('/upload', 'UploadImagesController@store');
 Route::get('/destroyImagecourses/{course_final_id}', 'CreateCourseFinalController@destroyImagecourses');
 // Route::get('/delete/{deleteid}', function($id){});
 
-Route::post('filecourse', 'CreateCourseFinalController@store');
+Route::post('filecourse/{course_final_id}', 'CreateCourseFinalController@store');
 
 Route::post('/addExpp', 'CreateCourseFinalController@create');
 
 Route::post('/testexp', 'CreateCourseFinalController@test');
+
+Route::get('/dashbord', 'CreateCourseFinalController@test');

@@ -88,7 +88,7 @@ class CreateCourseFinalController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
+         $input = $request->all();
         $images = array();
 
         $countimages = 0;
@@ -98,9 +98,9 @@ class CreateCourseFinalController extends Controller
 
                 $name = time() . '.' . $file->getClientOriginalName();
                 $file->move(public_path() . '/courseimages/', $name);
-                // $file->move('image', $name);
+                $file->move('image', $name);
 
-                // echo $images[] = $name;
+                echo $images[] = $name;
 
                 course_final_images::insert([
                     'course_final_id' => 67,
@@ -110,7 +110,8 @@ class CreateCourseFinalController extends Controller
                 ]);
             }
         }
-        return back()->with('success', 'Data Your files has been successfully added');
+        // return view('test/test');
+        // return back()->with('success', 'Data Your files has been successfully added');
     }
 
     public function destroyImagecourses($course_final_id)

@@ -11,6 +11,7 @@ use App\UploadImages;
 use App\Models\Create_Course_Final;
 use App\Models\course_final_images;
 use App\Models\Exp_work;
+use App\User;
 
 use PDO;
 
@@ -81,7 +82,7 @@ class PortfolioController extends Controller
         // // ->groupBy('course_final_id')
         //  ->where('create_course_finals.user_id', '=', $id)
         // ->get();
-         $imagecourses = Create_Course_Final::where('user_id', '=', $id)
+          $imagecourses = Create_Course_Final::where('user_id', '=', $id)
 
         ->get();
 
@@ -91,7 +92,7 @@ class PortfolioController extends Controller
             'course_final_id',
 
         )
-        ->where('course_final_id', '=', 67)
+        // ->where('course_final_id', '=', 82)
         ->get();
 
      $expworks = Exp_work::where('user_id', '=', $id)->get();
@@ -100,6 +101,26 @@ class PortfolioController extends Controller
         return view('portfolio/profileedit')->with(compact('avatar_images', 'users', 'imagecourses','imagecoursefinals','expworks'));
     }
 
+    public function updateFnameSname(Request $request){
+         $name = $request->input('name');
+         $lastname = $request->input('lastname');
+        $profile_location = $request->input('profile_location');
+         $id = Auth::id();
+
+        DB::table('users')
+            ->where('id', $id)
+            ->update([
+                'name' => $name,
+                'lastname' => $lastname,
+            ]);
+
+        ProfilePortfolio::where('user_id', '=', $id)
+        ->update(array(
+            'profile_location' => $profile_location
+        ));
+        echo $id;
+        return redirect('/portfolio');
+    }
 
     public function updateprofile(Request $request)
     {

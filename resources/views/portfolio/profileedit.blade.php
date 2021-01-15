@@ -10,7 +10,8 @@
 
                 {{-- {{ csrf_field() }}
                 {{ method_field('POST') }} --}}
-                <div class="profile rounded col-12 d-flex flex-row mt-5 align-items-start justify-content-between ">
+                <div class="profile rounded col-12 d-flex flex-row  mt-5 align-items-start">
+                    {{-- << รูป profile >> --}}
                     <div class="card p-3 col-3" style=" height: 360px">
                         @foreach($avatar_images as $avatar_image)
                         <img class="card-img-top rounded" src='../avatar/{{ $avatar_image->avatar_path }}' alt="Card image cap" style="height: 250px;">
@@ -22,83 +23,83 @@
                                 <button type="submit" class="btn btn-light mt-2" style="width: 100%; border-radius: 20px;">+ Upload new photo</button>
                         </form>
                     </div>
-                    <form class=" form-group w-100" action="/updateprofile" method="get" enctype="multipart/form-data">
-                    <div class="profile-about col-12 h-100 d-flex flex-column justify-content-between">
-                        <div class=" d-flex flex-column h-100 mb-4 ">
-                            <div class=" d-flex flex-row h-100  justify-content-between ">
-                                <div class=" d-flex flex-column border  mr-2" style="width: 70%">
-                                    <div class="name d-flex flex-column ">
-                                        <div class=" d-flex flex-column align-content-center  pl-3 pr-2">
+                    {{-- << รูป profile >> --}}
+                    {{-- <<อัพเดท profile >> --}}
+                    <div class="d-flex flex-column col-9">
+                        <form class=" form-group w-100 d-flex flex-row" action="/updateFnameSname" method="get" enctype="multipart/form-data">
+                            <div class="profile-about col-12 h-100 d-flex flex-column justify-content-between">
+                                <div class=" d-flex flex-column h-100 mb-4 ">
+                                    <div class=" d-flex flex-row h-100  justify-content-between ">
+                                        <div class=" d-flex flex-column border  mr-2" style="width: 100%">
+                                            <div class="name d-flex flex-column ">
+                                                <div class=" d-flex flex-column align-content-center  pl-0 pr-0">
 
-                                            <div class="form-group form-row d-flex align-items-center   ">
-                                                <div class="col-12 d-flex flex-row">
-                                                    <div class="col-6  pl-0">
-                                                        <input type="text" class="form-control " style="width: 100%" name="name" maxlength="30" id="name" aria-describedby="name" placeholder="{{ Auth::user()->name }}">
+                                                    <div class=" d-flex flex-row col-12 ml-0 pt-2 pb-2 ml-0 mr-0">
+                                                                <div class="ml-1 mr-1 pl-0 w-100">
+                                                                    <input type="text" class=" border-input"  name="name" maxlength="30" id="name" aria-describedby="name" placeholder="{{ Auth::user()->name }}" value="{{ Auth::user()->name }}">
+                                                                </div>
+                                                                <div class="ml-1 mr-1  pl-0 w-100">
+                                                                    <input type="text" class=" border-input" name="lastname" maxlength="30" id="lastname" aria-describedby="lastname" placeholder="{{ Auth::user()->lastname }}" value="{{ Auth::user()->lastname }}">
+                                                                </div>
+                                                    </div>
+
+                                                </div>
+                                            </div> {{-- /// ชื่อ สกุล //// --}}
+                                            <div class="name  pl-3 pr-2 mt-2">
+                                                <div class="form-group form-row d-flex align-items-center   ">
+                                                    <div class="col-12 d-flex flex-row">
+                                                        <div class="col-12  pl-0">
+                                                            <input type="text" class="border-input " style="width: 100%" name="profile_location" maxlength="30" id="profile_location"
+                                                            aria-describedby="profile_location" placeholder="ระบุที่อยู่ แขวง/ แขต/ จังหวัด/ รหัสไปรษณีย์"
+                                                            @foreach($users as $user)
+                                                                value={{ $user->profile_location }}
+                                                            @endforeach
+                                                            >
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group form-row d-flex align-items-center   ">
-                                                <div class="col-12 d-flex flex-row">
-                                                    <div class="col-6  pl-0">
-                                                        <input type="text" class="form-control " style="width: 100%" name="lastname" maxlength="30" id="lastname" aria-describedby="lastname" placeholder="{{ Auth::user()->lastname }}">
+                                            </div> {{-- //ที่อยู่ --}}
+                                        </div>
+                                        <div class="" style="width: 20%">
+                                            <div class=" d-flex flex-column w-100">
+                                                <div class=" d-flex flex-row align-items-center justify-content-start ">
+
+                                                    <button  class="btn " style="background-color: #F2C94C">
+                                                    <p class="p-0 m-0" style="font-size: 1em">บันทึกการแก้ไข</p>
+                                                    </button>
+                                                </div>
+
+                                                <div class=" d-flex flex-row  text-center ">
+                                                    <label class="switch m-0 mt-1">
+                                                        <input type="checkbox" class="success" id="customSwitch1">
+                                                        <span class="slider round"></span>
+                                                    </label>
+                                                    <div class=" d-flex align-items-center">
+                                                        <label for="customSwitch1" class="m-0 mt-1 ml-2" >หางาน</label>
                                                     </div>
+
                                                 </div>
                                             </div>
-
-                                            {{-- <h1 class="p-1 m-0"  style="font-size: 1.500em">{{ Auth::user()->name }}</h1>
-                                            <h1 class="p-1 m-0"  style="font-size: 1.500em; margin-left: 10px;">{{ Auth::user()->lastname }}</h1> --}}
-                                        </div>
-                                    </div>
-                                    <div class="name  pl-3 pr-2 mt-2">
-                                        <div class="form-group form-row d-flex align-items-center   ">
-                                            <div class="col-12 d-flex flex-row">
-                                                <div class="col-6  pl-0">
-                                                    <input type="text" class="form-control " style="width: 100%" name="profile_location" maxlength="30" id="profile_location"
-                                                    aria-describedby="profile_location" placeholder="ที่อยู่"
-                                                    @foreach($users as $user)
-                                                        value={{ $user->profile_location }}
-                                                    @endforeach
-                                                    >
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="" style="width: 30%">
-                                    <div class=" d-flex flex-column w-100">
-                                        <div class=" d-flex flex-row align-items-center justify-content-start ">
-                                            {{-- <a href="#"><i class="fas fa-pen fa-lg p-2"></i></a> --}}
-                                            <button  class="btn " style="background-color: #F2C94C">
-                                            <p class="p-0 m-0" style="font-size: 1em">บันทึกการแก้ไข</p>
-                                            </button>
-                                        </div>
-
-                                        <div class=" d-flex flex-row  text-center ">
-                                            <label class="switch m-0 mt-1">
-                                                <input type="checkbox" class="success" id="customSwitch1">
-                                                <span class="slider round"></span>
-                                            </label>
-                                            <div class=" d-flex align-items-center">
-                                                <label for="customSwitch1" class="m-0 mt-1 ml-2" >หางาน</label>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
+                        </form>
+                        <div class="col-12">
                             <h1 class=" font-weight-normal" style="font-size: 1.250em;   ">แนะนำตัว</h1>
-                        <input type="text" class="form-control input-lg aboutme rounded p-3 pb-2" style="width: 100%;height: 100%;" name="profile_aboutme"
+                            <input type="text" class="form-control input-lg aboutme rounded p-3 pb-2" style="width: 100%; height: 100%;" name="profile_aboutme"
                                 id="profile_aboutme" aria-describedby="profile_aboutme" placeholder="แนะนำตัว"
                                 @foreach($users as $user)
                                     value={{ $user->profile_aboutme }}
                                 @endforeach
                                 >
-
+                        </div>
+                    </div>
 
                     </div>
 
+                    {{-- <<อัพเดท profile >> --}}
                 </div>
                 <div class=" col-12 d-flex flex-row">
                     <div class="contact col-3 pr-0 p-0  d-flex flex-column ">
@@ -266,9 +267,12 @@
                                         <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
                                             <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
                                                 @foreach ($imagecoursefinals as $imagecoursefinal)
-                                                <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
+                                                @if($imagecourse->course_final_id == $imagecoursefinal->course_final_id)
+                                                <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;">
                                                 <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})">
-                                                    <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+
+                                                        <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+
                                                     <div class="overlay">
                                                         <div class="overred d-flex justify-content-center align-items-center ">
                                                             <div class="icon">
@@ -277,11 +281,10 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                                        {{-- <button onclick=""></button> --}}
                                                 </li>
+                                                @endif
                                                 @endforeach
                                                 <li class="col-3 p-0 m-0 mt-2" id="myList">
-
                                                     <label class="col-12 p-0 m-0" style="cursor: pointer;"  data-toggle="modal" data-target="#exampleModalCenter">
                                                         <div  class="bg-light d-flex flex-row justify-content-center align-items-center"   style="width: 90%; height:150px; border-radius:10px;" >
                                                                 <i class="fas fa-plus bg-danger mr-1 ml-1 p-2" style="border-radius: 20px;color:#fff;"></i>
@@ -300,7 +303,7 @@
                                     <div class=" p-0 m-0 d-flex justify-content-center align-items-center text-center" style="width: 100%; height:50px; border-radius:10px;background-color: #8541B4;color:#fff;cursor: pointer;">เพิ่มประสบการณ์</div>
                                 </label>
                             </div>
-{{-- // ทั้ทงหมด --}}
+
                         </div>
                         <div class="col-9 d-flex flex-column">
                             <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
@@ -434,28 +437,29 @@
 
       </div>
       <div class="modal-body">
-        <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
-            {{csrf_field()}}
 
+        <form method="post" action="{{url('filecourse/83')}}" enctype="multipart/form-data">
+            {{csrf_field()}}
+            {{-- @foreach($imagecourses as $imagecourse) --}}
                 <div class="input-group hdtuto control-group lst increment d-flex flex-row " >
                     <div class=" col-12">
                         <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
                             @foreach ($imagecoursefinals as $imagecoursefinal)
-                            <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
-                            <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})">
-                                <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
-                                <div class="overlay">
-                                    <div class="overred d-flex justify-content-center align-items-center ">
-                                        <div class="icon">
-                                            <i class="fas fa-trash-alt fa-sm "></i>
+                            @if($imagecourse->course_final_id == $imagecoursefinal->course_final_id)
+                                <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
+                                <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})">
+                                    <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                    <div class="overlay">
+                                        <div class="overred d-flex justify-content-center align-items-center ">
+                                            <div class="icon">
+                                                <i class="fas fa-trash-alt fa-sm "></i>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                                    {{-- <button onclick=""></button> --}}
-                            </li>
+                                </a>
+                                </li>
+                            @endif
                             @endforeach
-
                         </ul>
                     </div>
 
@@ -463,7 +467,7 @@
                       <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
                     </div>
                 </div>
-
+                {{-- @endforeach --}}
               <div class="clone hide">
                 {{-- <div class="hdtuto control-group lst input-group"  style="margin-top:10px">
                   <input type="file" name="updateimages[]" class="myfrm form-control">
@@ -487,7 +491,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">เพิ่มประสบการณ์ทำงาน</h5>
-
         </div>
         <div class="modal-body">
           <form method="post" action="{{url('expwork')}}" enctype="multipart/form-data">
@@ -515,13 +518,15 @@
                 <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
           </form>
         </div>
-
       </div>
     </div>
-  </div>
+</div>
+<!-- Modal exp work  end -->
         </div>
-    </div>
+</div>
 
 
-@endsection
+
+
+    @endsection
 

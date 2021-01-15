@@ -20,9 +20,13 @@
                             <div class=" d-flex flex-column border  mr-2" style="width: 70%">
                                 <div class="name d-flex flex-column ">
                                     <div class=" d-flex flex-row align-content-center  pl-3 pr-2">
-                                        @foreach($profile_port as $profile_port)
-                                            <h1 class="p-1 m-0"  style="font-size: 1.500em">{{$profile_port->name}}</h1>
-                                            <h1 class="p-1 m-0"  style="font-size: 1.500em; margin-left: 10px;">{{$profile_port->lastname}}</h1>
+                                        @foreach($profiledatas as $profiledata)
+                                            @foreach($profile_port as $profile_ports)
+                                                @if($profiledata->user_id === $profile_ports->id)
+                                                    <h1 class="p-1 m-0"  style="font-size: 1.500em">{{$profile_ports->name}}</h1>
+                                                    <h1 class="p-1 m-0"  style="font-size: 1.500em; margin-left: 10px;">{{$profile_ports->lastname}}</h1>
+                                                @endif
+                                            @endforeach
                                         @endforeach
                                     </div>
                                 </div>

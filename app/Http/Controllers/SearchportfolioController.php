@@ -18,9 +18,10 @@ class SearchportfolioController extends Controller
     public function index()
     {
         //
-        $profile_port = DB::select('SELECT profile_portfolios.id, users.id, users.name, users.lastname FROM users INNER JOIN profile_portfolios ON profile_portfolios.user_id = users.id');
-        $profile_image = UploadImages::all();
-        return view('portfolio.search-portfolio',compact('profile_port','profile_image'));
+        $profile_ports = DB::select('SELECT profile_portfolios.id, users.id, users.name, users.lastname FROM users INNER JOIN profile_portfolios ON profile_portfolios.user_id = users.id');
+        $profile_images = UploadImages::all();
+        //  json_encode($profile_ports);
+        return view('portfolio.search-portfolio',compact('profile_ports','profile_images'));
     }
 
     /**
@@ -79,6 +80,8 @@ class SearchportfolioController extends Controller
             ->get();
 
         $profile_port = DB::select('SELECT profile_portfolios.id, users.id, users.name, users.lastname FROM users INNER JOIN profile_portfolios ON profile_portfolios.user_id = users.id');
+
+        echo json_encode($profiledatas);
 
         return view('portfolio/profile-detail',compact('profile_id','profiledatas','avatar_images','profile_port'));
 

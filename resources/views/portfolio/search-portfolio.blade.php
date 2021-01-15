@@ -51,16 +51,17 @@
 
 
 
-                @foreach ($profile_port as $profile_port):
+
 
                     <div class="col-12 p-0 m-0">
+                        @foreach ($profile_ports as $profile_port)
                         <a class="" href="{{route('searchportfolio.show',$profile_port->id)}}" style="color: inherit; ">
                             <div class=" col-4  p-2   float-left " >
                                 <div class=" d-flex flex-column w-100 position-relative" style="border-radius: 15px 15px 0px 0px;">
 
                                     <div class=" w-100" style="height: 130px; background-color: #69299C;border-radius: 15px 15px 0px 0px;border: solid 1px #E5E5E5;"></div>
                                     <div class=" w-100 p-3 d-flex flex-column justify-content-center align-items-center" style="height: 200px; background-color: #fff;border-radius: 0px 0px 15px 15px;border: solid 1px #E5E5E5;">
-                                        @foreach($profile_image as $profile_image)
+                                        @foreach($profile_images as $profile_image)
 
                                             @if($profile_port->id === $profile_image->user_id)
                                                 <img src="../avatar/{{ $profile_image->avatar_path }}" class="people-port ">
@@ -76,9 +77,10 @@
                                 </div>
                             </div>
                         </a>
+                        @endforeach
                     </div>
 
-                @endforeach
+
 
 
                 {{-- <div class=" d-flex w-100 flex-row align-items-center justify-content-center ">

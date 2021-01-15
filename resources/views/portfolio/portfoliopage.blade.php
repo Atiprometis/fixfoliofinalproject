@@ -153,7 +153,7 @@
                             </div>
                             <div >
                                 @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2"> {{ $profiledata->profile_phone }} </p>
+                                <p class="m-0 p-2"> 0{{ $profiledata->profile_phone }} </p>
                                 @endforeach
                             </div>
 

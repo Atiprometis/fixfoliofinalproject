@@ -457,3 +457,17 @@ position: absolute;
   }
 
 /* hover image delete */
+
+/* border */
+.border-input{
+    padding: 5px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style:groove;
+    border-color: #f1f1f1;
+    outline: none;
+    width: 100%;
+    /* border-style: none; */
+}
+/* border */
