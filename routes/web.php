@@ -89,4 +89,6 @@ Route::post('/addExpp', 'CreateCourseFinalController@create');
 
 Route::post('/testexp', 'CreateCourseFinalController@test');
 
-Route::get('/dashbord', 'CreateCourseFinalController@test');
+Route::get('/dashbord', 'DashbordController@index');
+Route::get('/dashcourse', 'DashbordController@dashcourse');
+Route::get('/dashcreatecourse', 'DashbordController@dashcreatecourse');

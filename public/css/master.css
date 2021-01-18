@@ -471,3 +471,14 @@ position: absolute;
     /* border-style: none; */
 }
 /* border */
+
+.scrollDiv {
+    height: 100vh;
+    max-height:auto;
+    overflow:auto;
+}
+
+.about-course{
+    /* height: 250px; */
+    padding: 20px 10px; line-height: 28px;
+}

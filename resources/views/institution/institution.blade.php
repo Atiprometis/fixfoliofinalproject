@@ -56,7 +56,7 @@
 
                                         <p class="" style="font-size: 1.375em;">{{$courseschooldetail->course_school}}</p>
                                         <p class="" style="font-size: 1.375em;">{{$courseschooldetail->school_name}}</p>
-                                        {{-- <p class="" style="font-size: 1.375em;">asdasd</p> --}}
+
                                         <div class=" d-flex flex-row ">
                                             <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
 
@@ -64,9 +64,7 @@
                                                 <p class="ml-2 mr-2">
                                                     จำนวน {{$courseschooldetail->countcourse}} คอร์ส
                                                 </p>
-                                                {{-- <p class="ml-2 mr-2">
-                                                    จำนวน 45 คอร์ส
-                                                </p> --}}
+
 
                                         </div>
                                     </div>
