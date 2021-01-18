@@ -66,7 +66,7 @@ class BackofficeController extends Controller
             'image_course',
 
         ]);
-        
+
         DB::table('courses')
             ->insert([
 

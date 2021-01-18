@@ -72,7 +72,7 @@ class PortfolioController extends Controller
           $imagecoursefinals = course_final_images::select(
             'course_final_images_id',
             'images_path',
-            'course_final_id',
+            'course_final_id'
 
         )
         ->where('course_final_id', '=', 67)
