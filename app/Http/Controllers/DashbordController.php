@@ -31,8 +31,8 @@ class DashbordController extends Controller
             ->select(
                 'courses.course_name',
                 'courses.course_cost',
-                'courses.course_start',
-                'courses.course_end',
+                // 'courses.course_start',
+                // 'courses.course_end',
                 DB::raw('TIME_FORMAT(course_learn_start, "%H:%i") as course_learn_start'),
                 DB::raw('TIME_FORMAT(course_learn_end, "%H:%i") as course_learn_end'),
                 'courses.course_hours',
@@ -55,41 +55,67 @@ class DashbordController extends Controller
 
     public function passDatatoCoursedetail(Request $request){
 
-
-
         $input = $request->all();
+        $id = Auth::id();
         // echo $input;
         // $output = json_encode($input);
         // echo $input;
         // print_r($input);
-
-
-
     //    echo  json_encode($input);
          $course_name = $request->input('course_name');
-        //  $course_category = $request->input('course_category');
+         $course_category = $request->input('course_category');
          $course_cost = $request->input('course_cost');
-        //  $course_detail = $request->input('course_detail');
-        //  $course_certificate = $request->input('course_certificate');
+         $course_day = $request->input('course_day');
+         $course_detail = $request->input('course_detail');
+         $course_certificate = $request->input('course_certificate');
          $course_open = $request->input('course_open');
          $course_close = $request->input('course_close');
          $course_hours = $request->input('course_hours');
-        //  $course_learn_start = $request->input('course_learn_start');
-        //  $course_online = $request->input('course_online');
-        //  $course_learn_end = $request->input('course_learn_end');
+         $course_learn_start = $request->input('course_learn_start');
+         $course_learn_end = $request->input('course_learn_end');
+        $course_online = $request->input('course_online');
+
+        DB::table('courses')
+        ->insert([
+            'course_school' => 3,
+            'course_name'=>$course_name,
+            'course_category'=>$course_category,
+            'course_cost'=>$course_cost,
+            'course_detail'=>$course_detail,
+            // 'course_start'=>"",
+            // 'course_end'=>"",
+            'course_certificate'=>$course_certificate,
+            'course_open'=>$course_open,
+            'course_close'=>$course_close,
+            'course_hours'=>$course_hours,
+            'course_learn_start'=>$course_learn_start,
+            'course_learn_end'=>$course_learn_end,
+            'course_online'=>$course_online,
+        ]);
 
         $data = array([
             'course_name' => $course_name,
                 'course_cost' => $course_cost,
-                'course_open' => $course_open,
-                'course_close' => $course_close,
+                'course_learn_start' => $course_learn_start,
+                'course_learn_end' => $course_learn_end,
                 'course_hours' => $course_hours,
         ]);
 
+        $dayData = array([
+            'course_day' => $course_day,
+        ]);
+
+        //  print_r($dayData);
+
         // print_r($data);
 
+        // SchoolsDB::select('select * from users where active = ?', [1])
 
-        return view('dashbord.createcourse_detail')->with(compact('data'));
+         $schools = Schools::where('schools_owner', '=', $id)
+            ->get();
+
+
+        return view('dashbord.createcourse_detail')->with(compact('data','dayData','schools'));
 
         // DB::table('courses')->insert([
         //     'course_school' => 2,

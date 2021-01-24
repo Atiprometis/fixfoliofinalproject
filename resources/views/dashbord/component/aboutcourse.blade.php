@@ -133,55 +133,75 @@
 
                         <div class="  col-12 p-0 m-0  " >
                                         <label  class=" p-0 m-0 position-relative">
-                                        <img class="card-img-top insutition rounded " src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview"  style="width: 100%;height: 200px;"/>
+                                        <img class="card-img-top insutition rounded " src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview"  style="width: 100%;height: 200px; cursor: pointer"/>
+
                                         {{-- <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all"> --}}
                                         <input class="photo" id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();" style="display: none"  />
                                         </label>
 
-                                <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 180px">
+                                <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 160px">
                                     <div class=" d-flex justify-content-between mt-2">
-                                    <p class="d-inline-block text-truncate p-0 mb-1" style="font-size: 1em;">
-                                    @php
-                                        print_r($data[0]['course_name']);
-                                    @endphp </p>
-                                        {{-- <p class="pl-2 mr-3" style="font-size: 1em;">ราคา</p> --}}
+                                        <p class="d-inline-block text-truncate" style="font-size: 1em;">
+                                            @php
+                                            print_r($data[0]['course_name']);
+                                            @endphp
+                                        </p>
                                     </div>
                                     <div class=" d-flex flex-row ">
                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
                                         <p class="ml-2 mr-2 mb-1 p-0">
-                                        @php
+                                            @php
                                             print_r($data[0]['course_cost']);
-                                        @endphp
+                                            @endphp
                                         </p>
                                     </div>
                                     <div class=" d-flex flex-row ">
                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                        <p class="ml-2 mr-2 mb-1 p-0">จ,อ,พ,พฤ,ศ,ส,อ</p>
-                                    </div>
-                                    <div class=" d-flex flex-row ">
-                                        <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                        <p class="ml-2 mr-2 mb-1 p-0">
-                                        @php
-                                            print_r($data[0]['course_open']);
-                                        @endphp
-                                        -
-                                        @php
-                                            print_r($data[0]['course_close']);
-                                        @endphp
+                                        <p class="ml-2  mb-1 p-0" style="width: 120%;">
+
+                                            @foreach ($dayData as $day)
+                                                @foreach ($day as $dayrow1)
+                                                    @foreach ($dayrow1 as $dayrow2)
+                                                        {{$dayrow2}},
+                                                    @endforeach
+                                                @endforeach
+                                            @endforeach
+                                        </p>
+                                        <p class="text-right mr-2 mb-1 p-0" style="width: 80%;">
+                                            @php
+                                            print_r($data[0]['course_learn_start']);
+                                            @endphp
+                                            -
+                                            @php
+                                            print_r($data[0]['course_learn_end']);
+                                            @endphp
                                         </p>
                                     </div>
-                                    <div class=" d-flex flex-row ">
-                                        <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                        <p class="ml-2 mr-2 mb-1 p-0">18 ช.ม</p>
+                                    <div class=" d-flex justify-content-between">
+                                        <div class=" d-flex flex-row ">
+                                            <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
+                                            <p class="p-0 m-0 ml-2 mr-2">
+                                                @php
+                                                print_r($data[0]['course_hours']);
+                                                @endphp
+                                                ชั่วโมง</p>
+                                        </div>
+
                                     </div>
                                     <div class=" d-flex flex-row ">
                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                        <p class="ml-2 mr-2 mb-1 p-0">สถาบัน</p>
+                                        <p class="ml-2 mr-2 mb-1 p-0 d-inline-block text-truncate">
+                                            @foreach ($schools as $schoolname)
+                                                {{$schoolname->schools_name}}
+                                            @endforeach
+                                        </p>
                                     </div>
+
                                 </div>
 
 
                         </div>
+
 
         </div>
 
