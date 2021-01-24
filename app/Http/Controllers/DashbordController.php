@@ -75,23 +75,43 @@ class DashbordController extends Controller
          $course_learn_end = $request->input('course_learn_end');
         $course_online = $request->input('course_online');
 
-        DB::table('courses')
-        ->insert([
-            'course_school' => 3,
-            'course_name'=>$course_name,
-            'course_category'=>$course_category,
-            'course_cost'=>$course_cost,
-            'course_detail'=>$course_detail,
-            // 'course_start'=>"",
-            // 'course_end'=>"",
-            'course_certificate'=>$course_certificate,
-            'course_open'=>$course_open,
-            'course_close'=>$course_close,
-            'course_hours'=>$course_hours,
-            'course_learn_start'=>$course_learn_start,
-            'course_learn_end'=>$course_learn_end,
-            'course_online'=>$course_online,
+        // DB::table('courses')
+        // ->insert([
+        //     'course_school' => 3,
+        //     'course_name'=>$course_name,
+        //     'course_category'=>$course_category,
+        //     'course_cost'=>$course_cost,
+        //     'course_detail'=>$course_detail,
+        //     // 'course_start'=>"",
+        //     // 'course_end'=>"",
+        //     'course_certificate'=>$course_certificate,
+        //     'course_open'=>$course_open,
+        //     'course_close'=>$course_close,
+        //     'course_hours'=>$course_hours,
+        //     'course_learn_start'=>$course_learn_start,
+        //     'course_learn_end'=>$course_learn_end,
+        //     'course_online'=>$course_online,
+        // ]);
+
+        foreach ($request as $key=>$value)
+        {
+            $dayData[] = [
+                'course_final_id'=>20,
+                'user_id' => $id,
+                // 'course_day' => $value['course_day'],
+            ];
+        }
+
+         $dayData = array([
+
+            'course_day' => $course_day,
         ]);
+
+
+        //  $jsonenDay =  json_encode($dayData);
+
+        // DB::table('course_day')
+        // ->insert($dayData);
 
         $data = array([
             'course_name' => $course_name,
@@ -101,9 +121,7 @@ class DashbordController extends Controller
                 'course_hours' => $course_hours,
         ]);
 
-        $dayData = array([
-            'course_day' => $course_day,
-        ]);
+
 
         //  print_r($dayData);
 
