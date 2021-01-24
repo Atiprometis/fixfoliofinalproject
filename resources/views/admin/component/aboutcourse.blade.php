@@ -138,21 +138,21 @@
                                         <input class="photo" id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();" style="display: none"  />
                                         </label>
 
+
+
+
+
+                                    {{-- <p>{{$course_name->course_name}}dddddd</p> --}}
+
+
                                 <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 180px">
                                     <div class=" d-flex justify-content-between mt-2">
-                                    <p class="d-inline-block text-truncate p-0 mb-1" style="font-size: 1em;">
-                                    @php
-                                        print_r($data[0]['course_name']);
-                                    @endphp </p>
+                                    <p class="d-inline-block text-truncate p-0 mb-1" style="font-size: 1em;">ssd </p>
                                         {{-- <p class="pl-2 mr-3" style="font-size: 1em;">ราคา</p> --}}
                                     </div>
                                     <div class=" d-flex flex-row ">
                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                        <p class="ml-2 mr-2 mb-1 p-0">
-                                        @php
-                                            print_r($data[0]['course_cost']);
-                                        @endphp
-                                        </p>
+                                        <p class="ml-2 mr-2 mb-1 p-0">2080</p>
                                     </div>
                                     <div class=" d-flex flex-row ">
                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
@@ -160,15 +160,7 @@
                                     </div>
                                     <div class=" d-flex flex-row ">
                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                        <p class="ml-2 mr-2 mb-1 p-0">
-                                        @php
-                                            print_r($data[0]['course_open']);
-                                        @endphp
-                                        -
-                                        @php
-                                            print_r($data[0]['course_close']);
-                                        @endphp
-                                        </p>
+                                        <p class="ml-2 mr-2 mb-1 p-0">10:00 - 11:00</p>
                                     </div>
                                     <div class=" d-flex flex-row ">
                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>

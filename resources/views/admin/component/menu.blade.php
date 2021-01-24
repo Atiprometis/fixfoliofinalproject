@@ -24,18 +24,6 @@
         <a href="#">
             <li class=" d-flex flex-row justify-content-been align-items-center">
                 <i class="fas fa-arrow-alt-circle-right ml-3"></i>
-                <p class="m-1 ml-3">แก้ไขคอร์สเรียน</p>
-            </li>
-        </a>
-        <a href="/dashcreatecourse">
-            <li class=" d-flex flex-row justify-content-been align-items-center">
-                <i class="fas fa-arrow-alt-circle-right ml-3"></i>
-                <p class="m-1 ml-3">ลบคอร์สเรียน</p>
-            </li>
-        </a>
-        <a href="#">
-            <li class=" d-flex flex-row justify-content-been align-items-center">
-                <i class="fas fa-arrow-alt-circle-right ml-3"></i>
                 <p class="m-1 ml-3">โปรไฟล์</p>
             </li>
         </a>

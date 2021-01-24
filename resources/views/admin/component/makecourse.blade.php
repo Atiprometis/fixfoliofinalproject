@@ -29,7 +29,7 @@
                 <div class="form-group col-md-6 col-sm-12 p-0">
 
                     {!! Form::label('course_cost','ราคา') !!}
-                    {!! Form::number('course_cost',null,["class"=>"form-control",'required']) !!}
+                    {!! Form::number('course_cost',null,["class"=>"form-control"]) !!}
 
                 </div>
                 <div class="form-group col-md-6 col-sm-12 p-0">

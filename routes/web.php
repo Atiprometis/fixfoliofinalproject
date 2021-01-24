@@ -91,4 +91,6 @@ Route::post('/testexp', 'CreateCourseFinalController@test');
 
 Route::get('/dashbord', 'DashbordController@index');
 Route::get('/dashcourse', 'DashbordController@dashcourse');
+
 Route::get('/dashcreatecourse', 'DashbordController@dashcreatecourse');
+Route::post('/createcourse_detail', 'DashbordController@passDatatoCoursedetail');
