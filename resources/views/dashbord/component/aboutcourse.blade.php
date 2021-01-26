@@ -20,41 +20,19 @@
 
     <div class=" d-flex flex-row">
         <div class="col-md-6">
+            {!! Form::open(['action' => 'DashbordController@aboutcourse', 'method'=>'post']) !!}
+            <p>{{$return}}</p>
+
+        <input type="text" name="course_id" value="{{$return}}" class="form-control" style="display: none">
 
             <div class="table-responsive ">
 
                 {!! Form::label('Course Learned','เรียนอะไรบ้าง',array('class' => 'm-0 ')) !!}
 
-                <table class="table table-bordered" id="dynamic_field">
+                <table class="table table-bordered" id="dynamic_field1">
                     <tr>
                         <td>
                             <input type="text" name="course_learn[]" placeholder="เรียนอะไรบ้าง" class="form-control">
-
-                        </td>
-
-                        <td>
-
-                            <button type="button" name="add" id="add" class="btn btn-success">เพิ่ม</button>
-
-                        </td>
-
-                    </tr>
-
-                </table>
-
-            </div>
-
-            <div class="table-responsive">
-
-                {!! Form::label('Course Learned','เรียนจบแล้วทำอะไรได้') !!}
-
-                <table class="table table-bordered" id="dynamic_field1">
-
-                    <tr>
-
-                        <td>
-
-                            <input type="text" name="course_result[]" placeholder="เรียนจบแล้วทำอะไรได้" class="form-control" required>
 
                         </td>
 
@@ -72,7 +50,7 @@
 
             <div class="table-responsive">
 
-                {!! Form::label('Course Learned','ประกอบอาชีพอะไรได้') !!}
+                {!! Form::label('Course Learned','เรียนจบแล้วทำอะไรได้') !!}
 
                 <table class="table table-bordered" id="dynamic_field2">
 
@@ -80,7 +58,7 @@
 
                         <td>
 
-                            <input type="text" name="course_career[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
+                            <input type="text" name="course_result[]" placeholder="เรียนจบแล้วทำอะไรได้" class="form-control" required>
 
                         </td>
 
@@ -95,23 +73,24 @@
                 </table>
 
             </div>
+
             <div class="table-responsive">
 
-                {!! Form::label('Course Learned','Youtube Link') !!}
+                {!! Form::label('Course Learned','ประกอบอาชีพอะไรได้') !!}
 
-                <table class="table table-bordered" id="dynamic_field4">
+                <table class="table table-bordered" id="dynamic_field3">
 
                     <tr>
 
                         <td>
 
-                            <input type="text" name="course_youtube[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
+                            <input type="text" name="course_career[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
 
                         </td>
 
                         <td>
 
-                            <button type="button" name="add4" id="add4" class="btn btn-success">เพิ่ม</button>
+                            <button type="button" name="add3" id="add3" class="btn btn-success">เพิ่ม</button>
 
                         </td>
 
@@ -120,6 +99,29 @@
                 </table>
 
             </div>
+
+            <div class="table-responsive">
+
+                {!! Form::label('Course Learned','Youtube Link') !!}
+
+                <table class="table table-bordered" id="dynamic_field4">
+                    <tr>
+                        <td>
+                            <input type="text" name="course_youtube[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
+                        </td>
+                        <td>
+                            <button type="button" name="add4" id="add4" class="btn btn-success">เพิ่ม</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col my-2">
+                {{-- <a href="/backoffice" class="btn btn-success">ยกเลิก</a> --}}
+                <input type="submit" value="สร้างคอร์ส" class="btn btn-primary">
+            </div>
+
+            {!! Form::close() !!}
 
         </div>
 

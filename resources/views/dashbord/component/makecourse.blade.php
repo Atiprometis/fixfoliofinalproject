@@ -65,7 +65,6 @@
                     {!! Form::label('course_close','ปิดรับสมัคร') !!}
                     {!! Form::date('course_close',null,["class"=>"form-control"]) !!}
 
-
                 </div>
 
 

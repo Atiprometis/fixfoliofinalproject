@@ -26,9 +26,9 @@ class Course extends Model
         'course_hours',
         'course_learn_start',
         'course_learn_end',
-
         'course_online',
         'image_course',
         'image_herobanner',
+        'status',
     ];
 }
