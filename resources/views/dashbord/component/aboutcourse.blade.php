@@ -26,11 +26,8 @@
                 {!! Form::label('Course Learned','เรียนอะไรบ้าง',array('class' => 'm-0 ')) !!}
 
                 <table class="table table-bordered" id="dynamic_field">
-
                     <tr>
-
                         <td>
-
                             <input type="text" name="course_learn[]" placeholder="เรียนอะไรบ้าง" class="form-control">
 
                         </td>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\CourseSchoolDetail;
 use App\Models\Schools;
+use App\Models\Course_day;
 use Dotenv\Result\Result;
 use App\Course;
 use Illuminate\Support\Facades\Auth;
@@ -65,7 +66,7 @@ class DashbordController extends Controller
          $course_name = $request->input('course_name');
          $course_category = $request->input('course_category');
          $course_cost = $request->input('course_cost');
-         $course_day = $request->input('course_day');
+
          $course_detail = $request->input('course_detail');
          $course_certificate = $request->input('course_certificate');
          $course_open = $request->input('course_open');
@@ -75,43 +76,66 @@ class DashbordController extends Controller
          $course_learn_end = $request->input('course_learn_end');
         $course_online = $request->input('course_online');
 
-        // DB::table('courses')
-        // ->insert([
-        //     'course_school' => 3,
-        //     'course_name'=>$course_name,
-        //     'course_category'=>$course_category,
-        //     'course_cost'=>$course_cost,
-        //     'course_detail'=>$course_detail,
-        //     // 'course_start'=>"",
-        //     // 'course_end'=>"",
-        //     'course_certificate'=>$course_certificate,
-        //     'course_open'=>$course_open,
-        //     'course_close'=>$course_close,
-        //     'course_hours'=>$course_hours,
-        //     'course_learn_start'=>$course_learn_start,
-        //     'course_learn_end'=>$course_learn_end,
-        //     'course_online'=>$course_online,
-        // ]);
+        $course_day = $request->input('course_day');
 
-        foreach ($request as $key=>$value)
-        {
-            $dayData[] = [
-                'course_final_id'=>20,
-                'user_id' => $id,
-                // 'course_day' => $value['course_day'],
+        $schools = Schools::where('schools_owner', '=', $id)
+        ->select(
+            'schools_id',
+        )
+        ->get();
+
+        $schoolsresults = json_decode($schools);
+        $schoolsreturn = implode(",", array_column($schoolsresults, "schools_id"));
+
+        DB::table('courses')
+        ->insert([
+            'course_school' => $schoolsreturn,
+            'course_name'=>$course_name,
+            'course_category'=>$course_category,
+            'course_cost'=>$course_cost,
+            'course_detail'=>$course_detail,
+            // 'course_start'=>"",
+            // 'course_end'=>"",
+            'course_certificate'=>$course_certificate,
+            'course_open'=>$course_open,
+            'course_close'=>$course_close,
+            'course_hours'=>$course_hours,
+            'course_learn_start'=>$course_learn_start,
+            'course_learn_end'=>$course_learn_end,
+            'course_online'=>$course_online,
+            'status'=> 0,
+        ]);
+
+
+         $course = DB::table('courses')
+        ->where('course_school', '=', $schoolsreturn)
+        ->select('course_id',)
+        ->orderBy('course_id', 'DESC')
+        ->limit(1)
+        ->get();
+
+        $results = json_decode($course);
+        $return = implode(",", array_column($results, "course_id"));
+
+
+
+        $dataDayToDB = [];
+        foreach ($course_day as $day) {
+            $dataDayToDB[] = [
+                'course_final_id'  => $return ,
+                'user_id'    => $id,
+                'course_day' => $day,
             ];
         }
+
+ Course_day::insert($dataDayToDB);
+
 
          $dayData = array([
 
             'course_day' => $course_day,
         ]);
 
-
-        //  $jsonenDay =  json_encode($dayData);
-
-        // DB::table('course_day')
-        // ->insert($dayData);
 
         $data = array([
             'course_name' => $course_name,
@@ -123,52 +147,9 @@ class DashbordController extends Controller
 
 
 
-        //  print_r($dayData);
-
-        // print_r($data);
-
-        // SchoolsDB::select('select * from users where active = ?', [1])
-
-         $schools = Schools::where('schools_owner', '=', $id)
-            ->get();
-
-
         return view('dashbord.createcourse_detail')->with(compact('data','dayData','schools'));
 
-        // DB::table('courses')->insert([
-        //     'course_school' => 2,
-        //     'course_name' => $request->input('course_name'),
-        //     'course_category' => $course_category,
-        //     'course_cost' => $course_cost,
-        //     'course_detail' => $course_detail,
-        //     'course_certificate' => $course_certificate,
-        //     'course_open' => $course_open,
-        //     'course_close' => $course_close,
-        //     'course_hours' => $course_hours,
-        //     'course_learn_start' => $course_learn_start,
-        //     'course_online' => $course_online,
-        //     'course_learn_end' => $course_learn_end,
-        // ]);
 
-        // $all_courses =  Course::create([
-        //     'course_school' => 2,
-        //     'course_name' => $request->input('course_name'),
-        //     // 'course_category' => $course_category,
-            // 'course_cost' => $course_cost,
-            // 'course_detail' => $course_detail,
-            // 'course_certificate' => $course_certificate,
-            // 'course_open' => $course_open,
-            // 'course_close' => $course_close,
-        // ]);
-
-
-            // echo $all_courses;
-            // echo $all_courses_arrays;
-            // echo $test = json_encode($all_courses_arrays);
-
-            // echo $all_courses_arrays;
-
-        // return view('dashbord.createcourse_detail');
     }
     /**
      * Show the form for creating a new resource.

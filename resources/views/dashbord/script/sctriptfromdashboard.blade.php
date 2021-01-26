@@ -2,26 +2,33 @@
 
     $(document).ready(function() {
 
-        let i = 1;
+        var i = 1;
         $('#add').click(function() {
 
-            i++;
+        if(i <= 5){
             $('#dynamic_field').append('<tr id="row1'+i+'"><td><input type="text" name="course_learn[]" class="form-control course_learn_list" required></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button></td></tr>')
+            i++
 
-        })
+            console.log(i);
+        }
 
         $(document).on('click', '.btn-remove1', function () {
-
+        if( i <=6){
             let button_id = $(this).attr('id');
-            $('#row1'+button_id+'').remove();
+        $('#row1'+button_id+'').remove();
+        i--;
+        console.log(i);
+        }
+        });
 
-        })
 
-    })
+
+        });
+    });
 
 </script>
 
-<script>
+{{-- <script>
 
     $(document).ready(function() {
 
@@ -98,11 +105,11 @@ $(document).ready(function() {
     $('#add4').click(function() {
 
         i++;
-        $('#dynamic_field4').append('<tr id="row1'+i+'"><td><input type="text" name="course_youtube[]" class="form-control course_learn_list" required></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button></td></tr>')
+        $('#dynamic_field4').append('<tr id="row1'+i+'"><td><input type="text" name="course_youtube[]" class="form-control course_learn_list" required></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove4">ลบ</button></td></tr>')
 
     })
 
-    $(document).on('click', '.btn-remove1', function () {
+    $(document).on('click', '.btn-remove4', function () {
 
         let button_id = $(this).attr('id');
         $('#row1'+button_id+'').remove();
@@ -111,7 +118,7 @@ $(document).ready(function() {
 
 })
 
-</script>
+</script> --}}
 
 <script type="text/javascript">
 
