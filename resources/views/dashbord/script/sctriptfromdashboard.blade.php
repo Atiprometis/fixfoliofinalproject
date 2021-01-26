@@ -108,3 +108,26 @@ function PreviewImage() {
 };
 
 </script>
+
+<script type="text/javascript">
+
+$('#btn-submit').click(function (e) {
+    e.preventDefault();
+    var form = $(this).parents('form');
+    Swal.fire({
+            title: 'ยืนยันลบรูปภาพนี้',
+            confirmButtonText: 'ยืนยัน',
+            showCancelButton: true,
+            cancelButtonText: "ยกเลิก",
+        }).then((result) => {
+            if(result.isConfirmed){
+                Swal.fire('ลบสำเร็จ!', '', 'success')
+                form.submit();
+            }else{
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+        })
+
+});
+
+</script>

@@ -82,9 +82,12 @@ class PortfolioController extends Controller
         // // ->groupBy('course_final_id')
         //  ->where('create_course_finals.user_id', '=', $id)
         // ->get();
-          $imagecourses = Create_Course_Final::where('user_id', '=', $id)
+
+         $imagecourses = Create_Course_Final::where('user_id', '=', $id)
 
         ->get();
+
+        echo  $imagecourses;
 
           $imagecoursefinals = course_final_images::select(
             'course_final_images_id',

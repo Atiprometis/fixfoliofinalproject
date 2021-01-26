@@ -20,7 +20,7 @@
 
     <div class=" d-flex flex-row">
         <div class="col-md-6">
-            {!! Form::open(['action' => 'DashbordController@aboutcourse', 'method'=>'post']) !!}
+            {!! Form::open(['action' => 'DashbordController@aboutcourse', 'method'=>'post',"class"=>"swa-confirm","data-flag"=>"0"]) !!}
             <p>{{$return}}</p>
 
         <input type="text" name="course_id" value="{{$return}}" class="form-control" style="display: none">
@@ -118,10 +118,13 @@
 
             <div class="col my-2">
                 {{-- <a href="/backoffice" class="btn btn-success">ยกเลิก</a> --}}
-                <input type="submit" value="สร้างคอร์ส" class="btn btn-primary">
+                {{-- <input type="submit"    value="ma" class="btn btn-primary swa-confirm"> --}}
+                <input type="button" id="btn-submit"    value="สร้างคอร์ส" class="btn btn-primary swa-confirm">
             </div>
 
             {!! Form::close() !!}
+
+
 
         </div>
 

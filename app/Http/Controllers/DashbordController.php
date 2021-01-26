@@ -177,7 +177,7 @@ class DashbordController extends Controller
         }
         print_r($datalearnToDB);
 
-        // Course_learn::firstOrCreate([$datalearnToDB]);
+
         Course_learn::insert($datalearnToDB);
 
         $dataresultToDB = [];
