@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Dashbord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Routing\Redirector;
 use App\Models\CourseSchoolDetail;
 use App\Models\Schools;
 use App\Models\Course_day;
@@ -39,8 +39,8 @@ class DashbordController extends Controller
             ->select(
                 'courses.course_name',
                 'courses.course_cost',
-                // 'courses.course_start',
-                // 'courses.course_end',
+                'courses.course_start',
+                'courses.course_end',
                 DB::raw('TIME_FORMAT(course_learn_start, "%H:%i") as course_learn_start'),
                 DB::raw('TIME_FORMAT(course_learn_end, "%H:%i") as course_learn_end'),
                 'courses.course_hours',
@@ -82,6 +82,8 @@ class DashbordController extends Controller
          $course_learn_start = $request->input('course_learn_start');
          $course_learn_end = $request->input('course_learn_end');
         $course_online = $request->input('course_online');
+
+
 
         $course_day = $request->input('course_day');
 
@@ -142,7 +144,7 @@ class DashbordController extends Controller
             'course_day' => $course_day,
         ]);
 
-        print_r($return);
+        // print_r($return);
 
         $data = array([
             'course_name' => $course_name,
@@ -158,6 +160,13 @@ class DashbordController extends Controller
 
     public function aboutcourse(Request $request)
     {
+
+        // $course_image= $request->input('myPhoto');
+
+
+
+
+
         $id = Auth::id();
 
         $course_id = $request->input('course_id');
@@ -175,7 +184,7 @@ class DashbordController extends Controller
                 'course_learnning_detail'    => $learn,
             ];
         }
-        print_r($datalearnToDB);
+        // print_r($datalearnToDB);
 
 
         Course_learn::insert($datalearnToDB);
@@ -207,10 +216,26 @@ class DashbordController extends Controller
                 'youtube_link'    => $youtube,
             ];
         }
-        print_r($datayoutubeToDB);
+        // print_r($datayoutubeToDB);
         Course_youtube::insert($datayoutubeToDB);
 
+
+        // echo $request;
+
+
+        // return redirect()->action([DashbordController::class, 'manegerCourse']);
     }
+
+    public function uploadImagecourse()
+    {
+        //
+    }
+
+    public function manegerCourse(Request $request)
+    {
+        return view('dashbord.manegercourse');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

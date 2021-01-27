@@ -17,10 +17,13 @@
     @endif
 
     <h5 class="center my-2 mt-3"> คอร์สนี้เรียนแล้วได้อะไรบ้าง </h5>
+    {!! Form::open(['action' => 'DashbordController@aboutcourse', 'method'=>'post']) !!}
+
 
     <div class=" d-flex flex-row">
+
         <div class="col-md-6">
-            {!! Form::open(['action' => 'DashbordController@aboutcourse', 'method'=>'post',"class"=>"swa-confirm","data-flag"=>"0"]) !!}
+
             <p>{{$return}}</p>
 
         <input type="text" name="course_id" value="{{$return}}" class="form-control" style="display: none">
@@ -122,7 +125,7 @@
                 <input type="button" id="btn-submit"    value="สร้างคอร์ส" class="btn btn-primary swa-confirm">
             </div>
 
-            {!! Form::close() !!}
+
 
 
 
@@ -131,14 +134,12 @@
         <div class="  mt-4 col-md-4" style=" height: 400px">
 
                 <p class=" m-0 p-0">ภาพคอร์ส</p>
-
-
                         <div class="  col-12 p-0 m-0  " >
                                         <label  class=" p-0 m-0 position-relative">
                                         <img class="card-img-top insutition rounded " src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview"  style="width: 100%;height: 200px; cursor: pointer"/>
 
                                         {{-- <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all"> --}}
-                                        <input class="photo" id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();" style="display: none"  />
+                                        <input class="photo" id="uploadImage" type="file" name="image" onchange="PreviewImage();" style="display: "  />
                                         </label>
 
                                 <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 160px">
@@ -208,6 +209,7 @@
         </div>
 
     </div>
+    {!! Form::close() !!}
 
     {{-- <div class="col-md-4">
 

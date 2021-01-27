@@ -123,8 +123,9 @@ $('#btn-submit').click(function (e) {
             if(result.isConfirmed){
                 Swal.fire('ลบสำเร็จ!', '', 'success')
                 form.submit();
-            }else{
-                Swal.fire('Changes are not saved', '', 'info')
+            }else if (result.isDismissed){
+                // Swal.fire('ไม่!')
+                // console.log('cancel');
             }
         })
 
