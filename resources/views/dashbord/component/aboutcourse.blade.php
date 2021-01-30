@@ -1,6 +1,6 @@
 <div class="container">
 
-    @if ($errors->all())
+    {{-- @if ($errors->all())
         <ul class="alert-danger">
 
             @foreach($errors->all() as $error)
@@ -14,11 +14,11 @@
             @endforeach
 
         </ul>
-    @endif
+    @endif --}}
 
     <h5 class="center my-2 mt-3"> คอร์สนี้เรียนแล้วได้อะไรบ้าง </h5>
-    {!! Form::open(['action' => 'DashbordController@aboutcourse', 'method'=>'post']) !!}
-
+    {!! Form::open( array('route' => 'aboutcourse', 'method'=>'post' ,'enctype' => 'multipart/form-data' )) !!}
+    @csrf
 
     <div class=" d-flex flex-row">
 
@@ -139,7 +139,7 @@
                                         <img class="card-img-top insutition rounded " src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview"  style="width: 100%;height: 200px; cursor: pointer"/>
 
                                         {{-- <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all"> --}}
-                                        <input class="photo" id="uploadImage" type="file" name="image" onchange="PreviewImage();" style="display: "  />
+                                        <input class="photo" id="uploadImage" type="file" name="image" onchange="PreviewImage();" style="display: none"  />
                                         </label>
 
                                 <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 160px">
@@ -224,6 +224,6 @@
 
     </div> --}}
 
-    {!! Form::close() !!}
+
 
 </div>

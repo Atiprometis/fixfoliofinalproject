@@ -18,6 +18,7 @@ use App\Models\Corses\Course_youtube;
 use Dotenv\Result\Result;
 use App\Course;
 use Illuminate\Support\Facades\Auth;
+use SebastianBergmann\Environment\Console;
 
 class DashbordController extends Controller
 {
@@ -164,9 +165,6 @@ class DashbordController extends Controller
         // $course_image= $request->input('myPhoto');
 
 
-
-
-
         $id = Auth::id();
 
         $course_id = $request->input('course_id');
@@ -175,7 +173,17 @@ class DashbordController extends Controller
         $course_career = $request->input('course_career');
         $course_youtube = $request->input('course_youtube');
 
-        // echo $course_id ;
+
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+
+         $avatarName = time() . '.' . $request->image->getClientOriginalName();
+
+         $request->image->move(public_path('course/thumbnail'), $avatarName);
+        echo $avatarName;
+
 
         $datalearnToDB = [];
         foreach ($course_learn as $learn) {
@@ -223,7 +231,9 @@ class DashbordController extends Controller
         // echo $request;
 
 
-        // return redirect()->action([DashbordController::class, 'manegerCourse']);
+        return redirect()->action([DashbordController::class, 'manegerCourse']);
+
+        // return view('dashbord.manegercourse');
     }
 
     public function uploadImagecourse()
