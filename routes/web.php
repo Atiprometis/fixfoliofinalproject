@@ -33,7 +33,7 @@ Route::resource('/home', 'HomeController');
 Route::get('/loginsignin', 'LoginSigninController@Login');
 Route::get('/singup', 'LoginSigninController@Singup');
 
-Route::resource('/course', 'CourseController');
+Route::get('/courses', 'CourseController@index');
 
 Route::get('/coursedetail', 'CourseController@coursedetail');
 

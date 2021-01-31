@@ -6,6 +6,10 @@ use App\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use App\Models\Course_day;
+use App\Models\Schools;
+
+use Illuminate\Support\Facades\Auth;
 class CourseController extends Controller
 {
     /**
@@ -16,11 +20,66 @@ class CourseController extends Controller
     public function index()
     {
         //
+        $id = Auth::id();
+        $readSchoolname = DB::select('SELECT
+        courses.course_id,
+        schools.schools_name,
+        courses.course_name,
+        courses.course_category,
+        courses.course_cost,
+        courses.course_start,
+        courses.course_end,
+        courses.course_learn_start,
+        courses.course_learn_end,
+        courses.course_hours
+        FROM schools
+        INNER JOIN courses ON courses.course_school = schools.schools_id');
 
-        $readSchoolname = DB::select('SELECT courses.course_id, schools.schools_name, courses.course_name, courses.course_category, courses.course_cost, courses.course_start, courses.course_end, courses.course_learn_start, courses.course_learn_end, courses.course_hours FROM schools INNER JOIN courses ON courses.course_school = schools.schools_id');
+        // Course::select('
+        // course_id,
+        // ')
 
-        // echo json_encode($readSchoolname);
-        return view('course/course',compact('readSchoolname'));
+        $allcourses =  Course::select(
+            // DB::raw('count(course_school_details.school_name) as countcourse'),
+            'courses.course_id',
+            'courses.course_school',
+            'courses.course_name',
+            'courses.course_hours',
+            'courses.course_cost',
+            'courses.course_learn_start',
+            'courses.course_learn_end',
+            'courses.status',
+
+        )
+            ->join('course_day', 'course_day.course_final_id', '=', 'courses.course_id')
+            ->orderBy('courses.course_id', 'DESC')
+            ->distinct('courses.course_id')
+            ->where('courses.status', '=', 1)
+            ->get();
+
+            // echo $allcourses;
+
+            $courseDay =  Course_day::select(
+                'day_id',
+                'course_final_id',
+                'course_day'
+            )
+                ->distinct('course_final_id')
+                ->get();
+
+              $schoolsName =  Schools::select(
+                  'schools.schools_id',
+                  'courses.course_school',
+                    'schools.schools_name',
+                )
+                ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+                ->distinct('schools.schools_id')
+                // ->where('schools.schools_id', '=', 'courses.course_school')
+                ->get();
+
+                // echo $schoolsName;
+
+        return view('course/course')->with(compact('allcourses','courseDay','schoolsName'));
 
     }
 

@@ -65,43 +65,65 @@
                     </div>
                     <div class="col-12 p-0 m-0">
 
-                        @foreach($readSchoolname as $data)
+                        @php
+                            $i = 1;
+                        @endphp
+                        @foreach($allcourses as $course)
+                                @if ($course->status != 0 )
 
-{{--                            <a href="{{route('course.show',$data->id)}}" style="color: inherit;">--}}
-
-                            <a href="{{route('course.show',$data->course_id)}}" style="color: inherit;">
-
-                                <div class=" col-4  p-2   float-left " >
-                                    <div class=" w-100 " >
-                                            <div class=" position-relative">
-                                                <div class="d-flex flex-row w-100 justify-content-md-between p-3 position-absolute">
-                                                    <div class="open-course ">เปิดรับสมัคร</div>
-                                                    <div class="open-online  ">มีสอนออนไลน์</div>
+                                <a href="#" style="color: inherit;">
+                                    <div class=" col-4  p-2   float-left " >
+                                        <div class=" w-100 " >
+                                                <div class=" position-relative">
+                                                    <div class="d-flex flex-row w-100 justify-content-md-between p-3 position-absolute">
+                                                        <div class="open-course ">เปิดรับสมัคร</div>
+                                                        <div class="open-online  ">มีสอนออนไลน์</div>
+                                                    </div>
+                                                    <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
                                                 </div>
-                                                <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
-                                            </div>
-                                        <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 130px">
-                                            <div class=" d-flex justify-content-between mt-2">
-                                                <p class="d-inline-block text-truncate" style="font-size: 1em;">{{$data->course_name}}</p>
-                                                <p class="pl-2 mr-3" style="font-size: 1em;">{{$data->course_cost}}</p>
-                                            </div>
-                                            <div class=" d-flex flex-row ">
-                                                <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                                <p class="ml-2 mr-2 mb-1 p-0">{{$data->course_start}} - {{$data->course_end}} เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$data->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$data->course_learn_end)->format('H:i')}} น.</p>
-                                            </div>
-                                            <div class=" d-flex justify-content-between">
+                                            <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 130px">
+                                                <div class=" d-flex justify-content-between mt-2">
+                                                    <p class="d-inline-block text-truncate" style="font-size: 1em;">{{$course->course_name}}</p>
+                                                    <p class="pl-2 mr-3" style="font-size: 1em;">{{$course->course_cost}}</p>
+                                                </div>
+                                                <div class=" d-flex flex-row p-0 m-0">
+                                                    <i class="far fa-calendar-alt fa-1x p-0 m-0" class="ml-2 mr-2"></i>
+                                                    <p class="ml-2 mr-2 p-0">
+                                                            @foreach ($courseDay as $day)
+                                                                @if ($day->course_final_id == $course->course_id)
+                                                                    <p class="p-0 m-0">{{$day->course_day}}_</p>
+                                                                @endif
+                                                            @endforeach
+                                                    </p>
+                                                </div>
                                                 <div class=" d-flex flex-row ">
                                                     <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
-                                                    <p class="ml-2 mr-2">{{$data->course_hours}} ชั่วโมง</p>
+                                                    <p class="ml-2 mr-2 mb-1 p-0">
+                                                             เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$course->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$course->course_learn_end)->format('H:i')}} น.
+                                                    </p>
                                                 </div>
+                                                <div class=" d-flex justify-content-between">
+                                                    <div class=" d-flex flex-row ">
+                                                        <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
+                                                        <p class="ml-2 mr-2">{{$course->course_hours}} ชั่วโมง</p>
+                                                    </div>
 
-                                                <p class=" mr-3" style="font-size: 1em;">{{$data->schools_name}}</p>
+                                                    <p class=" mr-3" style="font-size: 1em;">
+                                                        @foreach ($schoolsName as $name)
+                                                            @if ($name->schools_id == $course->course_school)
+                                                                    {{$name->schools_name}}
+                                                            @endif
+                                                        @endforeach
 
+                                                    </p>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                                @endif
+
                         @endforeach
 
                     </div>
