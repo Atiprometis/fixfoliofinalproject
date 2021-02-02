@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Course_day;
 use App\Models\Schools;
+use App\Models\Corses\Course_thumbnail;
 
 use Illuminate\Support\Facades\Auth;
 class CourseController extends Controller
@@ -79,7 +80,15 @@ class CourseController extends Controller
 
                 // echo $schoolsName;
 
-        return view('course/course')->with(compact('allcourses','courseDay','schoolsName'));
+                $thumbnail =Course_thumbnail::select(
+                    'course_id',
+                    'thumbnails_images',
+                    )
+                // ->join('courses', 'courses.course_id', '=', 'course_thumbnails.course_id')
+                ->get();
+                // echo $thumbnail;
+
+        return view('course/course')->with(compact('allcourses','courseDay','schoolsName','thumbnail'));
 
     }
 

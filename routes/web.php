@@ -98,3 +98,4 @@ Route::post('/createcourse_detail', 'DashbordController@passDatatoCoursedetail')
 Route::post('/aboutcourse', 'DashbordController@aboutcourse')->name('aboutcourse');
 Route::get('/manegercourse', 'DashbordController@manegerCourse');
 
+Route::get('/deletecourse/{id}', 'DashbordController@deletecourse' );

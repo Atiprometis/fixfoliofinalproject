@@ -115,13 +115,13 @@ $('#btn-submit').click(function (e) {
     e.preventDefault();
     var form = $(this).parents('form');
     Swal.fire({
-            title: 'ยืนยันลบรูปภาพนี้',
+            title: 'ยืนยันสร้างคอร์ส',
             confirmButtonText: 'ยืนยัน',
             showCancelButton: true,
             cancelButtonText: "ยกเลิก",
         }).then((result) => {
             if(result.isConfirmed){
-                Swal.fire('ลบสำเร็จ!', '', 'success')
+                Swal.fire('สร้างคอร์สสำเร็จ!', '', 'success')
                 form.submit();
             }else if (result.isDismissed){
                 // Swal.fire('ไม่!')
@@ -130,5 +130,29 @@ $('#btn-submit').click(function (e) {
         })
 
 });
+
+</script>
+
+<script type="text/javascript">
+
+    $('.destroy-btn').click(function (e) {
+        e.preventDefault();
+        var form = $(this).parents('form');
+        Swal.fire({
+                title: 'ยืนยันลบคอร์ส',
+                confirmButtonText: 'ยืนยัน',
+                showCancelButton: true,
+                cancelButtonText: "ยกเลิก",
+            }).then((result) => {
+                if(result.isConfirmed){
+                    Swal.fire('ลบคอร์สสำเร็จ!', '', 'success')
+                    form.submit();
+                }else if (result.isDismissed){
+                    // Swal.fire('ไม่!')
+                    // console.log('cancel');
+                }
+            })
+
+    });
 
 </script>

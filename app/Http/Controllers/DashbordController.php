@@ -7,16 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\Redirector;
 use App\Models\CourseSchoolDetail;
+use App\Course;
 use App\Models\Schools;
 use App\Models\Course_day;
 use App\Models\Corses\Course_career;
 use App\Models\Corses\Course_learn;
 use App\Models\Corses\Course_result;
 use App\Models\Corses\Course_youtube;
-
+use App\Models\Corses\Course_thumbnail;
 
 use Dotenv\Result\Result;
-use App\Course;
+
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\Environment\Console;
 
@@ -179,10 +180,15 @@ class DashbordController extends Controller
         ]);
 
 
-         $avatarName = time() . '.' . $request->image->getClientOriginalName();
+         $thumbnailsName =  $request->image->getClientOriginalName();
 
-         $request->image->move(public_path('course/thumbnail'), $avatarName);
-        echo $avatarName;
+         Course_thumbnail::firstOrCreate([
+             'course_id' => $course_id,
+             'thumbnails_images'=>$thumbnailsName,
+         ]);
+
+         $request->image->move(public_path('course/thumbnail'), $thumbnailsName);
+        // echo $thumbnailsName;
 
 
         $datalearnToDB = [];
@@ -192,7 +198,7 @@ class DashbordController extends Controller
                 'course_learnning_detail'    => $learn,
             ];
         }
-        // print_r($datalearnToDB);
+        print_r($datalearnToDB);
 
 
         Course_learn::insert($datalearnToDB);
@@ -236,14 +242,51 @@ class DashbordController extends Controller
         // return view('dashbord.manegercourse');
     }
 
-    public function uploadImagecourse()
-    {
-        //
-    }
+
 
     public function manegerCourse(Request $request)
     {
-        return view('dashbord.manegercourse');
+        $id = Auth::id();
+
+        $schools = Schools::where('schools_owner', '=', $id)
+        ->select(
+            'schools_id',
+        )
+        ->get();
+
+        $schoolsresults = json_decode($schools);
+        $schoolsreturn = implode(",", array_column($schoolsresults, "schools_id"));
+
+        // echo $schoolsreturn;
+
+        $courseallForSchool = Course::where('course_school', '=', $schoolsreturn)
+
+        ->select(
+            'courses.course_id',
+            'courses.course_school',
+            'courses.course_name',
+            'courses.course_category',
+            'courses.course_cost',
+            'courses.course_detail',
+            // 'course_start'=>"",
+            // 'course_end'=>"",
+            'courses.course_certificate',
+            'courses.course_open',
+            'courses.course_close',
+            'courses.course_hours',
+            'courses.course_learn_start',
+            'courses.course_learn_end',
+            'courses.course_online',
+            'courses.status',
+            'schools.schools_name',
+        )
+        ->join('schools', 'schools.schools_id', '=', 'courses.course_school')
+        ->get();
+
+        // echo $courseallForSchool;
+
+
+        return view('dashbord.manegercourse')->with(compact('courseallForSchool'));
     }
 
     /**
@@ -307,6 +350,13 @@ class DashbordController extends Controller
      * @param  \App\Dashbord  $dashbord
      * @return \Illuminate\Http\Response
      */
+    public function deletecourse($id)
+    {
+
+        $delete = Course::where('course_id', '=', $id)
+        ->delete();
+        return back();
+    }
     public function destroy(Dashbord $dashbord)
     {
         //

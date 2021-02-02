@@ -14,8 +14,8 @@
                 <div class="col-10 p-0 m-0" style="background-color: rgb(209, 209, 209);">
                     <div class="ml-2 scrollDiv" style="background-color: #fff;">
 
+                        @include('dashbord.component.maneger')
 
-<P>จัดการคอร์ส</P>
 
                         <div class="line" style="height: 1px; background-color:#000;"></div>
 
@@ -25,5 +25,6 @@
             </div>
         </div>
     </div>
+    @include('dashbord.script.sctriptfromdashboard')
 @endsection
 

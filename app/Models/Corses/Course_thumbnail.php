@@ -4,14 +4,16 @@ namespace App\Models\Corses;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Course_youtube extends Model
+class Course_thumbnail extends Model
 {
     //
-    protected $table =  'course_youtube';
+    protected $table =  'course_thumbnails';
+
     protected $fillable = [
-        'youtube_id',
         'course_id',
-        'youtube_link',
+        'thumbnails_images',
+
+
     ];
 
 }

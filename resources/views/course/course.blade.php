@@ -76,10 +76,17 @@
                                         <div class=" w-100 " >
                                                 <div class=" position-relative">
                                                     <div class="d-flex flex-row w-100 justify-content-md-between p-3 position-absolute">
-                                                        <div class="open-course ">เปิดรับสมัคร</div>
-                                                        <div class="open-online  ">มีสอนออนไลน์</div>
+                                                        {{-- <div class="open-course ">เปิดรับสมัคร</div>
+                                                        <div class="open-online  ">มีสอนออนไลน์</div> --}}
                                                     </div>
-                                                    <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all">
+                                                    @foreach ($thumbnail as $image)
+                                                        @if ($image->course_id == $course->course_id)
+                                                        <img src="{{ asset('/course/thumbnail/'.$image->thumbnails_images.'') }}" class="insutition-all">
+
+                                                        @endif
+                                                    @endforeach
+
+
                                                 </div>
                                             <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 130px">
                                                 <div class=" d-flex justify-content-between mt-2">

@@ -8,19 +8,6 @@
                 <i class="fas fa-arrow-alt-circle-right ml-3"></i>
                 <p class="m-1 ml-3">dashbord</p>
         </li></a>
-        <a href="/dashcourse">
-            <li class=" d-flex flex-row justify-content-been align-items-center">
-                <i class="fas fa-arrow-alt-circle-right ml-3"></i>
-                <p class="m-1 ml-3">คอร์สเรียนทั้งหมด</p>
-            </li>
-        </a>
-
-        <a href="/dashcreatecourse">
-            <li class=" d-flex flex-row justify-content-been align-items-center">
-                <i class="fas fa-arrow-alt-circle-right ml-3"></i>
-                <p class="m-1 ml-3">สร้างคอร์สเรียน</p>
-            </li>
-        </a>
         <a href="/manegercourse">
             <li class=" d-flex flex-row justify-content-been align-items-center">
                 <i class="fas fa-arrow-alt-circle-right ml-3"></i>
@@ -30,9 +17,18 @@
         <a href="/dashcreatecourse">
             <li class=" d-flex flex-row justify-content-been align-items-center">
                 <i class="fas fa-arrow-alt-circle-right ml-3"></i>
-                <p class="m-1 ml-3">ลบคอร์สเรียน</p>
+                <p class="m-1 ml-3">สร้างคอร์สเรียน</p>
             </li>
         </a>
+        <a href="/dashcourse">
+            <li class=" d-flex flex-row justify-content-been align-items-center">
+                <i class="fas fa-arrow-alt-circle-right ml-3"></i>
+                <p class="m-1 ml-3">คอร์สเรียนทั้งหมด</p>
+            </li>
+        </a>
+
+
+
         <a href="#">
             <li class=" d-flex flex-row justify-content-been align-items-center">
                 <i class="fas fa-arrow-alt-circle-right ml-3"></i>

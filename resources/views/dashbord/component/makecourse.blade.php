@@ -55,7 +55,7 @@
                 <div class="form-group col-md-6 col-sm-12 p-0">
 
                     {!! Form::label('course_open','เปิดรับสมัคร') !!}
-                    {!! Form::date('course_open',null,["class"=>"form-control"]) !!}
+                    {!! Form::date('course_open',null,["class"=>"form-control",'required']) !!}
 
 
                 </div>
@@ -63,7 +63,7 @@
                 <div class="form-group col-md-6 col-sm-12 p-0">
 
                     {!! Form::label('course_close','ปิดรับสมัคร') !!}
-                    {!! Form::date('course_close',null,["class"=>"form-control"]) !!}
+                    {!! Form::date('course_close',null,["class"=>"form-control",'required']) !!}
 
                 </div>
 
