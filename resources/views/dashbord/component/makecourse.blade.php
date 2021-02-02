@@ -35,7 +35,7 @@
                 <div class="form-group col-md-6 col-sm-12 p-0">
 
                     {!! Form::label('course_detail','รายละเอียดคอร์ส') !!}
-                    {!! Form::textarea('course_detail',null,["class"=>"form-control"]) !!}
+                    {!! Form::textarea('course_detail',null,["class"=>"form-control",'required']) !!}
 
                 </div>
 

@@ -138,9 +138,9 @@ class DashbordController extends Controller
                 'course_day' => $day,
             ];
         }
-        // print_r($dataDayToDB);
+        // dd($dataDayToDB);
 
- Course_day::insert($dataDayToDB);
+        Course_day::insert($dataDayToDB);
 
          $dayData = array([
             'course_day' => $course_day,
@@ -174,14 +174,30 @@ class DashbordController extends Controller
         $course_career = $request->input('course_career');
         $course_youtube = $request->input('course_youtube');
 
+        // dd($request->input('image'));
+
+        // if ($request->hasFile('image')) {
+
+        //     $this->validate($request, [
+        //         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        // ]);
 
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-
+        // if (!$request->file('image')
+        // ->isValid())
+        // return redirect()->back()->withErrors(["image" => "File is corrupt"]);
+// dd($request->image);
+        // if($request->file('image') == null){
+        //     $thumbnailsName = 'Placeholder.jpg';
+        // }
+        // echo $request->image;
          $thumbnailsName =  $request->image->getClientOriginalName();
 
+        //  echo $thumbnailsName;
          Course_thumbnail::firstOrCreate([
              'course_id' => $course_id,
              'thumbnails_images'=>$thumbnailsName,
@@ -198,7 +214,7 @@ class DashbordController extends Controller
                 'course_learnning_detail'    => $learn,
             ];
         }
-        print_r($datalearnToDB);
+        // print_r($datalearnToDB);
 
 
         Course_learn::insert($datalearnToDB);
@@ -232,14 +248,10 @@ class DashbordController extends Controller
         }
         // print_r($datayoutubeToDB);
         Course_youtube::insert($datayoutubeToDB);
-
-
         // echo $request;
-
-
         return redirect()->action([DashbordController::class, 'manegerCourse']);
 
-        // return view('dashbord.manegercourse');
+
     }
 
 

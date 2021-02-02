@@ -67,6 +67,7 @@ class CourseController extends Controller
             )
                 ->distinct('course_final_id')
                 ->get();
+                // echo $courseDay;
 
               $schoolsName =  Schools::select(
                   'schools.schools_id',
@@ -75,16 +76,18 @@ class CourseController extends Controller
                 )
                 ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
                 ->distinct('schools.schools_id')
+
                 // ->where('schools.schools_id', '=', 'courses.course_school')
                 ->get();
 
                 // echo $schoolsName;
 
-                $thumbnail =Course_thumbnail::select(
+
+                $thumbnail = Course_thumbnail::select(
                     'course_id',
-                    'thumbnails_images',
+                    DB::raw('MAX(thumbnails_images) as thumbnails_images')
                     )
-                // ->join('courses', 'courses.course_id', '=', 'course_thumbnails.course_id')
+                ->groupBy('course_id')
                 ->get();
                 // echo $thumbnail;
 

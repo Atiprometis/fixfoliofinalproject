@@ -25,7 +25,9 @@
         <div class="form-group col-md-5 p-0 mr-2 ml-2">
 
             {!! Form::label('course_hours','เรียนทั้งหมดกี่ชั่วโมง') !!}
-            {!! Form::number('course_hours',null,["class"=>"form-control" ,'required']) !!}
+            {!! Form::number('course_hours',null,["class"=>"form-control",
+            "oninput"=>"javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);",
+             "maxlength"=>"3"  ,'required']) !!}
 
         </div>
         <div class="form-group col-md-5 p-0 mr-2 ml-2">
@@ -38,8 +40,8 @@
 
             {!! Form::label('course_online','เรียนออนไลน์หรือไม่ ?') !!}
             <select class="form-control" id="exampleFormControlSelect1" name="course_online" required>
-                <option value="yes">คอร์สออนไลน์</option>
                 <option value="no">ไม่มีคอร์สออนไลน์</option>
+                <option value="yes">คอร์สออนไลน์</option>
             </select>
         </div>
     </div>

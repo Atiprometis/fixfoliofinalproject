@@ -14,7 +14,7 @@
             {{-- <th scope="col">ใบประกาศนียบัตร</th> --}}
             <th scope="col">เปิดรับสมัคร</th>
             <th scope="col">ปิดรับสมัคร</th>
-            <th scope="col">วันเรียน</th>
+
             <th scope="col">เริ่มเรียน</th>
             <th scope="col">เลิกเรียน</th>
             <th scope="col">ชั่วโมง</th>
@@ -37,7 +37,7 @@
                 <td>{{$course->course_open}}</td>
                 <td>{{$course->course_close}}</td>
 
-                <td>วันเรียน</td>
+
                 <td>{{$course->course_learn_start}}</td>
                 <td>{{$course->course_learn_end}}</td>
                 <td>{{$course->course_hours}}</td>
@@ -50,7 +50,12 @@
                     <p class=" text-danger">กำลังตรวจสอบ</p>
                     @endif
                 </td>
-                <td>แก้ไข</td>
+                <td>
+                    <form action="/editcourse/{{$course->course_id}}" method="GET">
+                        @csrf
+                        <button type="submit" data-name="{{$course->course_id}}" class="btn btn-info deleteForm ">แก้ไข</button>
+                    </form>
+                </td>
                 <td >
                     <form action="/deletecourse/{{$course->course_id}}" method="GET">
                         @csrf
