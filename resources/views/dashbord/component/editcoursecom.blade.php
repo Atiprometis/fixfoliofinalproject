@@ -25,8 +25,7 @@
 </nav>
 <div class="container">
     <div class="row">
-        {{-- <form action="/changeAboutCourse" method="POST"> --}}
-            {{-- @method('PUT') --}}
+
             {!! Form::open(array('url' => '/changeAboutCourse', 'method' => 'get')) !!}
             @csrf
             @foreach ($courseAll as $course)
@@ -45,7 +44,7 @@
                 <div class=" form-group col-md-6">
                     <label for="select1">หมวดหมู่</label>
                     <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="หมวดหมู่ล่าสุด : {{$course->course_category}}">
-                    {{-- <input type="email" class="form-control" id="select1" placeholder="name@example.com"> --}}
+
                     <select class="form-control" id="select1" name="course_category">
                             <option style="display: none">{{$course->course_category}}</option>
                             <option>อาหาร</option>
@@ -89,16 +88,16 @@
                     <label for="exampleFormControlTextarea1">รายละเอียดคอร์ส</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" name="course_detail" rows="8" value="sa">{{$course->course_detail}}</textarea>
                 </div>
-                {{-- <button></button> --}}
+
                 <div class=" d-flex justify-content-center col-md-12 mt-2 mb-2">
                     <input type="button" id="updatecourse"   value="อัพเดทคอร์ส" class="btn btn-primary swa-confirm">
-                    {{-- <a href="/manegercourse"> --}}
+
                         <button type="submit" formaction="/manegercourse" class="btn btn-secondary swa-confirm mr-2 ml-2" >กลับ</button>
-                    {{-- </a> --}}
+
                 </div>
         </div>
             @endforeach
             {!! Form::close() !!}
-        {{-- </form> --}}
+
     </div>
 </div>

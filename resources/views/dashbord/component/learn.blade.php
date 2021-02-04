@@ -40,8 +40,8 @@
 
             {!! Form::label('course_online','เรียนออนไลน์หรือไม่ ?') !!}
             <select class="form-control" id="exampleFormControlSelect1" name="course_online" required>
-                <option value="no">ไม่มีคอร์สออนไลน์</option>
-                <option value="yes">คอร์สออนไลน์</option>
+                <option value="ไม่มี">ไม่มีคอร์สออนไลน์</option>
+                <option value="มีคอร์สออนไลน์">คอร์สออนไลน์</option>
             </select>
         </div>
     </div>
