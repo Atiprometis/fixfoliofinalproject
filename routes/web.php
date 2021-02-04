@@ -101,6 +101,7 @@ Route::get('/manegercourse', 'DashbordController@manegerCourse');
 Route::get('/deletecourse/{id}', 'DashbordController@deletecourse' );
 
 Route::get('/editcourse/{id}', 'Dashborad\EditcourseController@index' );
+Route::get('/changeAboutCourse', 'Dashborad\EditcourseController@changeAboutCourse' );
 Route::get('/editcourse/{id}/date', 'Dashborad\EditcourseController@detecourse' );
 Route::get('/editcourse/{id}/detail', 'Dashborad\EditcourseController@detailcourse' );
 Route::get('/editcourse/{id}/image', 'Dashborad\EditcourseController@imagecourse' );

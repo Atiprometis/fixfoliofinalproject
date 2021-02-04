@@ -6,6 +6,9 @@ use App\Dashbord;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
+use App\Course;
+
 class EditcourseController extends Controller
 {
     /**
@@ -17,8 +20,37 @@ class EditcourseController extends Controller
     {
          $courseID = $id;
 
-        return view('dashbord.editcourse')->with(compact('courseID'));
+         $courseAll = Course::where('course_id', '=', $courseID)
+         ->get();
+
+
+        return view('dashbord.editcourse')->with(compact('courseID','courseAll'));
     }
+    public function changeAboutCourse(Request $request)
+    {
+         $courseID = $request->input('courseID');
+         $course_category = $request->input('course_category');
+         $course_name = $request->input('course_name');
+         $course_cost = $request->input('course_cost');
+         $course_certificate = $request->input('course_certificate');
+         $course_detail = $request->input('course_detail');
+
+         $courseAll = Course::where('course_id', '=', $courseID)
+         ->update([
+             'course_name' => $course_name,
+             'course_category'=> $course_category,
+             'course_cost'=> $course_cost,
+             'course_certificate' => $course_certificate,
+             'course_detail' => $course_detail,
+         ]);
+        //  ->get();
+
+
+         return back()->withInput();
+    }
+
+
+
     public function detecourse($id)
     {
         $courseID = $id;

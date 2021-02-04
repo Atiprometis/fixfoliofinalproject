@@ -131,6 +131,8 @@ $('#btn-submit').click(function (e) {
 
 });
 
+
+
 </script>
 
 <script type="text/javascript">
@@ -155,4 +157,13 @@ $('#btn-submit').click(function (e) {
 
     });
 
+</script>
+
+<script>
+    $('#updatecourse').click(function (e) {
+        e.preventDefault();
+        var form = $(this).parents('form');
+        Swal.fire('อัพเดทคอร์สำเร็จ!', '', 'success')
+        form.submit();
+    });
 </script>
