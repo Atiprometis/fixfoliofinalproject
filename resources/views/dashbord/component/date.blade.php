@@ -31,10 +31,17 @@
         <div class=" d-flex flex-row col-md-12 flex-wrap mt-2">
 
             <div class=" form-group col-md-6">
-                <label for="exampleFormControlInput1">เรียนวัน</label>
-                <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="email@example.com">
+                <label for="exampleFormControlInput1">เรียนวันไหน</label>
+                <div class=" d-flex flex-row">
+                    วันที่เรียน :
+                    @foreach ($course_day as $day)
+                            <p>{{$day->course_day}}_</p>
+                    @endforeach
+                    <input type="text" name="user_id" value="{{$user_id}}" style="display: none">
+                    <input type="text" name="course_final_id" value="{{$course_final_id}}" style="display: none">
+                </div>
                 <div class="col-12 p-0 m-0 ">
-                    <input type="hidden" name="course_day[]" value=" ">
+
                     <label class="col-3 p-0" ><input type="checkbox" name="course_day[]" value="จ" > จันทร์</label>
                     <label class="col-3 p-0"><input type="checkbox" name="course_day[]" value="อ"> อังคาร</label>
                     <label class="col-3 p-0"><input type="checkbox" name="course_day[]" value="พ"> พุธ</label>
@@ -42,6 +49,7 @@
                     <label class="col-3 p-0"><input type="checkbox" name="course_day[]" value="ศ"> ศุกร์</label>
                     <label class="col-3 p-0"><input type="checkbox" name="course_day[]" value="ส"> เสาร์</label>
                     <label class="col-3 p-0"><input type="checkbox" name="course_day[]" value="อา"> อาทิตย์</label>
+
                 </div>
                 <small id="passwordHelpBlock" class="form-text text-muted">
                     ใส่ข้อมูลสำหรับเปลี่ยนชื่อคอร์สของคุณ
@@ -49,6 +57,7 @@
             </div>
             <div class=" form-group col-md-6">
                 <label for="select1">เปิดรับสมัคร</label>
+
                 <input type="date" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="{{$course->course_open}}">
                 <input type="date" class="form-control" name="course_open" value="{{$course->course_open}}">
                 <small id="passwordHelpBlock" class="form-text text-muted">
@@ -60,7 +69,7 @@
 
             <div class=" form-group col-md-6">
                 <label for="exampleFormControlInput1">เรียนทั้งหมดกี่ชั่วโมง</label>
-                <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="{{$course->course_hours}}">
+                <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="ชั่งโมงเรียน : {{$course->course_hours}}">
                 <input type="number" class="form-control" id="exampleFormControlInput1" name="course_hours" value="{{$course->course_hours}}"
                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 maxlength="3"
@@ -71,6 +80,7 @@
             </div>
             <div class=" form-group col-md-6">
                 <label for="exampleFormControlInput1">ปิดรับสมัคร</label>
+                {{-- <p >วันปิดรับสมัคร : {{$course->course_close}}</p> --}}
                 <input type="date" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="{{$course->course_close}}">
                 <input type="date" class="form-control" name="course_close" value="{{$course->course_close}}">
 
@@ -83,7 +93,7 @@
 
             <div class=" form-group col-md-4">
                 <label for="exampleFormControlInput1">เริ่มเรียนกี่โมง</label>
-                <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="{{\Carbon\Carbon::createFromFormat('H:i:s',$course->course_learn_start)->format('H:i')}}">
+                <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="เวลาเริ่มเรียน : {{\Carbon\Carbon::createFromFormat('H:i:s',$course->course_learn_start)->format('H:i')}}">
                 <input type="time" class="form-control" id="exampleFormControlInput1" name="course_learn_start" value="{{$course->course_learn_start}}" >
                 <small id="passwordHelpBlock" class="form-text text-muted">
                     ใส่ข้อมูลสำหรับเปลี่ยนราคา
@@ -91,7 +101,8 @@
             </div>
             <div class=" form-group col-md-4">
                 <label for="exampleFormControlInput1">เลิกเรียนกี่โมง</label>
-                <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="{{\Carbon\Carbon::createFromFormat('H:i:s',$course->course_learn_end)->format('H:i')}}">
+
+                <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="เวลาเลิกเรียน : {{\Carbon\Carbon::createFromFormat('H:i:s',$course->course_learn_end)->format('H:i')}}">
                 <input type="time" class="form-control" id="exampleFormControlInput1" name="course_learn_end" value="{{$course->course_learn_end}}">
                 <small id="passwordHelpBlock" class="form-text text-muted">
                     ใส่ข้อมูลสำหรับเปลี่ยนราคา
@@ -99,7 +110,7 @@
             </div>
             <div class=" form-group col-md-4">
                 <label for="exampleFormControlInput1">เรียนออนไลน์หรือไม่ ?</label>
-                <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="{{$course->course_online}}">
+                <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="คอร์สเรียน : {{$course->course_online}}">
                 <select class="form-control" name="course_online" >
                     <option value="{{$course->course_online}}" style="display: none">{{$course->course_online}}</option>
                     <option value="ไม่มีคอร์สออนไลน์">ไม่มีคอร์สออนไลน์</option>

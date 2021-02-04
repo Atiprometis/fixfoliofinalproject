@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Dashborad;
 use App\Dashbord;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 use App\Course;
 use App\Models\Schools;
+use App\Models\Course_day;
 
 class EditcourseController extends Controller
 {
@@ -58,7 +59,40 @@ class EditcourseController extends Controller
          $courseAll = Course::where('course_id', '=', $courseID)
          ->get();
 
-        return view('dashbord.editcourseDate')->with(compact('courseID','courseAll'));
+         $results = json_decode($courseAll);
+
+         $return = implode(",", array_column($results, "course_id"));
+
+
+         $course_day = DB::table('course_day')
+         ->select(
+            //  DB::raw('MAX(day_id) as da'),
+            //  'day_id',
+            'course_final_id',
+            'user_id',
+            'course_day'
+
+        )
+        ->where('course_final_id', '=', $return)
+        ->distinct()
+        // ->groupBy('course_final_id', )
+        ->get();
+
+        $user_idDay = DB::table('course_day')
+         ->select(
+            'user_id',
+            'course_final_id',
+        )
+        ->where('course_final_id', '=', $return)
+        ->limit(1)
+        ->get();
+
+        $results = json_decode($user_idDay);
+
+        $user_id = implode(",", array_column($results, "user_id"));
+        $course_final_id = implode(",", array_column($results, "course_final_id"));
+
+        return view('dashbord.editcourseDate')->with(compact('courseID','courseAll','course_day','user_id','course_final_id'));
     }
     public function changeDate(Request $request)
     {
@@ -69,6 +103,9 @@ class EditcourseController extends Controller
          $course_learn_start = $request->input('course_learn_start');
          $course_learn_end = $request->input('course_learn_end');
          $course_online = $request->input('course_online');
+         $course_day = $request->input('course_day');
+         $user_id = $request->input('user_id');
+         $course_final_id = $request->input('course_final_id');
         //  dd($course_online);
 
           $courseAll = Course::where('course_id', '=', $courseID)
@@ -80,6 +117,62 @@ class EditcourseController extends Controller
              'course_learn_end' => $course_learn_end,
              'course_online' => $course_online,
          ]);
+
+            if($course_day != null){
+                echo 'no null';
+                // dd($course_final_id);
+
+
+                $affectedRows = Course_day::where(
+                    'course_final_id', '=', $course_final_id,
+
+                    )
+                    ->delete();
+
+                    $dataDayToDB = [];
+                    foreach ($course_day as $day) {
+                        $dataDayToDB[] = [
+                            'course_final_id'  => $course_final_id ,
+                            'user_id' => $user_id,
+                            'course_day' => $day,
+                        ];
+                    }
+
+                    // dd($dataDayToDB);
+                    $courseday = Course_day::insert($dataDayToDB);
+
+
+            }else{
+                echo "null";
+                // dd($course_day);
+            }
+
+        //  $dataDayToDB = [];
+        // foreach ($course_day as $day) {
+        //     $dataDayToDB[] = [
+        //         'course_final_id'  => $course_final_id ,
+        //         'user_id' => $user_id,
+        //         'course_day' => $day,
+        //     ];
+        // }
+        // dd($course_day);
+
+        // foreach ($course_day as $day) {
+        //     Course_day::updateOrCreate([
+        //         'course_final_id'  => $course_final_id ,
+        //         'user_id' => $user_id,
+        //         'course_day' => $day,
+        //     ]);
+        // }
+
+// echo json_decode($course_day);
+// dd($course_day);
+
+// Course_day::updateOrCreate([
+//                 'course_final_id'  => $course_final_id ,
+//                 'user_id' => $user_id,
+//                 'course_day' => $course_day,
+// ]);
 
 
 
