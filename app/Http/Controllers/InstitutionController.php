@@ -9,7 +9,7 @@ use mysql_xdevapi\Table;
 
 use App\Models\CourseSchoolDetail;
 use App\Models\Schools;
-
+use App\Course;
 class InstitutionController extends Controller
 {
     /**
@@ -46,29 +46,16 @@ class InstitutionController extends Controller
         //     ->groupBy('course_school_details.school_name', 'school_id', 'schools.school_image')
         //     ->get();
 
-        $courseschooldetails =  CourseSchoolDetail::select(
-            DB::raw('count(course_school_details.school_name) as countcourse'),
-            'course_school_details.school_id',
-            'course_school_details.school_name',
-            'schools.school_image'
-        )
+        $courseschooldetails = Schools::select(
+          'schools_id',
+          'schools_name',
+          DB::raw('count(courses.course_school) as countcourse'),
+          'school_image',
 
-            ->join('schools', 'schools.schools_id', '=', 'course_school_details.school_id')
-            // ->find('course_school_details.school_name')
-            // ->count();distinct
-            // ->distinct()
-            ->groupBy('course_school_details.school_name', 'school_id', 'schools.school_image')
-
-            ->get();
-
-
-
-        // $courseCount = CourseSchoolDetail::select('course_school_details.school_name')->count();
-
-        // $courseschooldetails =  CourseSchoolDetail::all();
-
-        // echo $courseschooldetails;
-        // echo $courseCount;
+          )
+        ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+        ->groupBy( 'courses.course_school','schools_name','school_image','schools_id')
+        ->get();
 
 
         return view('institution.Institution')->with(compact('courseschooldetails'));

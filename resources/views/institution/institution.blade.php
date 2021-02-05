@@ -48,14 +48,14 @@
 
                     @foreach($courseschooldetails as $courseschooldetail)
 
-                        <a class="" href="/profileinstitution/{{$courseschooldetail->school_id}}/{{ $courseschooldetail->countcourse }}" style="color: inherit; ">
+                        <a class="" href="/profileinstitution/{{$courseschooldetail->schools_id}}/{{ $courseschooldetail->countcourse }}" style="color: inherit; ">
                             <div class=" col-3  p-2   float-left " >
                                 <div class="">
                                     <img src="{{ $courseschooldetail->school_image }}" class="insutition-all">
                                     <div class="  d-flex flex-column text-insutition pl-3 pt-2" style="">
 
                                         <p class="" style="font-size: 1.375em;">{{$courseschooldetail->course_school}}</p>
-                                        <p class="" style="font-size: 1.375em;">{{$courseschooldetail->school_name}}</p>
+                                        <p class="" style="font-size: 1.375em;">{{$courseschooldetail->schools_name}}</p>
 
                                         <div class=" d-flex flex-row ">
                                             <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
