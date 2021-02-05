@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 use App\Course;
 use App\Models\Schools;
 use App\Models\Course_day;
+use App\Models\Corses\Course_career;
+use App\Models\Corses\Course_learn;
+use App\Models\Corses\Course_result;
+use App\Models\Corses\Course_youtube;
+use App\Models\Corses\Course_thumbnail;
 
 class EditcourseController extends Controller
 {
@@ -144,36 +149,8 @@ class EditcourseController extends Controller
 
             }else{
                 echo "null";
-                // dd($course_day);
+                return back()->withInput();
             }
-
-        //  $dataDayToDB = [];
-        // foreach ($course_day as $day) {
-        //     $dataDayToDB[] = [
-        //         'course_final_id'  => $course_final_id ,
-        //         'user_id' => $user_id,
-        //         'course_day' => $day,
-        //     ];
-        // }
-        // dd($course_day);
-
-        // foreach ($course_day as $day) {
-        //     Course_day::updateOrCreate([
-        //         'course_final_id'  => $course_final_id ,
-        //         'user_id' => $user_id,
-        //         'course_day' => $day,
-        //     ]);
-        // }
-
-// echo json_decode($course_day);
-// dd($course_day);
-
-// Course_day::updateOrCreate([
-//                 'course_final_id'  => $course_final_id ,
-//                 'user_id' => $user_id,
-//                 'course_day' => $course_day,
-// ]);
-
 
 
          return back()->withInput();
@@ -182,8 +159,18 @@ class EditcourseController extends Controller
     public function detailcourse($id)
     {
         // dd($id);
-        $courseID = $id;
-        return view('dashbord.editcourseDetail')->with(compact('courseID'));
+        echo $courseID = $id;
+
+         $Course_career = Course_career::where('course_id', '=', $courseID)
+         ->get();
+         $Course_learn = Course_learn::where('course_id', '=', $courseID)
+         ->get();
+         $Course_result = Course_result::where('course_id', '=', $courseID)
+         ->get();
+         $Course_youtube = Course_youtube::where('course_id', '=', $courseID)
+         ->get();
+
+        return view('dashbord.editcourseDetail')->with(compact('courseID','Course_career'));
     }
 
     public function imagecourse($id)

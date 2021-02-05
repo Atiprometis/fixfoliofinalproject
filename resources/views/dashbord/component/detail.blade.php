@@ -49,101 +49,112 @@
 
                 <div class=" d-flex flex-row">
 
-                    <div class="col-md-6">
-
-                        {{-- <p>{{$return}}</p> --}}
-
+                    <div class="col-md-12">
                     <input type="text" name="course_id" value="ห" class="form-control" style="display: none">
 
-                        <div class="table-responsive ">
+                        <div class=" d-flex flex-row flex-wrap col-md-12">
+                            <div class="table-responsive col-md-6">
 
-                            {!! Form::label('Course Learned','เรียนอะไรบ้าง',array('class' => 'm-0 ')) !!}
+                                {!! Form::label('Course Learned','เรียนอะไรบ้าง',array('class' => ' ')) !!}
 
-                            <table class="table table-bordered" id="dynamic_field1">
-                                <tr>
-                                    <td>
-                                        <input type="text" name="course_learn[]" placeholder="เรียนอะไรบ้าง" class="form-control" required>
+                                <table class="table table-bordered" id="dynamic_field1">
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="course_learn[]" placeholder="เรียนอะไรบ้าง"  class="form-control" required>
+                                            <td>
 
-                                    </td>
+                                                <button type="button" name="add1" id="add1" class="btn btn-success">เพิ่ม</button>
 
-                                    <td>
+                                            </td>
+                                            @foreach ($Course_career as $career)
 
-                                        <button type="button" name="add1" id="add1" class="btn btn-success">เพิ่ม</button>
+                                                <tr id="row1'+i+'">
+                                                <td>
+                                                    <input type="text" name="course_learn[]" value="{{$career->course_career_detail}}" class="form-control course_learn_list" required>
+                                                </td>
+                                                <td>
+                                                    <button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button>
+                                                </td></tr>
+                                            @endforeach
 
-                                    </td>
 
-                                </tr>
+                                        </td>
 
-                            </table>
 
-                        </div>
 
-                        <div class="table-responsive">
+                                    </tr>
 
-                            {!! Form::label('Course Learned','เรียนจบแล้วทำอะไรได้') !!}
+                                </table>
 
-                            <table class="table table-bordered" id="dynamic_field2">
+                            </div>
 
-                                <tr>
+                            <div class="table-responsive col-md-6">
 
-                                    <td>
+                                {!! Form::label('Course Learned','เรียนจบแล้วทำอะไรได้') !!}
 
-                                        <input type="text" name="course_result[]" placeholder="เรียนจบแล้วทำอะไรได้" class="form-control" required>
+                                <table class="table table-bordered" id="dynamic_field2">
 
-                                    </td>
+                                    <tr>
 
-                                    <td>
+                                        <td>
 
-                                        <button type="button" name="add2" id="add2" class="btn btn-success">เพิ่ม</button>
+                                            <input type="text" name="course_result[]" placeholder="เรียนจบแล้วทำอะไรได้" class="form-control" required>
 
-                                    </td>
+                                        </td>
 
-                                </tr>
+                                        <td>
 
-                            </table>
+                                            <button type="button" name="add2" id="add2" class="btn btn-success">เพิ่ม</button>
 
-                        </div>
+                                        </td>
 
-                        <div class="table-responsive">
+                                    </tr>
 
-                            {!! Form::label('Course Learned','ประกอบอาชีพอะไรได้') !!}
+                                </table>
 
-                            <table class="table table-bordered" id="dynamic_field3">
+                            </div>
 
-                                <tr>
+                            <div class="table-responsive col-md-6">
 
-                                    <td>
+                                {!! Form::label('Course Learned','ประกอบอาชีพอะไรได้') !!}
 
-                                        <input type="text" name="course_career[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
+                                <table class="table table-bordered" id="dynamic_field3">
 
-                                    </td>
+                                    <tr>
 
-                                    <td>
+                                        <td>
 
-                                        <button type="button" name="add3" id="add3" class="btn btn-success">เพิ่ม</button>
+                                            <input type="text" name="course_career[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
 
-                                    </td>
+                                        </td>
 
-                                </tr>
+                                        <td>
 
-                            </table>
+                                            <button type="button" name="add3" id="add3" class="btn btn-success">เพิ่ม</button>
 
-                        </div>
+                                        </td>
 
-                        <div class="table-responsive">
+                                    </tr>
 
-                            {!! Form::label('Course Learned','Youtube Link') !!}
+                                </table>
 
-                            <table class="table table-bordered" id="dynamic_field4">
-                                <tr>
-                                    <td>
-                                        <input type="text" name="course_youtube[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
-                                    </td>
-                                    <td>
-                                        <button type="button" name="add4" id="add4" class="btn btn-success">เพิ่ม</button>
-                                    </td>
-                                </tr>
-                            </table>
+                            </div>
+
+                            <div class="table-responsive col-md-6">
+
+                                {!! Form::label('Course Learned','Youtube Link') !!}
+
+                                <table class="table table-bordered" id="dynamic_field4">
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="course_youtube[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
+                                        </td>
+                                        <td>
+                                            <button type="button" name="add4" id="add4" class="btn btn-success">เพิ่ม</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="col my-2">
