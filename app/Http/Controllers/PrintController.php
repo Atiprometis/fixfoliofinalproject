@@ -6,7 +6,15 @@ use Illuminate\Http\Request;
 
 class PrintController extends Controller
 {
-    public function print(){
-        return view('print/print');
+    public function index(){
+        return view('print.print');
     }
+
+    public function store(Request $request)
+    {
+
+
+
+    }
+
 }

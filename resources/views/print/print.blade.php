@@ -36,16 +36,20 @@
                 <div class=" d-flex flex-column">
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
-                            ชื่อนาย <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->name}} {{$request->lastname}}</p>
+
+                            ชื่อนาย <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['name']); @endphp @php print_r($print['lastname']); @endphp</p>
+
                         </p>
 
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            เลขประจำตัวประชาชน <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->idcard}}</p>
+                            {{-- เลขประจำตัวประชาชน <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->idcard}}</p> --}}
+                            เลขประจำตัวประชาชน <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['idcard']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            วัน/เดือน/ปีเกิด <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->birthday}}</p>
+                            {{-- วัน/เดือน/ปีเกิด <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->birthday}}</p> --}}
+                            วัน/เดือน/ปีเกิด <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['birthday']); @endphp</p>
                         </p>
 
                     </div>
@@ -61,24 +65,24 @@
                 <div class=" d-flex flex-column">
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
-                            ประวัติส่วนตัว นับถือศาสนา <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->religion}}</p>
+                            ประวัติส่วนตัว นับถือศาสนา <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['religion']); @endphp</p>
                         </p>
                         <p class="p-0 m-0 mr-3  font-weight-bold" style="font-size: 1em;">
-                            สัญชาติ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->nationality}}</p>
+                            สัญชาติ <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['nationality']); @endphp</p>
                         </p>
                         <p class="p-0 m-0 mr-3  font-weight-bold" style="font-size: 1em;">
-                            เชื้อชาติ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->nationality}}</p>
+                            เชื้อชาติ <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['nationality']); @endphp</p>
                         </p>
                         <p class="p-0 m-0 mr-3  font-weight-bold" style="font-size: 1em;">
-                            อาชีพ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->career}}</p>
+                            อาชีพ <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['career']); @endphp</p>
                         </p>
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            เบอร์โทรศัพท์ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->telphone}}</p>
+                            เบอร์โทรศัพท์ <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['telphone']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            อีเมล์ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->email}}</p>
+                            อีเมล์ <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['email']); @endphp</p>
                         </p>
 
 
@@ -86,26 +90,26 @@
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            ชื่อสถานศึกษา<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->school}} </p>
+                            ชื่อสถานศึกษา<p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['school']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            สาขาที่จบ<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->branch}}</p>
+                            สาขาที่จบ<p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['branch']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            วุฒิที่จบ<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->qualification}}</p>
+                            วุฒิที่จบ<p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['qualification']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            ผลการเรียน<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->result}}</p>
-                        </p>
-                    </div>
-                    <div class=" d-flex flex-row align-items-start">
-                        <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            ชื่อบิดา<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->dadname}}</p>
+                            ผลการเรียน<p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['result']); @endphp</p>
                         </p>
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            ชื่อมารดา<p class="p-0 m-0 mr-3 font-weight-normal">{{$request->momname}}</p>
+                            ชื่อบิดา<p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['dadname']); @endphp</p>
+                        </p>
+                    </div>
+                    <div class=" d-flex flex-row align-items-start">
+                        <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
+                            ชื่อมารดา<p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['momname']); @endphp</p>
                         </p>
                     </div>
 
@@ -121,19 +125,23 @@
                 <div class=" d-flex flex-column">
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
-                            ภูมิลำเนาตามทะเบียนบ้าน <p class="p-0 m-0 mr-3 font-weight-normal">บ้านเลขที่ {{$request->momname}} หมู่ {{$request->swine}} ซอย {{$request->alley}} ตำบล/แขวง {{$request->district}}</p>
+                            ภูมิลำเนาตามทะเบียนบ้าน <p class="p-0 m-0 mr-3 font-weight-normal">
+                                บ้านเลขที่ @php print_r($print['housenumber']); @endphp
+                                หมู่ @php print_r($print['swine']); @endphp
+                                ซอย @php print_r($print['alley']); @endphp
+                                ตำบล/แขวง @php print_r($print['district']); @endphp</p>
                         </p>
 
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->county}}</p>
+                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['county']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->province}}</p>
+                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['province']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->postalcode}}</p>
+                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['postalcode']); @endphp</p>
                         </p>
                     </div>
                 </div>
@@ -147,19 +155,23 @@
                 <div class=" d-flex flex-column">
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
-                            ที่อยู่ระหว่างพักอาศัย <p class="p-0 m-0 mr-3 font-weight-normal">บ้านเลขที่ {{$request->momname}} หมู่ {{$request->swine}} ซอย {{$request->alley}} ตำบล/แขวง {{$request->district}}</p>
+                            ที่อยู่ระหว่างพักอาศัย <p class="p-0 m-0 mr-3 font-weight-normal">
+                                บ้านเลขที่ @php print_r($print['housenumber']); @endphp
+                                หมู่ @php print_r($print['swine']); @endphp
+                                ซอย @php print_r($print['alley']); @endphp
+                                ตำบล/แขวง @php print_r($print['district']); @endphp</p>
                         </p>
 
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->county}}</p>
+                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['county']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->province}}</p>
+                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['province']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">{{$request->postalcode}}</p>
+                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['postalcode']); @endphp</p>
                         </p>
                     </div>
                 </div>
@@ -259,7 +271,7 @@
                 </div>
                     @include('component.line')
             </div>
-            {{-- ---- 7 ---- --}}
+            {{-- {{-- ---- 7 ---- --}}
             <div class="col-12 d-flex ml-1 row justify-content-start align-items-center">
                 <div class=" ml-2 mr-4 rounded d-flex justify-content-center align-items-center" style="width: 40px; height:40px;border:solid 1px #828282; ">
                     <h3 class="p-0 m-0">7</h3>

@@ -9,8 +9,12 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Course_day;
 use App\Models\Schools;
 use App\Models\Corses\Course_thumbnail;
-
 use Illuminate\Support\Facades\Auth;
+use App\Models\Corses\Course_career;
+use App\Models\Corses\Course_learn;
+use App\Models\Corses\Course_result;
+use App\Models\Corses\Course_youtube;
+
 class CourseController extends Controller
 {
     /**
@@ -95,12 +99,15 @@ class CourseController extends Controller
 
     }
 
-    public function viewcoursedetail(){
-        return view('course.course-detail');
-    }
+    public function viewcoursedetail($id){
+    //     $dataHomeEdit = Course::all();
+    //     dd($dataHomeEdit);
+
+    //     return view('course.course-detail',compact('dataHomeEdit'));
+    // }
 //    public function course(){
 //        return view('course/course');
-//    }
+    }
 
 
     public function registercourse(){
@@ -146,20 +153,35 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($course_id)
     {
         //
 
-        $dataHomeEdit = Course::find($id);
+        $courseID = $course_id;
+        $courseAll = Course::where('course_id', '=', $courseID)
+        ->first();
 
-         $callCourse_learn = DB::select('SELECT course_learn.course_id, course_learn.course_learnning_detail FROM course_learn INNER JOIN courses ON course_learn.course_id = courses.course_learn');
-        //  echo json_encode($dataHomeEdit);
-        //  echo json_encode($callCourse_learn);
-         $callCourse_result = DB::select('SELECT course_result.course_id, course_result.course_learn_finish_detail FROM course_result INNER JOIN courses ON course_result.course_id = courses.course_result');
+        $callCourse_learn = Course_learn::where('course_id', '=', $courseID)
+        ->get();
 
-         $callCourse_career = DB::select('SELECT course_career.course_id, course_career.course_career_detail FROM course_career INNER JOIN courses ON course_career.course_id = courses.course_career');
+        $callCourse_result = Course_result::where('course_id', '=', $courseID)
+        ->get();
 
-        return view('course/course-detail', compact('dataHomeEdit','callCourse_learn','callCourse_result','callCourse_career'));
+        $callCourse_career = Course_career::where('course_id', '=', $courseID)
+        ->get();
+
+        $callCourse_youtube = Course_youtube::where('course_id', '=', $courseID)
+        ->get();
+
+
+        // $callCourse_learn = DB::select('SELECT course_learn.course_id, course_learn.course_learnning_detail FROM course_learn INNER JOIN courses ON course_learn.course_id = courses.course_learn');
+
+        // $callCourse_result = DB::select('SELECT course_result.course_id, course_result.course_learn_finish_detail FROM course_result INNER JOIN courses ON course_result.course_id = courses.course_result');
+
+        // $callCourse_career = DB::select('SELECT course_career.course_id, course_career.course_career_detail FROM course_career INNER JOIN courses ON course_career.course_id = courses.course_career');
+
+
+         return view('course/course-detail', compact('courseAll','callCourse_learn','callCourse_result','callCourse_career','callCourse_youtube'));
     }
 
     /**

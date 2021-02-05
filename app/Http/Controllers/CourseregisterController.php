@@ -23,15 +23,6 @@ class CourseregisterController extends Controller
         return view('course/course-register');
     }
 
-    public function test()
-    {
-
-
-        // error_log($user);
-        // // $userId = Auth::id();
-        return view('kepp/test');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -51,6 +42,46 @@ class CourseregisterController extends Controller
     public function store(Request $request)
     {
         //
+
+            $print = $request->validate([
+
+            'name'=>'required',
+            'lastname'=>'required',
+            'telphone'=>'required',
+            'email'=>'required',
+            'idcard'=>'required',
+            'birthday'=>'required',
+            'religion'=>'required',
+            'nationality'=>'required',
+            'career'=>'required',
+            'school'=>'required',
+            'branch'=>'required',
+            'qualification'=>'required',
+            'result'=>'required',
+            'dadname'=>'required',
+            'momname'=>'required',
+            'housenumber'=>'required',
+            'swine'=>'required',
+            'alley'=>'required',
+            'road'=>'required',
+            'district'=>'required',
+            'county'=>'required',
+            'province'=>'required',
+            'postalcode'=>'required',
+            'housenumber-present'=>'required',
+            'swine-present'=>'required',
+            'alley-present'=>'required',
+            'road-present'=>'required',
+            'district-present'=>'required',
+            'county-present'=>'required',
+            'province-present'=>'required',
+            'postalcode-present'=>'required',
+
+
+        ]);
+
+        return view('print/print', compact('print'));
+
     }
 
     /**
