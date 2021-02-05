@@ -71,7 +71,7 @@
                         @foreach($allcourses as $course)
                                 @if ($course->status != 0 )
 
-                                <a href="#" style="color: inherit;">
+                    <a href="/coursedetail/{{$course->course_id}}" style="color: inherit;">
                                     <div class=" col-4  p-2   float-left " >
                                         <div class=" w-100 " >
                                                 <div class=" position-relative">

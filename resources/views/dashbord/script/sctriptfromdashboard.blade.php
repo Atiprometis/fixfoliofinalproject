@@ -167,3 +167,61 @@ $('#btn-submit').click(function (e) {
         form.submit();
     });
 </script>
+
+{{-- หน้า เกี่ยวกับคอร์ส  --}}
+<script>
+
+    $(document).ready(function() {
+
+        var countlearn = $('#countlearn').data('countlearn');
+        // alert(countmuns);
+        var i = countlearn;
+        // alert(i);
+        $('#addcouse1').click(function() {
+
+        if(i >= -5){
+            $('#dynamic_field1').append('<tr id="row1'+i+'"><td><input type="text" name="course_learn[]" class="form-control course_learn_list" required></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button></td></tr>')
+            i--
+
+            console.log(i);
+        }
+        });
+
+        $(document).on('click', '.btn-remove1', function () {
+            let button_id = $(this).attr('id');
+        $('#row1'+button_id+'').remove();
+        i++;
+        // console.log(i);
+        });
+    });
+
+</script>
+
+<script>
+
+    $(document).ready(function() {
+
+        var countcareer = $('#countcareer').data('countcareer');
+        // alert(countmuns);
+        var i = countcareer;
+        // alert(i);
+        $('#addcouse3').click(function() {
+
+        if(i >= -5){
+            $('#dynamic_field3').append('<tr id="row3'+i+'"><td><input type="text" name="course_career[]" class="form-control course_learn_list" required></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button></td></tr>')
+            i--
+
+            console.log(i);
+        }
+        });
+
+        $(document).on('click', '.btn-remove1', function () {
+            let button_id = $(this).attr('id');
+        $('#row1'+button_id+'').remove();
+        i++;
+        // console.log(i);
+        });
+    });
+
+</script>
+{{-- หน้า เกี่ยวกับคอร์ส จบ   --}}

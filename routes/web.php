@@ -35,7 +35,7 @@ Route::get('/singup', 'LoginSigninController@Singup');
 
 Route::get('/courses', 'CourseController@index');
 
-Route::get('/coursedetail', 'CourseController@coursedetail');
+Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
 
 // Route::get('/registercourse', function() {
 //      return view("course/course-register");

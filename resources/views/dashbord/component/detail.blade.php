@@ -53,37 +53,29 @@
                     <input type="text" name="course_id" value="ห" class="form-control" style="display: none">
 
                         <div class=" d-flex flex-row flex-wrap col-md-12">
+
                             <div class="table-responsive col-md-6">
 
                                 {!! Form::label('Course Learned','เรียนอะไรบ้าง',array('class' => ' ')) !!}
 
                                 <table class="table table-bordered" id="dynamic_field1">
-                                    <tr>
-                                        <td>
-                                            <input type="text" name="course_learn[]" placeholder="เรียนอะไรบ้าง"  class="form-control" required>
-                                            <td>
 
-                                                <button type="button" name="add1" id="add1" class="btn btn-success">เพิ่ม</button>
+                                        <div id="countlearn" data-countlearn="{{$countlearn}}"></div>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><input type="text" readonly  placeholder="เรียนอะไรบ้าง"  class="form-control" ></th>
+                                            <td><button type="button" name="addcouse1" id="addcouse1" class="btn btn-success">เพิ่ม</button></td>
 
-                                            </td>
-                                            @foreach ($Course_career as $career)
-
-                                                <tr id="row1'+i+'">
-                                                <td>
-                                                    <input type="text" name="course_learn[]" value="{{$career->course_career_detail}}" class="form-control course_learn_list" required>
-                                                </td>
-                                                <td>
-                                                    <button type="button" name="remove" id="'+i+'" class="btn btn-danger btn-remove1">ลบ</button>
-                                                </td></tr>
-                                            @endforeach
+                                        </tr>
+                                        @foreach ($Course_learn as $learn)
+                                        <tr>
+                                            <th scope="row"><input type="text"  name="course_learn[]" value="{{$learn->course_learnning_detail}}"  class="form-control" ></th>
+                                            <td>ข้อมูล</td>
+                                        </tr>
+                                        @endforeach
 
 
-                                        </td>
-
-
-
-                                    </tr>
-
+                                    </tbody>
                                 </table>
 
                             </div>
@@ -120,23 +112,23 @@
 
                                 <table class="table table-bordered" id="dynamic_field3">
 
+                                    <div id="countcareer" data-countcareer="{{$countcareer}}"></div>
+                                <tbody>
                                     <tr>
-
-                                        <td>
-
-                                            <input type="text" name="course_career[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
-
-                                        </td>
-
-                                        <td>
-
-                                            <button type="button" name="add3" id="add3" class="btn btn-success">เพิ่ม</button>
-
-                                        </td>
+                                        <th scope="row"><input type="text" readonly placeholder="ประกอบอาชีพอะไรได้"  class="form-control" ></th>
+                                        <td><button type="button" name="addcouse3" id="addcouse3" class="btn btn-success">เพิ่ม</button></td>
 
                                     </tr>
+                                    @foreach ($Course_career as $career)
+                                    <tr>
+                                        <th scope="row"><input type="text"  name="course_learn[]" value="{{$career->course_career_detail}}"  class="form-control" ></th>
+                                        <td>ข้อมูล</td>
+                                    </tr>
+                                    @endforeach
 
-                                </table>
+
+                                </tbody>
+                            </table>
 
                             </div>
 

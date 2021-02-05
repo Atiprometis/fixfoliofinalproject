@@ -159,18 +159,27 @@ class EditcourseController extends Controller
     public function detailcourse($id)
     {
         // dd($id);
-        echo $courseID = $id;
+         $courseID = $id;
+
+          $Course_learn = Course_learn::where('course_id', '=', $courseID)
+         ->get();
+          $countcourseLearn = Course_learn::where('course_id', '=', $courseID)
+        ->count();
+         $countlearn = $countcourseLearn * -1 ;
 
          $Course_career = Course_career::where('course_id', '=', $courseID)
          ->get();
-         $Course_learn = Course_learn::where('course_id', '=', $courseID)
-         ->get();
+         $countcourseCareer= Course_career::where('course_id', '=', $courseID)
+         ->count();
+        $countcareer = $countcourseCareer * -1 ;
+
+
          $Course_result = Course_result::where('course_id', '=', $courseID)
          ->get();
          $Course_youtube = Course_youtube::where('course_id', '=', $courseID)
          ->get();
 
-        return view('dashbord.editcourseDetail')->with(compact('courseID','Course_career'));
+        return view('dashbord.editcourseDetail')->with(compact('courseID','Course_career','Course_learn','countlearn','countcareer'));
     }
 
     public function imagecourse($id)
