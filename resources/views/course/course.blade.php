@@ -64,14 +64,17 @@
                             </div>
                     </div>
                     <div class="col-12 p-0 m-0">
-
                         @php
                             $i = 1;
                         @endphp
                         @foreach($allcourses as $course)
                                 @if ($course->status != 0 )
 
+
                     <a href="/coursedetail/{{$course->course_id}}" style="color: inherit;">
+
+                                <a href="{{route('course-detail.show', $course->course_id)}}" style="color: inherit;">
+
                                     <div class=" col-4  p-2   float-left " >
                                         <div class=" w-100 " >
                                                 <div class=" position-relative">
@@ -98,7 +101,7 @@
                                                     <p class="ml-2 mr-2 p-0">
                                                             @foreach ($courseDay as $day)
                                                                 @if ($day->course_final_id == $course->course_id)
-                                                                    <p class="p-0 m-0">{{$day->course_day}}_</p>
+                                                                    <p class="p-0 m-0">{{$day->course_day}}</p> <p class="p-0 m-0"> </p>
                                                                 @endif
                                                             @endforeach
                                                     </p>

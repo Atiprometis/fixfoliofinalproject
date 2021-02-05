@@ -35,23 +35,22 @@ Route::get('/singup', 'LoginSigninController@Singup');
 
 Route::get('/courses', 'CourseController@index');
 
+
 Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
+
+// Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
+Route::resource('course-detail', 'CourseController');
+
 
 // Route::get('/registercourse', function() {
 //      return view("course/course-register");
 // });
 
-Route::get('/registercourse', 'CourseregisterController@registercourse');
-
-Route::get('/test', 'CourseregisterController@test');
-
-// Route::get('/registercourse', 'CourseController@registercourse');
+//Route::post('/registercourse', 'CourseregisterController@index');
+Route::resource('registercourse', 'CourseregisterController');
 
 Route::resource('/print', 'PrintController');
-
-Route::get('/registercourse', function () {
-    return view('course/course-register');
-});
+Route::get('/courseprint', 'CourseregisterController@store');
 
 Route::get('/portfolio', 'PortfolioController@portfolio');
 Route::resource('/searchportfolio', 'SearchportfolioController');

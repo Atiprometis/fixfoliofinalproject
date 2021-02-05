@@ -20,7 +20,7 @@
 
             <div class="col-12 d-flex  flex-column  ">
 
-                {!! Form::open(['action' => 'PrintController@store', 'method'=>'POST']) !!}
+                {!! Form::open(['url' => '/courseprint', 'method'=>'get']) !!}
 
                         @include('course.register-form.register-basic')
                         @include('course.register-form.register-aboutme')

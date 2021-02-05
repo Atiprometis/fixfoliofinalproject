@@ -8,13 +8,19 @@
             {{-- 1 --}}
             <div class="1 col-lg-12 d-flex flex-row p-4 mt-4 justify-content-between">
                 <div class="class-all d-flex flex-column col-lg-7 ">
+
                     <h2 class="">asd</h2>
                     {{-- <h4 class="">ชื่อโรงเรียน {{$dataHomeEdit->course_school_name}}</h4> --}}
                     <p class="mt-3 ">asd
+
+                    <h2 class="">{{$courseAll->course_name}}</h2>
+                    {{-- <h4 class="">ชื่อโรงเรียน {{$dataHomeEdit->course_school_name}}</h4> --}}
+                    <p class="mt-3 ">{{$courseAll->course_detail}}
+
                     </p>
                 </div>
                 <div class="box-register-all d-flex flex-column col-lg-3 offset-lg-0 p-0" >
-                    <a href="/course" class="btn  register-open-website-b " style="height: 40px; background-color: #F9C226; border-radius: 20px;">เข็าสู่เว็บไซต์</a>
+                    <a href="/registercourse" class="btn  register-open-website-b " style="height: 40px; background-color: #F9C226; border-radius: 20px;">เข็าสู่เว็บไซต์</a>
                     <div class="register-time d-flex flex-column mt-3" >
                         <div class="time-text rounded-top text-light text-center align-items-center p-2" style="border: solid #000 1px; background-color: #69299C;">
                             <h1 class=" p-0 m-0" style="font-size: 1.125em;">ใบประกอบวิชาชีพ</h1>
@@ -22,7 +28,11 @@
                         <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
+
                                 <p>asd</p>
+
+                                <p>{{$courseAll->course_certificate}}</p>
+
                             </div>
 
                         </div>
@@ -34,7 +44,11 @@
                         <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
+
                                 <p>asd</p>
+
+                                <p>{{$courseAll->course_cost}}</p>
+
                             </div>
 
                         </div>
@@ -48,6 +62,11 @@
                     <ul>
 
 
+                        @foreach ($callCourse_learn as $course_learn)
+                            <li>{{$course_learn->course_learnning_detail}}</li>
+                        @endforeach
+
+
                     </ul>
                 </div>
                 <div class="register-time d-flex flex-column mt-3 p-0 m-0 col-3 w-100" >
@@ -57,8 +76,13 @@
                     <div class="time-text rounded-bottom d-flex flex-column p-3  " style="border: solid #000 1px;">
                         <div class=" d-flex flex-column  justify-content-center text-center">
                             {{-- <i class="fab fa-accusoft mr-2"></i> --}}
+
                             <p>asd ถึง  asd</p>
                             <p>ปิด  asd</p>
+
+                            <p>{{$courseAll->course_open}} ถึง  {{$courseAll->course_close}}</p>
+                            <p>ปิด  {{$courseAll->course_close}}</p>
+
                             <p>หรือปิดรับสมัครเมื่อคอร์สเต็ม</p>
                         </div>
 
@@ -71,6 +95,13 @@
                     <h1 class="" style="font-size: 1.500em">คอร์สนี้เรียนจบแล้วได้อะไร</h1>
                     <ul>
 
+
+
+                        @foreach ($callCourse_result as $course_result)
+                            <li>{{$course_result->course_learn_finish_detail}}</li>
+                        @endforeach
+
+
                     </ul>
                 </div>
                 <div class="register-time d-flex flex-column mt-3 p-0 m-0 col-3 w-100" >
@@ -82,8 +113,13 @@
                             {{-- <i class="fab fa-accusoft mr-2"></i> --}}
                             <p>80 ชั่วโมง </p>
                             <div class=" d-flex flex-row justify-content-center">
+
                                 <p class=" m-0 p-0 mr-3">asd ถึง {asd</p>
                                 {{-- <p class=" m-0 p-0 mr-3">เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$dataHomeEdit->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$dataHomeEdit->course_learn_end)->format('H:i')}} น.</p> --}}
+
+                                <p class=" m-0 p-0 mr-3">{{$courseAll->course_start}} ถึง {{$courseAll->course_end}}</p>
+                                <p class=" m-0 p-0 mr-3">เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$courseAll->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$courseAll->course_learn_end)->format('H:i')}} น.</p>
+
                             </div>
 
                         </div>
@@ -97,6 +133,13 @@
                     <h1 class="" style="font-size: 1.500em">ประกอบอาชีพอะไรได้บ้าง</h1>
                     <ul>
 
+
+
+                        @foreach ($callCourse_career as $course_career )
+                            <li>{{$course_career->course_career_detail}}</li>
+                        @endforeach
+
+
                     </ul>
                 </div>
 
@@ -107,6 +150,7 @@
             <div class=" col-lg-12 d-flex flex-column p-0  ml-2 ">
                     <h1 class="" style="font-size: 1.500em">วิดิโอคอร์สเรียน</h1>
 
+
                         <div class="youtube-link">
                             <div class=" d-flex flex-row justify-content-xl-between w-75">
                                 <p class="p-0 m-0">ผัดไทเส้นจันกุ้งสด</p>
@@ -114,6 +158,21 @@
                             </div>
                             <div class=" mt-3 mb-3 w-75" style="border: solid 1px #c1c1c1"></div>
                         </div>
+
+
+                        @foreach ($callCourse_youtube as $course_youtube )
+
+                            <div class="youtube-link">
+                                <div class=" d-flex flex-row justify-content-xl-between w-75">
+                                    <a href="{{$course_youtube->youtube_link}}">
+                                        <p class="p-0 m-0">ช่อง Youtube สำหรับคอร์สเรียน {{$courseAll->course_name}}</p>
+                                    </a>
+                                    <a href="#"><i class="far fa-play-circle fa-2x"></i></a>
+                                </div>
+                                <div class=" mt-3 mb-3 w-75" style="border: solid 1px #c1c1c1"></div>
+                            </div>
+
+                        @endforeach
 
 
 
