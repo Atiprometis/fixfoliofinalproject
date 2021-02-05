@@ -108,4 +108,12 @@ Route::get('/changeAboucourse', 'Dashborad\EditcourseController@changeAboucourse
 Route::get('/editcourse/{id}/image', 'Dashborad\EditcourseController@imagecourse' );
 
 Route::get('/admin', 'Admin\AdminController@index' );
-Route::get('/makeschool', 'Admin\AdminController@makeschool' );
+Route::get('/showschool', 'Admin\AdminController@showschool' );
+
+Route::get('/addschool', 'Admin\AdminController@addschool' );
+Route::get('/addNewschool', 'Admin\AdminController@addNewschool' );
+Route::get('/deleteschool/{id}', 'Admin\AdminController@deleteschool' );
+
+Route::get('/approvecourse', 'Admin\AdminController@approvecourse' );
+Route::get('/approve/{id}', 'Admin\AdminController@approve' );
+

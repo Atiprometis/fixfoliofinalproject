@@ -39,7 +39,7 @@
                                 <div class="form-group row">
 
                                     <div class="col-md-12">
-                                        <input id="username" type="text" placeholder="เบอร์ศัพท์" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
+                                        <input id="username" type="text" placeholder="เบอร์ศัพท์" pattern="[0]{1}[0-9]{9}" maxlength="10" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
 
                                         @error('username')
                                         <span class="invalid-feedback" role="alert">

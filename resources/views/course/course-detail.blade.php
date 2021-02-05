@@ -9,9 +9,9 @@
             <div class="1 col-lg-12 d-flex flex-row p-4 mt-4 justify-content-between">
                 <div class="class-all d-flex flex-column col-lg-7 ">
 
-                    <h2 class="">asd</h2>
+                    {{-- <h2 class="">asd</h2> --}}
                     {{-- <h4 class="">ชื่อโรงเรียน {{$dataHomeEdit->course_school_name}}</h4> --}}
-                    <p class="mt-3 ">asd
+                    {{-- <p class="mt-3 ">asd --}}
 
                     <h2 class="">{{$courseAll->course_name}}</h2>
                     {{-- <h4 class="">ชื่อโรงเรียน {{$dataHomeEdit->course_school_name}}</h4> --}}
@@ -29,7 +29,7 @@
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
 
-                                <p>asd</p>
+
 
                                 <p>{{$courseAll->course_certificate}}</p>
 
@@ -45,7 +45,7 @@
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
 
-                                <p>asd</p>
+
 
                                 <p>{{$courseAll->course_cost}}</p>
 
@@ -77,8 +77,7 @@
                         <div class=" d-flex flex-column  justify-content-center text-center">
                             {{-- <i class="fab fa-accusoft mr-2"></i> --}}
 
-                            <p>asd ถึง  asd</p>
-                            <p>ปิด  asd</p>
+
 
                             <p>{{$courseAll->course_open}} ถึง  {{$courseAll->course_close}}</p>
                             <p>ปิด  {{$courseAll->course_close}}</p>
@@ -114,7 +113,7 @@
                             <p>80 ชั่วโมง </p>
                             <div class=" d-flex flex-row justify-content-center">
 
-                                <p class=" m-0 p-0 mr-3">asd ถึง {asd</p>
+
                                 {{-- <p class=" m-0 p-0 mr-3">เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$dataHomeEdit->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$dataHomeEdit->course_learn_end)->format('H:i')}} น.</p> --}}
 
                                 <p class=" m-0 p-0 mr-3">{{$courseAll->course_start}} ถึง {{$courseAll->course_end}}</p>
@@ -150,16 +149,6 @@
             <div class=" col-lg-12 d-flex flex-column p-0  ml-2 ">
                     <h1 class="" style="font-size: 1.500em">วิดิโอคอร์สเรียน</h1>
 
-
-                        <div class="youtube-link">
-                            <div class=" d-flex flex-row justify-content-xl-between w-75">
-                                <p class="p-0 m-0">ผัดไทเส้นจันกุ้งสด</p>
-                                <a href="#"><i class="far fa-play-circle fa-2x"></i></a>
-                            </div>
-                            <div class=" mt-3 mb-3 w-75" style="border: solid 1px #c1c1c1"></div>
-                        </div>
-
-
                         @foreach ($callCourse_youtube as $course_youtube )
 
                             <div class="youtube-link">
@@ -177,14 +166,14 @@
 
 
             </div>
-                <p class="m-0 p-0 ml-2">ภาพประกอบการเรียน</p>
+                {{-- <p class="m-0 p-0 ml-2">ภาพประกอบการเรียน</p>
                 <div class="image-all d-flex flex-row flex-wrap justify-content-center align-items-center rounded col-lg-12 p-0" style="width: 100%">
                     <img src=" {{ asset('access/images/learn-1.png') }}" class=" m-1 mt-2  rounded" style="height: 200px; width: 24%">
                     <img src="{{ asset('access/images/learn-2.png') }}" class=" m-1 mt-2 rounded" style="height: 200px; width: 24%">
                     <img src="{{ asset('access/images/learn-3.png') }}" class=" m-1 mt-2 rounded" style="height: 200px; width: 24%">
                     <img src="{{ asset('access/images/learn-4.png') }}" class=" m-1 mt-2 rounded" style="height: 200px; width: 24%">
 
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

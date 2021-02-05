@@ -145,7 +145,6 @@ class InstitutionController extends Controller
 
 
         $request->validate([
-
             'search' => 'required',
         ]);
 

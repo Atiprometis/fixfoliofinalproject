@@ -8,23 +8,23 @@
                 <i class="fas fa-chart-line ml-3"></i>
                 <p class="m-1 ml-3">dashboard ADMIN</p>
         </li></a>
-        <a href="/makeschool">
+        <a href="/showschool">
             <li class=" d-flex flex-row justify-content-been align-items-center">
 
                 <i class="fas fa-chalkboard-teacher ml-3"></i>
                 <p class="m-1 ml-3">สร้างโรงเรียน</p>
             </li>
         </a>
-        <a href="#">
+        {{-- <a href="#">
             <li class=" d-flex flex-row justify-content-been align-items-center">
                 <i class="fab fa-leanpub ml-3"></i>
                 <p class="m-1 ml-3">เปลี่ยนสถานะ user</p>
             </li>
-        </a>
-        <a href="#">
+        </a> --}}
+        <a href="/approvecourse">
             <li class=" d-flex flex-row justify-content-been align-items-center">
                 <i class="fas fa-university ml-3"></i>
-                <p class="m-1 ml-3">จัดการคอร์ส</p>
+                <p class="m-1 ml-3">อนุมัติคอร์ส</p>
             </li>
         </a>
 
