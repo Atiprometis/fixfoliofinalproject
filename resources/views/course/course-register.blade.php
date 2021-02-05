@@ -22,7 +22,6 @@
 
                 {!! Form::open(['action' => 'PrintController@store', 'method'=>'POST']) !!}
 
-
                         @include('course.register-form.register-basic')
                         @include('course.register-form.register-aboutme')
                         @include('course.register-form.register-location')

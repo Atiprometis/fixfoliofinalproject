@@ -187,14 +187,7 @@ class DashbordController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // if (!$request->file('image')
-        // ->isValid())
-        // return redirect()->back()->withErrors(["image" => "File is corrupt"]);
-// dd($request->image);
-        // if($request->file('image') == null){
-        //     $thumbnailsName = 'Placeholder.jpg';
-        // }
-        // echo $request->image;
+
          $thumbnailsName =  $request->image->getClientOriginalName();
 
         //  echo $thumbnailsName;

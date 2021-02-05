@@ -105,4 +105,5 @@ Route::get('/changeAboutCourse', 'Dashborad\EditcourseController@changeAboutCour
 Route::get('/editcourse/{id}/date', 'Dashborad\EditcourseController@detecourse' );
 Route::get('/changeDate', 'Dashborad\EditcourseController@changeDate' );
 Route::get('/editcourse/{id}/detail', 'Dashborad\EditcourseController@detailcourse' );
+Route::get('/changeAboucourse', 'Dashborad\EditcourseController@changeAboucourse' );
 Route::get('/editcourse/{id}/image', 'Dashborad\EditcourseController@imagecourse' );
