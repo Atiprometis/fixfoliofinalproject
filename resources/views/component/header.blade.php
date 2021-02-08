@@ -47,25 +47,43 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/dashbord">
-                                Dashboard
-                            </a>
-                            {{-- <a href="/backoffice" class="dropdown-item">{{ __('Backoffice') }}</a> --}}
-
-                            <a class="dropdown-item" href="/addid">
-                                portfolio
-                            </a>
-
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @if (Auth::user()->role == 'superadmin')
+                                <li>
+                                    <a class="dropdown-item" href="/admin">
+                                        <i class="fas fa-user-shield"></i>
+                                        แอดมิน Dashboard
+                                    </a>
+                                </li>
+                            @endif
+                            @if (Auth::user()->role == 'admin' || 'superadmin')
+                            <li>
+                                <a class="dropdown-item" href="/dashbord">
+                                    <i class="fas fa-user"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            @endif
+                            <li>
+                                <a class="dropdown-item" href="/addid">
+                                    <i class="fas fa-address-card"></i>
+                                    โปรไฟล์
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
+                                <i class="fas fa-sign-out-alt"></i>
+                                {{ __('ออกจากระบบ') }}
+                                </a>
+                            </li>
+                            <li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
                     </li>
 
                 @endguest

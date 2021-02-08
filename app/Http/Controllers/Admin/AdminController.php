@@ -18,6 +18,11 @@ use App\Models\Corses\Course_youtube;
 use App\Models\Corses\Course_thumbnail;
 class AdminController extends Controller
 {
+
+    public function __construct()
+    {
+          $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

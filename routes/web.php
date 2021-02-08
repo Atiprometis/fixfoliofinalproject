@@ -88,16 +88,16 @@ Route::post('/addExpp', 'CreateCourseFinalController@create');
 
 Route::post('/testexp', 'CreateCourseFinalController@test');
 
-Route::get('/dashbord', 'DashbordController@index');
-Route::get('/dashcourse', 'DashbordController@dashcourse');
+Route::get('/dashbord', 'DashbordController@index')->middleware('admin');
+Route::get('/dashcourse', 'DashbordController@dashcourse')->middleware('admin');
 
-Route::get('/dashcreatecourse', 'DashbordController@dashcreatecourse');
-Route::post('/createcourse_detail', 'DashbordController@passDatatoCoursedetail');
+Route::get('/dashcreatecourse', 'DashbordController@dashcreatecourse')->middleware('admin');
+Route::post('/createcourse_detail', 'DashbordController@passDatatoCoursedetail')->middleware('admin');
 
-Route::post('/aboutcourse', 'DashbordController@aboutcourse')->name('aboutcourse');
-Route::get('/manegercourse', 'DashbordController@manegerCourse');
+Route::post('/aboutcourse', 'DashbordController@aboutcourse')->name('aboutcourse')->middleware('admin');
+Route::get('/manegercourse', 'DashbordController@manegerCourse')->middleware('admin');
 
-Route::get('/deletecourse/{id}', 'DashbordController@deletecourse' );
+Route::get('/deletecourse/{id}', 'DashbordController@deletecourse' )->middleware('admin');
 
 Route::get('/editcourse/{id}', 'Dashborad\EditcourseController@index' );
 Route::get('/changeAboutCourse', 'Dashborad\EditcourseController@changeAboutCourse' );

@@ -7,7 +7,7 @@ use App\Home;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 class HomeController extends Controller
 {
     /**
@@ -20,8 +20,11 @@ class HomeController extends Controller
          $this->middleware('auth');
     }
 
+
+
     public function index()
     {
+          $id = Auth::user()->role;
 
 //        SELECT course_detail.course_id,course_detail.course_name,course_learn_finish.course_learn_finish_detail
 //        FROM course_detail

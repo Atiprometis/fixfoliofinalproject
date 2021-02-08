@@ -9,6 +9,10 @@ use App\Models\course_final_images;
 
 class CreateCourseFinalController extends Controller
 {
+    public function __construct()
+    {
+          $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

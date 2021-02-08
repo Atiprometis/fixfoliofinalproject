@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class CourseregisterController extends Controller
 {
+    public function __construct()
+    {
+          $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

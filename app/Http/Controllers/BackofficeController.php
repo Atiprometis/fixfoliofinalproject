@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class BackofficeController extends Controller
 {
+    public function __construct()
+    {
+          $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -66,7 +70,7 @@ class BackofficeController extends Controller
             'image_course',
 
         ]);
-        
+
         DB::table('courses')
             ->insert([
 
