@@ -44,6 +44,12 @@ class CourseController extends Controller
         // course_id,
         // ')
 
+
+
+
+
+
+
           $allcourses =  Course::select(
             // DB::raw('count(course_school_details.school_name) as countcourse'),
             'courses.course_id',
@@ -94,6 +100,8 @@ class CourseController extends Controller
                 ->groupBy('course_id')
                 ->get();
                 // echo $thumbnail;
+
+
 
         return view('course/course')->with(compact('allcourses','courseDay','schoolsName','thumbnail'));
 

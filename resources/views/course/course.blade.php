@@ -49,7 +49,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="d-flex flex-row w-100 text-institution align-items-end justify-content-between">
-                            <h1 class="p-0 m-0 ml-2 mt-5 mb-2" style="font-size: 1.750em;">คอร์สเรียนทั้งหมด</h1>
+                        <h1 class="p-0 m-0 ml-2 mt-5 mb-2" style="font-size: 1.750em;">คอร์สเรียนทั้งหมด
+
+                        </h1>
                             <div class=" d-flex flex-row">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input  " type="checkbox" id="inlineCheckbox1" value="option1">
