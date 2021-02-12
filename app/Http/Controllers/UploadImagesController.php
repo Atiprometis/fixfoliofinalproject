@@ -59,10 +59,11 @@ class UploadImagesController extends Controller
         ]);
 
         echo $id = Auth::id();
+
         echo '<br>';
         echo $avatarName = time() . '.' . $request->image->getClientOriginalName();
 
-        $request->image->move(public_path('avatar'), $avatarName);
+        $request->image->move(public_path('avatar/'.$id.''), $avatarName);
 
         $avatar = new UploadImages;
         ////Save upload image to 'avatar' folder which in 'storage/app/public' folder

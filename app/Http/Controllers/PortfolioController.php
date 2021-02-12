@@ -36,7 +36,7 @@ class PortfolioController extends Controller
         $profiledatas = ProfilePortfolio::where('user_id', '=', $id)
             ->get();
 
-        $avatar_images = UploadImages::where('user_id', '=', $id)
+         $avatar_images = UploadImages::where('user_id', '=', $id)
             ->get();
         // echo $profiledatas;
         // echo $avatar_image;
@@ -72,9 +72,15 @@ class PortfolioController extends Controller
         // echo $avatar_images;
 
         $users = ProfilePortfolio::where('user_id', '=', $id)
-            ->get();
+        ->select(
 
-        //  echo   $imagecourses = Create_Course_Final::select(
+            'user_id',
+            DB::raw('MAX(profile_aboutme) as profile_aboutme'),
+        )
+        ->groupBy('user_id')
+            ->get();
+            // print_r($users);
+        //     $imagecourses = Create_Course_Final::select(
         //     'course_final_id',
         //     'user_id',
         //     'generation',

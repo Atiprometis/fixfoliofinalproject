@@ -34,7 +34,7 @@ Route::get('/loginsignin', 'LoginSigninController@Login');
 Route::get('/singup', 'LoginSigninController@Singup');
 
 Route::get('/courses', 'CourseController@index');
-
+Route::post('/coursespost', 'CourseController@store');
 
 Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
 
@@ -99,21 +99,21 @@ Route::get('/manegercourse', 'DashbordController@manegerCourse')->middleware('ad
 
 Route::get('/deletecourse/{id}', 'DashbordController@deletecourse' )->middleware('admin');
 
-Route::get('/editcourse/{id}', 'Dashborad\EditcourseController@index' );
-Route::get('/changeAboutCourse', 'Dashborad\EditcourseController@changeAboutCourse' );
-Route::get('/editcourse/{id}/date', 'Dashborad\EditcourseController@detecourse' );
-Route::get('/changeDate', 'Dashborad\EditcourseController@changeDate' );
-Route::get('/editcourse/{id}/detail', 'Dashborad\EditcourseController@detailcourse' );
-Route::get('/changeAboucourse', 'Dashborad\EditcourseController@changeAboucourse' );
-Route::get('/editcourse/{id}/image', 'Dashborad\EditcourseController@imagecourse' );
+Route::get('/editcourse/{id}', 'Dashborad\EditcourseController@index' )->middleware('admin');
+Route::get('/changeAboutCourse', 'Dashborad\EditcourseController@changeAboutCourse' )->middleware('admin');
+Route::get('/editcourse/{id}/date', 'Dashborad\EditcourseController@detecourse' )->middleware('admin');
+Route::get('/changeDate', 'Dashborad\EditcourseController@changeDate' )->middleware('admin');
+Route::get('/editcourse/{id}/detail', 'Dashborad\EditcourseController@detailcourse' )->middleware('admin');
+Route::get('/changeAboucourse', 'Dashborad\EditcourseController@changeAboucourse' )->middleware('admin');
+Route::get('/editcourse/{id}/image', 'Dashborad\EditcourseController@imagecourse' )->middleware('admin');
 
-Route::get('/admin', 'Admin\AdminController@index' );
-Route::get('/showschool', 'Admin\AdminController@showschool' );
+Route::get('/admin', 'Admin\AdminController@index' )->middleware('superadmin');
+Route::get('/showschool', 'Admin\AdminController@showschool' )->middleware('superadmin');
 
-Route::get('/addschool', 'Admin\AdminController@addschool' );
-Route::get('/addNewschool', 'Admin\AdminController@addNewschool' );
-Route::get('/deleteschool/{id}', 'Admin\AdminController@deleteschool' );
+Route::get('/addschool', 'Admin\AdminController@addschool' )->middleware('superadmin');
+Route::get('/addNewschool', 'Admin\AdminController@addNewschool' )->middleware('superadmin');
+Route::get('/deleteschool/{id}', 'Admin\AdminController@deleteschool' )->middleware('superadmin');
 
-Route::get('/approvecourse', 'Admin\AdminController@approvecourse' );
-Route::get('/approve/{id}', 'Admin\AdminController@approve' );
+Route::get('/approvecourse', 'Admin\AdminController@approvecourse' )->middleware('superadmin');
+Route::get('/approve/{id}', 'Admin\AdminController@approve' )->middleware('superadmin');
 

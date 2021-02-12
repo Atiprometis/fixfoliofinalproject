@@ -129,6 +129,8 @@
 
                                                     </p>
 
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -142,6 +144,23 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col col-12 d-flex justify-content-end">
+                        {!! $allcourses->render() !!}
+                    </div>
+                </div>
+            </div>
+            {{-- ไว้ทำทีหลัง ดึงข้อมูลทีละชุด --}}
+            {{-- <div>
+
+                <input id="datalimit" value="{{$datalimit}}">
+                <button type="submit" id="updatedataCourse" class="col col-12 " >click</button>
+
+            </div> --}}
+
+
     </div>
 @endsection
 

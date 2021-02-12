@@ -56,7 +56,8 @@
                                     </a>
                                 </li>
                             @endif
-                            @if (Auth::user()->role == 'admin' || 'superadmin')
+
+                            @if (Auth::user()->role == 'admin')
                             <li>
                                 <a class="dropdown-item" href="/dashbord">
                                     <i class="fas fa-user"></i>
@@ -64,6 +65,16 @@
                                 </a>
                             </li>
                             @endif
+                            @if(Auth::user()->role == 'superadmin')
+                            <li>
+                                <a class="dropdown-item" href="/dashbord">
+                                    <i class="fas fa-user"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            @endif
+
+
                             <li>
                                 <a class="dropdown-item" href="/addid">
                                     <i class="fas fa-address-card"></i>

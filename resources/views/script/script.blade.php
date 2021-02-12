@@ -41,6 +41,47 @@
     });
 </script>
 
+<script>
+
+$(document).ready(function() {
+ // executes when HTML-Document is loaded and DOM is ready
+
+//  var form = $(this).parents('form');
+ var datalimit = 1
+    $('#updatedataCourse').click(function (e) {
+        e.preventDefault();
+        console.log(datalimit);
+
+        // var datalimit = $('#datalimit').data('datalimit');
+        datalimit++;
+        // form.submit();
+
+        // alert(countmuns);
+        // alert(datalimit);
+        $.ajax({
+            type: "GET",
+            url: "/courses",
+            data:{
+                datalimit:datalimit,
+                _token: '{{csrf_token()}}',
+            },
+            dataType: 'JSON',
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (response, textStatus, errorThrown) {
+            console.log(response);
+
+            },
+        });
+    });
+
+});
+
+
+
+</script>
+
 {{-- <script>
    $(doucument).ready(function(){
 

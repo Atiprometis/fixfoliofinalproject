@@ -27,36 +27,16 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        //  $all = $request->all();
+        // print_r($all);
         $id = Auth::id();
-        $readSchoolname = DB::select('SELECT
-        courses.course_id,
-        schools.schools_name,
-        courses.course_name,
-        courses.course_category,
-        courses.course_cost,
-        courses.course_start,
-        courses.course_end,
-        courses.course_learn_start,
-        courses.course_learn_end,
-        courses.course_hours
-        FROM schools
-        INNER JOIN courses ON courses.course_school = schools.schools_id');
+        // $datalimit = $request->datalimit;
 
-        // Course::select('
-        // course_id,
-        // ')
-
-
-
-
-
-
-
+        $datalimit = 2;
           $allcourses =  Course::select(
-            // DB::raw('count(course_school_details.school_name) as countcourse'),
             'courses.course_id',
             'courses.course_school',
             'courses.course_name',
@@ -71,7 +51,18 @@ class CourseController extends Controller
             ->orderBy('courses.course_id', 'DESC')
             ->distinct('courses.course_id')
             ->where('courses.status', '=', 1)
-            ->get();
+            ->paginate(6);
+            // ->offset(0)
+            // ->limit($datalimit)
+
+            // ->get();
+
+
+        //   echo  $allcourses =  Course::chunk(2, function ($courseall) {
+        //         foreach ($courseall as $course) {
+        //             //
+        //         }
+        //     });
 
             // echo $allcourses;
 
@@ -106,9 +97,9 @@ class CourseController extends Controller
                 ->get();
                 // echo $thumbnail;
 
+                // return response()->json($response);
 
-
-        return view('course/course')->with(compact('allcourses','courseDay','schoolsName','thumbnail'));
+        return view('course/course')->with(compact('allcourses','courseDay','schoolsName','thumbnail','datalimit'));
 
     }
 
@@ -162,8 +153,16 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->all();
+        $response = array(
+            'status' => 'success',
+            'datalimit' => $request->datalimit,
+        );
+        // return response()->json($response);
 
+        // return redirect()->action([DashbordController::class, 'manegerCourse']);
 
+        return response()->json($response);
 
     }
 
