@@ -3,28 +3,28 @@
     <div class="line" style="height: 1px; background-color:#000;"></div>
     <ul class="list-unstyled">
 
-        <a href="/dashbord"><li class=" d-flex flex-row justify-content-been align-items-center">
+        <a href="/admin"><li class=" d-flex flex-row justify-content-been align-items-center">
 
                 <i class="fas fa-chart-line ml-3"></i>
-                <p class="m-1 ml-3">dashboard</p>
+                <p class="m-1 ml-3">dashboard ADMIN</p>
         </li></a>
-        <a href="/manegercourse">
+        <a href="/makeschool">
             <li class=" d-flex flex-row justify-content-been align-items-center">
 
                 <i class="fas fa-chalkboard-teacher ml-3"></i>
-                <p class="m-1 ml-3">จัดการคอร์สเรียน</p>
+                <p class="m-1 ml-3">สร้างโรงเรียน</p>
             </li>
         </a>
-        <a href="/dashcreatecourse">
+        <a href="#">
             <li class=" d-flex flex-row justify-content-been align-items-center">
                 <i class="fab fa-leanpub ml-3"></i>
-                <p class="m-1 ml-3">สร้างคอร์สเรียน</p>
+                <p class="m-1 ml-3">เปลี่ยนสถานะ user</p>
             </li>
         </a>
-        <a href="/dashcourse">
+        <a href="#">
             <li class=" d-flex flex-row justify-content-been align-items-center">
                 <i class="fas fa-university ml-3"></i>
-                <p class="m-1 ml-3">โปรไฟล์สถาบัน</p>
+                <p class="m-1 ml-3">จัดการคอร์ส</p>
             </li>
         </a>
 

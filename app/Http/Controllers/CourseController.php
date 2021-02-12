@@ -44,7 +44,7 @@ class CourseController extends Controller
         // course_id,
         // ')
 
-        $allcourses =  Course::select(
+          $allcourses =  Course::select(
             // DB::raw('count(course_school_details.school_name) as countcourse'),
             'courses.course_id',
             'courses.course_school',
@@ -100,14 +100,20 @@ class CourseController extends Controller
     }
 
     public function viewcoursedetail($id){
+
     //     $dataHomeEdit = Course::all();
     //     dd($dataHomeEdit);
 
     //     return view('course.course-detail',compact('dataHomeEdit'));
     // }
+
+        $courseID = $id;
+        return view('course.course-detail')->with(compact('courseID'));
+    }
+
 //    public function course(){
 //        return view('course/course');
-    }
+
 
 
     public function registercourse(){

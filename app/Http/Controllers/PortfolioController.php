@@ -87,7 +87,7 @@ class PortfolioController extends Controller
 
         ->get();
 
-        echo  $imagecourses;
+        // echo  $imagecourses;
 
           $imagecoursefinals = course_final_images::select(
             'course_final_images_id',
@@ -121,7 +121,7 @@ class PortfolioController extends Controller
         ->update(array(
             'profile_location' => $profile_location
         ));
-        echo $id;
+        // echo $id;
         return redirect('/portfolio');
     }
 
@@ -171,7 +171,7 @@ class PortfolioController extends Controller
             //     ['profile_line' => $profile_line],
             // );
         // $users = DB::table('profile_portfolios')->where('user_id', '=', $id)
-        echo $id;
+        // echo $id;
         // return redirect()->route('institution');
         return redirect('/portfolio');
     }

@@ -126,8 +126,6 @@ class EditcourseController extends Controller
             if($course_day != null){
                 echo 'no null';
                 // dd($course_final_id);
-
-
                 $affectedRows = Course_day::where(
                     'course_final_id', '=', $course_final_id,
 
@@ -159,18 +157,150 @@ class EditcourseController extends Controller
     public function detailcourse($id)
     {
         // dd($id);
-        echo $courseID = $id;
+        // $course_id = $request->input('course_id');
+
+         $courseID = $id;
+
+          $Course_learn = Course_learn::where('course_id', '=', $courseID)
+         ->get();
+          $countcourseLearn = Course_learn::where('course_id', '=', $courseID)
+        ->count();
+         $countlearn = $countcourseLearn * -1 ;
 
          $Course_career = Course_career::where('course_id', '=', $courseID)
          ->get();
-         $Course_learn = Course_learn::where('course_id', '=', $courseID)
+         $countcourseCareer= Course_career::where('course_id', '=', $courseID)
+         ->count();
+        $countcareer = $countcourseCareer * -1 ;
+
+
+          $Course_result = Course_result::where('course_id', '=', $courseID)
          ->get();
-         $Course_result = Course_result::where('course_id', '=', $courseID)
-         ->get();
+         $countcourseResult= Course_result::where('course_id', '=', $courseID)
+         ->count();
+         $countresult = $countcourseResult * -1 ;
+
          $Course_youtube = Course_youtube::where('course_id', '=', $courseID)
          ->get();
+         $countcourseYoutube= Course_youtube::where('course_id', '=', $courseID)
+         ->count();
+        $countyoutube = $countcourseYoutube * -1 ;
 
-        return view('dashbord.editcourseDetail')->with(compact('courseID','Course_career'));
+        return view('dashbord.editcourseDetail')->with(compact('courseID','Course_career','Course_result',
+        'Course_learn','Course_youtube','countlearn','countcareer','countresult','countyoutube'));
+    }
+
+    public function changeAboucourse(Request $request){
+
+        $course_id = $request->input('course_id');
+        $course_learn = $request->input('course_learn');
+        $course_result = $request->input('course_result');
+        $course_career = $request->input('course_career');
+        $course_youtube = $request->input('course_youtube');
+
+
+        if($course_learn != null){
+            echo 'no null';
+            // dd($course_final_id);
+
+            $affectedRows = Course_learn::where(
+                'course_id', '=', $course_id,
+                )
+                ->delete();
+
+                $datalearnToDB = [];
+                foreach ($course_learn as $learn) {
+                    $datalearnToDB[] = [
+                        'course_id'  => $course_id ,
+                        'course_learnning_detail'    => $learn,
+                    ];
+        }
+                // dd($datalearnToDB);
+                $courseday = Course_learn::insert($datalearnToDB);
+                // return back()->withInput();
+
+        }else{
+            echo "null";
+            return back()->withInput();
+        }
+
+        if($course_result != null){
+            echo 'no null';
+            // dd($course_final_id);
+
+            Course_result::where(
+                'course_id', '=', $course_id,
+                )
+                ->delete();
+
+                    $dataresultToDB = [];
+            foreach ($course_result as $result) {
+                $dataresultToDB[] = [
+                    'course_id'  => $course_id ,
+                    'course_learn_finish_detail' => $result,
+                ];
+            }
+            // print_r($dataresultToDB);
+            // dd($dataresultToDB);
+            Course_result::insert($dataresultToDB);
+                // return back()->withInput();
+
+        }else{
+            echo "null";
+            return back()->withInput();
+        }
+
+        if($course_career != null){
+            echo 'no null';
+            // dd($course_final_id);
+
+            Course_career::where(
+                'course_id', '=', $course_id,
+                )
+                ->delete();
+
+                $datacareerToDB = [];
+                foreach ($course_career as $career) {
+                    $datacareerToDB[] = [
+                        'course_id'  => $course_id ,
+                        'course_career_detail'    => $career,
+                    ];
+                }
+                // print_r($datacareerToDB);
+                Course_career::insert($datacareerToDB);
+                // return back()->withInput();
+
+        }else{
+            echo "null";
+            return back()->withInput();
+        }
+
+        if($course_youtube != null){
+            echo 'no null';
+            // dd($course_final_id);
+
+            Course_youtube::where(
+                'course_id', '=', $course_id,
+                )
+                ->delete();
+
+                $datayoutubeToDB = [];
+                foreach ($course_youtube as $youtube) {
+                    $datayoutubeToDB[] = [
+                        'course_id'  => $course_id ,
+                        'youtube_link'    => $youtube,
+                    ];
+                }
+                // print_r($datayoutubeToDB);
+                Course_youtube::insert($datayoutubeToDB);
+                return back()->withInput();
+
+        }else{
+            echo "null";
+            return back()->withInput();
+        }
+
+
     }
 
     public function imagecourse($id)

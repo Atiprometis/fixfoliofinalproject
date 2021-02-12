@@ -22,7 +22,6 @@
 
                 {!! Form::open(['url' => '/courseprint', 'method'=>'get']) !!}
 
-
                         @include('course.register-form.register-basic')
                         @include('course.register-form.register-aboutme')
                         @include('course.register-form.register-location')

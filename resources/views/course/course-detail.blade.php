@@ -35,6 +35,8 @@
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
                                 <p>{{$courseAll->course_cost}}</p>
+
+
                             </div>
 
                         </div>
@@ -51,6 +53,7 @@
                             <li>{{$course_learn->course_learnning_detail}}</li>
                         @endforeach
 
+
                     </ul>
                 </div>
                 <div class="register-time d-flex flex-column mt-3 p-0 m-0 col-3 w-100" >
@@ -60,8 +63,13 @@
                     <div class="time-text rounded-bottom d-flex flex-column p-3  " style="border: solid #000 1px;">
                         <div class=" d-flex flex-column  justify-content-center text-center">
                             {{-- <i class="fab fa-accusoft mr-2"></i> --}}
+
                             <p>{{$courseAll->course_open}} ถึง  {{$courseAll->course_close}}</p>
                             <p>ปิด  {{$courseAll->course_close}}</p>
+
+                            <p>asd ถึง  asd</p>
+                            <p>ปิด  asd</p>
+
                             <p>หรือปิดรับสมัครเมื่อคอร์สเต็ม</p>
                         </div>
 
@@ -78,6 +86,7 @@
                             <li>{{$course_result->course_learn_finish_detail}}</li>
                         @endforeach
 
+
                     </ul>
                 </div>
                 <div class="register-time d-flex flex-column mt-3 p-0 m-0 col-3 w-100" >
@@ -89,8 +98,13 @@
                             {{-- <i class="fab fa-accusoft mr-2"></i> --}}
                             <p>80 ชั่วโมง </p>
                             <div class=" d-flex flex-row justify-content-center">
+<<<<<<< HEAD
                                 <p class=" m-0 p-0 mr-3">{{$courseAll->course_start}} ถึง {{$courseAll->course_end}}</p>
                                 <p class=" m-0 p-0 mr-3">เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$courseAll->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$courseAll->course_learn_end)->format('H:i')}} น.</p>
+=======
+                                <p class=" m-0 p-0 mr-3">asd ถึง {asd</p>
+                                {{-- <p class=" m-0 p-0 mr-3">เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$dataHomeEdit->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$dataHomeEdit->course_learn_end)->format('H:i')}} น.</p> --}}
+>>>>>>> ee0a2a03602781c9a06cfe1521b12721f8aefff0
                             </div>
 
                         </div>

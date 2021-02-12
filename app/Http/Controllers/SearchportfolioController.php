@@ -81,7 +81,7 @@ class SearchportfolioController extends Controller
 
         $profile_port = DB::select('SELECT profile_portfolios.id, users.id, users.name, users.lastname FROM users INNER JOIN profile_portfolios ON profile_portfolios.user_id = users.id');
 
-        echo json_encode($profiledatas);
+        // echo json_encode($profiledatas);
 
         return view('portfolio/profile-detail',compact('profile_id','profiledatas','avatar_images','profile_port'));
 

@@ -1,7 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -35,8 +35,11 @@ Route::get('/singup', 'LoginSigninController@Singup');
 
 Route::get('/courses', 'CourseController@index');
 
+
 // Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
 Route::resource('course-detail', 'CourseController');
+
+Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
 
 // Route::get('/registercourse', function() {
 //      return view("course/course-register");
@@ -100,4 +103,8 @@ Route::get('/changeAboutCourse', 'Dashborad\EditcourseController@changeAboutCour
 Route::get('/editcourse/{id}/date', 'Dashborad\EditcourseController@detecourse' );
 Route::get('/changeDate', 'Dashborad\EditcourseController@changeDate' );
 Route::get('/editcourse/{id}/detail', 'Dashborad\EditcourseController@detailcourse' );
+Route::get('/changeAboucourse', 'Dashborad\EditcourseController@changeAboucourse' );
 Route::get('/editcourse/{id}/image', 'Dashborad\EditcourseController@imagecourse' );
+
+Route::get('/admin', 'Admin\AdminController@index' );
+Route::get('/makeschool', 'Admin\AdminController@makeschool' );
