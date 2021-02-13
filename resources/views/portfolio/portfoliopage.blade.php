@@ -6,13 +6,13 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="profile rounded col-12 d-flex flex-row mt-5 align-items-start justify-content-between ">
+            <div class="profile rounded col-md-12 d-flex flex-row mt-5 align-items-start justify-content-between ">
                 <div class="card p-3 col-3" style=" height: 340px">
 
                     @if ($avatar_images[0]['avatar_path'] != null)
                     @foreach($avatar_images as $avatar_image)
 
-                        <img class="card-img-top rounded" src='../avatar/{{ $avatar_image->avatar_path }}' alt="Card image cap" style="height: 250px;">
+                        <img class="card-img-top rounded" src='../avatar/{{ Auth::user()->id }}/{{ $avatar_image->avatar_path }}' alt="Card image cap" style="height: 250px;">
                     @endforeach
                         {{-- <p>null</p> --}}
                     @else
@@ -37,11 +37,11 @@
                                     </div>
                                 </div>
 
-                                @foreach($profiledatas as $profiledata)
+                                {{-- @foreach($profiledatas as $profiledata) --}}
                                 <div class="name  pl-3 pr-2 mt-2">
-                                    <p class="p-1 m-0 text-over-2" >{{ $profiledata->profile_location }}</p>
+                                    <p class="p-1 m-0 text-over-2" >{{ $profiledatas['profile_location'] }}</p>
                                 </div>
-                                @endforeach
+                                {{-- @endforeach --}}
 
                             </div>
                             <div class="" style="width: 30%">
@@ -71,16 +71,16 @@
                     <div class="aboutme rounded p-3 pb-2" style="border: 1px solid #c1c1c1">
 
                         <div class=" " style="height: 150px;">
-                            @foreach($profiledatas as $profiledata)
+                            {{-- @foreach($profiledatas as $profiledata) --}}
                                 <p class="p-0 m-0 text-over">
-                                    {{ $profiledata->profile_aboutme }}
+                                    {{ $profiledatas['profile_aboutme']}}
                                 </p>
-                            @endforeach
+                            {{-- @endforeach --}}
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=" col-12 d-flex flex-row">
+            <div class=" col-md-12 d-flex flex-row">
                 <div class="contact col-3 pr-0 p-0  d-flex flex-column ">
                     <div class="contact-me pt-3">
                         <h2 style="font-weight: 400; font-size: 0.875em;">ข้อมูลส่วนตัว</h2>
@@ -89,9 +89,9 @@
                                 <i class="fas fa-pen fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
                             <div >
-                                @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2">อายุ {{ $profiledata->profile_age }} ปี</p>
-                                @endforeach
+                                {{-- @foreach($profiledatas as $profiledata) --}}
+                                <p class="m-0 p-2">อายุ : {{ $profiledatas['profile_age'] }} ปี</p>
+                                {{-- @endforeach --}}
                             </div>
 
                         </div>
@@ -101,9 +101,9 @@
                                 <i class="fas fa-venus-mars fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
                             <div >
-                                @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2">เพศ {{ $profiledata->profile_sex }}</p>
-                                @endforeach
+                                {{-- @foreach($profiledatas as $profiledata) --}}
+                                <p class="m-0 p-2">เพศ : {{ $profiledatas['profile_sex'] }}</p>
+                                {{-- @endforeach --}}
 
                             </div>
 
@@ -113,9 +113,9 @@
                                 <i class="fas fa-pen fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
                             <div >
-                                @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2">สัญชาติ {{ $profiledata->profile_instinct }} </p>
-                                @endforeach
+                                {{-- @foreach($profiledatas as $profiledata) --}}
+                                <p class="m-0 p-2">สัญชาติ : {{ $profiledatas['profile_instinct'] }} </p>
+                                {{-- @endforeach --}}
 
                             </div>
 
@@ -125,9 +125,9 @@
                                 <i class="fas fa-map-marker-alt fa-sm p-2  rounded" style="width: 30px;color: #fff"></i>
                             </div>
                             <div >
-                                @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2"> {{ $profiledata->profile_province }} </p>
-                                @endforeach
+                                {{-- @foreach($profiledatas as $profiledata) --}}
+                                <p class="m-0 p-2">จังหวัด : {{ $profiledatas['profile_province'] }} </p>
+                                {{-- @endforeach --}}
 
                             </div>
 
@@ -138,9 +138,9 @@
                                 <i class="fas fa-graduation-cap fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
                             <div >
-                                @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2"> {{ $profiledata->profile_education }} </p>
-                                @endforeach
+                                {{-- @foreach($profiledatas as $profiledata) --}}
+                                <p class="m-0 p-2">การศึกษา : {{ $profiledatas['profile_education'] }} </p>
+                                {{-- @endforeach --}}
 
                             </div>
 
@@ -152,9 +152,9 @@
 
                             </div>
                             <div >
-                                @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2"> {{ $profiledata->profile_facebook }} </p>
-                                @endforeach
+                                {{-- @foreach($profiledatas as $profiledata) --}}
+                                <p class="m-0 p-2">FACEBOOK : {{ $profiledatas['profile_facebook'] }} </p>
+                                {{-- @endforeach --}}
 
                             </div>
 
@@ -164,9 +164,9 @@
                                 <i class="fas fa-phone-alt fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
                             <div >
-                                @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2"> 0{{ $profiledata->profile_phone }} </p>
-                                @endforeach
+                                {{-- @foreach($profiledatas as $profiledata) --}}
+                                <p class="m-0 p-2">เบอร์โทรศัพท์ : 0{{ $profiledatas['profile_phone'] }} </p>
+                                {{-- @endforeach --}}
                             </div>
 
                         </div>
@@ -175,9 +175,9 @@
                                 <i class="fas fa-envelope fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
                             <div >
-                                @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2"> {{ $profiledata->profile_email }} </p>
-                                @endforeach
+                                {{-- @foreach($profiledatas as $profiledata) --}}
+                                <p class="m-0 p-2">อีเมลล์ : {{ $profiledatas['profile_email'] }}  </p>
+                                {{-- @endforeach --}}
 
                             </div>
                         </div>
@@ -187,17 +187,17 @@
 
                             </div>
                             <div >
-                                @foreach($profiledatas as $profiledata)
-                                <p class="m-0 p-2"> {{ $profiledata->profile_line }} </p>
-                                @endforeach
+                                {{-- @foreach($profiledatas as $profiledata) --}}
+                                <p class="m-0 p-2">Line : {{ $profiledatas['profile_line'] }} </p>
+                                {{-- @endforeach --}}
 
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class=" d-flex flex-column w-100 col-12 p-0 m-0">
-                    <div class="col-9 d-flex flex-column">
+                <div class=" d-flex flex-column w-100 col-9 p-0 m-0">
+                    <div class="col-12 d-flex flex-column">
                         <h1 class="m-0 mt-2 p-0 font-weight-normal" style="font-size: 1.250em;   font-weight: bold;">คอร์สที่เรียนจบ</h1>
                         {{-- //เริ่ม  ทั้ทงหมด --}}
 
@@ -221,7 +221,7 @@
                                             @foreach ($imagecoursefinals as $imagecoursefinal)
                                             <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
                                                 <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
-                                                    {{-- <button onclick=""></button> --}}
+
                                             </li>
                                             @endforeach
                                             <li class="col-3 p-0 m-0 mt-2" id="myList">
@@ -239,7 +239,7 @@
                         </div>
 {{-- // ทั้ทงหมด --}}
                     </div>
-                    <div class="col-9 d-flex flex-column">
+                    <div class="col-md-12 d-flex flex-column">
                         <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
                         <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
                            @foreach ($expworks as $expwork)

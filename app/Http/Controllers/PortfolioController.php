@@ -33,10 +33,14 @@ class PortfolioController extends Controller
     {
         // echo  $user = Auth::user();
         $id = Auth::id();
-        $profiledatas = ProfilePortfolio::where('user_id', '=', $id)
-            ->get();
+         $profiledatas = ProfilePortfolio::where('user_id', '=', $id)
+
+            ->orderBy('id', 'desc')
+
+            ->first();
 
          $avatar_images = UploadImages::where('user_id', '=', $id)
+
             ->get();
         // echo $profiledatas;
         // echo $avatar_image;
@@ -79,33 +83,21 @@ class PortfolioController extends Controller
         )
         ->groupBy('user_id')
             ->get();
-            // print_r($users);
-        //     $imagecourses = Create_Course_Final::select(
-        //     'course_final_id',
-        //     'user_id',
-        //     'generation',
-        //     'corse_name',
-        //     'location',
-        //  )
-        // //  ->where('user_id', '=', $id)
-        // //  ->join('course_final_images', 'create_course_finals.course_final_id', '=', 'course_final_images.course_final_id')
-        // // ->groupBy('course_final_id')
-        //  ->where('create_course_finals.user_id', '=', $id)
-        // ->get();
 
-         $imagecourses = Create_Course_Final::where('user_id', '=', $id)
+
+        echo $imagecourses = Create_Course_Final::where('user_id', '=', $id)
 
         ->get();
 
         // echo  $imagecourses;
 
-          $imagecoursefinals = course_final_images::select(
+        echo  $imagecoursefinals = course_final_images::select(
             'course_final_images_id',
             'images_path',
             'course_final_id',
 
         )
-        // ->where('course_final_id', '=', 82)
+        ->where('user_id', '=', $id)
         ->get();
 
      $expworks = Exp_work::where('user_id', '=', $id)->get();

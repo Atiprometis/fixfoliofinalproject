@@ -137,16 +137,13 @@
                         <div class="  col-12 p-0 m-0  " >
                                         <label  class=" p-0 m-0 position-relative">
                                         <img class="card-img-top insutition rounded" src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview"  style="width: 100%;height: 200px; cursor: pointer"/>
-
                                         {{-- <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all"> --}}
-
                                         <div class="custom-file">
                                             <label class="custom-file-label m-0 text-danger" style="cursor: pointer">
                                             <input type="file" class="photo custom-file-input" id="uploadImage"  value="Placeholder.jpg" name="image" onchange="PreviewImage();" style="display: none"   required />
                                             {{-- <input type="file" class="custom-file-input" id="customFile"> --}}
                                             กดตรงนี้เพื่อเลือกรูป</label>
                                         </div>
-
                                         </label>
 
                                 <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 160px">

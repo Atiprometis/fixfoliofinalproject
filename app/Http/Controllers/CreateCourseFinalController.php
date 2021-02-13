@@ -6,7 +6,7 @@ use App\Models\Create_Course_Final;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\course_final_images;
-
+use Illuminate\Support\Facades\DB;
 class CreateCourseFinalController extends Controller
 {
     public function __construct()
@@ -36,50 +36,60 @@ class CreateCourseFinalController extends Controller
 
     public function create(Request $request)
     {
-        // return view('test/test');
+
         $id = Auth::id();
-        // $gen = $request->input('generation');
 
-        echo $id;
 
-        $flight = Create_Course_Final::create([
+          Create_Course_Final::create([
             'user_id' => $id,
             'generation' => $request->input('generation'),
             'corse_name' => $request->input('corse_name'),
             'location' => $request->input('location'),
-            // 'month_start' => 'London to Paris',
-            // 'month_end' => 'London to Paris',
         ]);
 
+        $course_id = Create_Course_Final::where('user_id','=',$id)
+        ->select(
+            DB::raw('MAX(course_final_id) as course_final_id')
+        )
+        ->get();
 
+        $course_id = json_decode($course_id);
+        $return = implode(",", array_column($course_id, "course_final_id"));
 
+        // dd($return);
 
+        course_final_images::create([
+            'course_final_id' => $return,
+            'user_id' => $id,
+        ]);
 
-        // if($request->ajax()){
-        //     $input = $request->all();
-        //     // $data = array(
-        //     //     'generation' => $input['generation'],
-        //     //     'corse_name' => $input['corse_name'],
-        //     //     'location' => $input['location']
+        $input = $request->all();
 
-        //     //  );
+        // $images = $request->file('images');
+        $images = array();
+            // dd($images);
+        $countimages = 0;
+        $id = Auth::id();
+        if ($files = $request->file('images')) {
+            // dd($files);
+            foreach ($files as $file) {
 
-        //     $id = Auth::id();
-        //     $flight = Create_Course_Final::create([
-        //     'user_id' => $id,
-        //     'generation' => $input['generation'],
-        //     'corse_name' => $input['corse_name'],
-        //     'location' => $input['location'],
-        //     // 'month_start' => 'London to Paris',
-        //     // 'month_end' => 'London to Paris',
-        // ]);
-        // return back();
-        // }
+                $name = time() . '.' . $file->getClientOriginalName();
+                $file->move(public_path() . '/courseimages/',$id, $name);
+                // $file->move('image', $name);
 
+                 $images[] = $name;
 
-        // echo $generation;
-        // echo $corse_name;
+                // echo $images;
+                course_final_images::insert([
+                    'course_final_id' => $return,
+                    'user_id' => $id,
+                    'images_path' =>  time() . '.' . $file->getClientOriginalName(),
 
+                ]);
+            }
+        }
+// dd($images);
 
         // return back();
     }
