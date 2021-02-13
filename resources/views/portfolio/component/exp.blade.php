@@ -6,9 +6,10 @@
         <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
             <ul class="p-0 m-0">
                 <li class="p-0 m-0">
-                    @foreach($imagecourses as $imagecourse)
+                    @foreach($courseandimage as $imagecourse)
                     <div class=" d-flex flex-row pt-4">
                         <div class=" d-flex flex-column w-50 ml-2" >
+                            {{-- {{ $courseandimage }} --}}
                             <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">รุ่นที่ {{$imagecourse->generation}}</h1>
                             <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p>
                         </div>
@@ -20,24 +21,41 @@
 
                     <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
                         <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
-                            @foreach ($imagecoursefinals as $imagecoursefinal)
-                            @if($imagecourse->course_final_id == $imagecoursefinal->course_final_id)
-                            <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;">
-                            <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})">
+                            {{-- {{ $imagecoursefinals[1]['course_final_id'] }} --}}
 
-                                    <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
-
-                                <div class="overlay">
-                                    <div class="overred d-flex justify-content-center align-items-center ">
-                                        <div class="icon">
-                                            <i class="fas fa-trash-alt fa-sm "></i>
+                            @foreach ($imagecoursefinals as $index=>$image)
+                                @if($imagecourse->course_final_id == $imagecoursefinals[$index]['course_final_id'])
+                                {{-- {{ $imagecoursefinals[$index]['course_final_id'] }} --}}
+                                <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;">
+                                <a class="con-img"  onclick="deleteimages({{$image->course_final_images_id}})">
+                                        <img class="hover-image" src="../courseimages/{{$image->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                    <div class="overlay">
+                                        <div class="overred d-flex justify-content-center align-items-center ">
+                                            <div class="icon">
+                                                <i class="fas fa-trash-alt fa-sm "></i>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                            </li>
-                            @endif
+                                </a>
+                                </li>
+                                @else
+
+                                    {{-- <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;">
+                                        <a class="con-img"  onclick="deleteimages()">
+                                                <img class="hover-image" src="../courseimages/{{$image->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                            <div class="overlay">
+                                                <div class="overred d-flex justify-content-center align-items-center ">
+                                                    <div class="icon">
+                                                        <i class="fas fa-trash-alt fa-sm "></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        </li> --}}
+                                @endif
+
                             @endforeach
+
 
 
                             <li class="col-3 p-0 m-0 mt-2" id="myList">
@@ -67,11 +85,11 @@
                                         <div class="input-group hdtuto control-group lst increment d-flex flex-row " >
                                             <div class=" col-12">
                                                 <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
-                                                    {{-- @foreach ($imagecoursefinals as $imagecoursefinal)
-                                                    @if($imagecourse->course_final_id == $imagecoursefinal->course_final_id) --}}
+                                                    {{-- @foreach ($imagecoursefinals as $imagecoursefinal) --}}
+                                                    {{-- @if($imagecourse->course_final_id == $imagecoursefinal->course_final_id) --}}
                                                         <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
-                                                        <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})">
-                                                            <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                                        {{-- <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})"> --}}
+                                                            {{-- <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;"> --}}
                                                             <div class="overlay">
                                                                 <div class="overred d-flex justify-content-center align-items-center ">
                                                                     <div class="icon">
@@ -81,8 +99,8 @@
                                                             </div>
                                                         </a>
                                                         </li>
-                                                    {{-- @endif
-                                                    @endforeach --}}
+                                                    {{-- @endif --}}
+                                                    {{-- @endforeach --}}
                                                 </ul>
                                             </div>
 

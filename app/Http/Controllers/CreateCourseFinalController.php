@@ -58,10 +58,10 @@ class CreateCourseFinalController extends Controller
 
         // dd($return);
 
-        course_final_images::create([
-            'course_final_id' => $return,
-            'user_id' => $id,
-        ]);
+        // course_final_images::create([
+        //     'course_final_id' => $return,
+        //     'user_id' => $id,
+        // ]);
 
         $input = $request->all();
 
@@ -70,28 +70,28 @@ class CreateCourseFinalController extends Controller
             // dd($images);
         $countimages = 0;
         $id = Auth::id();
+        $imagesToDB = [];
         if ($files = $request->file('images')) {
             // dd($files);
             foreach ($files as $file) {
-
-                $name = time() . '.' . $file->getClientOriginalName();
-                $file->move(public_path() . '/courseimages/',$id, $name);
+                $name = $id. '.' .time() . '.' . $file->getClientOriginalName();
+                $file->move(public_path() . '/courseimages/', $name);
+                $imagesToDB[] = [
+                    'course_final_id'  => $return ,
+                    'user_id'    => $id,
+                    'images_path' => $name,
+                ];
                 // $file->move('image', $name);
-
-                 $images[] = $name;
-
-                // echo $images;
-                course_final_images::insert([
-                    'course_final_id' => $return,
-                    'user_id' => $id,
-                    'images_path' =>  time() . '.' . $file->getClientOriginalName(),
-
-                ]);
+                //  $images[] = $name;
             }
+
         }
+          $imageDB =  course_final_images::insert($imagesToDB);
+
+        // dd($imagesToDB);
 // dd($images);
 
-        // return back();
+        return back()->withInput();
     }
 
     /**
