@@ -161,7 +161,6 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">เพิ่มรูป</h5>
-
       </div>
       <div class="modal-body">
 
@@ -189,9 +188,6 @@
                                 </li>
                             {{-- @endif --}}
                             {{-- @endforeach --}}
-
-
-
                             {{-- <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
                                     <a class="con-img"  onclick="deleteimages()">
                                     <img class="hover-image" src="../courseimages/{{ Auth::user()->id }}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">

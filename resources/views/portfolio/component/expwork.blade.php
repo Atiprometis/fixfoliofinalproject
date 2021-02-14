@@ -27,11 +27,11 @@
                         <p class=" p-0 m-0 mt-2 mb-2">รูปภาพผลงานของท่าน (สูงสุด 8 รูปภาพ)</p>
                         <div class=" d-flex flex-row col-md-12 flex-wrap">
 
-                            @for ($i = 1; $i <= 8; $i++)
-                            <label  class="position-relative col-md-3  p-2 m-0">
-                                <img class="card-img-top insutition rounded" src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview{{ $i }}"  style="width: 150p;height: 150px; cursor: pointer"/>
-                                    <input type="file" class="photo custom-file-input" id="uploadImage{{ $i }}"  value="Placeholder.jpg" name="images[]" onchange="PreviewImage{{ $i }}();" style="display: none"    />
-                            </label>
+                            @for ($i = 0; $i < 8; $i++)
+                                <label  class="position-relative col-md-3  p-2 m-0">
+                                    <img class="card-img-top insutition rounded" src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview{{ $i }}"  style="width: 150p;height: 150px; cursor: pointer"/>
+                                        <input type="file" class="photo custom-file-input" id="uploadImage{{ $i }}"  value="Placeholder.jpg" name="images[]" onchange="PreviewImage{{ $i }}();" style="display: none"    />
+                                </label>
                             @endfor
 
 

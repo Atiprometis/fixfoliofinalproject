@@ -149,3 +149,25 @@
     </div>
 @endsection
 
+
+{{-- @for ($i = 0; $i < 8; $i++)
+                                                 @if (isset($imagecoursefinals[$i]))
+
+                                                    @if ($imagecourse->course_final_id == $imagecoursefinals[$i]['course_final_id'])
+                                                        <label  class="position-relative col-md-3  p-2 m-0">
+                                                            <img class="card-img-top insutition rounded" src='../courseimages/{{ $imagecoursefinals[$i]['images_path'] }}' id="uploadPreview{{ $i }}"  style="width: 150p;height: 150px; cursor: pointer"/>
+                                                                <input type="file" class="photo custom-file-input" id="uploadImage{{ $i }}"  value="{{ $imagecoursefinals[$i]['images_path'] }}" name="images[]" onchange="PreviewImage{{ $i }}();" style="display: "    />
+                                                        </label>
+                                                    @else
+                                                        <label  class="position-relative col-md-3  p-2 m-0">
+                                                            <img class="card-img-top insutition rounded" src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview{{ $i }}"  style="width: 150p;height: 150px; cursor: pointer"/>
+                                                                <input type="file" class="photo custom-file-input" id="uploadImage{{ $i }}"  value="Placeholder.jpg" name="images[]" onchange="PreviewImage{{ $i }}();" style="display: "    />
+                                                        </label>
+                                                     @endif
+                                                @else
+                                                            <label  class="position-relative col-md-3  p-2 m-0">
+                                                                <img class="card-img-top insutition rounded" src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview{{ $i }}"  style="width: 150p;height: 150px; cursor: pointer"/>
+                                                                    <input type="file" class="photo custom-file-input" id="uploadImage{{ $i }}"  value="Placeholder.jpg" name="images[]" onchange="PreviewImage{{ $i }}();" style="display: "    />
+                                                            </label>
+                                                @endif
+                                                @endfor --}}

@@ -104,10 +104,16 @@ class CreateCourseFinalController extends Controller
     {
          $input = $request->all();
 
-         $courseid =  $request->file('images');
-        dd($courseid);
+         $courseid =  $request->input('course_final_id');
+        //  dd($courseid);
         $countimages = 0;
         $id = Auth::id();
+        $courseAll = Create_Course_Final::where('course_final_id', '=', $courseid)
+         ->update([
+             'generation' => $request->input('generation'),
+             'corse_name'=> $request->input('corse_name'),
+             'location'=> $request->input('location'),
+         ]);
 
         $imagesToDB = [];
         if ($files = $request->file('images')) {
@@ -125,23 +131,9 @@ class CreateCourseFinalController extends Controller
             }
 
         }
+        $imageDB =  course_final_images::insert($imagesToDB);
         // dd($imagesToDB);
-
-        // if ($files = $request->file('images')) {
-        //     // dd($files);
-        //     foreach ($files as $file) {
-        //         $name = $id. '.' .time() . '.' . $file->getClientOriginalName();
-        //         $file->move(public_path() . '/courseimages/', $name);
-        //         $imagesToDB[] = [
-        //             'course_final_id'  => $return ,
-        //             'user_id'    => $id,
-        //             'images_path' => $name,
-        //         ];
-        //     }
-
-        // }
-        // return view('test/test');
-        // return back()->with('success', 'Data Your files has been successfully added');
+        return back()->withInput();
     }
 
     public function destroyImagecourses($course_final_id)

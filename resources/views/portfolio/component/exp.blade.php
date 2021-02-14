@@ -19,7 +19,7 @@
                             <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$imagecourse->location}}</p>
                         </div>
                         <div class="p-0 m-0 d-flex justify-content-end">
-                            <button class="btn" onclick=""><i class="fas fa-pen"></i></button>
+                            <button class="btn" data-toggle="modal" data-target="#addimage{{ $imagecourse->course_final_id }} "><i class="fas fa-pen"></i></button>
                             <button class="btn " onclick="deleteresult({{ $imagecourse->course_final_id }})"><i class="fas fa-trash-alt bg-danger p-2 rounded-circle text-light"></i></button>
                         </div>
                     </div>
@@ -27,7 +27,6 @@
                     <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
                         <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
                             {{-- {{ $imagecoursefinals[1]['course_final_id'] }} --}}
-
                             @foreach ($imagecoursefinals as $index=>$image)
                                 @if($imagecourse->course_final_id == $imagecoursefinals[$index]['course_final_id'])
                                 <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;">
@@ -45,9 +44,6 @@
                                 @else
                                 @endif
                             @endforeach
-
-
-
                             <li class="col-3 p-0 m-0 mt-2" id="myList">
                                 <label class="col-12 p-0 m-0" style="cursor: pointer;"  data-toggle="modal" data-target="#addimage{{ $imagecourse->course_final_id }}">
                                     <div  class="bg-light d-flex flex-row justify-content-center align-items-center"   style="width: 90%; height:150px; border-radius:10px;" >
@@ -60,55 +56,6 @@
                         <ul class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></ul>
                     </div>
                     <!-- Modal -->
-                        {{-- <div class="modal fade" id="addimage{{ $imagecourse->course_final_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">เพิ่มรูป</h5>
-                                </div>
-                                <div class="modal-body">
-                                <form method="post" action="{{url('filecourse/83')}}" enctype="multipart/form-data">
-                                    {{csrf_field()}}
-                                        <div class="input-group hdtuto control-group lst increment d-flex flex-row " >
-                                            <div class=" col-12">
-                                                <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
-                                                    @foreach ($imagecoursefinals as $index=>$image)
-                                                    @if($imagecourse->course_final_id == $imagecoursefinals[$index]['course_final_id'])
-                                                        <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;">
-                                                        <a class="con-img"  onclick="deleteimages({{$image->course_final_images_id}})">
-                                                                <img class="hover-image" src="../courseimages/{{$image->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
-                                                            <div class="overlay">
-                                                                <div class="overred d-flex justify-content-center align-items-center ">
-                                                                    <div class="icon">
-                                                                        <i class="fas fa-trash-alt fa-sm "></i>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        </li>
-                                                    @else
-
-                                                    @endif
-                                                @endforeach
-                                                </ul>
-                                            </div>
-
-                                            <li class="col-3 p-0 m-0 mt-2" id="myList">
-                                                <label class="col-12 p-0 m-0" style="cursor: pointer;">
-                                                    <div  class="bg-light d-flex flex-row justify-content-center align-items-center"   style="width: 90%; height:150px; border-radius:10px;" >
-                                                            <i class="fas fa-plus bg-danger mr-1 ml-1 p-2" style="border-radius: 20px;color:#fff;"></i>
-                                                            <p class="p-0 m-0">เพิ่มรูป</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                        </div>
-                                        <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
-                                </form>
-                                </div>
-
-                            </div>
-                            </div>
-                        </div> --}}
                         <div class="modal fade" id="addimage{{ $imagecourse->course_final_id }}" tabindex="-1" role="dialog" aria-labelledby="Expwork" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                             <div class="modal-content">
@@ -137,34 +84,38 @@
                                         </li>
                                         <li>
                                             <p class=" p-0 m-0 mt-2 mb-2">รูปภาพผลงานของท่าน (สูงสุด 8 รูปภาพ)</p>
-                                            <div class=" d-flex flex-row col-md-12 flex-wrap">
-                                                {{-- @foreach ($imagecoursefinals as $index=>$image) --}}
-                                                @for ($i = 0; $i < 8; $i++)
-                                                 @if (isset($imagecoursefinals[$i]))
-                                                    {{-- {{ $imagecoursefinals[$i] }} --}}
-                                                    {{-- {{ $imagecourse->course_final_id }} --}}
-                                                    @if ($imagecourse->course_final_id == $imagecoursefinals[$i]['course_final_id'])
-                                                        <label  class="position-relative col-md-3  p-2 m-0">
-                                                            <img class="card-img-top insutition rounded" src='../courseimages/{{ $imagecoursefinals[$i]['images_path'] }}' id="uploadPreview{{ $i }}"  style="width: 150p;height: 150px; cursor: pointer"/>
-                                                                <input type="file" class="photo custom-file-input" id="uploadImage{{ $i }}"  value="{{ $imagecoursefinals[$i]['images_path'] }}" name="images[]" onchange="PreviewImage{{ $i }}();" style="display: "    />
-                                                        </label>
-                                                    @else
-                                                        <label  class="position-relative col-md-3  p-2 m-0">
-                                                            <img class="card-img-top insutition rounded" src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview{{ $i }}"  style="width: 150p;height: 150px; cursor: pointer"/>
-                                                                <input type="file" class="photo custom-file-input" id="uploadImage{{ $i }}"  value="Placeholder.jpg" name="images[]" onchange="PreviewImage{{ $i }}();" style="display: "    />
-                                                        </label>
-                                                     @endif
-                                                @else
-                                                            <label  class="position-relative col-md-3  p-2 m-0">
-                                                                <img class="card-img-top insutition rounded" src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview{{ $i }}"  style="width: 150p;height: 150px; cursor: pointer"/>
-                                                                    <input type="file" class="photo custom-file-input" id="uploadImage{{ $i }}"  value="Placeholder.jpg" name="images[]" onchange="PreviewImage{{ $i }}();" style="display: "    />
-                                                            </label>
-                                                @endif
-                                                @endfor
+                                            <div class=" d-flex flex-row col-md-12 flex-wrap p-0 m-0">
+                                                <ul class=" d-flex flex-row col-md-10 p-0 m-0 flex-wrap clone-result" id="addimageLimit" >
+                                                    {{-- @for ($i = 0; $i < 8; $i++) --}}
+                                                    {{-- <a class="clone-result  d-inline-block"> --}}
+                                                    @foreach ($imagecoursefinals as $index=>$image)
+                                                        @if($imagecourse->course_final_id == $imagecoursefinals[$index]['course_final_id'])
+                                                            <li class=" col-3 p-0 m-0 mt-2 d-inline-block" id="myList">
+                                                                        <a class="con-img"  onclick="deleteimages({{$image->course_final_images_id}})">
+                                                                            <img class="hover-image" src="../courseimages/{{$image->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                                                            <div class="overlayresulut">
+                                                                                <div class="overred d-flex justify-content-center align-items-center ">
+                                                                                    <div class="icon">
+                                                                                        <i class="fas fa-trash-alt fa-sm "></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                            </li>
+                                                        @else
+                                                        @endif
+                                                    @endforeach
+                                                </ul>
+                                                <div class="col-cd-2 align-items-center d-flex justify-content-md-center">
+                                                    <button class="btn addimageResult btn-danger" >เพิ่มรูป</button>
+                                                </div>
+
                                             </div>
                                         </li>
                                     </ul>
-                                        <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
+                                        <div class=" d-flex col-md-12 justify-content-md-center">
+                                            <button type="submit" class="btn btn-success" style="margin-top:10px">อัพเดทข้อมูล</button>
+                                        </div>
                                 </form>
                                 </div>
                             </div>

@@ -208,3 +208,45 @@
         };
     };
 </script>
+<script type="text/javascript">
+
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+        };
+    };
+</script>
+
+<script>
+    var count = 0;
+    $('.addimageResult').click(function (e) {
+        e.preventDefault();
+        $(".clone-result").append(
+
+                '<li class="col-3 p-0 m-0 mt-2" id="myList">'
+                    + '<label  class="position-relative m-0">'
+                        +'<img class="card-img-top insutition rounded" style="width: 90%; height:150px; cursor: pointer" id="upload'+count+'" src="{{ asset('access/imageweb/Placeholder.jpg') }}">'
+                        +'<input type="file" class="photo custom-file-input" id="uploadPhoto'+count+'"  value="Placeholder.jpg" name="images[]" onchange="ShowImage'+count+'();" style="display: "/>'
+                // "<img class="card-img-top insutition rounded" src='' id="uploadPreview"  style="width: 150p;height: 150px; cursor: pointer"/>"
+                    +'</label>'
+                + '</li>'
+        );
+        count++;
+        // console.log(count);
+    });
+</script>
+
+@for ($i = 0; $i < 8; $i++)
+    <script type="text/javascript">
+        function ShowImage{{ $i }}() {
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("uploadPhoto{{ $i }}").files[0]);
+            oFReader.onload = function (oFREvent) {
+                document.getElementById("upload{{ $i }}").src = oFREvent.target.result;
+            };
+        };
+    </script>
+@endfor
+
