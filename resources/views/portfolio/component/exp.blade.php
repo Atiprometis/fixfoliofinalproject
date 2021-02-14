@@ -153,11 +153,76 @@
                     <div class=" d-flex flex-column w-50">
                         <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$expwork->position}}</h1>
                         <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$expwork->province}}</p>
+                        <div class=" d-flex flex-row">
+                            <p class="m-0 p-0   mr-2 font-weight-light" style="font-size: 1em;">{{$expwork->year}} ปี</p>
+                            <p class="m-0 p-0 ml-2 mr-2 font-weight-light" style="font-size: 1em;">{{$expwork->month}} เดือน</p>
+                        </div>
+                    </div>
+                    <div class="p-0 m-0 d-flex justify-content-end">
+                        <button class="btn" data-toggle="modal" data-target="#ExpworkUpdate{{ $expwork->exp_works_id }}"><i class="fas fa-pen"></i></button>
+                        <button class="btn " onclick="deleteExpwork({{ $expwork->exp_works_id }})"><i class="fas fa-trash-alt bg-danger p-2 rounded-circle text-light"></i></button>
                     </div>
                 </div>
                 <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
             </li>
-        </ul>
+            </ul>
+
+            <div class="modal fade" id="ExpworkUpdate{{ $expwork->exp_works_id }}" tabindex="-1" role="dialog" aria-labelledby="Expwork" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header d-flex justify-content-md-center">
+                      <h5 class="modal-title" id="exampleModalLongTitle">อัพเดทข้อมูลประสบการณ์ทำงาน</h5>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" action="{{url('expworkUpdate')}}" enctype="multipart/form-data">
+                          {{csrf_field()}}
+                          <input type="text" name="exp_works_id" value="{{ $expwork->exp_works_id }}" style="display: none">
+                          <ul class="m-0 p-0 text-left">
+                            <li class="m-0 p-0">
+                                <p class=" p-0 m-0 mt-2 mb-2">ตำแหน่ง</p>
+                                <input type="text" id="position" value="{{$expwork->position}}" name="position" class="form-control m-0" placeholder="ระบุตำแหน่ง" required>
+                            </li>
+                            <li>
+                                <p class=" p-0 m-0 mt-2 mb-2">ชื่อบริษัท</p>
+                                <input type="text"  id="company" value="{{$expwork->company}}" name="company" class="form-control m-0" placeholder="ระบุชื่อบริษัท" required>
+                            </li>
+                            <li>
+                                <p class=" p-0 m-0 mt-2 mb-2">สถานที่ตั้งบริษัท</p>
+                                <div class=" d-flex flex-row">
+                                    <input type="text"  id="county" value="{{$expwork->position}}" name="county" class="form-control mr-2" placeholder="ระบุเขต" required>
+                                    <input type="text"  id="province" value="{{$expwork->province}}" name="province" class="form-control ml-2" placeholder="ระบุจังหวัด" required>
+                                </div>
+                            </li>
+                            <li>
+                                <p class=" p-0 m-0 mt-2 mb-2">ระยะเวลาทำงาน</p>
+                                <div class=" flex-row d-flex col-md-12 p-0">
+                                    <div class="mr-2 col-md-6 p-0  pr-2 mr-2">
+                                        <small>จำนวนปี</small>
+                                        <input type="text"  id="year" name="year" value="{{$expwork->year}}" maxlength="2" class="form-control " placeholder="ระบุจำนวนปี" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
+                                    </div>
+                                    <div class="form-group col-md-6 mr-2 pr-2 p-0 ">
+                                        <small>จำนวนเดือน</small>
+                                        <select class="form-control " id="month" name="month">
+
+                                            @for ($i = 1; $i <= 12; $i++)
+                                            <option style="display: none">{{$expwork->month}}</option>
+                                            <option>{{ $i }}</option>
+                                            @endfor
+                                        </select>
+
+                                      </div>
+                                </div>
+                            </li>
+                        </ul>
+                            <div class=" d-flex justify-content-md-center">
+                                <button type="submit" class="btn rounded" style="margin-top:10px; background-color:#F2C94C;">ยืนยัน</button>
+                                <button  formaction="/profileedit" class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
+                            </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
            @endforeach
 
             <label data-toggle="modal" data-target="#Expwork" class=" p-0 m-0 ">

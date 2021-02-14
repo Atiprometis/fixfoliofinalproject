@@ -99,8 +99,7 @@ class PortfolioController extends Controller
         )
         ->where('create_course_finals.user_id', '=', $id)
         ->distinct()
-        // ->join('course_final_images', 'course_final_images.course_final_id', '=', 'create_course_finals.course_final_id')
-        // ->groupBy('course_final_images.course_final_id','course_final_images.user_id')
+
         ->get();
 
           $imagecoursefinals = course_final_images::select(
@@ -172,23 +171,7 @@ class PortfolioController extends Controller
                 'profile_line' => $profile_line,
 
             ));
-            // $users = ProfilePortfolio::firstOrCreate(
-            //     ['user_id' => $id],
-            //     ['profile_location' => $profile_location],
-            //     ['profile_aboutme' => $profile_aboutme],
-            //     ['profile_age' => $profile_age],
-            //     ['profile_sex' => $profile_sex],
-            //     ['profile_instinct' => $profile_instinct],
-            //     ['profile_province' => $profile_province],
-            //     ['profile_education' => $profile_education],
-            //     ['profile_facebook' => $profile_facebook],
-            //     ['profile_phone' => $profile_phone],
-            //     ['profile_email' => $profile_email],
-            //     ['profile_line' => $profile_line],
-            // );
-        // $users = DB::table('profile_portfolios')->where('user_id', '=', $id)
-        // echo $id;
-        // return redirect()->route('institution');
+
         return redirect('/portfolio');
     }
 
@@ -206,6 +189,25 @@ class PortfolioController extends Controller
             'month' => $request->input('month'),
 
         ]);
+
+        return back();
+    }
+
+    public function expworkUpdate(Request $request)
+    {
+
+        $id = Auth::id();
+        $courseid =  $request->input('exp_works_id');
+        // dd($courseid);
+        $courseAll = Exp_work::where('exp_works_id', '=', $courseid)
+         ->update([
+            'position' => $request->input('position'),
+            'company' => $request->input('company'),
+            'county' => $request->input('county'),
+            'province' => $request->input('province'),
+            'year' => $request->input('year'),
+            'month' => $request->input('month'),
+         ]);
 
         return back();
     }

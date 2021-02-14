@@ -66,7 +66,7 @@
     var deleteimages = function(course_final_id){
 
         Swal.fire({
-            title: 'ยืนยันลบรูปภาพนี้',
+            title: 'ยืนยันที่จะลบรูปภาพนี้',
             confirmButtonText: 'ยืนยัน',
             showCancelButton: true,
             cancelButtonText: "ยกเลิก",
@@ -84,13 +84,32 @@
     var deleteresult = function(course_final_id){
 
         Swal.fire({
-            title: 'ยืนยันคอร์สที่เรียนจบอันนี้',
+            title: 'ยืนยันที่จะลบคอร์สที่เรียนจบอันนี้',
             confirmButtonText: 'ยืนยัน',
             showCancelButton: true,
             cancelButtonText: "ยกเลิก",
         }).then((result) => {
             if(result.isConfirmed){
                 window.location.href = '{{url('/destroyResult/')}}/'+course_final_id;
+                Swal.fire('ลบสำเร็จ!', '', 'success')
+            }else{
+                // Swal.fire('Changes are not saved', '', 'info')
+            }
+        })
+    }
+</script>
+
+<script>
+    var deleteExpwork = function(exp_works_id){
+
+        Swal.fire({
+            title: 'ยืนยันที่จะลบประสบการณ์ทำงานอันนี้',
+            confirmButtonText: 'ยืนยัน',
+            showCancelButton: true,
+            cancelButtonText: "ยกเลิก",
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location.href = '{{url('/destroyExpwork/')}}/'+exp_works_id;
                 Swal.fire('ลบสำเร็จ!', '', 'success')
             }else{
                 // Swal.fire('Changes are not saved', '', 'info')

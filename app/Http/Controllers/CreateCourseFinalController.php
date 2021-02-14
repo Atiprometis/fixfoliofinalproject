@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\course_final_images;
 use Illuminate\Support\Facades\DB;
+use App\Models\Exp_work;
 class CreateCourseFinalController extends Controller
 {
     public function __construct()
@@ -150,6 +151,16 @@ class CreateCourseFinalController extends Controller
     {
         $id = Auth::id();
         $delete = Create_Course_Final::where('course_final_id', '=', $course_final_id)->delete();
+
+        return back();
+
+        // return redirect()->action([PortfolioController::class, 'profileedit' ]);
+    }
+
+    public function destroyExpwork($exp_works_id)
+    {
+        $id = Auth::id();
+        $delete = Exp_work::where('exp_works_id', '=', $exp_works_id)->delete();
 
         return back();
 
