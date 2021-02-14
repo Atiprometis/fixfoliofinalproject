@@ -12,15 +12,15 @@
                 <ul class="m-0 p-0 text-left">
                     <li class="m-0 p-0">
                         <p class=" p-0 m-0 mt-2 mb-2">รุ่นที่</p>
-                        <input id="position" name="generation" class="swal2-input m-0" placeholder="ระบุตำแหน่ง" required>
+                        <input type="text" maxlength="3"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id="position" name="generation" class="swal2-input m-0" placeholder="ระบุรุ่นที่" required>
                     </li>
                     <li>
                         <p class=" p-0 m-0 mt-2 mb-2">ชื่อหลักสูตร</p>
-                        <input id="company" name="corse_name" class="swal2-input m-0" placeholder="ระบุชื่อบริษัท" required>
+                        <input type="text" maxlength="60" id="company" name="corse_name" class="swal2-input m-0" placeholder="ระบุชื่อบริษัท" required>
                     </li>
                     <li>
                         <p class=" p-0 m-0 mt-2 mb-2">สถานที่ศึกษาจบ</p>
-                        <input id="county" name="location" class="swal2-input m-0" placeholder="ระบุเขต" required>
+                        <input type="text" maxlength="80" id="county" name="location" class="swal2-input m-0" placeholder="ระบุเขต" required>
 
                     </li>
                     <li>

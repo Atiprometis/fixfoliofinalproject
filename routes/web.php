@@ -80,9 +80,10 @@ Route::get('/addid', 'UploadImagesController@create');
 
 Route::post('/upload', 'UploadImagesController@store');
 Route::get('/destroyImagecourses/{course_final_id}', 'CreateCourseFinalController@destroyImagecourses');
+Route::get('/destroyResult/{course_final_id}', 'CreateCourseFinalController@destroyResult');
 // Route::get('/delete/{deleteid}', function($id){});
 
-Route::post('filecourse/{course_final_id}', 'CreateCourseFinalController@store');
+Route::post('updateresult', 'CreateCourseFinalController@store');
 
 Route::post('/addExpp', 'CreateCourseFinalController@create');
 

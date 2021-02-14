@@ -62,7 +62,55 @@
   });
 </script>
 
+<script>
+    var deleteimages = function(course_final_id){
 
+        Swal.fire({
+            title: 'ยืนยันลบรูปภาพนี้',
+            confirmButtonText: 'ยืนยัน',
+            showCancelButton: true,
+            cancelButtonText: "ยกเลิก",
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location.href = '{{url('/destroyImagecourses/')}}/'+course_final_id;
+                Swal.fire('ลบสำเร็จ!', '', 'success')
+            }else{
+                // Swal.fire('Changes are not saved', '', 'info')
+            }
+        })
+    }
+</script>
+<script>
+    var deleteresult = function(course_final_id){
+
+        Swal.fire({
+            title: 'ยืนยันคอร์สที่เรียนจบอันนี้',
+            confirmButtonText: 'ยืนยัน',
+            showCancelButton: true,
+            cancelButtonText: "ยกเลิก",
+        }).then((result) => {
+            if(result.isConfirmed){
+                window.location.href = '{{url('/destroyResult/')}}/'+course_final_id;
+                Swal.fire('ลบสำเร็จ!', '', 'success')
+            }else{
+                // Swal.fire('Changes are not saved', '', 'info')
+            }
+        })
+    }
+</script>
+
+<script type="text/javascript">
+
+    function PreviewImage0() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("uploadImage0").files[0]);
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview0").src = oFREvent.target.result;
+        };
+
+    };
+
+</script>
 
 <script type="text/javascript">
 

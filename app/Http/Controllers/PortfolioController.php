@@ -89,22 +89,22 @@ class PortfolioController extends Controller
 
         // ->get();
 
-        $courseandimage = Create_Course_Final::select(
+         $courseandimage = Create_Course_Final::select(
 
             'create_course_finals.generation',
             'create_course_finals.corse_name',
             'create_course_finals.location',
-            'course_final_images.course_final_id',
-            'course_final_images.user_id'
+            'create_course_finals.course_final_id',
+            'create_course_finals.user_id'
         )
         ->where('create_course_finals.user_id', '=', $id)
         ->distinct()
-        ->join('course_final_images', 'course_final_images.course_final_id', '=', 'create_course_finals.course_final_id')
+        // ->join('course_final_images', 'course_final_images.course_final_id', '=', 'create_course_finals.course_final_id')
         // ->groupBy('course_final_images.course_final_id','course_final_images.user_id')
         ->get();
 
           $imagecoursefinals = course_final_images::select(
-
+            'course_final_images_id',
             'course_final_id',
             'images_path',
 

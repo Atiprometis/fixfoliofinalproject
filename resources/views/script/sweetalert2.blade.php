@@ -64,24 +64,6 @@ $(document).ready(function () {
 
 </script> --}}
 
-<script>
-    var deleteimages = function(course_final_id){
-
-        Swal.fire({
-            title: 'ยืนยันลบรูปภาพนี้',
-            confirmButtonText: 'ยืนยัน',
-            showCancelButton: true,
-            cancelButtonText: "ยกเลิก",
-        }).then((result) => {
-            if(result.isConfirmed){
-                window.location.href = '{{url('/destroyImagecourses/')}}/'+course_final_id;
-                Swal.fire('ลบสำเร็จ!', '', 'success')
-            }else{
-                // Swal.fire('Changes are not saved', '', 'info')
-            }
-        })
-    }
-</script>
 
 <script>
 $('#addExp').click(async function () {

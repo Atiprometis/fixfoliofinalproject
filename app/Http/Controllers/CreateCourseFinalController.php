@@ -103,27 +103,43 @@ class CreateCourseFinalController extends Controller
     public function store(Request $request)
     {
          $input = $request->all();
-        $images = array();
 
+         $courseid =  $request->file('images');
+        dd($courseid);
         $countimages = 0;
         $id = Auth::id();
+
+        $imagesToDB = [];
         if ($files = $request->file('images')) {
+
             foreach ($files as $file) {
-
-                $name = time() . '.' . $file->getClientOriginalName();
+                $name = $id. '.' .time() . '.' . $file->getClientOriginalName();
                 $file->move(public_path() . '/courseimages/', $name);
-                $file->move('image', $name);
-
-                echo $images[] = $name;
-
-                course_final_images::insert([
-                    'course_final_id' => 67,
-                    'user_id' => $id,
-                    'images_path' =>  time() . '.' . $file->getClientOriginalName(),
-
-                ]);
+                $imagesToDB[] = [
+                    'course_final_id'  => $courseid ,
+                    'user_id'    => $id,
+                    'images_path' => $name,
+                ];
+                // $file->move('image', $name);
+                //  $images[] = $name;
             }
+
         }
+        // dd($imagesToDB);
+
+        // if ($files = $request->file('images')) {
+        //     // dd($files);
+        //     foreach ($files as $file) {
+        //         $name = $id. '.' .time() . '.' . $file->getClientOriginalName();
+        //         $file->move(public_path() . '/courseimages/', $name);
+        //         $imagesToDB[] = [
+        //             'course_final_id'  => $return ,
+        //             'user_id'    => $id,
+        //             'images_path' => $name,
+        //         ];
+        //     }
+
+        // }
         // return view('test/test');
         // return back()->with('success', 'Data Your files has been successfully added');
     }
@@ -132,6 +148,16 @@ class CreateCourseFinalController extends Controller
     {
         $id = Auth::id();
         $delete = course_final_images::where('course_final_images_id', '=', $course_final_id)->delete();
+
+        return back();
+
+        // return redirect()->action([PortfolioController::class, 'profileedit' ]);
+    }
+
+    public function destroyResult($course_final_id)
+    {
+        $id = Auth::id();
+        $delete = Create_Course_Final::where('course_final_id', '=', $course_final_id)->delete();
 
         return back();
 
