@@ -31,7 +31,7 @@ class PortfolioController extends Controller
     }
     public function portfolio()
     {
-        // echo  $user = Auth::user();
+
         $id = Auth::id();
          $profiledatas = ProfilePortfolio::where('user_id', '=', $id)
 
@@ -42,24 +42,44 @@ class PortfolioController extends Controller
          $avatar_images = UploadImages::where('user_id', '=', $id)
 
             ->get();
-        // echo $profiledatas;
-        // echo $avatar_image;
-        $imagecourses = Create_Course_Final::where('user_id', '=', $id)
 
-        ->get();
+         $users = ProfilePortfolio::where('user_id', '=', $id)
+            ->select(
 
-          $imagecoursefinals = course_final_images::select(
-            'course_final_images_id',
-            'images_path',
-            'course_final_id',
+                'user_id',
+                DB::raw('MAX(profile_aboutme) as profile_aboutme'),
+            )
+            ->groupBy('user_id')
+                ->get();
 
-        )
-        ->where('course_final_id', '=', 67)
-        ->get();
+                $courseandimage = Create_Course_Final::select(
 
-     $expworks = Exp_work::where('user_id', '=', $id)->get();
+                    'create_course_finals.generation',
+                    'create_course_finals.corse_name',
+                    'create_course_finals.location',
+                    'create_course_finals.course_final_id',
+                    'create_course_finals.user_id'
+                )
+                ->where('create_course_finals.user_id', '=', $id)
+                ->distinct()
 
-        return view('portfolio/portfoliopage')->with(compact('profiledatas', 'avatar_images','imagecourses','imagecoursefinals','expworks'));
+                ->get();
+
+                  $imagecoursefinals = course_final_images::select(
+                    'course_final_images_id',
+                    'course_final_id',
+                    'images_path',
+
+                )
+                ->where('user_id', '=', $id)
+                ->get();
+
+            //    dd($imagecoursefinals);
+                // dd($imagecoursefinals);
+             $expworks = Exp_work::where('user_id', '=', $id)->get();
+
+
+        return view('portfolio/portfoliopage')->with(compact('profiledatas', 'avatar_images','expworks','imagecoursefinals','courseandimage','users'));
     }
 
     public function searchportfolio()
@@ -74,14 +94,20 @@ class PortfolioController extends Controller
             ->get();
         // echo $profiledatas;
         // echo $avatar_images;
+        $profiledatas = ProfilePortfolio::where('user_id', '=', $id)
+
+            ->orderBy('id', 'desc')
+
+            ->first();
 
         $users = ProfilePortfolio::where('user_id', '=', $id)
         ->select(
 
             'user_id',
+            'profile_location',
             DB::raw('MAX(profile_aboutme) as profile_aboutme'),
         )
-        ->groupBy('user_id')
+        ->groupBy('user_id','profile_location')
             ->get();
 
 
@@ -116,13 +142,15 @@ class PortfolioController extends Controller
      $expworks = Exp_work::where('user_id', '=', $id)->get();
 
         // echo $imagecourses;
-        return view('portfolio/profileedit')->with(compact('avatar_images', 'users','courseandimage','imagecoursefinals','expworks'));
+        return view('portfolio/profileedit')->with(compact('avatar_images', 'users','courseandimage','imagecoursefinals','expworks','profiledatas'));
     }
 
     public function updateFnameSname(Request $request){
          $name = $request->input('name');
          $lastname = $request->input('lastname');
         $profile_location = $request->input('profile_location');
+        $profile_aboutme = $request->input('profile_aboutme');
+        // dd($profile_aboutme);
          $id = Auth::id();
 
         DB::table('users')
@@ -134,7 +162,8 @@ class PortfolioController extends Controller
 
         ProfilePortfolio::where('user_id', '=', $id)
         ->update(array(
-            'profile_location' => $profile_location
+            'profile_location' => $profile_location,
+            'profile_aboutme' => $profile_aboutme,
         ));
         // echo $id;
         return redirect('/portfolio');
@@ -143,8 +172,6 @@ class PortfolioController extends Controller
     public function updateprofile(Request $request)
     {
         // $name = $request->input('name');
-        $profile_location = $request->input('profile_location');
-        $profile_aboutme = $request->input('profile_aboutme');
         $profile_age = $request->input('profile_age');
         $profile_sex = $request->input('profile_sex');
         $profile_instinct = $request->input('profile_instinct');
@@ -156,10 +183,11 @@ class PortfolioController extends Controller
         $profile_line = $request->input('profile_line');
 
         $id = Auth::id();
+
+        // dd($profile_phone);
         $users = ProfilePortfolio::where('user_id', '=', $id)
             ->update(array(
-                'profile_location' => $profile_location,
-                'profile_aboutme' => $profile_aboutme,
+
                 'profile_age' => $profile_age,
                 'profile_sex' => $profile_sex,
                 'profile_instinct' => $profile_instinct,
@@ -201,12 +229,12 @@ class PortfolioController extends Controller
         // dd($courseid);
         $courseAll = Exp_work::where('exp_works_id', '=', $courseid)
          ->update([
-            'position' => $request->input('position'),
-            'company' => $request->input('company'),
-            'county' => $request->input('county'),
-            'province' => $request->input('province'),
-            'year' => $request->input('year'),
-            'month' => $request->input('month'),
+            'position' => $request->input('positionUpdate'),
+            'company' => $request->input('companyUpdate'),
+            'county' => $request->input('countyUpdate'),
+            'province' => $request->input('provinceUpdate'),
+            'year' => $request->input('yearUpdate'),
+            'month' => $request->input('monthUpdate'),
          ]);
 
         return back();

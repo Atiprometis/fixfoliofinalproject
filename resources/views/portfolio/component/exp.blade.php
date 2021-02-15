@@ -180,17 +180,17 @@
                           <ul class="m-0 p-0 text-left">
                             <li class="m-0 p-0">
                                 <p class=" p-0 m-0 mt-2 mb-2">ตำแหน่ง</p>
-                                <input type="text" id="position" value="{{$expwork->position}}" name="position" class="form-control m-0" placeholder="ระบุตำแหน่ง" required>
+                                <input type="text" id="position" value="{{$expwork->position}}" name="positionUpdate" class="form-control m-0" placeholder="ระบุตำแหน่ง" required>
                             </li>
                             <li>
                                 <p class=" p-0 m-0 mt-2 mb-2">ชื่อบริษัท</p>
-                                <input type="text"  id="company" value="{{$expwork->company}}" name="company" class="form-control m-0" placeholder="ระบุชื่อบริษัท" required>
+                                <input type="text"  id="company" value="{{$expwork->company}}" name="companyUpdate" class="form-control m-0" placeholder="ระบุชื่อบริษัท" required>
                             </li>
                             <li>
                                 <p class=" p-0 m-0 mt-2 mb-2">สถานที่ตั้งบริษัท</p>
                                 <div class=" d-flex flex-row">
-                                    <input type="text"  id="county" value="{{$expwork->position}}" name="county" class="form-control mr-2" placeholder="ระบุเขต" required>
-                                    <input type="text"  id="province" value="{{$expwork->province}}" name="province" class="form-control ml-2" placeholder="ระบุจังหวัด" required>
+                                    <input type="text"  id="county" value="{{$expwork->position}}" name="countyUpdate" class="form-control mr-2" placeholder="ระบุเขต" required>
+                                    <input type="text"  id="province" value="{{$expwork->province}}" name="provinceUpdate" class="form-control ml-2" placeholder="ระบุจังหวัด" required>
                                 </div>
                             </li>
                             <li>
@@ -198,11 +198,11 @@
                                 <div class=" flex-row d-flex col-md-12 p-0">
                                     <div class="mr-2 col-md-6 p-0  pr-2 mr-2">
                                         <small>จำนวนปี</small>
-                                        <input type="text"  id="year" name="year" value="{{$expwork->year}}" maxlength="2" class="form-control " placeholder="ระบุจำนวนปี" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
+                                        <input type="text"  id="year" name="yearUpdate" value="{{$expwork->year}}" maxlength="2" class="form-control " placeholder="ระบุจำนวนปี" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
                                     </div>
                                     <div class="form-group col-md-6 mr-2 pr-2 p-0 ">
                                         <small>จำนวนเดือน</small>
-                                        <select class="form-control " id="month" name="month">
+                                        <select class="form-control " id="month" name="monthUpdate">
 
                                             @for ($i = 1; $i <= 12; $i++)
                                             <option style="display: none">{{$expwork->month}}</option>
@@ -216,7 +216,7 @@
                         </ul>
                             <div class=" d-flex justify-content-md-center">
                                 <button type="submit" class="btn rounded" style="margin-top:10px; background-color:#F2C94C;">ยืนยัน</button>
-                                <button  formaction="/profileedit" class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
+                                <button  onclick="history.back()" class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
                             </div>
                       </form>
                     </div>

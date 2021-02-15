@@ -1,5 +1,5 @@
 
-    <div class="profile-about col-12 h-100 d-flex flex-column justify-content-between">
+    <div class="profile-about col-12 h-100 d-flex pr-0 flex-column justify-content-between">
         <div class=" d-flex flex-column h-100 mb-4 ">
             <div class=" d-flex flex-row h-100  justify-content-between ">
                 <div class=" d-flex flex-column border  p-0" style="width: 100%">

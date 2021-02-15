@@ -127,3 +127,37 @@
                     </div>
 
                 </div>
+
+                 {{-- <div class="" id="updateimages" title="update" style="display: none">
+                <form method="post" action="{{url('filecourse')}}" enctype="multipart/form-data">
+                    {{csrf_field()}}
+
+                        <div class="input-group hdtuto control-group lst increment d-flex flex-row " >
+                            <div class=" col-12">
+                                <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
+                                    @foreach ($imagecoursefinals as $imagecoursefinal)
+                                    <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
+                                    <a class="con-img"  onclick="deleteimages({{$imagecoursefinal->course_final_images_id}})">
+                                        <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                        <div class="overlay">
+                                            <div class="overred d-flex justify-content-center align-items-center ">
+                                                <div class="icon">
+                                                    <i class="fas fa-trash-alt fa-sm "></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    </li>
+                                    @endforeach
+
+                                </ul>
+                            </div>
+
+                            <div class="input-group-btn">
+                              <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                            </div>
+                        </div>
+                      <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
+                </form>
+            </div> --}}

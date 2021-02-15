@@ -38,7 +38,10 @@
                         </div>
                     </li>
                 </ul>
-                    <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
+                <div class=" d-flex justify-content-md-center">
+                    <button type="submit" class="btn rounded" style="margin-top:10px; background-color:#F2C94C;">ยืนยัน</button>
+                    <button  onclick="history.back()" class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
+                </div>
             </form>
             </div>
         </div>
@@ -92,7 +95,7 @@
             </ul>
                 <div class=" d-flex justify-content-md-center">
                     <button type="submit" class="btn rounded" style="margin-top:10px; background-color:#F2C94C;">ยืนยัน</button>
-                    <button  formaction="/profileedit" class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
+                    <button  onclick="history.back()" class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
                 </div>
           </form>
         </div>
