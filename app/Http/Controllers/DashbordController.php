@@ -6,6 +6,7 @@ use App\Dashbord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Routing\Redirector;
+
 use App\Models\CourseSchoolDetail;
 use App\Course;
 use App\Models\Schools;
@@ -190,9 +191,8 @@ class DashbordController extends Controller
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
-
-         $thumbnailsName =  $request->image->getClientOriginalName();
+        $imageData = $request->image->getClientOriginalName();
+         $thumbnailsName =  $id. '.' .time() . '.' . $imageData;
 
         //  echo $thumbnailsName;
          Course_thumbnail::firstOrCreate([
@@ -268,7 +268,7 @@ class DashbordController extends Controller
 
         // echo $schoolsreturn;
 
-        $courseallForSchool = Course::where('course_school', '=', $schoolsreturn)
+      $courseallForSchool = Course::where('course_school', '=', $schoolsreturn)
 
         ->select(
             'courses.course_id',
@@ -288,10 +288,21 @@ class DashbordController extends Controller
             'courses.course_online',
             'courses.status',
             'schools.schools_name',
+            'course_thumbnails.thumbnails_images'
         )
         ->join('schools', 'schools.schools_id', '=', 'courses.course_school')
+        ->join('course_thumbnails','course_thumbnails.course_id','=','courses.course_id')
         ->get();
 
+
+
+    // echo   $thumbnail = Course_thumbnail::select(
+    //     'course_thumbnails.course_id as id_thumbnails',
+    //       'course_thumbnails.thumbnails_images',
+    //       )
+    //     ->where('course_school', '=',$schoolsreturn)
+    //     ->join('courses','courses.course_id','=','course_thumbnails.course_id')
+    //     ->get();
         // echo $courseallForSchool;
 
 

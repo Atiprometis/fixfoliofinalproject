@@ -85,13 +85,13 @@
                                         <li>
                                             <p class=" p-0 m-0 mt-2 mb-2">รูปภาพผลงานของท่าน (สูงสุด 8 รูปภาพ)</p>
                                             <div class=" d-flex flex-row col-md-12 flex-wrap p-0 m-0">
-                                                <ul class=" d-flex flex-row col-md-10 p-0 m-0 flex-wrap clone-result" id="addimageLimit" >
+                                                <ul class=" d-flex flex-row col-md-12 p-0 m-0 flex-wrap clone-result" id="listlimited" >
                                                     {{-- @for ($i = 0; $i < 8; $i++) --}}
                                                     {{-- <a class="clone-result  d-inline-block"> --}}
                                                     @foreach ($imagecoursefinals as $index=>$image)
                                                         @if($imagecourse->course_final_id == $imagecoursefinals[$index]['course_final_id'])
-                                                            <li class=" col-3 p-0 m-0 mt-2 d-inline-block" id="myList">
-                                                                        <a class="con-img"  onclick="deleteimages({{$image->course_final_images_id}})">
+                                                            <li class=" col-3 p-0 m-0 mt-2 " id="myList">
+                                                                        {{-- <a class="con-img"  onclick="deleteimages({{$image->course_final_images_id}})"> --}}
                                                                             <img class="hover-image" src="../courseimages/{{$image->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
                                                                             <div class="overlayresulut">
                                                                                 <div class="overred d-flex justify-content-center align-items-center ">
@@ -100,22 +100,31 @@
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </a>
+                                                                        {{-- </a> --}}
                                                             </li>
                                                         @else
                                                         @endif
-                                                    @endforeach
+                                                     @endforeach
+                                                     @for ($i = 0; $i < 8; $i++)
+                                                        <li class=" col-3 p-0 m-0 mt-2 " id="myList">
+                                                            <label  class="position-relative col-md-12 p-0 m-0">
+                                                                <img class="card-img-top insutition rounded " id="upload{{ $imagecourse->course_final_id }}{{ $i }}" src='{{ asset('access/imageweb/Placeholder.jpg') }}'   style="width: 90%;height: 150px; cursor: pointer"/>
+                                                                    <input type="file" class="photo custom-file-input " id="uploadPhoto{{ $imagecourse->course_final_id }}{{ $i }}"   value="Placeholder.jpg" name="images[]" onchange="ShowImage{{ $i }}({{ $imagecourse->course_final_id }});" style="display: none"    />
+                                                            </label>
+                                                        </li>
+                                                     @endfor
                                                 </ul>
-                                                <div class="col-cd-2 align-items-center d-flex justify-content-md-center">
+                                                {{-- <div class="col-cd-2 align-items-center d-flex justify-content-md-center">
                                                     <button class="btn addimageResult btn-danger" >เพิ่มรูป</button>
-                                                </div>
+                                                </div> --}}
 
                                             </div>
                                         </li>
                                     </ul>
-                                        <div class=" d-flex col-md-12 justify-content-md-center">
-                                            <button type="submit" class="btn btn-success" style="margin-top:10px">อัพเดทข้อมูล</button>
-                                        </div>
+                                    <div class=" d-flex justify-content-md-center">
+                                        <button  onclick="history.back()" class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
+                                        <button type="submit" class="btn rounded" style="margin-top:10px; background-color:#F2C94C;">ยืนยัน</button>
+                                    </div>
                                 </form>
                                 </div>
                             </div>
@@ -128,7 +137,7 @@
                 </li>
             </ul>
             {{-- <a id="opener" > --}}
-            <label data-toggle="modal" data-target="#addExpfinal" class=" p-0 m-0 ">
+            <label data-toggle="modal" data-target="#addExpfinal" class=" p-0 pt-3 mt-1 m-0 ">
                 <div class=" p-0 m-0 d-flex justify-content-center align-items-center text-center" style="width: 100%; height:50px; border-radius:10px;background-color: #8541B4;color:#fff;cursor: pointer;">เพิ่มประสบการณ์</div>
             </label>
         </div>
@@ -225,7 +234,7 @@
             </div>
            @endforeach
 
-            <label data-toggle="modal" data-target="#Expwork" class=" p-0 m-0 ">
+            <label data-toggle="modal" data-target="#Expwork" class=" p-0 m-0 p-0 pt-3 ">
                 <div class=" p-0 m-0 d-flex justify-content-center align-items-center text-center" style="width: 100%; height:50px; border-radius:10px;background-color: #8541B4;color:#fff;cursor: pointer;">เพิ่มประสบการณ์ทำงาน</div>
             </label>
         </div>

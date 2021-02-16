@@ -40,8 +40,6 @@ class UploadImagesController extends Controller
         //  $flight = UploadImages::create([
         //     'user_id' => $id,
         // ]);
-
-
         return redirect()->action([PortfolioController::class, 'portfolio']);
         // return view('upload/upload');
     }

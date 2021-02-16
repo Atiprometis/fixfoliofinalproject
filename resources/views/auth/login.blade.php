@@ -17,7 +17,7 @@
                                 @csrf
                             <div class="form-group row  w-75">
                                 <div class=" w-100 d-flex ">
-                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" placeholder="เบอร์โทร" value="{{ old('username') }}" required autocomplete="username">
+                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" pattern="[0]{1}[0-9]{9}" maxlength="10" name="username" placeholder="เบอร์โทร" value="{{ old('username') }}" required autocomplete="username">
 
                                     @error('username')
                                     <span class="invalid-feedback" role="alert">

@@ -12,12 +12,14 @@
 
                 @csrf
                 <div class=" d-flex flex-row col-md-12 d-flex justify-content-end  text-center ">
-                    <label class="switch m-0 mt-1">
-                        <input type="checkbox" class="success" id="customSwitch1">
-                        <span class="slider round"></span>
+                    <label class="switch m-0 mt-1 ">
+                        <input type="checkbox" class="success inline checkbox"  name="acceptRules" id="checkbox1" value="ปิดหางาน">
+                        <span class="slider round pl-2 pr-2"></span>
                     </label>
-                    <div class=" d-flex align-items-center mr-5">
-                        <label for="customSwitch1" class="m-0 mt-1 ml-2" >หางาน</label>
+                    <div class=" d-flex align-items-center ml-2 mr-5">
+                        <label for="customSwitch1" class="m-0 mt-1 ml-2" >
+                            <div id="checkbox-value"></div>
+                        </label>
                     </div>
                 </div>
                 <div class="profile rounded col-12 d-flex flex-row  mt-3 mb-3 align-items-start">

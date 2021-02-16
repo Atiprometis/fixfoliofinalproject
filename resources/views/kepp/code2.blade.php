@@ -150,7 +150,7 @@
 @endsection
 
 
-{{-- @for ($i = 0; $i < 8; $i++)
+@for ($i = 0; $i < 8; $i++)
                                                  @if (isset($imagecoursefinals[$i]))
 
                                                     @if ($imagecourse->course_final_id == $imagecoursefinals[$i]['course_final_id'])
@@ -170,4 +170,4 @@
                                                                     <input type="file" class="photo custom-file-input" id="uploadImage{{ $i }}"  value="Placeholder.jpg" name="images[]" onchange="PreviewImage{{ $i }}();" style="display: "    />
                                                             </label>
                                                 @endif
-                                                @endfor --}}
+                                                @endfor

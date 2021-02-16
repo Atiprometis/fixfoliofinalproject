@@ -82,10 +82,24 @@ $(document).ready(function() {
 
 </script>
 
-{{-- <script>
-   $(doucument).ready(function(){
+<script>
+    $(document).ready(function () {
+        // console.log(2);
 
+        $.ajax({
+            type: "POST",
+            url: "/addidAthome",
+            data:{
+                _token: '{{csrf_token()}}',
+            },
+            success: function (response) {
+                // console.log(response);
+            },
+            error: function (response, textStatus, errorThrown) {
+            // console.log(response);
 
-});
+            },
+        });
+    });
 
-</script> --}}
+</script>

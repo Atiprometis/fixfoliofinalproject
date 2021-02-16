@@ -94,8 +94,8 @@
                 </li>
             </ul>
                 <div class=" d-flex justify-content-md-center">
-                    <button type="submit" class="btn rounded" style="margin-top:10px; background-color:#F2C94C;">ยืนยัน</button>
                     <button  onclick="history.back()" class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
+                    <button type="submit" class="btn rounded" style="margin-top:10px; background-color:#F2C94C;">ยืนยัน</button>
                 </div>
           </form>
         </div>

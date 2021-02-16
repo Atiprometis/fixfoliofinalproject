@@ -166,7 +166,8 @@ class PortfolioController extends Controller
             'profile_aboutme' => $profile_aboutme,
         ));
         // echo $id;
-        return redirect('/portfolio');
+        return back();
+        // return redirect('/portfolio');
     }
 
     public function updateprofile(Request $request)
@@ -200,7 +201,8 @@ class PortfolioController extends Controller
 
             ));
 
-        return redirect('/portfolio');
+        // return redirect('/portfolio');
+        return back();
     }
 
     public function expwork(Request $request)
@@ -250,6 +252,11 @@ class PortfolioController extends Controller
     public function create()
     {
         //
+        $id = Auth::id();
+
+         $flight = UploadImages::firstOrCreate(['user_id' => $id]);
+         $user = ProfilePortfolio::firstOrCreate(['user_id' => $id]);
+         return back();
     }
 
     /**

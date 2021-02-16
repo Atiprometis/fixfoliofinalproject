@@ -67,9 +67,12 @@
 
         Swal.fire({
             title: 'ยืนยันที่จะลบรูปภาพนี้',
-            confirmButtonText: 'ยืนยัน',
-            showCancelButton: true,
+
             cancelButtonText: "ยกเลิก",
+            showCancelButton: true,
+            showConfirmButton: true,
+            confirmButtonText: 'ยืนยัน',
+
         }).then((result) => {
             if(result.isConfirmed){
                 window.location.href = '{{url('/destroyImagecourses/')}}/'+course_final_id;
@@ -86,8 +89,9 @@
         Swal.fire({
             title: 'ยืนยันที่จะลบคอร์สที่เรียนจบอันนี้',
             confirmButtonText: 'ยืนยัน',
-            showCancelButton: true,
             cancelButtonText: "ยกเลิก",
+            showCancelButton: true,
+
         }).then((result) => {
             if(result.isConfirmed){
                 window.location.href = '{{url('/destroyResult/')}}/'+course_final_id;
@@ -104,9 +108,10 @@
 
         Swal.fire({
             title: 'ยืนยันที่จะลบประสบการณ์ทำงานอันนี้',
+            cancelButtonText: "ยกเลิก",
             confirmButtonText: 'ยืนยัน',
             showCancelButton: true,
-            cancelButtonText: "ยกเลิก",
+
         }).then((result) => {
             if(result.isConfirmed){
                 window.location.href = '{{url('/destroyExpwork/')}}/'+exp_works_id;
@@ -128,7 +133,6 @@
         };
 
     };
-
 </script>
 
 <script type="text/javascript">
@@ -259,13 +263,43 @@
 
 @for ($i = 0; $i < 8; $i++)
     <script type="text/javascript">
-        function ShowImage{{ $i }}() {
+        function ShowImage{{ $i }}(resulutID) {
             var oFReader = new FileReader();
-            oFReader.readAsDataURL(document.getElementById("uploadPhoto{{ $i }}").files[0]);
+            var id = resulutID;
+            oFReader.readAsDataURL(document.getElementById("uploadPhoto"+id+"{{ $i }}").files[0]);
             oFReader.onload = function (oFREvent) {
-                document.getElementById("upload{{ $i }}").src = oFREvent.target.result;
+                document.getElementById("upload"+id+"{{ $i }}").src = oFREvent.target.result;
             };
         };
     </script>
 @endfor
 
+<script>
+
+$('#checkbox-value').text($('#checkbox1').val());
+
+$("#checkbox1").on('change', function() {
+  if ($(this).is(':checked')) {
+    $(this).attr('value', 'เปิดประวัติ');
+    Swal.fire({
+            title: 'เปิดประวัติ',
+            confirmButtonText: 'ยืนยัน',
+            showCancelButton: true,
+            cancelButtonText: "ยกเลิก",
+        })
+  } else {
+    $(this).attr('value', 'ปิดประวัติ');
+  }
+
+  $('#checkbox-value').text($('#checkbox1').val());
+});
+    // $('#switch-change').on('change.bootstrapSwitch', function () {
+    //     console.log(1);
+    // });
+</script>
+
+
+
+{{-- <script>
+    document.getElementsByClassName
+</script> --}}

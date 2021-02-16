@@ -19,6 +19,7 @@
             <th scope="col">เลิกเรียน</th>
             <th scope="col">ชั่วโมง</th>
             <th scope="col">สอนออนไลน์</th>
+            <th scope="col">รูปภาพ</th>
             <th scope="col">สถานะ</th>
             <th scope="col">แก้ไข</th>
             <th scope="col">ลบ</th>
@@ -43,6 +44,9 @@
                 <td>{{$course->course_hours}}</td>
                 <td>{{$course->course_online}}</td>
                 <td>
+                        <p class=" text-danger" style="cursor: pointer;" data-toggle="modal" data-target="#showimage{{ $course->course_id }}">แสดงรูปภาพ</p>
+                </td>
+                <td>
 
                     @if ($course->status == 1)
                     <p class="text-success">ตรวจสอบสำเร็จ</p>
@@ -64,6 +68,30 @@
                 </td>
 
                 </tr>
+
+                <div class="modal fade" id="showimage{{ $course->course_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">รูปภาพคอร์ส</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body col-md-12">
+
+                                    <div class="col-md-12">
+                                        <img src='../course/thumbnail/{{ $course->thumbnails_images }}' class=" w-100 h-50" alt="">
+                                    </div>
+                          <img src="" alt="">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                          {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
           @endforeach
         </tbody>

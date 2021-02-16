@@ -6,7 +6,7 @@ use App\Dashbord;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 use App\Course;
 use App\Models\Schools;
 use App\Models\Course_day;
@@ -310,7 +310,31 @@ class EditcourseController extends Controller
     public function imagecourse($id)
     {
         $courseID = $id;
-        return view('dashbord.editcourseImage')->with(compact('courseID'));
+        $thumbnail = Course_thumbnail::where('course_id' , '=', $courseID)
+        ->first();
+        return view('dashbord.editcourseImage')->with(compact('courseID','thumbnail'));
+    }
+    public function editImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $courseID = $request->input('courseID');;
+        $imageData = $request->image->getClientOriginalName();
+        $id = Auth::id();
+        $thumbnailsName = $id. '.' .time() . '.' . $imageData;
+
+        // dd($thumbnailsName);
+        $request->image->move(public_path('course/thumbnail'), $thumbnailsName);
+
+        // dd($imagesToDB);
+         Course_thumbnail::where('course_id','=',$courseID)
+         ->update([
+            'thumbnails_images' => $thumbnailsName,
+        ]);
+
+        return redirect('/manegercourse');
     }
 
     /**

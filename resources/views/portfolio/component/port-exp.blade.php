@@ -18,9 +18,7 @@
                             <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$imagecourse->corse_name}}</h1>
                             <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$imagecourse->location}}</p>
                         </div>
-
                     </div>
-
                     <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
                         <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
                             {{-- {{ $imagecoursefinals[1]['course_final_id'] }} --}}
@@ -40,7 +38,7 @@
                                 @else
                                 @endif
                             @endforeach
-
+                            <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
                         </ul>
 
                     </div>
