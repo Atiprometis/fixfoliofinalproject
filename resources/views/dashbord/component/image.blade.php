@@ -46,7 +46,7 @@
                     <div class=" d-flex pl-1  mt-2 mb-2">
                         {{-- <button class="btn btn-primary">เปลี่ยนรูปหน้าปก</button> --}}
                             <a href="/manegercourse"><button type="button"  class="btn swa-confirm mr-2 ml-2 text-light" style="background-color: rgb(195, 195, 195)" >กลับจัดการคอร์ส</button></a>
-                            <button type="submit" class="btn btn-success text-light swa-confirm">เปลี่ยนรูปหน้าปก</button>
+                            <button type="submit" class="btn btn-success text-light swa-confirm">คลิ๊กที่นี่เพื่อเปลี่ยนรูป</button>
                             {{-- <input type="button"  id="updatecourse"   value="เปลี่ยนรูปหน้าปก" class="btn btn-success text-light swa-confirm"> --}}
                     </div>
 
