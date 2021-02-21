@@ -121,4 +121,6 @@ Route::get('/deleteschool/{id}', 'Admin\AdminController@deleteschool' )->middlew
 
 Route::get('/approvecourse', 'Admin\AdminController@approvecourse' )->middleware('superadmin');
 Route::get('/approve/{id}', 'Admin\AdminController@approve' )->middleware('superadmin');
-
+Route::get('/approveadmin', 'Admin\AdminController@approveadmin' )->middleware('superadmin');
+Route::post('setadmin', 'Admin\AdminController@setadmin' )->middleware('superadmin');
+Route::post('deleteadmin/{id_user}', 'Admin\AdminController@deleteadmin' )->middleware('superadmin');

@@ -10,96 +10,57 @@
 
 
 
-        <div class="select-item ml-1 mr-1">
-            <button class="btn select-item-wrapper dropdown-toggle d-flex align-items-lg-center justify-content-lg-center
-                          "id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class=" d-flex flex-row">
+        <div class="select-item ml-1 d-flex justify-content-center align-items-center mr-1 ">
+            <div class="form-group select-item-item p-0 m-0 rounded d-flex justify-content-center align-items-center" >
                     <i class="fas fa-map-marker-alt fa-lg select-icon ml-1 mr-1"></i>
-                    <div class="select-text ml-1 mr-1">สถานที่เรียน</div>
+                    <select class="form-control btn shadow-none p-2 pr-2 w-75 " id="exampleFormControlSelect1"  >
+                        <option style="display: none">สถานที่เรียน</option>
+                        <option>คลองถม</option>
+                        <option>พระปาแดง</option>
+                        <option>บ้าน</option>
 
-                </div>
-            </button>
-
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <?php
-                $locations = array('คลองถม','พระปาแดง','บ้าน');
-                foreach ($locations as  $location) {
-                ?>
-                    <a class="dropdown-item" href="#"><?php print $location?></a>
-                <?php
-                }
-                ?>
+                    </select>
             </div>
-
-
         </div>
 
-        <div class="select-item ml-1 mr-1">
-            <button class="btn select-item-wrapper dropdown-toggle d-flex align-items-lg-center justify-content-lg-center
-                          "id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class=" d-flex flex-row">
+        <div class="select-item ml-1 d-flex justify-content-center align-items-center mr-1 ">
+            <div class="form-group select-item-item p-0 m-0 rounded d-flex justify-content-center align-items-center" >
                     <i class="fas fa-list fa-lg select-icon ml-1 mr-1"></i>
-                    <div class="select-text ml-1 mr-1">วิชาที่เรียน</div>
-
-                </div>
-            </button>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <?php
-                    $leaningLists = array('ทำอาหาร','ช่างฟ้า','ก่อสร้าง','ตัดหญ้า');
-                    foreach ($leaningLists as  $leaningList) {
-                ?>
-                    <a class="dropdown-item" href="#"><?php print $leaningList?></a>
-                <?php
-                    }
-                ?>
+                    <select class="form-control btn p-2 pr-2 w-75" id="exampleFormControlSelect1"  >
+                        <option style="display: none">วิชาที่เรียน</option>
+                        @foreach ($course_type as $type)
+                            <option value="{{ $type->type_name }}">{{ $type->type_name }}</option>
+                        @endforeach
+                    </select>
             </div>
         </div>
 
-        <div class="select-item ml-1 mr-1">
-            <button class="btn select-item-wrapper dropdown-toggle d-flex align-items-lg-center justify-content-lg-center
-                          "id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class=" d-flex flex-row">
-                    <i class="fas fa-calendar-day fa-lg select-icon ml-1 mr-1"></i>
-                    <div class="select-text ml-1 mr-1">เดือน</div>
+        <?php
+            $monuts = array('มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม');
+        ?>
 
-                </div>
-            </button>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <?php
-                    $monuts = array('มกราคม','กุมภาพัน','มีนาคม');
-                    foreach ($monuts as  $monut) {
-                ?>
-                    <a class="dropdown-item" href="#"><?php print $monut?></a>
-                <?php
-                    }
-                ?>
+        <div class="select-item ml-1 d-flex justify-content-center align-items-center mr-1 ">
+            <div class="form-group select-item-item p-0 m-0 rounded d-flex justify-content-center align-items-center" >
+                <i class="fas fa-calendar-day fa-lg select-icon ml-1 mr-1"></i>
+                    <select class="form-control btn p-2 pr-2 w-75" id="exampleFormControlSelect1"  >
+                        <option style="display: none">เดือน</option>
+                        @foreach ($monuts as $monut)
+                         <option>{{ $monut }}</option>
+                        @endforeach
+                    </select>
             </div>
         </div>
 
-        <div class="select-item ml-1 mr-1">
-            <button class="btn select-item-wrapper dropdown-toggle d-flex align-items-lg-center justify-content-lg-center
-                          "id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class=" d-flex flex-row">
-                    <i class="fas fa-door-open fa-lg select-icon ml-1 mr-1"></i>
-                    <div class="select-text ml-1 mr-1">เปิดรับสมัคร</div>
+        <div class="select-item ml-1 d-flex justify-content-center align-items-center mr-1 ">
+            <div class="form-group select-item-item p-0 m-0 rounded d-flex justify-content-center align-items-center" >
+                <i class="fas fa-door-open fa-lg select-icon ml-1 mr-1"></i>
+                    <select class="form-control btn p-2 pr-2 w-75" id="exampleFormControlSelect1"  >
+                        <option style="display: none">เปิดรับสมัคร</option>
+                        <option>ทำอาหาร</option>
+                        <option>ช่างฟ้า</option>
+                        <option>ก่อสร้าง</option>
 
-                </div>
-            </button>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <?php
-                    $openRegisters = array('1','2','3');
-                    foreach ($openRegisters as  $openRegister) {
-                ?>
-                <a class="dropdown-item" href="#"><?php print $openRegister?></a>
-
-
-                <?php
-                    }
-                ?>
+                    </select>
             </div>
         </div>
 

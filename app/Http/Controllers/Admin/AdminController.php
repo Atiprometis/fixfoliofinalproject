@@ -74,6 +74,12 @@ class AdminController extends Controller
              'schools_owner' => $schools_owner,]
          );
 
+         User::where('id','=',$schools_owner)
+        ->update([
+            'role' => 'admin',
+            'number_role' => '1',
+        ]);
+
         return Redirect::to('/showschool');
 
     }
@@ -139,6 +145,51 @@ class AdminController extends Controller
             'status' => 1,
         ]);
         return back()->withInput();
+    }
+    public function approveadmin()
+    {
+         $userall = User::select('*')
+        ->where('role','=',null)
+        ->orWhere('number_role','=',null)
+        ->get();
+
+        $adminall = User::select('*')
+        ->where('role','=','superadmin')
+        ->orWhere('role','=','admin')
+        ->get();
+        return view('dashbord.admin.approveadmin')->with(compact('adminall','userall'));
+    }
+    public function setadmin(Request $request)
+    {
+        $schools_id = $request->input('schools_owner');;
+        // dd($schools_id);
+        User::where('id','=',$schools_id)
+        ->update([
+            'role' => 'superadmin',
+            'number_role' => '2',
+        ]);
+        return back()->withInput();
+    }
+    public function deleteadmin($id_user)
+    {
+
+        $id = Auth::id();
+        // dd($id_user);
+        if($id_user == $id){
+            // dd($id_user);
+            return back()->withInput();
+        }
+        else{
+            User::where('id','=',$id_user)
+            ->update([
+                'role' => null,
+                'number_role' => null,
+            ]);
+
+            return back()->withInput();
+        }
+
+
     }
 
     /**

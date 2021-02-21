@@ -16,11 +16,13 @@
                     $count = 1;
                     foreach ($coursenames as  $coursename) {
                 ?>
-                    <div class="col-2 mt-3 float-left position-relative d-flex justify-content-center  " >
-                        <div class="b-image " style="height: 106px; border-radius: 20px; background-color:#000;"></div>
-                        <img src=" {{ asset('/access/images/category-'.$count.'.png') }}" class="w-100 "  style="height: 106px; border-radius: 20px;">
-                        <p class="  text-c  text-light m-0 p-0 "><?php echo $coursename?></p>
-                    </div>
+                    <a href="#">
+                        <div class="col-2 mt-3 float-left position-relative d-flex justify-content-center  " >
+                            <div class="b-image " style="height: 106px; border-radius: 20px; background-color:#000;"></div>
+                            <img src=" {{ asset('/access/images/category-'.$count.'.png') }}" class="w-100 "  style="height: 106px; border-radius: 20px;">
+                            <p class="  text-c  text-light m-0 p-0 "><?php echo $coursename?></p>
+                        </div>
+                    </a>
                     <?php
                     $count++;
                 }
@@ -32,7 +34,9 @@
             <div class="course-search pt-4 pb-2 col-md-12 d-flex align-items-lg-center " style="background-color: #69299C">
                 <div class="container">
                     <div class="row mr-0 ml-0 d-flex flex-column">
+
                          @include('component.search-select-item')
+
                         <div class=" d-flex flex-row pt-3 pb-3">
                             <a href="#" style="color:#F9C226; ">
                                 <p class="p-0 m-0 mr-3">เรียนฟรี</p>

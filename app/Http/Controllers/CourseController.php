@@ -14,6 +14,7 @@ use App\Models\Corses\Course_career;
 use App\Models\Corses\Course_learn;
 use App\Models\Corses\Course_result;
 use App\Models\Corses\Course_youtube;
+use App\Models\Corses\Course_type;
 
 class CourseController extends Controller
 {
@@ -96,10 +97,12 @@ class CourseController extends Controller
                 ->groupBy('course_id')
                 ->get();
                 // echo $thumbnail;
+                $course_type = Course_type::select('*')
+                ->get();
 
                 // return response()->json($response);
 
-        return view('course/course')->with(compact('allcourses','courseDay','schoolsName','thumbnail','datalimit'));
+        return view('course/course')->with(compact('allcourses','courseDay','schoolsName','thumbnail','datalimit','course_type'));
 
     }
 

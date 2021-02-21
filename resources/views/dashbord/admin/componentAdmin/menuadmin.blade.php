@@ -27,6 +27,12 @@
                 <p class="m-1 ml-3">อนุมัติคอร์ส</p>
             </li>
         </a>
+        <a href="/approveadmin">
+            <li class=" d-flex flex-row justify-content-been align-items-center">
+                <i class="fas fa-user-plus ml-3"></i>
+                <p class="m-1 ml-3">ตั้งแอดมิน</p>
+            </li>
+        </a>
 
 
 
