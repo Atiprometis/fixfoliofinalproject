@@ -50,7 +50,7 @@
                     <div class="col-md-12 d-flex flex-row  justify-content-start">
                         <div class="d-flex col-md-3 p-0 m-0 ml-1 mr-1 flex-column form-group">
                             <small>facebook</small>
-                            <input class="form-control" value="{{ $schoolsdetails->facebook }}" name="school_facebook" maxlength="40" type="text"placeholder="ระบุ facebook" >
+                            <input class="form-control" value="{{ $schoolsdetails->facebook }}" name="school_facebook" maxlength="20" type="text"placeholder="ระบุ facebook" >
                         </div>
                         <div class="d-flex col-md-2 p-0 m-0 ml-1 mr-1 flex-column form-group">
                             <small>เบอร์โทรศัพท์</small>
@@ -58,11 +58,11 @@
                         </div>
                         <div class="d-flex col-md-2 p-0 m-0 ml-1 mr-1 flex-column form-group">
                             <small>line</small>
-                            <input class="form-control" value="{{ $schoolsdetails->line }}" name="school_line" maxlength="30"  type="text" placeholder="ใส่ line">
+                            <input class="form-control" value="{{ $schoolsdetails->line }}" name="school_line" maxlength="18"  type="text" placeholder="ใส่ line">
                         </div>
                         <div class="d-flex col-md-3 p-0 m-0 ml-1 mr-1 flex-column form-group">
                             <small>e-mail</small>
-                            <input class="form-control" value="{{ $schoolsdetails->email }}" name="school_email" type="email" maxlength="40" placeholder="ระบุ e-mail">
+                            <input class="form-control" value="{{ $schoolsdetails->email }}" name="school_email" type="email" maxlength="20" placeholder="ระบุ e-mail">
                         </div>
                         <div class="p-0 m-0 d-flex align-items-end w-100 justify-content-center col-md-2">
                             <button class="btn text-light" style="background-color: #9B4BB0;">บันทึก</button>

@@ -64,7 +64,7 @@ Route::get('/updateFnameSname', 'PortfolioController@updateFnameSname');
 Route::post('/expwork', 'PortfolioController@expwork');
 Route::post('/expworkUpdate', 'PortfolioController@expworkUpdate');
 
-Route::get('/profileinstitution/{school_id}/{countcourse}', 'InstitutionController@profileinstitution');
+Route::get('/profileinstitution/{schools_id}', 'InstitutionController@profileinstitution');
 
 
 Route::get('/clicktest', 'TestDataController@index');

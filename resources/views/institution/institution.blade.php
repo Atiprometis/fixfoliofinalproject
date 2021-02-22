@@ -25,7 +25,7 @@
                                       </select>
                                 </div>
                             </div>
-
+                    {!! Form::close() !!}
                 </div>
             </div>
 
@@ -46,26 +46,35 @@
                     </div>
                 <div class="col-12 p-0 m-0">
 
-                    @foreach($courseschooldetails as $courseschooldetail)
+                    @foreach($schoolsdetails as $index=>$school)
 
-                        <a class="" href="/profileinstitution/{{$courseschooldetail->schools_id}}/{{ $courseschooldetail->countcourse }}" style="color: inherit; ">
+                        <a class="" href="/profileinstitution/{{ $school->schools_id }}" style="color: inherit; ">
                             <div class=" col-3  p-2   float-left " >
                                 <div class="">
-                                    <img src="{{ $courseschooldetail->school_image }}" class="insutition-all">
+                                    @if ($school->school_image != null)
+                                    <img class="insutition-all" src='../imagesSchools/{{ $school->schools_owner }}/{{ $school->school_image  }}' alt="Card image cap" style="height: 250px;border: 1px solid #c1c1c1;">
+                                    @else
+                                    <img class="insutition-all" src='../access/imageweb/school1.jpg' alt="Card image cap" style="height: 250px;border: 1px solid #c1c1c1;">
+                                    @endif
+                                    {{-- <img src="sdasd" class="insutition-all"> --}}
                                     <div class="  d-flex flex-column text-insutition pl-3 pt-2" style="">
 
-                                        <p class="" style="font-size: 1.375em;">{{$courseschooldetail->course_school}}</p>
-                                        <p class="" style="font-size: 1.375em;">{{$courseschooldetail->schools_name}}</p>
+                                        <p class="" style="font-size: 1.375em;">{{ $school->schools_name }}</p>
 
                                         <div class=" d-flex flex-row ">
                                             <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
+                                            <p class="ml-2 mr-2">จำนวน
 
+                                                @foreach ($countCourse as $count)
+                                                     @if ($count->course_school !=  $school->schools_id)
 
-                                                <p class="ml-2 mr-2">
-                                                    จำนวน {{$courseschooldetail->countcourse}} คอร์ส
-                                                </p>
+                                                     @else
+                                                     {{ $count->countcourse }}
+                                                     @endif
+                                                @endforeach
 
-
+                                                คอร์ส
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

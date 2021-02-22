@@ -10,6 +10,12 @@ use mysql_xdevapi\Table;
 use App\Models\CourseSchoolDetail;
 use App\Models\Schools;
 use App\Course;
+use App\Models\Course_day;
+use App\Models\Corses\Course_career;
+use App\Models\Corses\Course_learn;
+use App\Models\Corses\Course_result;
+use App\Models\Corses\Course_youtube;
+use App\Models\Corses\Course_thumbnail;
 class InstitutionController extends Controller
 {
 
@@ -25,45 +31,28 @@ class InstitutionController extends Controller
     public function index()
     {
 
-        $dataCount = DB::select('SELECT COUNT(`course_id`) AS "count" ,`course_school` FROM courses GROUP BY `course_school`');
-
-
-        //         SELECT `course_id`, `school_id`, `school_name`, COUNT(school_name) FROM `course_school_details`
-        // GROUP BY `school_name`
-
-        //         SELECT schools.school_image FROM `course_school_details`
-        // INNER JOIN schools
-        // ON course_school_details.school_id = schools.schools_id
-
-        // $courseschooldetails = DB::table('course_school_details')
-        //     // ->where('course_school_details.school_id', '=', $school_id)
-
-        //     ->join('schools', 'schools.schools_id', '=', 'course_school_details.school_id')
-        //     ->select(
-        //         DB::raw('count(course_school_details.school_name) as countcourse'),
-        //         'course_school_details.school_id',
-        //         'course_school_details.school_name',
-        //         'schools.school_image',
-
-
-        //     )
-
-        //     ->groupBy('course_school_details.school_name', 'school_id', 'schools.school_image')
-        //     ->get();
-
-        $courseschooldetails = Schools::select(
-          'schools_id',
-          'schools_name',
-          DB::raw('count(courses.course_school) as countcourse'),
-          'school_image',
-
-          )
-        ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
-        ->groupBy( 'courses.course_school','schools_name','school_image','schools_id')
+        //  $dataCount = DB::select('SELECT COUNT(`course_id`) AS "count" ,`course_school` FROM courses GROUP BY `course_school`' );
+         $schoolsdetails =  Schools::select(
+            'schools.schools_id',
+            'schools.schools_owner',
+            'schools.schools_name',
+            'schools.school_image',
+            )
+         ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+         ->distinct()
+         ->where('status' , '=' , 1)
         ->get();
 
+        $countCourse = Course::select(
+           'courses.course_school',
+           DB::raw('count(courses.course_school) as countcourse'),
+       )
+        ->where('status' , '=' , 1)
+        ->join('schools', 'schools.schools_id', '=', 'courses.course_school')
+        ->groupBy( 'courses.course_school',)
+        ->get();
 
-        return view('institution.Institution')->with(compact('courseschooldetails'));
+        return view('institution.Institution')->with(compact('schoolsdetails','countCourse'));
     }
 
 
@@ -73,43 +62,47 @@ class InstitutionController extends Controller
         return view('institution/institution');
     }
 
-    public function profileinstitution($school_id, $countcourse)
+    public function profileinstitution($schools_id)
     {
-
-        // SELECT `course_name`, `course_cost` , `course_start`,`course_end`,course_learn_start,`course_learn_end`,`course_hours`,course_school_details.school_name
-        // FROM `courses`
-        // INNER JOIN course_school_details
-        // ON courses.course_id = course_school_details.course_id
-
-        $coursesdetails = DB::table('courses')
-            ->where('course_school_details.school_id', '=', $school_id)
-            ->join('course_school_details', 'course_school_details.course_id', '=', 'courses.course_id')
-
-            ->select(
-                'courses.course_name',
-                'courses.course_cost',
-                'courses.course_start',
-                'courses.course_end',
-                DB::raw('TIME_FORMAT(course_learn_start, "%H:%i") as course_learn_start'),
-                DB::raw('TIME_FORMAT(course_learn_end, "%H:%i") as course_learn_end'),
-                'courses.course_hours',
-                'course_school_details.school_name',
-                'image_herobanner'
-            )
-            // ->where('course_school_details.school_id ', '=', 1)
+        $school_ID = $schools_id;
+        // dd($school_ID);
+        $count = Course::where('course_school','=',$school_ID)
+       ->whereIn('status',[1])
+        ->count();
+        $coursesdetails = Course::select(
+            'courses.course_id',
+            'courses.course_school',
+            'courses.course_name',
+            'courses.course_hours',
+            'courses.course_cost',
+            'courses.status',
+            DB::raw('TIME_FORMAT(course_learn_start, "%H:%i") as course_learn_start'),
+            DB::raw('TIME_FORMAT(course_learn_end, "%H:%i") as course_learn_end'),
+         )
+            ->where('course_school', '=', $school_ID)
             ->get();
 
         // echo $coursesdetails;
-
+        $courseDay =  Course_day::select(
+            'day_id',
+            'course_final_id',
+            'course_day'
+        )
+            ->distinct('course_final_id')
+            ->get();
         // echo $school_id;
-        $schoolsdetails =  Schools::where('schools_id', $school_id)
+         $schoolsdetails =  Schools::where('schools_id', $school_ID)
+            ->get();
+
+             $thumbnail = Course_thumbnail::select(
+                'course_id',
+                DB::raw('MAX(thumbnails_images) as thumbnails_images')
+                )
+            ->groupBy('course_id')
             ->get();
 
 
-
-        // echo $countcourse;
-        // echo $schoolsdetails;
-        return view('institution/profileinstitution')->with(compact('schoolsdetails', 'countcourse', 'coursesdetails'));
+        return view('institution/profileinstitution')->with(compact('schoolsdetails','coursesdetails','thumbnail','courseDay','count'));
     }
     /**
      * Show the form for creating a new resource.
