@@ -81,6 +81,7 @@ Route::get('/addid', 'UploadImagesController@create');
 Route::post('/addidAthome', 'PortfolioController@create');
 
 Route::post('/upload', 'UploadImagesController@store');
+Route::post('uploadimageschool', 'UploadImagesController@uploadImageschool')->middleware('admin');
 Route::get('/destroyImagecourses/{course_final_id}', 'CreateCourseFinalController@destroyImagecourses');
 Route::get('/destroyResult/{course_final_id}', 'CreateCourseFinalController@destroyResult');
 Route::get('/destroyExpwork/{exp_works_id}', 'CreateCourseFinalController@destroyExpwork');
@@ -111,6 +112,7 @@ Route::get('/editcourse/{id}/detail', 'Dashborad\EditcourseController@detailcour
 Route::get('/changeAboucourse', 'Dashborad\EditcourseController@changeAboucourse' )->middleware('admin');
 Route::get('/editcourse/{id}/image', 'Dashborad\EditcourseController@imagecourse' )->middleware('admin');
 Route::post('editimage', 'Dashborad\EditcourseController@editImage' )->middleware('admin');
+Route::post('editDataschool', 'DashbordController@editDataschool' )->middleware('admin');
 
 Route::get('/admin', 'Admin\AdminController@index' )->middleware('superadmin');
 Route::get('/showschool', 'Admin\AdminController@showschool' )->middleware('superadmin');

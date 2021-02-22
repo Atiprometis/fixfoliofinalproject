@@ -75,18 +75,14 @@
                         @endphp
                         @foreach($allcourses as $course)
                                 @if ($course->status != 0 )
-
-
-                    <a href="/coursedetail/{{$course->course_id}}" style="color: inherit;">
-
+                    {{-- <a href="/coursedetail/{{$course->course_id}}" style="color: inherit;"> --}}
                                 <a href="{{route('course-detail.show', $course->course_id)}}" style="color: inherit;">
-
                                     <div class=" col-4  p-2   float-left " >
                                         <div class=" w-100 " >
                                                 <div class=" position-relative">
-                                                    <div class="d-flex flex-row w-100 justify-content-md-between p-3 position-absolute">
-                                                        {{-- <div class="open-course ">เปิดรับสมัคร</div>
-                                                        <div class="open-online  ">มีสอนออนไลน์</div> --}}
+                                                    <div class="d-flex flex-row w-100 justify-content-md-end p-3 position-absolute">
+                                                        {{-- <div class="open-online ">เปิดรับสมัคร</div> --}}
+                                                        <div class="open-course  ">{{ $course->course_online }}</div>
                                                     </div>
                                                     @foreach ($thumbnail as $image)
                                                         @if ($image->course_id == $course->course_id)
@@ -97,7 +93,7 @@
 
 
                                                 </div>
-                                            <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 130px">
+                                            <div class="  d-flex flex-column text-insutition pl-3 pt-1" style="height: 140px">
                                                 <div class=" d-flex justify-content-between mt-2">
                                                     <p class="d-inline-block text-truncate" style="font-size: 1em;">{{$course->course_name}}</p>
                                                     <p class="pl-2 mr-3" style="font-size: 1em;">{{$course->course_cost}}</p>
@@ -118,7 +114,7 @@
                                                              เวลา {{\Carbon\Carbon::createFromFormat('H:i:s',$course->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$course->course_learn_end)->format('H:i')}} น.
                                                     </p>
                                                 </div>
-                                                <div class=" d-flex justify-content-between">
+                                                <div class=" d-flex justify-content-between ">
                                                     <div class=" d-flex flex-row ">
                                                         <i class="far fa-calendar-alt fa-1x" class="ml-2 mr-2"></i>
                                                         <p class="ml-2 mr-2">{{$course->course_hours}} ชั่วโมง</p>
@@ -130,11 +126,7 @@
                                                                     {{$name->schools_name}}
                                                             @endif
                                                         @endforeach
-
                                                     </p>
-
-
-
                                                 </div>
                                             </div>
                                         </div>

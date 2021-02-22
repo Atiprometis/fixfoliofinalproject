@@ -39,32 +39,72 @@ class DashbordController extends Controller
     }
     public function dashcourse()
     {
-        $coursesdetails = DB::table('courses')
-            ->where('course_school_details.school_id', '=', 1)
-            ->join('course_school_details', 'course_school_details.course_id', '=', 'courses.course_id')
+        $id = Auth::id();
+         $schoolsdetails =  Schools::where('schools_owner', '=',$id)
+            ->first();
 
-            ->select(
-                'courses.course_name',
-                'courses.course_cost',
-                'courses.course_start',
-                'courses.course_end',
-                DB::raw('TIME_FORMAT(course_learn_start, "%H:%i") as course_learn_start'),
-                DB::raw('TIME_FORMAT(course_learn_end, "%H:%i") as course_learn_end'),
-                'courses.course_hours',
-                'course_school_details.school_name',
-                'image_herobanner'
+        // $schoolsresults = json_decode($schoolsdetails);
+        $schoolsID = $schoolsdetails->schools_id;
+        // dd($schoolsID);
+
+         $coursesdetails = Course::select(
+            'courses.course_id',
+            'courses.course_school',
+            'courses.course_name',
+            'courses.course_hours',
+            'courses.course_cost',
+            'courses.status',
+            DB::raw('TIME_FORMAT(course_learn_start, "%H:%i") as course_learn_start'),
+            DB::raw('TIME_FORMAT(course_learn_end, "%H:%i") as course_learn_end'),
+         )
+            ->where('course_school', '=', $schoolsID)
+
+            ->get();
+
+            $courseDay =  Course_day::select(
+                'day_id',
+                'course_final_id',
+                'course_day'
             )
+                ->distinct('course_final_id')
+                ->get();
+
+            $countschool = Course::where('course_school', '=', $schoolsID)
+            ->whereIn('status',[1])
+            ->count();
+
+            $thumbnail = Course_thumbnail::select(
+                'course_id',
+                DB::raw('MAX(thumbnails_images) as thumbnails_images')
+                )
+            ->groupBy('course_id')
             ->get();
 
-        $schoolsdetails =  Schools::where('schools_id', 1)
-            ->get();
 
+        return view('dashbord.dashcourse')->with(compact('schoolsdetails', 'coursesdetails','countschool','thumbnail','courseDay'));
+    }
+    public function editDataschool(Request $request){
+        $detail = $request->input('schools_detail');
+        $facebook = $request->input('school_facebook');
+        $phone = $request->input('school_phone');
+        $line = $request->input('school_line');
+        $email = $request->input('school_email');
+        $id = Auth::id();
 
-        return view('dashbord.dashcourse')->with(compact('schoolsdetails', 'coursesdetails'));
+        Schools::where('schools_owner', '=',$id)
+        ->update([
+            'email' => $email,
+            'facebook' => $facebook,
+            'line' => $line,
+            'phone' => $phone,
+            'schools_detail' =>$detail,
+        ]);
+        return back();
     }
 
     public function dashcreatecourse()
     {
+
         return view('dashbord.createcourse');
     }
 

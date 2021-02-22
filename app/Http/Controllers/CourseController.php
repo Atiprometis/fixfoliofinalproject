@@ -43,6 +43,7 @@ class CourseController extends Controller
             'courses.course_name',
             'courses.course_hours',
             'courses.course_cost',
+            'courses.course_online',
             'courses.course_learn_start',
             'courses.course_learn_end',
             'courses.status',
@@ -53,19 +54,6 @@ class CourseController extends Controller
             ->distinct('courses.course_id')
             ->where('courses.status', '=', 1)
             ->paginate(6);
-            // ->offset(0)
-            // ->limit($datalimit)
-
-            // ->get();
-
-
-        //   echo  $allcourses =  Course::chunk(2, function ($courseall) {
-        //         foreach ($courseall as $course) {
-        //             //
-        //         }
-        //     });
-
-            // echo $allcourses;
 
             $courseDay =  Course_day::select(
                 'day_id',

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Redirector;
 use App\Http\Controllers\PortfolioController;
 use App\ProfilePortfolio;
-
+use App\Models\Schools;
 class UploadImagesController extends Controller
 {
     public function __construct()
@@ -44,6 +44,28 @@ class UploadImagesController extends Controller
         // return view('upload/upload');
     }
 
+    public function uploadImageschool(Request $request){
+
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        echo $id = Auth::id();
+
+        echo '<br>';
+        echo $ImageName =   $id . time() . '.' . $request->image->getClientOriginalName();
+
+        $request->image->move(public_path('imagesSchools/'.$id.''), $ImageName);
+
+        // $avatar = new UploadImages;
+
+        $avatar = Schools::where('schools_owner','=', $id)
+            // ->where('avatar_path', $path)
+            ->update(['school_image' => $ImageName]);
+
+        return back();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -64,26 +86,12 @@ class UploadImagesController extends Controller
         $request->image->move(public_path('avatar/'.$id.''), $avatarName);
 
         $avatar = new UploadImages;
-        ////Save upload image to 'avatar' folder which in 'storage/app/public' folder
-        // $path = $request->file('image')->store('avatar', 'public');
-        //echo $path;
-        //Save $path to database or anything else
+
 
         $avatar = UploadImages::where('user_id', $id)
             // ->where('avatar_path', $path)
             ->update(['avatar_path' => $avatarName]);
 
-        // $avatar->avatar_path = $path;
-
-
-
-        // $avatar->avatar_path = $path;
-        // $avatar->user_id = $id;
-        // $avatar->save();
-        //...
-        // return redirect('/');
-
-        // return redirect('/profileedit/' . $id);
         return back();
     }
 
