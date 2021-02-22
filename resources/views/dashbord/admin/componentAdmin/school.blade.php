@@ -29,7 +29,7 @@
                 </form> --}}
             </td>
             <td >
-                <form action="/deleteschool/{{$school->schools_id}}" method="GET">
+                <form action="/deleteschool/{{$school->schools_id}}/{{ $school->schools_owner }}" method="GET">
                     @csrf
                     <button type="submit" data-name="{{$school->schools_id}}" class="btn btn-danger deleteForm destroy-btn">ลบ</button>
                 </form>

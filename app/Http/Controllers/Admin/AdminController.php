@@ -57,6 +57,7 @@ class AdminController extends Controller
     {
 
         $userall = User::select('*')
+        ->where('number_role','=',null)
         ->get();
         return view('dashbord.admin.addschool')->with(compact('userall'));
     }
@@ -67,11 +68,22 @@ class AdminController extends Controller
          $schools_detail = $request->input('schools_detail');
          $schools_owner = $request->input('schools_owner');
 
+         $facebook = $request->input('facebook');
+         $phone = $request->input('phone');
+         $line = $request->input('line');
+         $email = $request->input('email');
+
         //  dd($schools_name);
          Schools::insert(
              ['schools_name' => $schools_name,
              'schools_detail' => $schools_detail,
-             'schools_owner' => $schools_owner,]
+             'schools_owner' => $schools_owner,
+
+             'facebook' => $facebook,
+             'phone' => $phone,
+             'line' => $line,
+             'email' => $email,
+             ]
          );
 
          User::where('id','=',$schools_owner)
@@ -84,13 +96,21 @@ class AdminController extends Controller
 
     }
 
-    public function deleteschool($id)
+    public function deleteschool($id,$owner)
     {
         //
+// dd($owner);
         Schools::where(
             'schools_id', '=', $id,
             )
             ->delete();
+
+        User::where('id','=',$owner)
+            ->update([
+                'role' => null,
+                'number_role' => null,
+        ]);
+
             return back()->withInput();
         // dd($id);
     }
@@ -160,6 +180,17 @@ class AdminController extends Controller
         return view('dashbord.admin.approveadmin')->with(compact('adminall','userall'));
     }
     public function setadmin(Request $request)
+    {
+        $schools_id = $request->input('schools_owner');;
+        // dd($schools_id);
+        User::where('id','=',$schools_id)
+        ->update([
+            'role' => 'admin',
+            'number_role' => '1',
+        ]);
+        return back()->withInput();
+    }
+    public function setsuperadmin(Request $request)
     {
         $schools_id = $request->input('schools_owner');;
         // dd($schools_id);

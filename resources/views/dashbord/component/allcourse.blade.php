@@ -7,7 +7,7 @@
                     {!! Form::open(array('url' => 'uploadimageschool', 'method'=>'post' ,'enctype' => 'multipart/form-data' )) !!}
                         {{-- {{ csrf_field() }}
                         {{ method_field('POST') }} --}}
-
+                    <label style="cursor: pointer">
                     @if ($schoolsdetails->school_image != null)
                     <img class="card-img-top rounded-circle" src='../imagesSchools/{{ $schoolsdetails->schools_owner }}/{{ $schoolsdetails->school_image  }}' alt="Card image cap" style="height: 250px;border: 1px solid #c1c1c1;">
                     @else
@@ -15,9 +15,10 @@
                     @endif
                     {{-- <input type="file" class="custom-file-input" name="image" style="display: "> --}}
                     <div class="custom-file mt-2 mb-2">
-                        <input type="file" class="custom-file-input" name="image" id="namefile">
-                        <label class="custom-file-label" for="namefile">เลือกรูป</label>
+                        <input type="file" class="custom-file-input" name="image" >
+                        <div class="custom-file-label" for="namefile">เลือกรูป</div>
                     </div>
+                    </label>
                       <button type="submit" class="btn mt-2 text-light" style="width: 100%; border-radius: 20px; background-color: #9B4BB0;">กดเพื่ออัพโหลดรูป</button>
                     {!! Form::close() !!}
                 </div>

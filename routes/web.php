@@ -119,10 +119,11 @@ Route::get('/showschool', 'Admin\AdminController@showschool' )->middleware('supe
 
 Route::get('/addschool', 'Admin\AdminController@addschool' )->middleware('superadmin');
 Route::get('/addNewschool', 'Admin\AdminController@addNewschool' )->middleware('superadmin');
-Route::get('/deleteschool/{id}', 'Admin\AdminController@deleteschool' )->middleware('superadmin');
+Route::get('/deleteschool/{id}/{owner}', 'Admin\AdminController@deleteschool' )->middleware('superadmin');
 
 Route::get('/approvecourse', 'Admin\AdminController@approvecourse' )->middleware('superadmin');
 Route::get('/approve/{id}', 'Admin\AdminController@approve' )->middleware('superadmin');
 Route::get('/approveadmin', 'Admin\AdminController@approveadmin' )->middleware('superadmin');
 Route::post('setadmin', 'Admin\AdminController@setadmin' )->middleware('superadmin');
+Route::post('setsuperadmin', 'Admin\AdminController@setsuperadmin' )->middleware('superadmin');
 Route::post('deleteadmin/{id_user}', 'Admin\AdminController@deleteadmin' )->middleware('superadmin');

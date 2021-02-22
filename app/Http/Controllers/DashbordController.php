@@ -99,7 +99,7 @@ class DashbordController extends Controller
             'phone' => $phone,
             'schools_detail' =>$detail,
         ]);
-        return back();
+        return back()->withInput();
     }
 
     public function dashcreatecourse()

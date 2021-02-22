@@ -4,24 +4,45 @@
 
             <div class="col-12 p-0 m-0" style="background-color: rgb(209, 209, 209);">
                 <div class="ml-2 scrollDiv" style="background-color: #fff;">
-                    {!! Form::open(array('url' => 'setadmin', 'method' => 'post','enctype' => 'multipart/form-data')) !!}
+
                     <div class="container">
                         <div class="row">
-                                <label for="exampleInputEmail1">เลือก SuperAdmin</label>
-                                <div class="form-group d-flex justify-content-center col-md-12 mt-1">
-                                    <select class="custom-select" name="schools_owner" multiple>
-                                        @foreach ($userall as $user)
-                                        <option value="{{$user->id}}">{{$user->id}} {{$user->name}} {{$user->lastname}}</option>
-                                        @endforeach
-                                    </select>
+                            <div class=" flex-row d-flex col-md-12">
+                                <div class=" col-md-6">
+                                    {!! Form::open(array('url' => 'setsuperadmin', 'method' => 'post','enctype' => 'multipart/form-data')) !!}
+                                    <label for="exampleInputEmail1">เลือก SuperAdmin</label>
+                                    <div class="form-group d-flex justify-content-center col-md-12 mt-1">
+                                        <select class="custom-select" name="schools_owner" multiple>
+                                            @foreach ($userall as $user)
+                                            <option value="{{$user->id}}">{{$user->id}} {{$user->name}} {{$user->lastname}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class=" d-flex justify-content-center col-md-12 mt-2 mb-4">
+                                        <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                                    </div>
+                                    {!! Form::close() !!}
                                 </div>
-                                <div class=" d-flex justify-content-center col-md-12 mt-2 mb-4">
-                                    <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                                <div class=" col-md-6">
+                                    {!! Form::open(array('url' => 'setadmin', 'method' => 'post','enctype' => 'multipart/form-data')) !!}
+                                    <label for="exampleInputEmail1">เลือก Admin</label>
+                                    <div class="form-group d-flex justify-content-center col-md-12 mt-1">
+                                        <select class="custom-select" name="schools_owner" multiple>
+                                            @foreach ($userall as $user)
+                                            <option value="{{$user->id}}">{{$user->id}} {{$user->name}} {{$user->lastname}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class=" d-flex justify-content-center col-md-12 mt-2 mb-4">
+                                        <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                                    </div>
+                                    {!! Form::close() !!}
                                 </div>
-
+                            </div>
                         </div>
                     </div>
-                    {!! Form::close() !!}
+
+
                     <div class="ml-3 mr-3 mt-3">
                         <table class="table">
                             <thead class="thead-dark ">
