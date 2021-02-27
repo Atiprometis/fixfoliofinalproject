@@ -506,3 +506,65 @@ position: absolute;
     /* height: 250px; */
     padding: 20px 10px; line-height: 28px;
 }
+
+
+.bootstrap-select>.dropdown-toggle,
+.bootstrap-select>.dropdown-toggle,
+.bootstrap-select>.dropdown-toggle:active,
+.bootstrap-select>.dropdown-toggle:focus,
+.bootstrap-select>.dropdown-toggle:hover {
+    background-color: #fff;
+    border: none !important;
+    outline: none !important;
+    outline-offset: 0;
+    outline: 0;
+    box-shadow: none;
+}
+.bootstrap-select .btn:focus,
+.bootstrap-select .btn:active,
+.bootstrap-select .btn
+ {
+    outline: none !important;
+}
+
+.bootstrap-select .dropdown-toggle .filter-option {
+    /* background-color: #fff; */
+    border: none !important;
+    outline: none !important;
+    outline-offset: 0;
+    outline: 0;
+}
+.show>.btn-light.dropdown-toggle {
+    background-color: #fff;
+    border: none !important;
+    outline: none !important;
+    outline-offset: 0;
+    outline: 0;
+}
+.show>.btn-light.dropdown-toggle:active {
+    background-color: #fff;
+    border: none !important;
+    outline: none !important;
+    outline-offset: 0;
+    outline: 0;
+}
+.show>.btn-light.dropdown-toggle:focus {
+    background-color: #fff;
+    border: none !important;
+    outline: none !important;
+    outline-offset: 0;
+    outline: 0;
+}
+.bootstrap-select>.dropdown-toggle{
+    /* background-color: #fff; */
+}
+
+.bootstrap-select .dropdown-toggle:focus, .bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
+    outline: none !important;
+    outline-offset: 0;
+    outline: 0;
+}
+
+.bootstrap-select .dropdown-toggle:focus {
+    outline: 0 !important;
+}

@@ -34,9 +34,9 @@
             <div class="course-search pt-4 pb-2 col-md-12 d-flex align-items-lg-center " style="background-color: #69299C">
                 <div class="container">
                     <div class="row mr-0 ml-0 d-flex flex-column">
-
+                        {!! Form::open(array('url' => 'searchfilter', 'method'=>'post' ,'enctype' => 'multipart/form-data')) !!}
                          @include('component.search-select-item')
-
+                        {!! Form::close() !!}
                         <div class=" d-flex flex-row pt-3 pb-3">
                             <a href="#" style="color:#F9C226; ">
                                 <p class="p-0 m-0 mr-3">เรียนฟรี</p>
@@ -45,6 +45,7 @@
                                 <p class="p-0 m-0 mr-3">กำลังเปิดรับสมัคร</p>
                             </a>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -82,7 +83,7 @@
                                                 <div class=" position-relative">
                                                     <div class="d-flex flex-row w-100 justify-content-md-end p-3 position-absolute">
                                                         {{-- <div class="open-online ">เปิดรับสมัคร</div> --}}
-                                                        <div class="open-course  ">{{ $course->course_online }}</div>
+                                                        {{-- <div class="open-course  ">{{ $course->course_online }}</div> --}}
                                                     </div>
                                                     @foreach ($thumbnail as $image)
                                                         @if ($image->course_id == $course->course_id)
@@ -135,7 +136,13 @@
                                 @endif
 
                         @endforeach
-
+                                @if ($allcourses[0] == null)
+                                <h2 class=" m-0 pt-4 pb-4" style="color: #69299C">การค้นหาของคุณไม่ตรงกับข้อมูลใดๆ</h2>
+                                <ul style="color: #69299C" >
+                                    <li style="font-size: 1.2em;">ตรวจดูให้แน่ใจว่าสะกดถูกต้องทุกคำ</li>
+                                    <li style="font-size: 1.2em;">ลองใช้คีย์เวิร์ดอื่นๆ</li>
+                                </ul>
+                                @endif
                     </div>
                     </div>
                 </div>

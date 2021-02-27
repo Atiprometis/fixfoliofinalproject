@@ -41,7 +41,7 @@ Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
 // Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
 Route::resource('course-detail', 'CourseController');
 
-
+Route::post('searchfilter','Course\FilterController@store');
 // Route::get('/registercourse', function() {
 //      return view("course/course-register");
 // });

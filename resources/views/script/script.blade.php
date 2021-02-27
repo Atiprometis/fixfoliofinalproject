@@ -103,3 +103,13 @@ $(document).ready(function() {
     });
 
 </script>
+
+<script>
+    function updateTextInput(val) {
+          document.getElementById('textInput').value=val;
+        }
+</script>
+
+<script>
+    // $('#selectBox option').eq(1).prop('selected', true);
+</script>
