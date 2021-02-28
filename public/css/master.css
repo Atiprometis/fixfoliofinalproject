@@ -570,3 +570,10 @@ position: absolute;
 .bootstrap-select .dropdown-toggle:focus {
     outline: 0 !important;
 }
+
+.bg-search{
+    width: 88.2%;
+    height: 44px;
+    background-color: rgb(176, 176, 176);
+    border-radius: 8px;
+}

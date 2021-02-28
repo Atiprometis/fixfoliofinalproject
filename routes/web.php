@@ -56,6 +56,8 @@ Route::resource('/searchportfolio', 'SearchportfolioController');
 
 Route::resource('/institution', 'InstitutionController');
 
+Route::post('searchinstitution', 'InstitutionController@store');
+
 Route::get('/profileedit', 'PortfolioController@profileedit');
 
 Route::post('/updateprofile', 'PortfolioController@updateprofile');

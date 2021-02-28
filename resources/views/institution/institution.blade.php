@@ -7,23 +7,19 @@
                 <div class=" col-12 w-100 p-0 m-0 mt-5 search-institution">
                     <h1 style="font-size: 1.750em;">ค้นหาสถาบัน</h1>
 
-                    {!! Form::open(['action' => 'InstitutionController@store', 'method'=>'POST']) !!}
-                            <div class=" d-flex flex-column mb-5">
-                                <div class=" d-flex flex-row">
-                                    <input type="search" class="form-control mr-3 " name="search" style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
-                                    <button class="btn " type="submit" style="background-color: #F9C226; width:150px; border-radius: 20px;"> ค้นหา</button>
-                                </div>
-                                <div class="col-8 d-flex flex-row p-0 m-0 mt-3">
-                                    <select class="form-control form-control-sm rounded mr-3 pl-1 pr-1" >
-                                        <option>ค่าใช้จ่าย</option>
-                                      </select>
-                                      <select class="form-control form-control-sm rounded mr-3 pl-1 pr-2">
-                                        <option>เขต</option>
-                                      </select>
-                                      <select class="form-control form-control-sm rounded pl-1 pr-1">
-                                        <option>ประเภทหลักสูตร</option>
-                                      </select>
-                                </div>
+                    {!! Form::open(['url' => 'searchinstitution', 'method'=>'POST']) !!}
+                            <div class=" d-flex flex-row mb-5 align-items-center position-relative">
+                                    <label class=" bg-search  mr-2">
+                                        {{-- <div class="bg-search position-absolute "></div> --}}
+                                    <select class=" w-100 selectpicker p-1  " data-live-search="true" name="search" style="border-radius: 20px;" >
+                                        <option data-tokens="ketchup mustard" value="ทั้งหมด" style="display: none">ค้นหาสถาบันทั้งหมด</option>
+                                        @foreach ($allshchool as $name)
+                                        <option data-tokens="{{ $name->schools_name }}">{{ $name->schools_name }}</option>
+                                        @endforeach
+                                    </select>
+                                    </label>
+
+                                <button class="btn pl-1 pr-1 mb-2" type="submit" style="background-color: #F9C226; width:150px; border-radius: 20px;"> ค้นหา</button>
                             </div>
                     {!! Form::close() !!}
                 </div>
@@ -84,12 +80,12 @@
                     @endforeach
 
                 </div>
-                <div class=" d-flex w-100 flex-row align-items-center justify-content-center ">
+                {{-- <div class=" d-flex w-100 flex-row align-items-center justify-content-center ">
                     <a href="#" class=" d-flex flex-row align-items-center justify-content-center">
                         <p class=" text-center mt-3">แสดงเพิ่มเติม</p>
                         <i class="fas fa-chevron-down ml-2"></i>
                     </a>
-                </div>
+                </div> --}}
 
 
             </div>

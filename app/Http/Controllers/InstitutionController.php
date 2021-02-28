@@ -52,7 +52,14 @@ class InstitutionController extends Controller
         ->groupBy( 'courses.course_school',)
         ->get();
 
-        return view('institution.Institution')->with(compact('schoolsdetails','countCourse'));
+        $allshchool = Schools::where('status' , '=' , 1)
+       ->select('schools.schools_id','schools.schools_name')
+       ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+       ->distinct()
+        ->get();
+
+        return view('institution.Institution')->with(compact('schoolsdetails','countCourse','allshchool'));
+
     }
 
 
@@ -127,30 +134,58 @@ class InstitutionController extends Controller
 
 
         // return view('institution.Institution')->with(compact('courseschooldetails'));
+        $search = $request->input('search');
+        // $search = $request->validate([
+        //     'search' => 'required',
+        // ]);
+
+        // dd($search);
 
 
-        $request->validate([
-            'search' => 'required',
-        ]);
+            if($search != 'ทั้งหมด'){
+                $schoolsdetails =  Schools::select(
+                    'schools.schools_id',
+                    'schools.schools_owner',
+                    'schools.schools_name',
+                    'schools.school_image',
+                    )
+                 ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+                 ->distinct()
+                ->where('schools.schools_name','LIKE',$search)
+                 ->where('status' , '=' , 1)
+                ->get();
+            }else{
+                $schoolsdetails =  Schools::select(
+                    'schools.schools_id',
+                    'schools.schools_owner',
+                    'schools.schools_name',
+                    'schools.school_image',
+                    )
+                 ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+                 ->distinct()
+                 ->where('status' , '=' , 1)
+                ->get();
+            }
 
 
-        $institutions = Institution::where('schools_name', 'like','%'.$request->search.'%')->get();
-
-        $searchchools =  CourseSchoolDetail::select(
-            DB::raw('count(course_school_details.school_name) as countcourse'),
-            'course_school_details.school_name',
-            'course_school_details.school_id',
-            'course_school_details.school_name',
-            'schools.school_image'
-        )
-            ->join('schools', 'schools.schools_id', '=', 'course_school_details.school_id')
-
-            ->where('course_school_details.school_name', 'LIKE', '%' . $request->search . '%')
-            ->groupBy('course_school_details.school_name', 'school_id', 'schools.school_image')
+            $countCourse = Course::select(
+               'courses.course_school',
+               DB::raw('count(courses.course_school) as countcourse'),
+           )
+            ->where('status' , '=' , 1)
+            ->join('schools', 'schools.schools_id', '=', 'courses.course_school')
+            ->groupBy( 'courses.course_school',)
             ->get();
 
+            $allshchool = Schools::where('status' , '=' , 1)
+       ->select('schools.schools_id','schools.schools_name')
+       ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+       ->distinct()
+        ->get();
 
-        return view('institution.search', compact('searchchools'));
+        // dd($searchchools);
+        return view('institution.Institution')->with(compact('schoolsdetails','countCourse','allshchool'));
+        // return view('institution.search', compact('searchchools'));
     }
 
     /**

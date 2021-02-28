@@ -102,7 +102,9 @@
                     <p class="m-0 font-weight-light" style="font-size: 1.2em;">ผู้ใช้สามารถเลือกเรียนได้ ทั้งคอร์สเรียนออนไลน์ที่สามารถเริ่มเรียนเมื่อไร </p>
                     <p class="m-0 font-weight-light" style="font-size: 1.2em;">ที่ไหนก็ได้ หรือคอร์สเรียนออฟไลน์ ศึกษาลงมือทำที่ศูนย์ฝึก </p>
                     <div class="mt-3">
+                        <a href="/courses">
                         @include('component.button-course-all')
+                        </a>
                     </div>
                 </div>
             </div>
@@ -131,6 +133,7 @@
             <div class="d-flex flex-row w-100 text-institution align-items-end justify-content-between">
                 <div class=" d-flex flex-row mb-3 justify-content-between align-items-center w-100">
                     <h1 class="p-0 m-0 ml-2" style="font-size: 1.750em;">คอร์สเรียนยอดนิยม</h1>
+                    <a href="/courses">
                     <button class="btn  " style="
                         border-radius:20px;
                         width: 300px;
@@ -139,6 +142,7 @@
                         font-size: 1.2em;">
                         <p class="m-0 p-0" style="font-weight: 500">ค้นหาคอร์สเรียน</p>
                     </button>
+                    </a>
                 </div>
 
                 <div class=" d-flex flex-row">
