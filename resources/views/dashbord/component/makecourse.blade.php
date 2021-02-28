@@ -16,13 +16,10 @@
 
                     {!! Form::label('course_category','หมวดหมู่','required') !!}
                     <select class="form-control" id="exampleFormControlSelect1" name="course_category">
-                        <option>อาหาร</option>
-                        <option>ตัดเย็บ</option>
-                        <option>เสริมสวย</option>
-                        <option>ช่าง</option>
-                        <option>ภาษา</option>
-                        <option>นวด</option>
-                        <option>งานฝีมือ</option>
+                        @foreach ($course_type as $type)
+                        <option>{{ $type->type_name }}</option>
+                        @endforeach
+
                     </select>
 
                 </div>

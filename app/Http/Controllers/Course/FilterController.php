@@ -18,6 +18,10 @@ use App\Models\Corses\Course_type;
 use App\Models\Course_day;
 class FilterController extends Controller
 {
+    public function __construct()
+    {
+          $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -35,6 +39,86 @@ class FilterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function linkfilter(Request $request){
+        $type = $request->input('type');
+        // dd($type);
+
+        $id = Auth::id();
+        // $datalimit = $request->datalimit;
+          if($type != 'ทั้งหมด'){
+            $allcourses =  Course::select(
+                'courses.course_id',
+                'courses.course_school',
+                'courses.course_name',
+                'courses.course_hours',
+                'courses.course_category',
+                'courses.course_cost',
+                'courses.course_online',
+                'courses.course_learn_start',
+                'courses.course_learn_end',
+                'courses.status',
+
+            )
+                ->join('course_day', 'course_day.course_final_id', '=', 'courses.course_id')
+                ->orderBy('courses.course_id', 'DESC')
+                ->distinct('courses.course_id')
+                ->where('courses.status', '=', 1)
+                ->where('course_category','LIKE',$type )
+                ->paginate(6);
+          }else{
+            $allcourses =  Course::select(
+                'courses.course_id',
+                'courses.course_school',
+                'courses.course_name',
+                'courses.course_hours',
+                'courses.course_category',
+                'courses.course_cost',
+                'courses.course_online',
+                'courses.course_learn_start',
+                'courses.course_learn_end',
+                'courses.status',
+
+            )
+                ->join('course_day', 'course_day.course_final_id', '=', 'courses.course_id')
+                ->orderBy('courses.course_id', 'DESC')
+                ->distinct('courses.course_id')
+                ->where('courses.status', '=', 1)
+
+                ->paginate(6);
+          }
+
+        $thumbnail = Course_thumbnail::select(
+            'course_id',
+            DB::raw('MAX(thumbnails_images) as thumbnails_images')
+            )
+        ->groupBy('course_id')
+        ->get();
+        // echo $thumbnail;
+        $course_type = Course_type::select('*')
+        ->get();
+
+        $courseDay =  Course_day::select(
+            'day_id',
+            'course_final_id',
+            'course_day'
+        )
+            ->distinct('course_final_id')
+            ->get();
+
+            $schoolsName =  Schools::select(
+                'schools.schools_id',
+                'courses.course_school',
+                  'schools.schools_name',
+              )
+              ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+              ->distinct('schools.schools_id')
+
+              // ->where('schools.schools_id', '=', 'courses.course_school')
+              ->get();
+        return view('course/course')->with(compact('allcourses','courseDay','schoolsName','thumbnail','course_type'));
+
+     }
     public function create()
     {
         //

@@ -16,7 +16,7 @@ use App\Models\Corses\Course_learn;
 use App\Models\Corses\Course_result;
 use App\Models\Corses\Course_youtube;
 use App\Models\Corses\Course_thumbnail;
-
+use App\Models\Corses\Course_type;
 use Dotenv\Result\Result;
 
 use Illuminate\Support\Facades\Auth;
@@ -104,8 +104,9 @@ class DashbordController extends Controller
 
     public function dashcreatecourse()
     {
-
-        return view('dashbord.createcourse');
+        $course_type = Course_type::select('*')
+        ->get();
+        return view('dashbord.createcourse')->with(compact('course_type'));
     }
 
     public function passDatatoCoursedetail(Request $request){

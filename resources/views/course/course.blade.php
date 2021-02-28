@@ -8,25 +8,53 @@
     <div class="">
         <div class="container px-0">
             <div class="row">
-                <div class="col-12 mt-3 mb-4">
-                    <?php
-                    $category = [];
-                    $coursenames = array('อาหารและการครัว','ตัดเย็บ', 'งานช่าง', 'เสริมสวย', 'ภาษาต่างประเทศ', 'นวด', 'งานฝีมือ');
-                    // $count = array('80' ,'เบเกอรี่','80' ,'เบเกอรี่',);
-                    $count = 1;
-                    foreach ($coursenames as  $coursename) {
-                ?>
-                    <a href="#">
-                        <div class="col-2 mt-3 float-left position-relative d-flex justify-content-center  " >
-                            <div class="b-image " style="height: 106px; border-radius: 20px; background-color:#000;"></div>
-                            <img src=" {{ asset('/access/images/category-'.$count.'.png') }}" class="w-100 "  style="height: 106px; border-radius: 20px;">
-                            <p class="  text-c  text-light m-0 p-0 "><?php echo $coursename?></p>
+                <div class="col-12 mt-3 mb-4 ">
+
+                    <div class="col-md-12 mt-3 position-relative d-flex flex-row flex-wrap " >
+                @foreach ($course_type as $index=>$type)
+
+                        <div class="col-md-2 mt-4 position-relative  p-0 m-0 pl-3 pr-2 ">
+                            {!! Form::open(array('url' => 'linkfilter', 'method'=>'get' )) !!}
+                            <label>
+                            <p class="text-c text-light m-0  w-100 " style="cursor: pointer;">{{ $type->type_name }}</p>
+                            <button  type="submit" class="btn p-0 m-0 " style="width: 160px; height: 106px; cursor: pointer;" >
+                                <input type="text" value="{{ $type->type_name }}" name="type" style="display: none">
+                                <div class="b-image " style="height: 106px; border-radius: 20px; background-color:#000; cursor: pointer;"></div>
+                                    <img src=" {{ asset('/access/images/category-'. $index .'.jpg') }}" class=" "  style="height: 106px; cursor: pointer; width: 160px; border-radius: 20px;">
+                            </button>
+                            </label>
+                            {!! Form::close() !!}
                         </div>
-                    </a>
-                    <?php
-                    $count++;
-                }
-                ?>
+
+                @endforeach
+
+                    <div class="col-md-2 mt-4 position-relative  p-0 m-0 pl-3 pr-2">
+                        {!! Form::open(array('url' => 'linkfilter', 'method'=>'get' )) !!}
+                        <label>
+                        <p class="text-c text-light m-0  w-100 " style="cursor: pointer;">ทั้งหมด</p>
+                        <button  type="submit" class="btn p-0 m-0 s" style="width: 160px; height: 106px; cursor: pointer;" >
+                            <input type="text" value="ทั้งหมด" name="type" style="display: none">
+                            <div class="text-center" style="background-color: #69299C;height: 106px; width:160px; border-radius: 20px;"></div>
+                        </button>
+                        </label>
+                        {!! Form::close() !!}
+                    </div>
+
+                    {{-- {!! Form::open(array('url' => 'linkfilter', 'method'=>'get' )) !!}
+                        <input type="text" value="ทั้งหมด" name="type" style="display: none">
+                        <div class="col-2 mt-3   " >
+                            <button  type="submit" class="btn p-0 m-0" style="height: 106px; width:160px;">
+
+                            <div class="text-center" style="background-color: #69299C;height: 106px; width:160px; border-radius: 20px;"></div>
+
+                            <p class="  text-c  text-light m-0 p-0 ">ทั้งหมด</p>
+                            </button>
+                        </div>
+                    {!! Form::close() !!} --}}
+
+                    </div>
+
+
                 </div>
             </div>
         </div>

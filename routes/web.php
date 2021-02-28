@@ -42,9 +42,8 @@ Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
 Route::resource('course-detail', 'CourseController');
 
 Route::post('searchfilter','Course\FilterController@store');
-// Route::get('/registercourse', function() {
-//      return view("course/course-register");
-// });
+
+Route::get('linkfilter','Course\FilterController@linkfilter');
 
 //Route::post('/registercourse', 'CourseregisterController@index');
 Route::resource('registercourse', 'CourseregisterController');

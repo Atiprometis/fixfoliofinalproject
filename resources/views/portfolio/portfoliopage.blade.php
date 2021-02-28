@@ -14,7 +14,7 @@
                     </a>
 
                 </div>
-                <div class=" d-flex flex-row  text-center pl-4 ml-2">
+                {{-- <div class=" d-flex flex-row  text-center pl-4 ml-2">
                     <label class="switch m-0 mt-1">
                         <input type="checkbox" class="success" id="customSwitch1">
                         <span class="slider round"></span>
@@ -22,7 +22,7 @@
                     <div class=" d-flex align-items-center">
                         <label for="customSwitch1" class="m-0 mt-1 ml-2" >หางาน</label>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="profile rounded col-md-12 d-flex flex-row mt-2 align-items-start justify-content-between ">
                 <div class="card p-3 col-3" style=" height: 340px">
