@@ -8,6 +8,14 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Schools;
+use App\Models\Corses\Course_thumbnail;
+use App\Models\Course_day;
+use App\Models\Corses\Course_career;
+use App\Models\Corses\Course_learn;
+use App\Models\Corses\Course_result;
+use App\Models\Corses\Course_youtube;
+use App\Models\Corses\Course_type;
 class HomeController extends Controller
 {
     /**
@@ -36,10 +44,48 @@ class HomeController extends Controller
 //        FROM hours;
 
 
-        $dataHome = DB::select('SELECT courses.course_id, schools.schools_name, courses.course_name, courses.course_category, courses.course_cost, courses.course_start, courses.course_end, courses.course_learn_start, courses.course_learn_end, courses.course_hours FROM schools INNER JOIN courses ON courses.course_school = schools.schools_name');
+        // $dataHome = DB::select('SELECT courses.course_id, schools.schools_name, courses.course_name, courses.course_category, courses.course_cost, courses.course_start, courses.course_end, courses.course_learn_start, courses.course_learn_end, courses.course_hours FROM schools INNER JOIN courses ON courses.course_school = schools.schools_name');
+
+        $dataHome = Course::select('*')
+        ->where('status','=',1)
+        ->orderBy('courses.course_id', 'DESC')
+        ->limit(3)
+        ->get();
+
+        $courseDay =  Course_day::select(
+            'day_id',
+            'course_final_id',
+            'course_day'
+        )
+            ->distinct('course_final_id')
+            ->get();
+            // echo $courseDay;
+
+          $schoolsName =  Schools::select(
+              'schools.schools_id',
+              'courses.course_school',
+                'schools.schools_name',
+            )
+            ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+            ->distinct('schools.schools_id')
+
+            // ->where('schools.schools_id', '=', 'courses.course_school')
+            ->get();
+
+            // echo $schoolsName;
 
 
-        return view('home/homepage', compact('dataHome'));
+            $thumbnail = Course_thumbnail::select(
+                'course_id',
+                DB::raw('MAX(thumbnails_images) as thumbnails_images')
+                )
+            ->groupBy('course_id')
+            ->get();
+            // echo $thumbnail;
+            $course_type = Course_type::select('*')
+            ->get();
+
+        return view('home/homepage', compact('dataHome','thumbnail','schoolsName','courseDay'));
 
 
     }
