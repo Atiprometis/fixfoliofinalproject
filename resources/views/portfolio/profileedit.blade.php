@@ -12,15 +12,55 @@
 
                 @csrf
                 <div class=" d-flex flex-row col-md-12 d-flex justify-content-end  text-center ">
-                    <label class="switch m-0 mt-1 ">
+                    {{-- <label class="switch m-0 mt-1 ">
                         <input type="checkbox" class="success inline checkbox"  name="acceptRules" id="checkbox1" value="ปิดหางาน">
                         <span class="slider round pl-2 pr-2"></span>
-                    </label>
-                    <div class=" d-flex align-items-center ml-2 mr-5">
+                    </label> --}}
+
+
+                    {!! Form::open(array('route' => array('update.profile', $profiledatas->status),'method' => 'get', )) !!}
+                    @if ($profiledatas->status != 0)
+                        <div class=" mt-1 mr-2 p-2" >
+                            <button type="button" class="btn text-light" data-toggle="modal" style="background-color: #CCCCCC" data-target="#modelId">ปิดหางาน</button>
+                        </div>
+                    @else
+                        <div class="mr-2 mt-1 p-2">
+                            <button type="button" class="btn text-light" data-toggle="modal" style="background-color: #69299C" data-target="#modelId">เปิดหางาน</button>
+                        </div>
+                    @endif
+
+                    <!-- Modal -->
+
+                    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-center">
+                                        @if ($profiledatas->status != 0)
+                                            <h5 class="modal-title w-100">ต้องการปิดหางานหรือไม่</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        @else
+                                        <h5 class="modal-title w-100">ต้องการเปิดหางานหรือไม่</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        @endif
+                                </div>
+                                <div class="modal-body">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">กลับ</button>
+                                    <button type="submit" class="btn btn-primary">ยืนยัน</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {!! Form::close() !!}
+                    {{-- <div class=" d-flex align-items-center ml-2 mr-5">
                         <label for="customSwitch1" class="m-0 mt-1 ml-2" >
                             <div id="checkbox-value"></div>
                         </label>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="profile rounded col-12 d-flex flex-row  mt-3 mb-3 align-items-start">
                     {{-- << รูป profile >> --}}
