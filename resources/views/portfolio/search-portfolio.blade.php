@@ -49,35 +49,51 @@
                         </div>
                     </div>
 
-
-
-
-
                     <div class="col-12 p-0 m-0">
+
+
                         @foreach ($profile_ports as $profile_port)
-                        <a class="" href="{{route('searchportfolio.show',$profile_port->id)}}" style="color: inherit; ">
+                        @if ($profile_port->status != 0)
+
+                        <a class="" href="{{route('searchportfolio.show',$profile_port->user_id)}}" style="color: inherit; ">
                             <div class=" col-4  p-2   float-left " >
                                 <div class=" d-flex flex-column w-100 position-relative" style="border-radius: 15px 15px 0px 0px;">
+                                    {{-- <h1>{{ $profile_port->id}}</h1> --}}
 
-                                    <div class=" w-100" style="height: 130px; background-color: #69299C;border-radius: 15px 15px 0px 0px;border: solid 1px #E5E5E5;"></div>
-                                    <div class=" w-100 p-3 d-flex flex-column justify-content-center align-items-center" style="height: 200px; background-color: #fff;border-radius: 0px 0px 15px 15px;border: solid 1px #E5E5E5;">
-                                        @foreach($profile_images as $profile_image)
+                                    <div class=" w-100 d-flex justify-content-center " style="height: 130px; background-color: #69299C;border-radius: 15px 15px 0px 0px;border: solid 1px #E5E5E5;">
 
-                                            @if($profile_port->id === $profile_image->user_id)
-                                                <img src="../avatar/{{ $profile_image->avatar_path }}" class="people-port ">
-                                            @endif
+                                        @foreach ($avatar_images as $image)
+                                        @isset($image->avatar_path)
+                                        @if ($image->user_id == $profile_port->user_id)
 
-                                        @endforeach
-                                        <h1 class=" p-0 m-0  font-weight-bold" style="font-size: 1.375em;">{{$profile_port->name}} {{$profile_port->lastname}}</h1>
-                                        <p class="p-0 m-0  font-weight-light" style="font-size: 1.375em;">ประสบการณ์ทำงานผู้ช่วยเชฟ 2 ปี </p>
-                                        <p class="p-0 m-0 pb-5 mb-4 mt-2 font-weight-light" style="font-size: 1em; color:#69299C;">ทักษะ อาหารคาว, เบเกอรี่, ภาษาอังกฤษ</p>
+                                            <div class="pt-5">
+                                                <img class="people-port" src='../avatar/{{ $image->user_id }}/{{ $image->avatar_path }}' alt="Card image cap" >
+                                            </div>
+
+                                          @else
+
+                                        @endif
+                                        @endisset
+                                    @endforeach
+
                                     </div>
+                                    <div class=" w-100 p-2 pt-5 d-flex flex-column justify-content-center align-items-center" style="height: 200px; background-color: #fff;border-radius: 0px 0px 15px 15px;border: solid 1px #E5E5E5;">
 
-
+                                        @foreach ($userall as $user)
+                                        @if ($user->id == $profile_port->user_id)
+                                            <h1 class=" pt-3 m-0  font-weight-bold" style="font-size: 1.375em;">{{$user->name}} {{$user->lastname}}</h1>
+                                        @endif
+                                        @endforeach
+                                        <div class=" p-1 m-0 text-over  " style="">
+                                            <p class=" mt-0  font-weight-light " style="font-size: 1em;">{{ $profile_port->profile_aboutme }} </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </a>
+                        @endif
                         @endforeach
+
                     </div>
 
 

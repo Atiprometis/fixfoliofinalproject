@@ -275,11 +275,11 @@ height: 50vh;
 /* <<<< PORTFOLIO +++++ */
 .people-port{
     /* position: absolute; */
-
     height: 140px;
     width: 140px;
     position: relative;
-    top: -20px;
+    /* padding-bottom: 40px; */
+    /* top: -70px; */
     border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -287,7 +287,9 @@ height: 50vh;
 
 }
 
-
+.text-over{
+    text-overflow: ellipsis;
+}
 /* home  */
 
 .swiper-container {

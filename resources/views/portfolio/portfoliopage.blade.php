@@ -32,7 +32,7 @@
 
                         <img class="card-img-top rounded" src='../avatar/{{ Auth::user()->id }}/{{ $avatar_image->avatar_path }}' alt="Card image cap" style="height: 250px;">
                     @endforeach
-                        {{-- <p>null</p> --}}
+
                     @else
                         <img class="card-img-top rounded" src='../access/imageweb/user2.png' alt="Card image cap" style="height: 250px;">
                     @endif

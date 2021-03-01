@@ -94,7 +94,7 @@
                         <div class="col-12 pr-0">
                             <h1 class=" font-weight-normal" style="font-size: 1.250em;   ">แนะนำตัว</h1>
                             @foreach($users as $user)
-                            <textarea  class="form-control" style="resize: none;height: 150px;" name="profile_aboutme" id="profile_aboutme" style=" height: 80%;"
+                            <textarea  class="form-control" maxlength="150" style="resize: none;height: 150px;" name="profile_aboutme" id="profile_aboutme" style=" height: 80%;"
                              aria-label="aaaad"
                             >{{ $user->profile_aboutme }}</textarea>
                             @endforeach
