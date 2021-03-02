@@ -9,13 +9,8 @@ use Illuminate\Support\Facades\DB;
 use App\Course;
 use App\Models\Course_day;
 use App\Models\Schools;
-use App\Models\Corses\Course_thumbnail;
-use App\Models\Corses\Course_career;
-use App\Models\Corses\Course_learn;
-use App\Models\Corses\Course_result;
-use App\Models\Corses\Course_youtube;
-use App\Models\Corses\Course_type;
 
+use App\Models\Corses\Data_course_register;
 class CourseregisterController extends Controller
 {
     public function __construct()
@@ -137,6 +132,7 @@ class CourseregisterController extends Controller
         ->where('course_final_id','=',$course_id)
             ->distinct('course_final_id')
             ->get();
+
 
         return view('print/print', compact('print','course_id','courseall','courseDay'));
 
