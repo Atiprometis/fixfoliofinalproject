@@ -5,25 +5,29 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container" style="font-family: Trirong">
         <div class="row">
             <div class="col-12 d-flex flex-column">
                 <div class="d-flex flex-column justify-content-center align-items-md-center w-100">
                     <div class=" d-flex mt-3 mb-2 flex-row">
                         {{-- <div class=" bg-danger" style="width: 50px; height:50px;"></div> --}}
-                        <h1 class="p-0 m-0">FIX-Folio</h1>
+                        <h1 class="p-0 m-0">ใบสมัคร</h1>
                     </div>
                     <h2 class="p-0 m-0" style="font-size: 1.500em;">ใบสมัครเรียน/ใบรายงานตัว</h2>
-                    <p class="p-0 m-0 font-weight-normal" style="font-size: 1em;">กรมฝึกแรงงาน เขต13 กรุงเทพมหานคร</p>
-                    <p class="p-0 m-0 font-weight-light" style="font-size: 1em;">สำนักพัฒนาแรงงาน กรุงเทพมหานคร</p>
+                    {{-- <p class="p-0 m-0 font-weight-normal" style="font-size: 1em;">กรมฝึกแรงงาน เขต13 กรุงเทพมหานคร</p> --}}
+                    {{-- <p class="p-0 m-0 font-weight-light" style="font-size: 1em;">สำนักพัฒนาแรงงาน กรุงเทพมหานคร</p> --}}
                 </div>
                 @include('component.line')
             </div>
             {{--  --}}
             <div class="col-12 d-flex flex-column">
                 <div class="d-flex flex-column justify-content-center align-items-md-center w-100">
-                    <h2 class="p-0 m-0 mt-3" style="font-size: 1.300em;">หลักสูตรอาหารไทย  80 ชั่วโมง สาขาประกอบอาหาร</h2>
-                    <p class="p-0 m-0  mb-3 font-weight-normal" style="font-size: 1em;">ภาคเรียนที่ 1/2563 รุ่นที่ 13 จันทร์-ศุกร์ (9:00-15:00)</p>
+                    <h2 class="p-0 m-0 mt-3" style="font-size: 1.300em;">หลักสูตร{{ $courseall->course_name }}  {{ $courseall->course_hours }} ชั่วโมง </h2>
+                    <p class="p-0 m-0  mb-3 font-weight-normal" style="font-size: 1em;">วัน
+                        @foreach ($courseDay as $day)
+                            {{ $day->course_day }}
+                        @endforeach
+                        เวลา ({{\Carbon\Carbon::createFromFormat('H:i:s',$courseall->course_learn_start)->format('H:i')}} - {{\Carbon\Carbon::createFromFormat('H:i:s',$courseall->course_learn_end)->format('H:i')}})</p>
 
                 </div>
                 @include('component.line')
@@ -126,10 +130,22 @@
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
                             ภูมิลำเนาตามทะเบียนบ้าน <p class="p-0 m-0 mr-3 font-weight-normal">
-                                บ้านเลขที่ @php print_r($print['housenumber']); @endphp
-                                หมู่ @php print_r($print['swine']); @endphp
-                                ซอย @php print_r($print['alley']); @endphp
-                                ตำบล/แขวง @php print_r($print['district']); @endphp</p>
+                        </p>
+                        <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
+                            บ้านเลขที่
+                            <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['housenumber']); @endphp</p>
+                        </p>
+                        <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
+                            หมู่
+                            <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['swine']); @endphp</p>
+                        </p>
+                        <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
+                            ซอย
+                            <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['alley']); @endphp</p>
+                        </p>
+                        <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
+                            ตำบล/แขวง
+                            <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['district']); @endphp</p>
                         </p>
 
                     </div>
@@ -156,22 +172,35 @@
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
                             ที่อยู่ระหว่างพักอาศัย <p class="p-0 m-0 mr-3 font-weight-normal">
-                                บ้านเลขที่ @php print_r($print['housenumber']); @endphp
-                                หมู่ @php print_r($print['swine']); @endphp
-                                ซอย @php print_r($print['alley']); @endphp
-                                ตำบล/แขวง @php print_r($print['district']); @endphp</p>
+                        </p>
+                        </p>
+                        <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
+                            บ้านเลขที่
+                            <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['housenumber-present']); @endphp</p>
+                        </p>
+                        <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
+                            หมู่
+                            <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['swine-present']); @endphp</p>
+                        </p>
+                        <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
+                            ซอย
+                            <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['alley-present']); @endphp</p>
+                        </p>
+                        <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
+                            ตำบล/แขวง
+                            <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['district-present']); @endphp</p>
                         </p>
 
                     </div>
                     <div class=" d-flex flex-row align-items-start">
                         <p class="p-0 m-0  mr-3 font-weight-bold" style="font-size: 1em;">
-                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['county']); @endphp</p>
+                            อำเภอ/เขต <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['county-present']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['province']); @endphp</p>
+                            จังหวัด <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['province-present']); @endphp</p>
                         </p>
                         <p class="p-0 m-0  mr-3  font-weight-bold" style="font-size: 1em;">
-                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['postalcode']); @endphp</p>
+                            รหัสไปรษณีย์ <p class="p-0 m-0 mr-3 font-weight-normal">@php print_r($print['postalcode-present']); @endphp</p>
                         </p>
                     </div>
                 </div>
@@ -301,7 +330,7 @@
             </div>
             {{-- ---- 8 ---- --}}
             <div class="col-12 d-flex ml-1 row justify-content-start align-items-center">
-                <div class=" d-flex flex-column">
+                {{-- <div class=" d-flex flex-column">
                     <div class=" d-flex flex-row align-items-end">
                         <p class="p-0 m-0 mt-1 mr-3 font-weight-bold " style="font-size: 1em;">
                             วันที่สมัคร  <p class="p-0 m-0 mr-3 font-weight-normal">20/10/2563</p>
@@ -318,7 +347,7 @@
                             หมายเหตุ  หากมาสายเกิน 45 นาที ถือว่าสละสิทธิ์
                         </p>
                     </div>
-                </div>
+                </div> --}}
 
             </div>
             {{-- ---- 9 ---- --}}

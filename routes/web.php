@@ -36,7 +36,7 @@ Route::get('/singup', 'LoginSigninController@Singup');
 Route::get('/courses', 'CourseController@index');
 Route::post('/coursespost', 'CourseController@store');
 
-Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
+// Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
 
 // Route::get('/coursedetail/{id}', 'CourseController@viewcoursedetail');
 Route::resource('course-detail', 'CourseController');
@@ -46,10 +46,10 @@ Route::post('searchfilter','Course\FilterController@store');
 Route::get('linkfilter','Course\FilterController@linkfilter');
 
 //Route::post('/registercourse', 'CourseregisterController@index');
-Route::resource('registercourse', 'CourseregisterController');
+Route::get('registercourse/{courseID}', 'CourseregisterController@index');
 
 Route::resource('/print', 'PrintController');
-Route::get('/courseprint', 'CourseregisterController@store');
+Route::post('courseprint', 'CourseregisterController@store');
 
 Route::get('/portfolio', 'PortfolioController@portfolio');
 Route::resource('/searchportfolio', 'SearchportfolioController');

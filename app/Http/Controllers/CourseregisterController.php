@@ -5,6 +5,16 @@ namespace App\Http\Controllers;
 use App\Courseregister;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Course;
+use App\Models\Course_day;
+use App\Models\Schools;
+use App\Models\Corses\Course_thumbnail;
+use App\Models\Corses\Course_career;
+use App\Models\Corses\Course_learn;
+use App\Models\Corses\Course_result;
+use App\Models\Corses\Course_youtube;
+use App\Models\Corses\Course_type;
 
 class CourseregisterController extends Controller
 {
@@ -17,15 +27,38 @@ class CourseregisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($courseID)
     {
-        return view("course/course-register");
+        $course_id = $courseID;
+        $courseall = Course::select(
+            'course_id',
+            'course_name',
+            'course_hours',
+
+            'course_learn_start',
+            'course_learn_end',
+
+        )
+        ->where('course_id','=',$courseID)
+        ->where('status','=',1)
+        ->first();
+
+        $courseDay =  Course_day::select(
+            'day_id',
+            'course_final_id',
+            'course_day'
+        )
+        ->where('course_final_id','=',$courseID)
+            ->distinct('course_final_id')
+            ->get();
+
+           $provinces = DB::table('provinces')
+            ->get();
+
+        return view("course/course-register")->with(compact('courseall','courseDay','provinces','course_id'));
     }
 
-    public function registercourse()
-    {
-        return view('course/course-register');
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -46,6 +79,7 @@ class CourseregisterController extends Controller
     public function store(Request $request)
     {
         //
+            $course_id = $request->input('course_id');
 
             $print = $request->validate([
 
@@ -80,11 +114,31 @@ class CourseregisterController extends Controller
             'county-present'=>'required',
             'province-present'=>'required',
             'postalcode-present'=>'required',
-
-
         ]);
 
-        return view('print/print', compact('print'));
+        $courseall = Course::select(
+            'course_id',
+            'course_name',
+            'course_hours',
+
+            'course_learn_start',
+            'course_learn_end',
+
+        )
+        ->where('course_id','=',$course_id)
+        ->where('status','=',1)
+        ->first();
+
+        $courseDay =  Course_day::select(
+            'day_id',
+            'course_final_id',
+            'course_day'
+        )
+        ->where('course_final_id','=',$course_id)
+            ->distinct('course_final_id')
+            ->get();
+
+        return view('print/print', compact('print','course_id','courseall','courseDay'));
 
     }
 

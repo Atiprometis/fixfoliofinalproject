@@ -5,10 +5,10 @@
         </div>
         <div class="col-12 d-flex flex-row">
             <div class="col-3 offset-3 pl-0">
-                <input type="text" class="form-control "  style="width: 100%" name="religion" id="religion" maxlength="20" aria-describedby="religion" placeholder="นับถือศาสนา">
+                <input type="text" class="form-control "  style="width: 100%" name="religion" id="religion" maxlength="20" aria-describedby="religion" placeholder="นับถือศาสนา" required>
             </div>
             <div class="col-3 ">
-                <input type="text" class="form-control " style="width: 100%" name="nationality" id="nationality" maxlength="20" aria-describedby="nationality" placeholder="สัญชาติ">
+                <input type="text" class="form-control " style="width: 100%" name="nationality" id="nationality" maxlength="20" aria-describedby="nationality" placeholder="สัญชาติ" required>
             </div>
         </div>
     </div>
@@ -16,41 +16,41 @@
     <div class="form-group form-row d-flex align-items-center   ">
         <div class="col-12 d-flex flex-row">
             <div class="col-6 offset-3 pl-0">
-                <input type="text" class="form-control " style="width: 100%" name="career" maxlength="30" id="career" aria-describedby="career" placeholder="อาชีพปัจจุบัน">
+                <input type="text" class="form-control " style="width: 100%" name="career" maxlength="30" id="career" aria-describedby="career" placeholder="อาชีพปัจจุบัน" required>
             </div>
         </div>
     </div>
     <div class="form-group form-row d-flex align-items-center   ">
         <div class="col-12 d-flex flex-row">
             <div class="col-3 offset-3 pl-0">
-                <input type="text" class="form-control " style="width: 100%" name="school" maxlength="30" id="school" aria-describedby="school" placeholder="ชื่อสถานศึกษา">
+                <input type="text" class="form-control " style="width: 100%" name="school" maxlength="30" id="school" aria-describedby="school" placeholder="ชื่อสถานศึกษา" required>
             </div>
             <div class="col-3 ">
-                <input type="text" class="form-control " style="width: 100%" name="branch" maxlength="30" id="branch" aria-describedby="branch" placeholder="สาขาที่จบ">
+                <input type="text" class="form-control " style="width: 100%" name="branch" maxlength="30" id="branch" aria-describedby="branch" placeholder="สาขาที่จบ" required>
             </div>
         </div>
     </div>
     <div class="form-group form-row d-flex align-items-center   ">
         <div class="col-12 d-flex flex-row">
             <div class="col-3 offset-3 pl-0">
-                <input type="text" class="form-control " style="width: 100%" name="qualification" maxlength="30" id="qualification" aria-describedby="qualification" placeholder="วุฒิที่จบ">
+                <input type="text" class="form-control " style="width: 100%" name="qualification" maxlength="30" id="qualification" aria-describedby="qualification" placeholder="วุฒิที่จบ" required>
             </div>
             <div class="col-3 ">
-                <input type="text" class="form-control " style="width: 100%" maxlength="30" name="result" id="result" aria-describedby="result" placeholder="ผลการเรียน">
+                <input type="text" class="form-control " style="width: 100%" maxlength="30" name="result" id="result" aria-describedby="result" placeholder="ผลการเรียน" required>
             </div>
         </div>
     </div>
     <div class="form-group form-row d-flex align-items-center   ">
         <div class="col-12 d-flex flex-row">
             <div class="col-6 offset-3 pl-0">
-                <input type="text" class="form-control " style="width: 100%" name="dadname" maxlength="30" id="dadname" aria-describedby="dadname" placeholder="ชื่อ-นามสกุล บิดา">
+                <input type="text" class="form-control " style="width: 100%" name="dadname" maxlength="30" id="dadname" aria-describedby="dadname" placeholder="ชื่อ-นามสกุล บิดา" required>
             </div>
         </div>
     </div>
     <div class="form-group form-row d-flex align-items-center   ">
         <div class="col-12 d-flex flex-row">
             <div class="col-6 offset-3 pl-0">
-                <input type="text" class="form-control " style="width: 100%" name="momname" maxlength="30" id="momname" aria-describedby="momname" placeholder="ชื่อ-นามสกุล มารดา">
+                <input type="text" class="form-control " style="width: 100%" name="momname" maxlength="30" id="momname" aria-describedby="momname" placeholder="ชื่อ-นามสกุล มารดา" required>
             </div>
         </div>
     </div>

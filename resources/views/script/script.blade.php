@@ -113,3 +113,13 @@ $(document).ready(function() {
 <script>
     // $('#selectBox option').eq(1).prop('selected', true);
 </script>
+
+<script>
+    $('#validation').click(function (e) {
+        e.preventDefault();
+
+        $( '#checkregister' ).addClass( "was-validated" );
+        // form.submit();
+
+    });
+</script>

@@ -1,5 +1,5 @@
-<div class="register-location">
-    <div class="form-group form-row     ">
+<div class="register-location"></div>
+    <div class=" form-row     ">
         <div class="col-3 offset-3 align-self-center">
             <h3 class="" style="font-size: 1em">ข้าพเจ้าทราบข่าวสารการรับสมัครจาก</h3>
         </div>
@@ -38,7 +38,7 @@
     </div>
 </div>
 <div class="register-location">
-    <div class="form-group form-row     ">
+    <div class="form-group form-row  ">
         <div class="col-3 offset-3 align-self-center">
             <h3 class="" style="font-size: 1em">ปัจจุบัน</h3>
         </div>

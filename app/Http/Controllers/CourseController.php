@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Course;
 use App\Models\Course_day;
 use App\Models\Schools;
 use App\Models\Corses\Course_thumbnail;
@@ -112,9 +112,7 @@ class CourseController extends Controller
 // }
 
 
-    public function registercourse(){
-        return view('course/course-register');
-    }
+
 
 
 //    public function coursedetail(){
@@ -191,7 +189,7 @@ class CourseController extends Controller
         // $callCourse_career = DB::select('SELECT course_career.course_id, course_career.course_career_detail FROM course_career INNER JOIN courses ON course_career.course_id = courses.course_career');
 
 
-         return view('course/course-detail', compact('courseAll','callCourse_learn','callCourse_result','callCourse_career','callCourse_youtube'));
+         return view('course/course-detail', compact('courseAll','callCourse_learn','callCourse_result','callCourse_career','callCourse_youtube','courseID'));
     }
 
     /**
