@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Arr;
 use App\Courseregister;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -73,11 +73,13 @@ class CourseregisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$id = Auth::id();
             $course_id = $request->input('course_id');
+            $id = Auth::id();
 
             $print = $request->validate([
-
+                // 'user_id'=>$id,
+                // 'course_id'=>$course_id,
             'name'=>'required',
             'lastname'=>'required',
             'telphone'=>'required',
@@ -110,7 +112,19 @@ class CourseregisterController extends Controller
             'province-present'=>'required',
             'postalcode-present'=>'required',
         ]);
+        // $dataRegister = [];
+    //    echo json_encode($print);
+        // foreach ($print as $key => $value) {
 
+            $dataRegister[] = [
+                'user_id'  =>  $id,
+                'course_id'  =>  $course_id,
+            ];
+
+        // }
+        $dataRegisterToDB = Arr::collapse([$print,$dataRegister[0]]);
+
+        // dd($dataRegisterToDB);
         $courseall = Course::select(
             'course_id',
             'course_name',
@@ -132,8 +146,9 @@ class CourseregisterController extends Controller
         ->where('course_final_id','=',$course_id)
             ->distinct('course_final_id')
             ->get();
+// dd($print);s
 
-
+            Data_course_register::firstOrCreate($dataRegisterToDB);
         return view('print/print', compact('print','course_id','courseall','courseDay'));
 
     }
