@@ -123,3 +123,10 @@ $(document).ready(function() {
 
     });
 </script>
+
+<script>
+    function CurrencyFormat(el) {
+    let val = el.value.split('.').join('');
+    el.value = val.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ".");
+}
+</script>

@@ -167,14 +167,29 @@
 
 
             </div>
-                {{-- <p class="m-0 p-0 ml-2">ภาพประกอบการเรียน</p>
-                <div class="image-all d-flex flex-row flex-wrap justify-content-center align-items-center rounded col-lg-12 p-0" style="width: 100%">
-                    <img src=" {{ asset('access/images/learn-1.png') }}" class=" m-1 mt-2  rounded" style="height: 200px; width: 24%">
+                <p class="m-0 p-0 ml-2">ภาพประกอบการเรียน</p>
+                <div class="image-all d-flex flex-row flex-wrap justify-content-start align-items-center rounded col-lg-12 p-0" style="width: 100%">
+                    <div class="col-md-3">
+                        <img src=" {{ asset('access/images/learn-1.png') }}" class=" m-1 mt-2  rounded" style="height: 200px; width: 100%">
+                    </div>
+                    <div class="col-md-3">
+                        <img src=" {{ asset('access/images/learn-1.png') }}" class=" m-1 mt-2  rounded" style="height: 200px; width: 100%">
+                    </div>
+                    <div class="col-md-3">
+                        <img src=" {{ asset('access/images/learn-1.png') }}" class=" m-1 mt-2  rounded" style="height: 200px; width: 100%">
+                    </div>
+                    <div class="col-md-3">
+                        <img src=" {{ asset('access/images/learn-1.png') }}" class=" m-1 mt-2  rounded" style="height: 200px; width: 100%">
+                    </div>
+                    {{-- <img src=" {{ asset('access/images/learn-1.png') }}" class=" m-1 mt-2  rounded" style="height: 200px; width: 24%">
                     <img src="{{ asset('access/images/learn-2.png') }}" class=" m-1 mt-2 rounded" style="height: 200px; width: 24%">
                     <img src="{{ asset('access/images/learn-3.png') }}" class=" m-1 mt-2 rounded" style="height: 200px; width: 24%">
-                    <img src="{{ asset('access/images/learn-4.png') }}" class=" m-1 mt-2 rounded" style="height: 200px; width: 24%">
+                    <img src="{{ asset('access/images/learn-4.png') }}" class=" m-1 mt-2 rounded" style="height: 200px; width: 24%"> --}}
 
-                </div> --}}
+                </div>
+            </div>
+            <div class=" col-md-12 p-0 m-0 d-flex flex-row justify-content-start">
+
             </div>
         </div>
     </div>

@@ -36,7 +36,10 @@
                 <input type="text" class="form-control " style="width: 100%" name="qualification" maxlength="30" id="qualification" aria-describedby="qualification" placeholder="วุฒิที่จบ" required>
             </div>
             <div class="col-3 ">
-                <input type="text" class="form-control " style="width: 100%" maxlength="30" name="result" id="result" aria-describedby="result" placeholder="ผลการเรียน" required>
+                <input type="text" step="0.01" inputmode="decimal"  class="form-control " style="width: 100%" maxlength="4" name="result" id="result"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                onkeypress="CurrencyFormat(this)"
+                 aria-describedby="result" placeholder="ผลการเรียน" required>
             </div>
         </div>
     </div>

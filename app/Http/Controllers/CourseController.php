@@ -15,7 +15,7 @@ use App\Models\Corses\Course_learn;
 use App\Models\Corses\Course_result;
 use App\Models\Corses\Course_youtube;
 use App\Models\Corses\Course_type;
-
+use App\Models\Corses\Data_course_register;
 class CourseController extends Controller
 {
 
