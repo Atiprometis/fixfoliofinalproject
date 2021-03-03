@@ -8,10 +8,10 @@
         <div class="row">
             <div class=" d-flex flex-row justify-content-end col-md-12">
                 <div class=" d-flex flex-row align-items-center  justify-content-center ">
-                    <a href="/profileedit" class="btn d-flex flex-row align-items-center  justify-content-center">
+                    {{-- <a href="/profileedit" class="btn d-flex flex-row align-items-center  justify-content-center">
                         <i class="fas fa-pen fa-lg p-2"></i>
                         <p class="p-0 m-0">แก้ไขประวัติ</p>
-                    </a>
+                    </a> --}}
 
                 </div>
                 {{-- <div class=" d-flex flex-row  text-center pl-4 ml-2">

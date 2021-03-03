@@ -271,8 +271,26 @@ class PortfolioController extends Controller
         //
         $id = Auth::id();
 
+       $status = ProfilePortfolio::select('status')
+       ->where('user_id','=',$id)
+        ->get();
+
+        $statusresults = json_decode($status);
+        $return = implode(",", array_column($statusresults, "status"));
+
          $flight = UploadImages::firstOrCreate(['user_id' => $id]);
-         $user = ProfilePortfolio::firstOrCreate(['user_id' => $id]);
+
+         if($return == null) {
+            $user = ProfilePortfolio::firstOrCreate([
+                'user_id' => $id,
+                'status' => 0,
+                ]);
+         }  else if($return == 1){
+            $user = ProfilePortfolio::firstOrCreate([
+                'user_id' => $id,
+                'status' => 1,
+                ]);
+         }
          return back();
     }
 
