@@ -16,6 +16,9 @@ use App\Models\Corses\Course_result;
 use App\Models\Corses\Course_youtube;
 use App\Models\Corses\Course_type;
 use App\Models\Corses\Data_course_register;
+use App\UploadImages;
+use App\ProfilePortfolio;
+use App\User;
 class CourseController extends Controller
 {
 
@@ -42,6 +45,7 @@ class CourseController extends Controller
             'courses.course_school',
             'courses.course_name',
             'courses.course_hours',
+            'courses.course_category',
             'courses.course_cost',
             'courses.course_online',
             'courses.course_learn_start',
@@ -62,8 +66,6 @@ class CourseController extends Controller
             )
                 ->distinct('course_final_id')
                 ->get();
-                // echo $courseDay;
-
               $schoolsName =  Schools::select(
                   'schools.schools_id',
                   'courses.course_school',
@@ -76,7 +78,6 @@ class CourseController extends Controller
                 ->get();
 
                 // echo $schoolsName;
-
 
                 $thumbnail = Course_thumbnail::select(
                     'course_id',
@@ -163,11 +164,24 @@ class CourseController extends Controller
      */
     public function show($course_id)
     {
-        //
-
+        //$course_id = $request->input('course_id');
+        // $category = $request->input('category');
+        // dd($category);
         $courseID = $course_id;
         $courseAll = Course::where('course_id', '=', $courseID)
         ->first();
+
+        $coursecategory = Course::where('course_id', '=', $courseID)
+        ->get();
+        $category = json_decode($coursecategory);
+        $returncategory = implode(",", array_column($category, "course_category"));
+
+        $courseRandom = Course::where('course_category', 'LIKE', $returncategory)
+        ->inRandomOrder()
+        ->limit(3)
+        ->where('status','=',1)
+        ->where('course_id', '!=', $courseID)
+        ->get();
 
         $callCourse_learn = Course_learn::where('course_id', '=', $courseID)
         ->get();
@@ -181,15 +195,80 @@ class CourseController extends Controller
         $callCourse_youtube = Course_youtube::where('course_id', '=', $courseID)
         ->get();
 
+        // dd($course_id);
+         $data_register = Data_course_register::select(
+            'data_course_register.course_register_id',
+            'data_course_register.user_id',
+            'profile_portfolios.profile_aboutme',
+            'profile_portfolios.status',
+            'upload_images.avatar_path',
 
-        // $callCourse_learn = DB::select('SELECT course_learn.course_id, course_learn.course_learnning_detail FROM course_learn INNER JOIN courses ON course_learn.course_id = courses.course_learn');
+        )
+        ->join('profile_portfolios', 'profile_portfolios.user_id', '=', 'data_course_register.user_id')
+        ->join('upload_images', 'upload_images.user_id', '=', 'data_course_register.user_id')
+        ->orderBy('data_course_register.course_register_id','DESC')
+        ->distinct()
+        ->where('data_course_register.course_id','=',$courseID)
+        ->limit(4)
+        ->get();
 
-        // $callCourse_result = DB::select('SELECT course_result.course_id, course_result.course_learn_finish_detail FROM course_result INNER JOIN courses ON course_result.course_id = courses.course_result');
+        // dd($data_register);
+        $profile_ports = ProfilePortfolio::select(
+            'id',
+            'user_id',
+            'profile_aboutme',
+            'status',
+        )
+        // ->where('status','=',1)
+        ->get();
+         $userall =  DB::table('users')
+        ->select(
+            'users.id',
+        'users.name',
+        'users.lastname',
+        // 'upload_images.avatar_path'
+        )
+        ->join('upload_images', 'upload_images.user_id', '=', 'users.id')
+        ->get();
 
-        // $callCourse_career = DB::select('SELECT course_career.course_id, course_career.course_career_detail FROM course_career INNER JOIN courses ON course_career.course_id = courses.course_career');
+        $avatar_images = UploadImages::select('*')
+            ->get();
+
+            $courseDay =  Course_day::select(
+                'day_id',
+                'course_final_id',
+                'course_day'
+            )
+                ->distinct('course_final_id')
+                ->get();
+              $schoolsName =  Schools::select(
+                  'schools.schools_id',
+                  'courses.course_school',
+                    'schools.schools_name',
+                )
+                ->join('courses', 'courses.course_school', '=', 'schools.schools_id')
+                ->distinct('schools.schools_id')
+
+                // ->where('schools.schools_id', '=', 'courses.course_school')
+                ->get();
+
+                // echo $schoolsName;
+
+                $thumbnail = Course_thumbnail::select(
+                    'course_id',
+                    DB::raw('MAX(thumbnails_images) as thumbnails_images')
+                    )
+                ->groupBy('course_id')
+                ->get();
+                // echo $thumbnail;
+                $course_type = Course_type::select('*')
+                ->get();
 
 
-         return view('course/course-detail', compact('courseAll','callCourse_learn','callCourse_result','callCourse_career','callCourse_youtube','courseID'));
+         return view('course/course-detail', compact('courseAll','callCourse_learn','callCourse_result',
+         'userall','avatar_images','profile_ports','data_register','courseRandom',
+         'courseDay','thumbnail','schoolsName',
+         'callCourse_career','callCourse_youtube','courseID'));
     }
 
     /**

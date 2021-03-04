@@ -58,7 +58,7 @@ class InstitutionController extends Controller
        ->distinct()
         ->get();
 
-        return view('institution.Institution')->with(compact('schoolsdetails','countCourse','allshchool'));
+        return view('institution.institution')->with(compact('schoolsdetails','countCourse','allshchool'));
 
     }
 
@@ -184,7 +184,7 @@ class InstitutionController extends Controller
         ->get();
 
         // dd($searchchools);
-        return view('institution.Institution')->with(compact('schoolsdetails','countCourse','allshchool'));
+        return view('institution.institution')->with(compact('schoolsdetails','countCourse','allshchool'));
         // return view('institution.search', compact('searchchools'));
     }
 

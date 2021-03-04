@@ -579,3 +579,14 @@ position: absolute;
     background-color: rgb(176, 176, 176);
     border-radius: 8px;
 }
+
+.userview{
+    background-color: #fff;
+    border-radius: 20px;
+    -webkit-box-shadow: 7px 6px 12px -8px rgba(0,0,0,0.54);
+-moz-box-shadow: 7px 6px 12px -8px rgba(0,0,0,0.54);
+box-shadow: 7px 6px 12px -8px rgba(0,0,0,0.54);
+}
+.user-img{
+    border-radius: 20px;
+}

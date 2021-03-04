@@ -106,6 +106,7 @@
                                 @if ($course->status != 0 )
                     {{-- <a href="/coursedetail/{{$course->course_id}}" style="color: inherit;"> --}}
                                 <a href="{{route('course-detail.show', $course->course_id)}}" style="color: inherit;">
+
                                     <div class=" col-4  p-2   float-left " >
                                         <div class=" w-100 " >
                                                 <div class=" position-relative">
