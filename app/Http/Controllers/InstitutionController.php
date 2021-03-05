@@ -130,16 +130,9 @@ class InstitutionController extends Controller
     public function store(Request $request)
     {
 
-        // $dataCount = DB::select('SELECT COUNT(`course_id`) AS "count" ,`course_school` FROM courses GROUP BY `course_school`');
 
-
-        // return view('institution.Institution')->with(compact('courseschooldetails'));
         $search = $request->input('search');
-        // $search = $request->validate([
-        //     'search' => 'required',
-        // ]);
 
-        // dd($search);
 
 
             if($search != 'ทั้งหมด'){

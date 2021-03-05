@@ -26,6 +26,13 @@ class SearchportfolioController extends Controller
     public function index()
     {
         //
+        $userall = User::select(
+            'id',
+            'name',
+            'lastname')
+        ->get();
+
+
 
         $profile_ports = ProfilePortfolio::select(
             'profile_portfolios.id',
@@ -35,14 +42,11 @@ class SearchportfolioController extends Controller
             'upload_images.avatar_path'
         )
         ->where('status','=',1)
+
         ->join('upload_images', 'upload_images.user_id', '=', 'profile_portfolios.user_id')
         ->get();
 
-        $userall = User::select(
-            'id',
-            'name',
-            'lastname')
-        ->get();
+
 
       $avatar_images = UploadImages::select('*')
             ->get();
@@ -55,9 +59,43 @@ class SearchportfolioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function searchuser(Request $request)
     {
-        //
+        $search = $request->input('search');
+
+        $userall = User::select(
+            'id',
+            'name',
+            'lastname')
+        ->where('name','LIKE','%'.$search.'%')
+        // ->limit(1)
+        ->get();
+
+        $userallResult = json_decode($userall);
+        $return = implode(",", array_column($userallResult, "id"));
+
+        $profile_ports = ProfilePortfolio::select(
+            'profile_portfolios.id',
+            'profile_portfolios.user_id',
+            'profile_portfolios.profile_aboutme',
+            'profile_portfolios.status',
+            'upload_images.avatar_path',
+            'users.name',
+            'users.lastname',
+        )
+        ->where('status','=',1)
+        // ->where('profile_portfolios.user_id','=',$return)
+        ->where('users.name','LIKE','%'.$search.'%')
+        ->join('users', 'users.id', '=', 'profile_portfolios.user_id')
+        ->join('upload_images', 'upload_images.user_id', '=', 'profile_portfolios.user_id')
+        ->get();
+
+
+
+      $avatar_images = UploadImages::select('*')
+            ->get();
+
+        return view('portfolio.search-portfolio',compact('profile_ports','avatar_images','userall'));
     }
 
     /**

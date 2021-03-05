@@ -8,25 +8,15 @@
             <div class="col-12 d-flex flex-column p-0 m-1">
                 <div class=" col-12 w-100 p-0 m-0 mt-5 search-institution">
                     <h1 style="font-size: 1.750em;">ค้นหาคนที่ใช่</h1>
-                        <form>
+                    {!! Form::open(['url' => 'searchuser', 'method'=>'POST']) !!}
                             <div class=" d-flex flex-column mb-5">
                                 <div class=" d-flex flex-row">
                                     <input type="search" name="search" class="form-control mr-3 " style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
                                     <button class="btn " type="submit" style="background-color: #F9C226; width:150px; border-radius: 20px;"> ค้นหา</button>
                                 </div>
-                                <div class="col-8 d-flex flex-row p-0 m-0 mt-3">
-                                    <select class="form-control form-control-sm rounded mr-3 pl-1 pr-1" >
-                                        <option>ทักษะ</option>
-                                      </select>
-                                      <select class="form-control form-control-sm rounded mr-3 pl-1 pr-2">
-                                        <option>เขต</option>
-                                      </select>
-                                      <select class="form-control form-control-sm rounded pl-1 pr-1">
-                                        <option>ประเภทหลักสูตร</option>
-                                      </select>
-                                </div>
+
                             </div>
-                        </form>
+                    {!! Form::close() !!}
                     </div>
                 </div>
 

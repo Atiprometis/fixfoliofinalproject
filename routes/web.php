@@ -53,7 +53,7 @@ Route::post('courseprint', 'CourseregisterController@store');
 
 Route::get('/portfolio', 'PortfolioController@portfolio');
 Route::resource('/searchportfolio', 'SearchportfolioController');
-
+Route::post('searchuser','SearchportfolioController@searchuser' );
 Route::resource('/institution', 'InstitutionController');
 
 Route::post('searchinstitution', 'InstitutionController@store');
