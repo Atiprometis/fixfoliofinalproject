@@ -130,3 +130,14 @@ $(document).ready(function() {
     el.value = val.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ".");
 }
 </script>
+
+<script>
+    function yesnoCheck(that) {
+    if (that.value == "มีคอร์สออนไลน์") {
+//   alert("check");
+        document.getElementById("ifYes").style.display = "block";
+    } else {
+        document.getElementById("ifYes").style.display = "none";
+    }
+}
+</script>

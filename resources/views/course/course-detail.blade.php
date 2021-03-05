@@ -20,8 +20,15 @@
                     </p>
                 </div>
                 <div class="box-register-all d-flex flex-column col-lg-3 offset-lg-0 p-0" >
+                    @if ($courseAll->image_herobanner != null)
+                        <a href="{{ $courseAll->image_herobanner }}" class="btn text-dark  register-open-website-b "
+                        style="height: 40px; background-color: #F9C226; border-radius: 20px;">เข้าสู่เว็บไซต์</a>
+                    @else
+                    <a href="/registercourse/{{ $courseID }}" class="btn  text-dark  register-open-website-b "
+                    style="height: 40px; background-color: #F9C226; border-radius: 20px;">สมัครเรียน</a>
+                    @endif
 
-                    <a href="/registercourse/{{ $courseID }}" class="btn  register-open-website-b " style="height: 40px; background-color: #F9C226; border-radius: 20px;">สมัครเรียน</a>
+
                     <div class="register-time d-flex flex-column mt-3" >
                         <div class="time-text rounded-top text-light text-center align-items-center p-2" style="border: solid #000 1px; background-color: #69299C;">
                             <h1 class=" p-0 m-0" style="font-size: 1.125em;">ใบประกอบวิชาชีพ</h1>

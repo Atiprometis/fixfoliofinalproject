@@ -130,6 +130,7 @@ class DashbordController extends Controller
          $course_learn_start = $request->input('course_learn_start');
          $course_learn_end = $request->input('course_learn_end');
         $course_online = $request->input('course_online');
+        $course_promote = $request->input('course_promote');
 
 
 
@@ -159,6 +160,7 @@ class DashbordController extends Controller
             'course_learn_start'=>$course_learn_start,
             'course_learn_end'=>$course_learn_end,
             'course_online'=>$course_online,
+            'image_herobanner'=>$course_promote,
             'status'=> 0,
         ]);
 

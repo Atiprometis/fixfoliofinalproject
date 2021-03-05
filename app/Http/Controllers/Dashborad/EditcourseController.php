@@ -115,6 +115,7 @@ class EditcourseController extends Controller
          $course_day = $request->input('course_day');
          $user_id = $request->input('user_id');
          $course_final_id = $request->input('course_final_id');
+        //  $course_promote = $request->input('image_herobanner');
         //  dd($course_online);
 
           $courseAll = Course::where('course_id', '=', $courseID)

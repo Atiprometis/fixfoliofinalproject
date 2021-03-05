@@ -17,6 +17,7 @@
     @endif
 
     <h5 class="center my-2 mt-3"> คอร์สนี้เรียนแล้วได้อะไรบ้าง </h5>
+    <small>โปรดใส่ข้อมูลให้ครบเพื่อให้คอร์สสมบูรณ์</small>
     {!! Form::open( array('route' => 'aboutcourse', 'method'=>'post' ,'enctype' => 'multipart/form-data' )) !!}
     @csrf
 
@@ -124,11 +125,6 @@
                 {{-- <input type="submit"    value="ma" class="btn btn-primary swa-confirm"> --}}
                 <input type="submit"   value="สร้างคอร์ส" class="btn btn-primary swa-confirm">
             </div>
-
-
-
-
-
         </div>
 
         <div class="  mt-4 col-md-4" style=" height: 400px">
@@ -136,7 +132,7 @@
                 <p class=" m-0 p-0">ภาพคอร์ส</p>
                         <div class="  col-12 p-0 m-0  " >
                                         <label  class=" p-0 m-0 position-relative">
-                                        <img class="card-img-top insutition rounded" src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview"  style="width: 100%;height: 200px; cursor: pointer"/>
+                                        <img class="card-img-top insutition rounded" src='{{ asset('access/imageweb/Placeholder.jpg') }}' id="uploadPreview"  style="width: 340px;height: 200px; cursor: pointer"/>
                                         {{-- <img src="{{ asset('/access/images/photo-5.png') }}" class="insutition-all"> --}}
                                         <div class="custom-file">
                                             <label class="custom-file-label m-0 text-danger" style="cursor: pointer">

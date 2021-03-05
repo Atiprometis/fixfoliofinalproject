@@ -39,10 +39,17 @@
         <div class="form-group col-md-5 p-0 mr-2 ml-2">
 
             {!! Form::label('course_online','เรียนออนไลน์หรือไม่ ?') !!}
-            <select class="form-control" id="exampleFormControlSelect1" name="course_online" required>
+            <select class="form-control" id="exampleFormControlSelect1" onchange="yesnoCheck(this);" name="course_online" required>
                 <option value="ไม่มีคอร์สออนไลน์">ไม่มีคอร์สออนไลน์</option>
                 <option value="มีคอร์สออนไลน์">คอร์สออนไลน์</option>
             </select>
+
+        </div>
+        <div class="form-group col-md-12 p-0 mr-2 ml-2">
+            <div id="ifYes" style="display: none;">
+                <label for="car">ใส่เว็บไซต์เพื่อโปรโมท</label>
+                <input type="text" class="w-100 form-control" id="car" name="course_promote" /><br />
+            </div>
         </div>
     </div>
 
