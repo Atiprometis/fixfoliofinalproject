@@ -28,20 +28,23 @@ class SearchportfolioController extends Controller
         //
 
         $profile_ports = ProfilePortfolio::select(
-            'id',
-            'user_id',
-            'profile_aboutme',
-            'status',
+            'profile_portfolios.id',
+            'profile_portfolios.user_id',
+            'profile_portfolios.profile_aboutme',
+            'profile_portfolios.status',
+            'upload_images.avatar_path'
         )
-        // ->where('status','=',1)
+        ->where('status','=',1)
+        ->join('upload_images', 'upload_images.user_id', '=', 'profile_portfolios.user_id')
         ->get();
+
         $userall = User::select(
             'id',
             'name',
             'lastname')
         ->get();
 
-        $avatar_images = UploadImages::select('*')
+      $avatar_images = UploadImages::select('*')
             ->get();
         //  json_encode($profile_ports);
         return view('portfolio.search-portfolio',compact('profile_ports','avatar_images','userall'));

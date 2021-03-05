@@ -35,14 +35,14 @@
                         <div class="d-flex flex-row mt-3 mb-3 w-100 text-institution align-items-end justify-content-between">
                             <p class="p-0 m-0 ml-2">ว่าจ้าง และหาคนทำงานให้กับธุรกิจของคุณ</p>
                             <div class=" d-flex flex-row">
-                                <div class="form-check form-check-inline">
+                                {{-- <div class="form-check form-check-inline">
                                     <input class="form-check-input  " type="checkbox" id="inlineCheckbox1" value="option1">
                                     <label class="form-check-label" for="inlineCheckbox1">มีประสบการ์ทำงาน</label>
                                   </div>
                                   <div class="form-check form-check-inline">
                                     <input class="form-check-input " type="checkbox" id="inlineCheckbox2" value="option2">
                                     <label class="form-check-label" for="inlineCheckbox2">ไม่มีประสบการ์ทำงาน</label>
-                                  </div>
+                                  </div> --}}
 
                                 <p class="p-0 m-2"></p>
                             </div>
@@ -60,22 +60,12 @@
                                 <div class=" d-flex flex-column w-100 position-relative" style="border-radius: 15px 15px 0px 0px;">
                                     {{-- <h1>{{ $profile_port->id}}</h1> --}}
 
-                                    <div class=" w-100 d-flex justify-content-center " style="height: 130px; background-color: #69299C;border-radius: 15px 15px 0px 0px;border: solid 1px #E5E5E5;">
-
-                                        @foreach ($avatar_images as $image)
-                                        @isset($image->avatar_path)
-                                        @if ($image->user_id == $profile_port->user_id)
-
-                                            <div class="pt-5">
-                                                <img class="people-port" src='../avatar/{{ $image->user_id }}/{{ $image->avatar_path }}' alt="Card image cap" >
-                                            </div>
-
-                                          @else
-
-                                        @endif
-                                        @endisset
-                                    @endforeach
-
+                                    <div class=" w-100 d-flex justify-content-center align-items-end  position-relative" style="height: 110px; background-color: #69299C;border-radius: 15px 15px 0px 0px;border: solid 1px #E5E5E5;">
+                                    @if ($profile_port->avatar_path != null)
+                                                <img class=" people-port round" src='../avatar/{{ $profile_port->user_id }}/{{ $profile_port->avatar_path }}' alt="Card image cap" style="width: 120px;height: 120px">
+                                            @else
+                                                <img class="card-img-top people-port rounded" src='../access/imageweb/user2.png' alt="Card image cap" style="width: 120px;height: 120px">
+                                    @endif
                                     </div>
                                     <div class=" w-100 p-2 pt-5 d-flex flex-column justify-content-center align-items-center" style="height: 200px; background-color: #fff;border-radius: 0px 0px 15px 15px;border: solid 1px #E5E5E5;">
 

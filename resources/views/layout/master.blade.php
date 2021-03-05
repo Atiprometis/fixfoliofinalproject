@@ -88,6 +88,8 @@
 
     @yield('footer')
 
+    @include('footer.footer')
+
     @include('../script/script')
     @include('../script/magicscript')
 

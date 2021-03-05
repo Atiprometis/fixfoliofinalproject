@@ -17,7 +17,7 @@
                             {!! Form::open(array('url' => 'linkfilter', 'method'=>'get' )) !!}
                             <label>
                             <p class="text-c text-light m-0  w-100 " style="cursor: pointer;">{{ $type->type_name }}</p>
-                            <button  type="submit" class="btn p-0 m-0 " style="width: 160px; height: 106px; cursor: pointer;" >
+                            <button  type="submit" class="btn p-0 m-0 " style="width: 160px; height: 106px; cursor: pointer; border-radius: 20px;" >
                                 <input type="text" value="{{ $type->type_name }}" name="type" style="display: none">
                                 <div class="b-image " style="height: 106px; border-radius: 20px; background-color:#000; cursor: pointer;"></div>
                                     <img src=" {{ asset('/access/images/category-'. $index .'.jpg') }}" class=" "  style="height: 106px; cursor: pointer; width: 160px; border-radius: 20px;">
@@ -32,25 +32,13 @@
                         {!! Form::open(array('url' => 'linkfilter', 'method'=>'get' )) !!}
                         <label>
                         <p class="text-c text-light m-0  w-100 " style="cursor: pointer;">ทั้งหมด</p>
-                        <button  type="submit" class="btn p-0 m-0 s" style="width: 160px; height: 106px; cursor: pointer;" >
+                        <button  type="submit" class="btn p-0 m-0 s" style="width: 160px; height: 106px; cursor: pointer;border-radius: 20px;" >
                             <input type="text" value="ทั้งหมด" name="type" style="display: none">
                             <div class="text-center" style="background-color: #69299C;height: 106px; width:160px; border-radius: 20px;"></div>
                         </button>
                         </label>
                         {!! Form::close() !!}
                     </div>
-
-                    {{-- {!! Form::open(array('url' => 'linkfilter', 'method'=>'get' )) !!}
-                        <input type="text" value="ทั้งหมด" name="type" style="display: none">
-                        <div class="col-2 mt-3   " >
-                            <button  type="submit" class="btn p-0 m-0" style="height: 106px; width:160px;">
-
-                            <div class="text-center" style="background-color: #69299C;height: 106px; width:160px; border-radius: 20px;"></div>
-
-                            <p class="  text-c  text-light m-0 p-0 ">ทั้งหมด</p>
-                            </button>
-                        </div>
-                    {!! Form::close() !!} --}}
 
                     </div>
 
@@ -66,12 +54,12 @@
                          @include('component.search-select-item')
                         {!! Form::close() !!}
                         <div class=" d-flex flex-row pt-3 pb-3">
-                            <a href="#" style="color:#F9C226; ">
+                            {{-- <a href="#" style="color:#F9C226; ">
                                 <p class="p-0 m-0 mr-3">เรียนฟรี</p>
                             </a>
                             <a href="#" style="color:#F9C226; ">
                                 <p class="p-0 m-0 mr-3">กำลังเปิดรับสมัคร</p>
-                            </a>
+                            </a> --}}
                         </div>
 
                     </div>
@@ -85,7 +73,7 @@
                         <h1 class="p-0 m-0 ml-2 mt-5 mb-2" style="font-size: 1.750em;">คอร์สเรียนทั้งหมด
 
                         </h1>
-                            <div class=" d-flex flex-row">
+                            {{-- <div class=" d-flex flex-row">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input  " type="checkbox" id="inlineCheckbox1" value="option1">
                                     <label class="form-check-label" for="inlineCheckbox1">เรียนออนไลน์</label>
@@ -96,7 +84,7 @@
                                   </div>
 
                                 <p class="p-0 m-2"></p>
-                            </div>
+                            </div> --}}
                     </div>
                     <div class="col-12 p-0 m-0">
                         @php

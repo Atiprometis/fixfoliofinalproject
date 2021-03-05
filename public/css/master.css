@@ -277,9 +277,9 @@ height: 50vh;
     /* position: absolute; */
     height: 140px;
     width: 140px;
-    position: relative;
+    position: absolute;
     /* padding-bottom: 40px; */
-    /* top: -70px; */
+    top: 40%;
     border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -589,4 +589,13 @@ box-shadow: 7px 6px 12px -8px rgba(0,0,0,0.54);
 }
 .user-img{
     border-radius: 20px;
+}
+
+.table thead th {
+    border-bottom: 0px solid #dee2e6;
+}
+
+
+.table td, .table th {
+    border-top: 0px solid #dee2e6;
 }

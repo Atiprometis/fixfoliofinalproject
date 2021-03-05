@@ -29,11 +29,7 @@
                         <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
-
-
-
                                 <p>{{$courseAll->course_certificate}}</p>
-
                             </div>
 
                         </div>
@@ -45,11 +41,7 @@
                         <div class="time-text rounded-bottom d-flex flex-column p-3 " style="border: solid #000 1px;">
                             <div class=" d-flex flex-row  justify-content-center ">
                                 {{-- <i class="fab fa-accusoft mr-2"></i> --}}
-
-
-
                                 <p>{{$courseAll->course_cost}}</p>
-
                             </div>
 
                         </div>
@@ -184,46 +176,6 @@
                     </div>
                 </div>
             </div> --}}
-
-                    {{-- @foreach ($profile_ports as $profile_port)
-                        @if ($profile_port->status != 0)
-
-                        <a class="" href="{{route('searchportfolio.show',$profile_port->user_id)}}" style="color: inherit; ">
-                            <div class=" col-4  p-2   float-left " >
-                                <div class=" d-flex flex-column w-100 position-relative" style="border-radius: 15px 15px 0px 0px;">
-
-
-                                    <div class=" w-100 d-flex justify-content-center " style="height: 130px; background-color: #69299C;border-radius: 15px 15px 0px 0px;border: solid 1px #E5E5E5;">
-
-                                        @foreach ($avatar_images as $image)
-
-                                        @if ($image->user_id == $profile_port->user_id)
-                                            <div class="pt-5">
-                                                <img class="people-port" src='../avatar/{{ $image->user_id }}/{{ $image->avatar_path }}' alt="Card image cap" >
-                                            </div>
-                                          @else
-                                        @endif
-                                    @endforeach
-
-                                    </div>
-                                    <div class=" w-100 p-2 pt-5 d-flex flex-column justify-content-center align-items-center" style="height: 200px; background-color: #fff;border-radius: 0px 0px 15px 15px;border: solid 1px #E5E5E5;">
-
-                                        @foreach ($userall as $user)
-                                        @if ($user->id == $profile_port->user_id)
-                                            <h1 class=" pt-3 m-0  font-weight-bold" style="font-size: 1.375em;">{{$user->name}} {{$user->lastname}}</h1>
-                                        @endif
-                                        @endforeach
-                                        <div class=" p-1 m-0 text-over  " style="">
-                                            <p class=" mt-0  font-weight-light " style="font-size: 1em;">{{ $profile_port->profile_aboutme }} </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        @endif
-                        @endforeach --}}
-
-
         </div>
     </div>
     <div style="background-color: #F7EDFF;">
