@@ -136,8 +136,11 @@ $(document).ready(function() {
     if (that.value == "มีคอร์สออนไลน์") {
 //   alert("check");
         document.getElementById("ifYes").style.display = "block";
-    } else {
+        document.getElementById("ifNo").style.display = "none";
+    } else if (that.value == "ไม่มีคอร์สออนไลน์") {
         document.getElementById("ifYes").style.display = "none";
+        document.getElementById("ifNo").style.display = "block";
     }
+
 }
 </script>

@@ -21,7 +21,7 @@
             <th scope="col">สอนออนไลน์</th>
             <th scope="col">สถานะ</th>
             <th scope="col">อนุมัติ</th>
-            <th scope="col">แก้ไข</th>
+            {{-- <th scope="col">แก้ไข</th> --}}
             <th scope="col">ลบ</th>
           </tr>
         </thead>
@@ -58,12 +58,12 @@
                         <button type="submit" id="updatecourse" data-name="{{$course->course_id}}" class="btn btn-success deleteForm ">อนุมัติ</button>
                     </form>
                 </td>
-                <td>
+                {{-- <td>
                     <form action="/editcourse/{{$course->course_id}}" method="GET">
                         @csrf
                         <button type="submit" data-name="{{$course->course_id}}" class="btn btn-info deleteForm ">แก้ไข</button>
                     </form>
-                </td>
+                </td> --}}
                 <td >
                     <form action="/deletecourse/{{$course->course_id}}" method="GET">
                         @csrf

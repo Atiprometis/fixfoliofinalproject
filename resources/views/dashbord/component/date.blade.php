@@ -111,15 +111,39 @@
             <div class=" form-group col-md-4">
                 <label for="exampleFormControlInput1">เรียนออนไลน์หรือไม่ ?</label>
                 <input type="text" readonly class="form-control-plaintext" style="outline: none" id="staticEmail" value="คอร์สเรียน : {{$course->course_online}}">
-                <select class="form-control" name="course_online" >
-                    <option value="{{$course->course_online}}" style="display: none">{{$course->course_online}}</option>
+                <select class="form-control" name="course_online" onchange="yesnoCheck(this);" >
+                    <option selected value="{{$course->course_online}}"  style="display: none">{{$course->course_online}}</option>
                     <option value="ไม่มีคอร์สออนไลน์">ไม่มีคอร์สออนไลน์</option>
                     <option value="มีคอร์สออนไลน์">มีคอร์สออนไลน์</option>
                 </select>
+
+
                 <small id="passwordHelpBlock" class="form-text text-muted">
                     ใส่ข้อมูลสำหรับเปลี่ยนราคา
                 </small>
             </div>
+
+            @if ($course->image_herobanner != null)
+
+                <div class="form-group col-md-12 p-0 mr-2 ml-2">
+                    <div  >
+                        <label for="car">ข้อมูลเว็บไซต์ล่าสุดสำหรับโปรโมท</label>
+                        <input type="text" readonly class="w-100 form-control" id="ifNo" style="display: none;"  placeholder="ท่านไม่ได้โปรโมทเว็บไซต์" name="course_promote" /><br />
+                        <input type="text"   class="w-100 form-control" id="ifYes" style="display: block;"  placeholder="{{$course->image_herobanner}}" name="course_promote" /><br />
+                    </div>
+                </div>
+
+            @else
+
+            <div class="form-group col-md-12 p-0 mr-2 ml-2">
+                <div  >
+                    <label for="car">โปรดใส่ข้อมูลสำหรับโปรโมทเว็บไซต์</label>
+                    <input type="text" readonly class="w-100 form-control" id="ifNo" style="display: block;"  placeholder="ท่านไม่ได้โปรโมทเว็บไซต์" name="course_promote" /><br />
+                    <input type="text"   class="w-100 form-control" id="ifYes" style="display: none;"  placeholder="{{$course->image_herobanner}}" name="course_promote" /><br />
+                </div>
+            </div>
+
+            @endif
 
                     <div class=" d-flex justify-content-center col-md-12 mt-2 mb-2">
                         <input type="button" id="updatecourse"   value="อัพเดทคอร์ส" class="btn btn-primary swa-confirm">
