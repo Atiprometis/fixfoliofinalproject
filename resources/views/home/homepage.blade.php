@@ -253,7 +253,7 @@
 
                         background-color: #F9C226;
                         font-size: 1.5em;">
-                        <a href="/institution" style="color: inherit;">
+                        <a href="/contact" style="color: inherit;">
                             <p class="m-0 p-0" style="font-weight: 500">สมัครลงหลักสูตร</p>
                         </a>
                     </button>
