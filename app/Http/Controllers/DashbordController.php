@@ -36,10 +36,50 @@ class DashbordController extends Controller
      */
     public function index()
     {
-        $data =  Data_course_register::select('course_id')
+        $id = Auth::id();
+         $shcool = Schools::where('schools_owner','=',$id)
         ->get();
 
-        return view('dashbord.dashbord');
+        $shcoolresult = json_decode($shcool);
+        $schoolID = implode(",", array_column($shcoolresult, "schools_id"));
+
+        $count = Course::where('course_school','=',$schoolID)
+        ->select('course_school')
+        ->where('status','=',1)
+        ->count();
+
+          $countRegister =   DB::table('data_course_register')
+    //   echo  $countRegister = data_course_register::select(
+    //     // 'courses.course_name',
+    //     'courses.course_id'
+    //   )
+        ->join('courses', 'courses.course_id', '=', 'data_course_register.course_id')
+        ->where('courses.course_school','=',$schoolID)
+        ->where('courses.status','=',1)
+        ->max('courses.course_name');
+
+        $dataAll = Course::select(
+           'courses.course_id',
+           'courses.course_name',
+           'data_course_register.name',
+           'users.name',
+           'users.lastname',
+           'data_course_register.created_at',
+
+           )
+        // ->where('data_course_register.course_id' , '=', 31)
+       ->join('data_course_register', 'data_course_register.course_id', '=', 'courses.course_id')
+       ->join('users', 'users.id', '=', 'data_course_register.user_id')
+       ->where('courses.course_school','=',$schoolID)
+       ->where('courses.status','=',1)
+        ->get();
+        // dd($courseID);
+        // $course_id = json_decode($course_id);
+        // $return = implode(",", array_column($course_id, "course_final_id"));
+
+
+
+        return view('dashbord.dashbord')->with(compact('count','dataAll','countRegister'));
     }
     public function dashcourse()
     {
@@ -341,18 +381,6 @@ class DashbordController extends Controller
         ->join('schools', 'schools.schools_id', '=', 'courses.course_school')
         ->join('course_thumbnails','course_thumbnails.course_id','=','courses.course_id')
         ->get();
-
-
-
-    // echo   $thumbnail = Course_thumbnail::select(
-    //     'course_thumbnails.course_id as id_thumbnails',
-    //       'course_thumbnails.thumbnails_images',
-    //       )
-    //     ->where('course_school', '=',$schoolsreturn)
-    //     ->join('courses','courses.course_id','=','course_thumbnails.course_id')
-    //     ->get();
-        // echo $courseallForSchool;
-
 
         return view('dashbord.manegercourse')->with(compact('courseallForSchool'));
     }

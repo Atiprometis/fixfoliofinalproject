@@ -173,9 +173,11 @@ class CourseController extends Controller
 
         $coursecategory = Course::where('course_id', '=', $courseID)
         ->get();
+
+
         $category = json_decode($coursecategory);
         $returncategory = implode(",", array_column($category, "course_category"));
-
+        // dd($returncategory);
         $courseRandom = Course::where('course_category', 'LIKE', $returncategory)
         ->inRandomOrder()
         ->limit(3)

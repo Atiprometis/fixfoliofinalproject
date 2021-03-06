@@ -54,7 +54,7 @@
 
             <div class="table-responsive">
 
-                {!! Form::label('Course Learned','เรียนจบแล้วทำอะไรได้') !!}
+                {!! Form::label('Course Learned','เรียนจบแล้วได้อะไรบ้าง') !!}
 
                 <table class="table table-bordered" id="dynamic_field2">
 
@@ -111,7 +111,7 @@
                 <table class="table table-bordered" id="dynamic_field4">
                     <tr>
                         <td>
-                            <input type="text" name="course_youtube[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" required>
+                            <input type="text" name="course_youtube[]" placeholder="ประกอบอาชีพอะไรได้" class="form-control" >
                         </td>
                         <td>
                             <button type="button" name="add4" id="add4" class="btn btn-success">เพิ่ม</button>
