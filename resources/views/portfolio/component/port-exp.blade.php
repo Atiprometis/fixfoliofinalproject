@@ -1,6 +1,6 @@
 <div class=" d-flex flex-column w-100 col-9 p-0 m-0">
-    <div class="col-12 d-flex flex-column">
-        <h1 class="m-0 mt-2 p-0 font-weight-normal" style="font-size: 1.250em;   font-weight: bold;">คอร์สที่เรียนจบ</h1>
+    <div class="pl-3 pr-3 d-flex flex-column">
+        <h1 class=" m-0 mt-2 p-0 font-weight-normal" style="font-size: 1.250em;   font-weight: bold;">คอร์สที่เรียนจบ</h1>
         {{-- //เริ่ม  ทั้ทงหมด --}}
 
         <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">

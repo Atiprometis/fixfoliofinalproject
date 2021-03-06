@@ -140,9 +140,10 @@ class PortfolioController extends Controller
     //    dd($imagecoursefinals);
         // dd($imagecoursefinals);
      $expworks = Exp_work::where('user_id', '=', $id)->get();
-
+     $provinces = DB::table('provinces')
+     ->get();
         // echo $imagecourses;
-        return view('portfolio/profileedit')->with(compact('avatar_images', 'users','courseandimage','imagecoursefinals','expworks','profiledatas'));
+        return view('portfolio/profileedit')->with(compact('provinces','avatar_images', 'users','courseandimage','imagecoursefinals','expworks','profiledatas'));
     }
     public function updatestatusprofile(Request $request){
         $status_id = $request->input('status');
@@ -286,12 +287,15 @@ class PortfolioController extends Controller
                 'user_id' => $id,
                 'status' => 0,
                 ]);
-         }  else if($return == 1){
+
+         }
+         else if($return == 1){
             $user = ProfilePortfolio::firstOrCreate([
                 'user_id' => $id,
                 'status' => 1,
                 ]);
          }
+
          return back();
     }
 

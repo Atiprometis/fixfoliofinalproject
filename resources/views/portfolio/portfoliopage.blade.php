@@ -202,68 +202,7 @@
                         {{-- //เริ่ม  ทั้ทงหมด --}}
 
                         @include('portfolio.component.port-exp')
-                        {{-- <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
-                            <ul class="p-0 m-0">
-                                <li class="p-0 m-0">
-                                    @foreach($imagecourses as $imagecourse)
-                                    <div class=" d-flex flex-row pt-4">
-                                        <div class=" d-flex flex-column w-50 ml-2" >
-                                            <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">รุ่นที่ {{$imagecourse->generation}}</h1>
-                                            <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p>
-                                        </div>
-                                        <div class=" d-flex flex-column w-50">
-                                            <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$imagecourse->corse_name}}</h1>
-                                            <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$imagecourse->location}}</p>
-                                        </div>
-                                    </div>
 
-                                    <div class=" d-flex flex-row p-0 m-0 col-12 flex-wrap  justify-content-start ">
-                                        <ul class=" d-flex flex-row p-0 m-0 col-12 flex-wrap justify-content-start " id="listlimited">
-                                            @foreach ($imagecoursefinals as $imagecoursefinal)
-                                            <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;" >
-                                                <img class="hover-image" src="../courseimages/{{$imagecoursefinal->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
-
-                                            </li>
-                                            @endforeach
-                                            <li class="col-3 p-0 m-0 mt-2" id="myList">
-
-
-                                            </li>
-                                        </ul>
-                                        <ul class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></ul>
-                                    </div>
-                                    @endforeach
-                                </li>
-                            </ul>
-
-
-                        </div> --}}
-{{-- // ทั้ทงหมด --}}
-                    {{-- </div> --}}
-                    {{-- <div class="col-md-12 d-flex flex-column">
-                        <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
-                        <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
-                           @foreach ($expworks as $expwork)
-                           <ul class="p-0 m-0">
-                            <li class="p-0 m-0">
-                                <div class=" d-flex flex-row pt-4">
-                                    <div class=" d-flex flex-column w-50 ml-2" >
-                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$expwork->company}}</h1>
-
-                                    </div>
-                                    <div class=" d-flex flex-column w-50">
-                                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$expwork->position}}</h1>
-                                        <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$expwork->province}}</p>
-                                    </div>
-                                </div>
-                                <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
-                            </li>
-                        </ul>
-                           @endforeach
-
-
-                        </div>
-                    </div> --}}
                 </div>
             </div>
 

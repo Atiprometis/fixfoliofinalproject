@@ -148,20 +148,24 @@
             <div class="youtube-photo d-flex flex-column col-lg-12 mb-5 p-3">
             <div class=" col-lg-12 d-flex flex-column p-0  ml-2 ">
                     <h1 class="" style="font-size: 1.500em">วิดิโอคอร์สเรียน</h1>
+                    {{-- <p>{{ $callCourse_youtube }}</p> --}}
 
                         @foreach ($callCourse_youtube as $course_youtube )
-                            <label>
-                                <div class="youtube-link">
-                                    <div class=" d-flex flex-row justify-content-xl-between w-100">
-                                        <a href="{{$course_youtube->youtube_link}}">
-                                            <p class="p-0 m-0">ช่อง Youtube สำหรับคอร์สเรียน {{$courseAll->course_name}}</p>
-                                        </a>
-                                        <a href="{{$course_youtube->youtube_link}}"><i class="far fa-play-circle fa-2x"></i></a>
+                            @if ($course_youtube->youtube_link != null)
+                                <label>
+                                    <div class="youtube-link">
+                                        <div class=" d-flex flex-row justify-content-xl-between w-100">
+                                            <a href="{{$course_youtube->youtube_link}}">
+                                                <p class="p-0 m-0">ช่อง Youtube สำหรับคอร์สเรียน {{$courseAll->course_name}}</p>
+                                            </a>
+                                            <a href="{{$course_youtube->youtube_link}}"><i class="far fa-play-circle fa-2x"></i></a>
+                                        </div>
+                                        <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
                                     </div>
-                                    <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
-                                </div>
-                            </label>
+                                </label>
+                            @else
 
+                            @endif
                         @endforeach
             </div>
             </div>

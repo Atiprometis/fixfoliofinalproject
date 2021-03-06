@@ -7,9 +7,9 @@
                 <div class="" style="width: 30px ;background:#1787E2; border-radius: 5px;">
                     <i class="fas fa-pen fa-sm p-2  rounded" style="color: #fff"></i>
                 </div>
-                <div class=" d-flex flex-row">
+                <div class=" d-flex flex-row ">
                     <p class="m-0 p-2">อายุ </p>
-                    <input type="text" class="form-control outline-none aboutme rounded " maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" style="width: 100%;height: 100%;" name="profile_age"
+                    <input type="text" class="remove-border form-control aboutme rounded " maxlength="2" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" style="width: 100%;height: 100%;" name="profile_age"
                 id="profile_age" aria-describedby="profile_age" placeholder="อายุ"
                 {{-- @foreach($profiledatas as $user) --}}
                 value={{ $profiledatas['profile_age'] }}
@@ -32,14 +32,11 @@
                 value={{ $user->profile_sex }}
                 @endforeach
                 > --}}
-                <select class="form-control" id="exampleFormControlSelect1" name="profile_sex">
-
+                <select class="form-control border-0" id="exampleFormControlSelect1" name="profile_sex">
                     <option style="display: none">{{ $profiledatas['profile_sex'] }}</option>
-
                     <option>ชาย</option>
                     <option>หญิง</option>
-
-                  </select>
+                </select>
 
                 </div>
 
@@ -50,7 +47,7 @@
                 </div>
                 <div class=" d-flex flex-row">
                     <p class="m-0 p-2">สัญชาติ</p>
-                    <input type="text" class="form-control outline-none aboutme rounded " maxlength="20"  style="width: 100%;height: 100%;" name="profile_instinct"
+                    <input type="text" class=" remove-border form-control  aboutme rounded " maxlength="20"  style="width: 100%;height: 100%;" name="profile_instinct"
                 id="profile_instinct" aria-describedby="profile_instinct" placeholder=""
 
                 value={{ $profiledatas['profile_instinct'] }}
@@ -64,13 +61,19 @@
                 <div class="" style="width: 30px ;background:#1787E2; border-radius: 5px;">
                     <i class="fas fa-map-marker-alt fa-sm p-2  rounded" style="width: 30px;color: #fff"></i>
                 </div>
-                <div class=" d-flex flex-row ml-2">
-                    <input type="text" class="form-control outline-none aboutme rounded " maxlength="30"  style="width: 100%;height: 100%;" name="profile_province"
+                <div class=" d-flex flex-row w-100 ml-2">
+                    {{-- <input type="text" class="form-control outline-none aboutme rounded " maxlength="30"  style="width: 100%;height: 100%;" name="profile_province"
                 id="profile_province" aria-describedby="profile_province" placeholder="จังหวัดที่อยู่"
 
                 value={{ $profiledatas['profile_province'] }}
 
-                >
+                > --}}
+                <select class="custom-select border-0 w-100 "   name="profile_province" id="province-present">
+                    <option selected style="display: none" value="กรุงเทพมหานคร">จังหวัด</option>
+                    @foreach ($provinces as $province)
+                        <option value="{{ $province->name_th }}">{{ $province->name_th }}</option>
+                    @endforeach
+                </select>
                 </div>
 
 
@@ -80,14 +83,33 @@
 
                     <i class="fas fa-graduation-cap fa-sm p-2  rounded" style="color: #fff"></i>
                 </div>
-                <div class=" d-flex flex-row ml-2">
-                    <input type="text" class="form-control outline-none aboutme rounded " maxlength="30"  style="width: 100%;height: 100%;" name="profile_education"
+                <div class="w-100 d-flex flex-row ml-2">
+                    {{-- <input type="text" class="form-control outline-none aboutme rounded " maxlength="30"  style="width: 100%;height: 100%;" name="profile_education"
                 id="profile_education" aria-describedby="profile_education" placeholder="การศึกษา"
                 @foreach($users as $user)
                 value={{ $profiledatas['profile_education'] }}
                 @endforeach
-                >
+                > --}}
+                @php
+                $dataall = array('ไม่มี',
+                'ประถมศึกษาตอนต้น','ประถมศึกษาตอนปลาย',
+                'มัธยมศึกษาตอนต้น','มัธยมศึกษาตอนปลายหรือเทียบเท่า','อาชีวศึกษาหรือวิชาชีพ',
+                'ปริญญาตรีหรือเทียบเท่า','สูงกว่าปริญญาตรี',
+                );
+                @endphp
+
+                <select class="form-control border-0" id="exampleFormControlSelect1" name="profile_education">
+                    <option value="ไม่ระบุ" style="display: none">การศึกษา</option>
+                    @foreach ($dataall as $data)
+                    <option value="{{ $data }}">{{ $data }}</option>
+                    @endforeach
+                </select>
+
+
+
                 </div>
+
+
 
             </div>
             <h2 class="mt-4" style="font-weight: 400; font-size: 0.875em;">ช่องทางการติดต่อ</h2>
@@ -97,7 +119,7 @@
 
                 </div>
                 <div class=" d-flex flex-row ml-2">
-                    <input type="text" maxlength="30"  class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_facebook"
+                    <input type="text" maxlength="30"  class="form-control remove-border aboutme rounded " style="width: 100%;height: 100%;" name="profile_facebook"
                 id="profile_facebook" aria-describedby="profile_facebook" placeholder="ระบุ facebook"
                 @foreach($users as $user)
                 value={{ $profiledatas['profile_facebook'] }}
@@ -112,7 +134,7 @@
                 </div>
                 <div class=" d-flex flex-column ml-2">
 
-                    <input type="text" class="form-control outline-none aboutme rounded" pattern="[0]{1}[0-9]{9}"
+                    <input type="text" class="form-control remove-border aboutme rounded" pattern="[0]{1}[0-9]{9}"
                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" style="width: 100%;height: 100%;" name="profile_phone"
                     id="profile_phone" aria-describedby="profile_phone" placeholder="ระบุเบอร์โทร"
                 @foreach($users as $user)
@@ -129,7 +151,7 @@
                     <i class="fas fa-envelope fa-sm p-2  rounded" style="color: #fff"></i>
                 </div>
                 <div class=" d-flex flex-row ml-2">
-                    <input type="email" maxlength="40" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_email"
+                    <input type="email" maxlength="40" class="form-control remove-border aboutme rounded " style="width: 100%;height: 100%;" name="profile_email"
                 id="profile_email" aria-describedby="profile_email" placeholder="ระบุ E-mail"
                 @foreach($users as $user)
                 value={{ $profiledatas['profile_email'] }}
@@ -143,7 +165,7 @@
 
                 </div>
                 <div class=" d-flex flex-row ml-2">
-                    <input type="text"  class="form-control outline-none aboutme rounded " maxlength="20"  style="width: 100%;height: 100%;" name="profile_line"
+                    <input type="text"  class="form-control remove-border aboutme rounded " maxlength="20"  style="width: 100%;height: 100%;" name="profile_line"
                 id="profile_line" aria-describedby="profile_line" placeholder="ระบุ Line ID"
                 @foreach($users as $user)
                 value={{ $profiledatas['profile_line'] }}

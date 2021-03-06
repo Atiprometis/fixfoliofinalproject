@@ -49,7 +49,10 @@
                 <td>
 
                     @if ($course->status == 1)
-                    <p class="text-success">ตรวจสอบสำเร็จ</p>
+                    <a href="{{route('course-detail.show', $course->course_id)}}">
+                        <p class="text-success">ตรวจสอบสำเร็จ</p>
+                    </a>
+
                     @else
                     <p class=" text-danger">กำลังตรวจสอบ</p>
                     @endif

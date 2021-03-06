@@ -8,6 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
 
+
+
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     {{-- <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script> --}}
     {{-- <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}"> --}}

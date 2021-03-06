@@ -18,10 +18,10 @@ use App\Models\Corses\Course_type;
 use App\Models\Course_day;
 class FilterController extends Controller
 {
-    public function __construct()
-    {
-          $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //       $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -144,8 +144,10 @@ class FilterController extends Controller
         //     'month' => 'required',
         //     'learn' => 'required',
         // ]);
-
-        if($cost <= 500 ){
+         if($cost = 0 ){
+            $costfix = 0;
+        }
+        else if($cost <= 500 ){
             $costfix = 100;
         }
         else if($cost <= 1000){
@@ -157,8 +159,19 @@ class FilterController extends Controller
         else if($cost > 2000){
             $costfix = 2000;
         }
-        // dd($costfix);
-        if($cost <= 2000){
+
+        if($cost == 0){
+            $allcourses = Course::select('*')
+            ->where( 'course_cost', '<=' , $cost )
+            // ->where( 'course_cost', '>=' , $costfix )
+            ->where('course_category','LIKE','%'.$typecourse.'')
+            ->whereMonth('course_open', '=', $month)
+            ->where('course_online','LIKE',''.$learn.'%')
+            ->where( 'status', '=' ,1 )
+            ->paginate(6);
+        }
+
+        else if($cost <= 2000){
             $allcourses = Course::select('*')
         ->where( 'course_cost', '<=' , $cost )
         ->where( 'course_cost', '>=' , $costfix )
@@ -167,7 +180,7 @@ class FilterController extends Controller
         ->where('course_online','LIKE',''.$learn.'%')
         ->where( 'status', '=' ,1 )
         ->paginate(6);
-        // ->get();
+
         }
          if($cost > 2000){
             $allcourses = Course::select('*')
@@ -178,7 +191,7 @@ class FilterController extends Controller
         ->where('course_online','LIKE',''.$learn.'%')
         ->where( 'status', '=' ,1 )
         ->paginate(6);
-        // ->get();
+
         }
 
         $thumbnail = Course_thumbnail::select(

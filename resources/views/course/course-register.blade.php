@@ -25,7 +25,7 @@
 
             <div class="col-12 d-flex  flex-column  ">
 
-                {!! Form::open(['url' => 'courseprint', 'method'=>'post','class'=>'needs-validation was-validated','id'=>'checkregister','novalidate']) !!}
+                {!! Form::open(['url' => 'courseprint', 'method'=>'post','class'=>'needs-validation ','id'=>'checkregister',]) !!}
                 {{-- <form class="needs-validation was-validated" > --}}
 
                     <input type="text" name="course_id" value="{{ $course_id }}" style="display: none">

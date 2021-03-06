@@ -1,9 +1,9 @@
-<div class=" d-flex flex-column w-100 col-9 p-0 m-0">
-    <div class="col-12 d-flex flex-column">
+<div class=" d-flex  flex-column col-9 p-0 m-0">
+    <div class="pr-3 pl-3 d-flex flex-column">
         <h1 class="m-0 mt-2 p-0 font-weight-normal" style="font-size: 1.250em;   font-weight: bold;">คอร์สที่เรียนจบ</h1>
         {{-- //เริ่ม  ทั้ทงหมด --}}
 
-        <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
+        <div class="mt-2  col-sm-12 p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
             <ul class="p-0 m-0">
                 <li class="p-0 m-0">
                     @foreach($courseandimage as $imagecourse)
@@ -136,6 +136,7 @@
                     @endforeach
                 </li>
             </ul>
+
             {{-- <a id="opener" > --}}
             <label data-toggle="modal" data-target="#addExpfinal" class=" p-0 pt-3 mt-1 m-0 ">
                 <div class=" p-0 m-0 d-flex justify-content-center align-items-center text-center" style="width: 100%; height:50px; border-radius:10px;background-color: #8541B4;color:#fff;cursor: pointer;">เพิ่มประสบการณ์</div>
@@ -144,11 +145,7 @@
 
     </div>
 
-
-
-
-
-    <div class="col-12 d-flex flex-column">
+    <div class="col-md-12 mb-5 d-flex flex-column" style="height: 300px">
         <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
         <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
            @foreach ($expworks as $expwork)

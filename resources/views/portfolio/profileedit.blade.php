@@ -67,20 +67,21 @@
                 </div>
                 <div class="profile rounded col-12 d-flex flex-row  mt-3 mb-3 align-items-start">
                     {{-- << รูป profile >> --}}
-                    <div class="card p-3 col-3" style=" height: 360px">
+                    <div class="card p-3 col-3" style=" height: 360px;">
                         <label>
                         @if ($avatar_images[0]['avatar_path'] != null)
                         @foreach($avatar_images as $avatar_image)
-                        <img class="card-img-top rounded" src='../avatar/{{ Auth::user()->id }}/{{ $avatar_image->avatar_path }}'   alt="Card image cap" style="height: 250px;">
+                            <img class="card-img-top rounded w-auto" src='../avatar/{{ Auth::user()->id }}/{{ $avatar_image->avatar_path }}' id="uploadPreview"   alt="Card image cap" style="height: 250px; cursor: pointer;">
                         @endforeach
                         @else
-                        <img class="card-img-top rounded" src='../access/imageweb/user2.png' style="cursor: pointer" alt="Card image cap" style="height: 250px;">
+                            <img class="card-img-top rounded" src='../access/imageweb/user2.png' id="uploadPreview" style="cursor: pointer" alt="Card image cap" style="height: 250px;">
                         @endif
 
                         <form action="{{ url('/upload') }}" method="POST" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 {{ method_field('POST') }}
-                        <input type="file" name="image" style="display: none">
+
+                        <input type="file" name="image" onchange="PreviewImage();" id="uploadImage"  style="display: none">
                         </label>
                         <small>คลิ๊กที่รูปเพื่อเลือกรูป</small>
                                 <button type="submit" class="btn btn-light mt-2" style="width: 100%; border-radius: 20px;">กดเพื่ออัพโหลดรูป</button>

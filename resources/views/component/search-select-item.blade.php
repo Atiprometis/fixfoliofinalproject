@@ -10,7 +10,7 @@
 
 
 
-        <div class="select-item ml-1 d-flex justify-content-center align-items-center mr-1 ">
+        <div class="select-item ml-1 p-2 d-flex justify-content-center align-items-center mr-1 ">
             <div class="form-group select-item-item p-0 m-0 rounded d-flex justify-content-center align-items-center" >
                     <i class="fas fa-map-marker-alt fa-lg select-icon ml-1 mr-1 pl-1 pr-1"></i>
                     <select class="form-control selectpicker  shadow-none p-1 pr-1 w-100 " name="cost" id="exampleFormControlSelect1"  >
@@ -26,7 +26,7 @@
 
 
 
-        <div class="select-item ml-1 d-flex justify-content-center align-items-center mr-1 ">
+        <div class="select-item ml-1 p-2 d-flex justify-content-center align-items-center mr-1 ">
             <div class="form-group select-item-item p-0 m-0 rounded d-flex justify-content-center align-items-center" >
                     <i class="fas fa-list fa-lg select-icon ml-1 mr-1 pl-1 pr-1"></i>
                     <select class="form-control selectpicker btn p-1 pr-1 w-100 " name="typecourse" id="selectBox"  >
@@ -42,10 +42,10 @@
             $monuts = array('มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม');
         ?>
 
-        <div class="select-item ml-1 d-flex justify-content-center align-items-center mr-1 ">
+        <div class="select-item ml-1 p-2 d-flex justify-content-center align-items-center mr-1 ">
             <div class="form-group select-item-item p-0 m-0 rounded d-flex justify-content-center align-items-center" >
                 <i class="fas fa-calendar-day fa-lg select-icon ml-1 mr-1"></i>
-                    <select class="form-control selectpicker btn p-2 pr-2 w-75" name="month" id="exampleFormControlSelect1"  >
+                    <select class="form-control selectpicker btn p-0 pr-2 w-75" name="month" id="exampleFormControlSelect1"  >
                         <option value="0" style="display: none">เดือน</option>
                         @foreach ($monuts as $index=>$month)
                          <option value="{{ $index+1 }}">{{ $month }}</option>
@@ -54,7 +54,7 @@
             </div>
         </div>
 
-        <div class="select-item ml-1 d-flex justify-content-center align-items-center mr-1 ">
+        <div class="select-item ml-1 p-2 d-flex justify-content-center align-items-center mr-1 ">
             <div class="form-group select-item-item p-0 m-0 rounded d-flex justify-content-center align-items-center" >
                 <i class="fas fa-door-open fa-lg select-icon ml-1 mr-1 pl-1 pr-1"></i>
                     <select class="form-control selectpicker btn p-1 pr-1 w-100" name="learn" id="exampleFormControlSelect1"  >

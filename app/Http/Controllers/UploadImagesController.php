@@ -36,7 +36,7 @@ class UploadImagesController extends Controller
          $id = Auth::id();
 
          $flight = UploadImages::firstOrCreate(['user_id' => $id]);
-         $user = ProfilePortfolio::firstOrCreate(['user_id' => $id]);
+        //  $user = ProfilePortfolio::firstOrCreate(['user_id' => $id]);
         //  $flight = UploadImages::create([
         //     'user_id' => $id,
         // ]);
