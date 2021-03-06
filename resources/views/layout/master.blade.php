@@ -8,7 +8,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
 
-
+    <link rel="icon" href="{{ URL::asset('access/favicon/favicon-16x16.png') }}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ asset('access/favicon/favicon-16x16.png') }}">
+    {{-- <link rel="shortcut icon" href="{{ asset('favicon/favicon-16x16.png') }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     {{-- <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script> --}}

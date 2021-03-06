@@ -26,14 +26,23 @@
             <label for="exampleInputEmail1">email</label>
             <input type="email" maxlength="100" class="form-control" name="email" aria-describedby="emailHelp" placeholder="ใส่ email" required>
           </div>
-        <div class="form-group">
+        <div class="form-group d-flex flex-column w-100">
             <label for="exampleInputEmail1">เจ้าของโรงเรียน</label>
-            <select class="custom-select" name="schools_owner" multiple>
+            <select class="selectpicker border border-success  w-100" name="schools_owner" data-live-search="true">
+                <option data-tokens="ketchup mustard" style="display: none">เลือกเจ้าของโรงเรียน</option>
+                {{-- <option data-tokens="mustard">Burger, Shake and a Smile</option>
+                <option data-tokens="frosting">Sugar, Spice and all things nice</option> --}}
+                @foreach ($userall as $user)
+                <option value="{{$user->id}}" data-tokens="{{$user->id}}">{{$user->id}} {{$user->name}} {{$user->lastname}}</option>
+                @endforeach
+              </select>
+
+            {{-- <select class="custom-select" name="schools_owner" multiple>
                 @foreach ($userall as $user)
                 <option value="{{$user->id}}">{{$user->id}} {{$user->name}} {{$user->lastname}}</option>
                 @endforeach
-              </select>
-          </div>
+              </select> --}}
+        </div>
 
           <div class=" d-flex justify-content-center col-md-12 mt-2 mb-4">
             <button type="submit" class="btn btn-primary">ยืนยัน</button>

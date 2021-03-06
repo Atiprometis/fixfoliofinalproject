@@ -55,8 +55,8 @@
                                 <div class="w-100 d-flex flex-column justify-content-xl-center">
                                     <div class=" d-flex flex-row mt-3 mb-3 justify-content-xl-center align-items-center">
                                         <button  type="submit" class="btn text-light ml-2 mr-2 " style="background-color: #741CC7;border-radius: 20px;">{{ __('เข้าสู่ระบบ') }}</button>
-                                        <p class="p-0 m-0">หรือ</p>
-                                        <button type="submit" class="btn text-light ml-2 mr-2" style="background-color: #4151F0;border-radius: 20px;" >FACEBOOK</button>
+                                        {{-- <p class="p-0 m-0">หรือ</p>
+                                        <button type="submit" class="btn text-light ml-2 mr-2" style="background-color: #4151F0;border-radius: 20px;" >FACEBOOK</button> --}}
 
                                     </div>
                                     <small id="passwordlHelp" class="form-text text-muted d-flex justify-content-center m-t-20">คุณยังไม่ได้ลงทะเบียนใช่หรือไม่? <a class="register-text" href="/register">ลงทะเบียน</a></small>

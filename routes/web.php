@@ -95,6 +95,10 @@ Route::post('/addExpp', 'CreateCourseFinalController@create');
 
 Route::post('/testexp', 'CreateCourseFinalController@test');
 
+Route::get('/destroyExpwork/{exp_works_id}', 'CreateCourseFinalController@destroyExpwork');
+
+Route::get('/contact', 'HomeController@contact');
+
 Route::get('/dashbord', 'DashbordController@index')->middleware('admin');
 Route::get('/dashcourse', 'DashbordController@dashcourse')->middleware('admin');
 

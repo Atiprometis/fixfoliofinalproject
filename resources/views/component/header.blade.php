@@ -24,7 +24,7 @@
                     <a class="nav-link text-light"style="font-weight: 300;" href="/searchportfolio">ค้นหาผลงาน<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="#">ติดต่อเรา <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light"style="font-weight: 300;" href="/contact">ติดต่อเรา <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
 
