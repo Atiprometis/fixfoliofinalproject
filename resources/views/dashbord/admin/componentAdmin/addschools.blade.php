@@ -8,23 +8,23 @@
 
         <div class="form-group">
             <label for="exampleFormControlTextarea1">ประวัติ</label>
-            <textarea class="form-control" name="schools_detail"  id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control textarea-grow" oninput="auto_grow(this)" name="schools_detail"  id="exampleFormControlTextarea1"  maxlength='4000'></textarea>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">facebook</label>
-            <input type="text" class="form-control" name="facebook" maxlength="20" aria-describedby="emailHelp" placeholder="ใส่ชื่อfacebook" required>
+            <input type="text" class="form-control" name="facebook" maxlength="50" aria-describedby="emailHelp" placeholder="ใส่ชื่อfacebook" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">โทรศัพท์</label>
-            <input type="text" class="form-control" name="phone" aria-describedby="emailHelp" pattern="[0]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" placeholder="ใส่เบอร์โทรศัพท์" required>
+            <input type="text" class="form-control" name="phone" aria-describedby="emailHelp" pattern="[0]{1}[0-9]{7-9}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" placeholder="ใส่เบอร์โทรศัพท์" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">line</label>
-            <input type="text" class="form-control" name="line" aria-describedby="emailHelp" maxlength="18" placeholder="ใส่ไอดีline" required>
+            <input type="text" class="form-control" name="line" aria-describedby="emailHelp" maxlength="30" placeholder="ใส่ไอดีline" required>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">email</label>
-            <input type="email" maxlength="20" class="form-control" name="email" aria-describedby="emailHelp" placeholder="ใส่ email" required>
+            <input type="email" maxlength="100" class="form-control" name="email" aria-describedby="emailHelp" placeholder="ใส่ email" required>
           </div>
         <div class="form-group">
             <label for="exampleInputEmail1">เจ้าของโรงเรียน</label>

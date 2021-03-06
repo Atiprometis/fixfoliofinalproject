@@ -144,10 +144,11 @@ class PortfolioController extends Controller
         // echo $imagecourses;
         return view('portfolio/profileedit')->with(compact('avatar_images', 'users','courseandimage','imagecoursefinals','expworks','profiledatas'));
     }
-    public function updatestatusprofile(Request $request,$id){
+    public function updatestatusprofile(Request $request){
+        $status_id = $request->input('status');
         // dd($id);
         $iduser = Auth::id();
-         if($id != 0){
+         if($status_id != 0){
             ProfilePortfolio::where('user_id', '=', $iduser)
             ->update([
                 'status' => 0

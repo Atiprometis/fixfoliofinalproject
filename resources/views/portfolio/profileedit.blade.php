@@ -16,14 +16,16 @@
                         <input type="checkbox" class="success inline checkbox"  name="acceptRules" id="checkbox1" value="ปิดหางาน">
                         <span class="slider round pl-2 pr-2"></span>
                     </label> --}}
-
-
-                    {!! Form::open(array('route' => array('update.profile', $profiledatas->status),'method' => 'get', )) !!}
+                    <form action="/updatestatusprofile" method="GET">
+                        @csrf
+                    {{-- {!! Form::open(array('route' => array('update.profile', $profiledatas->status),'method' => 'get', )) !!} --}}
                     @if ($profiledatas->status != 0)
+                    <input type="text" value="{{ $profiledatas->status }}" name="status" style="display: none">
                         <div class=" mt-1 mr-2 p-2" >
                             <button type="button" class="btn text-light" data-toggle="modal" style="background-color: #CCCCCC" data-target="#modelId">ปิดหางาน</button>
                         </div>
                     @else
+                    <input type="text" value="0" name="status" style="display: none">
                         <div class="mr-2 mt-1 p-2">
                             <button type="button" class="btn text-light" data-toggle="modal" style="background-color: #69299C" data-target="#modelId">เปิดหางาน</button>
                         </div>
@@ -55,7 +57,8 @@
                             </div>
                         </div>
                     </div>
-                    {!! Form::close() !!}
+                    {{-- {!! Form::close() !!} --}}
+                    </form>
                     {{-- <div class=" d-flex align-items-center ml-2 mr-5">
                         <label for="customSwitch1" class="m-0 mt-1 ml-2" >
                             <div id="checkbox-value"></div>

@@ -149,12 +149,56 @@ class AdminController extends Controller
             'courses.course_online',
             'courses.status',
             'schools.schools_name',
+            'course_thumbnails.thumbnails_images',
+            'courses.image_herobanner',
         )
         ->join('schools', 'schools.schools_id', '=', 'courses.course_school')
+        ->join('course_thumbnails','course_thumbnails.course_id','=','courses.course_id')
         ->get();
 
+        $courseDay =  Course_day::select(
+            'day_id',
+            'course_final_id',
+            'course_day'
+        )
+            ->distinct('course_final_id')
+            ->get();
 
-        return view('dashbord.admin.approvecourse')->with(compact('courseallForSchool'));
+            $Coursecareer = Course_career::select(
+                'courses.course_id',
+                'course_career.course_career_detail'
+
+          )
+            ->join('courses','courses.course_id','=','course_career.course_id')
+            ->get();
+
+            $Courselearn = Course_learn::select(
+                'courses.course_id',
+                'course_learn.course_learnning_detail'
+
+          )
+            ->join('courses','courses.course_id','=','course_learn.course_id')
+            ->get();
+
+            $Courseresult = Course_result::select(
+                'courses.course_id',
+                'course_result.course_learn_finish_detail'
+
+          )
+            ->join('courses','courses.course_id','=','course_result.course_id')
+            ->get();
+
+            $Courseyoutube = Course_youtube::select(
+                'courses.course_id',
+                'course_youtube.youtube_link'
+
+          )
+            ->join('courses','courses.course_id','=','course_youtube.course_id')
+            ->get();
+
+
+
+        return view('dashbord.admin.approvecourse')->with(compact('courseallForSchool','courseDay','Courselearn','Courseyoutube','Courseresult','Coursecareer'));
     }
 
     public function approve($id)

@@ -50,7 +50,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             @if (Auth::user()->role == 'superadmin')
                                 <li>
-                                    <a class="dropdown-item" href="/admin">
+                                    <a class="dropdown-item" href="/showschool">
                                         <i class="fas fa-user-shield"></i>
                                         แอดมิน Dashboard
                                     </a>

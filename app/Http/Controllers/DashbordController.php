@@ -18,6 +18,7 @@ use App\Models\Corses\Course_youtube;
 use App\Models\Corses\Course_thumbnail;
 use App\Models\Corses\Course_type;
 use Dotenv\Result\Result;
+use App\Models\Corses\Data_course_register;
 
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\Environment\Console;
@@ -35,6 +36,9 @@ class DashbordController extends Controller
      */
     public function index()
     {
+        $data =  Data_course_register::select('course_id')
+        ->get();
+
         return view('dashbord.dashbord');
     }
     public function dashcourse()
@@ -331,7 +335,8 @@ class DashbordController extends Controller
             'courses.course_online',
             'courses.status',
             'schools.schools_name',
-            'course_thumbnails.thumbnails_images'
+            'course_thumbnails.thumbnails_images',
+            'courses.image_herobanner',
         )
         ->join('schools', 'schools.schools_id', '=', 'courses.course_school')
         ->join('course_thumbnails','course_thumbnails.course_id','=','courses.course_id')

@@ -59,7 +59,7 @@ Route::resource('/institution', 'InstitutionController');
 Route::post('searchinstitution', 'InstitutionController@store');
 
 Route::get('/profileedit', 'PortfolioController@profileedit');
-Route::get('/updatestatusprofile/{id}', 'PortfolioController@updatestatusprofile')->name('update.profile');
+Route::get('/updatestatusprofile', 'PortfolioController@updatestatusprofile');
 
 Route::post('/updateprofile', 'PortfolioController@updateprofile');
 Route::get('/updateFnameSname', 'PortfolioController@updateFnameSname');

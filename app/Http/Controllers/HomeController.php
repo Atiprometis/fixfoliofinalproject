@@ -23,16 +23,17 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-         $this->middleware('auth');
-    }
+
+    // public function __construct()
+    // {
+    //      $this->middleware('auth');
+    // }
 
 
 
     public function index()
     {
-          $id = Auth::user()->role;
+        //   $id = Auth::user()->role;
 
 //        SELECT course_detail.course_id,course_detail.course_name,course_learn_finish.course_learn_finish_detail
 //        FROM course_detail

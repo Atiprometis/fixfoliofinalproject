@@ -9,13 +9,14 @@
                 <div class="form-group col-md-6 offset-md-3 col-sm-12 p-0">
 
                     {!! Form::label('course_name','ชื่อคอร์ส') !!}
-                    {!! Form::text('course_name',null,["class"=>"form-control",'required']) !!}
+                    {!! Form::text('course_name',null,["class"=>"form-control",'required','maxlength'=>"50"]) !!}
+
 
                 </div>
                 <div class="form-group col-md-6 offset-md-3 col-sm-12 p-0">
 
                     {!! Form::label('course_category','หมวดหมู่','required') !!}
-                    <select class="form-control" id="exampleFormControlSelect1" name="course_category">
+                    <select class="form-control" id="exampleFormControlSelect1"   name="course_category">
                         @foreach ($course_type as $type)
                         <option>{{ $type->type_name }}</option>
                         @endforeach
@@ -26,13 +27,13 @@
                 <div class="form-group col-md-6 offset-md-3 col-sm-12 p-0">
 
                     {!! Form::label('course_cost','ราคา') !!}
-                    {!! Form::number('course_cost',null,["class"=>"form-control",'required']) !!}
-
+                    {{-- {!! Form::text('course_cost',null,["class"=>"form-control",'required','maxlength'=>"5",'oninput'=>"this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"]) !!} --}}
+                    <input type="text" name="course_cost" class="form-control" maxlength="5" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required>
                 </div>
                 <div class="form-group col-md-6 offset-md-3 col-sm-12 p-0">
 
                     {!! Form::label('course_detail','รายละเอียดคอร์ส') !!}
-                    {!! Form::textarea('course_detail',null,["class"=>"form-control",'required']) !!}
+                    {!! Form::textarea('course_detail',null,["class"=>"form-control",'required','maxlength'=>"400"]) !!}
 
                 </div>
 

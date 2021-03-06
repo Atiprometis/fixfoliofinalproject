@@ -15,26 +15,18 @@
                     <div class="ml-2 scrollDiv" style="background-color: #fff;">
                         <div class="allcard d-flex flex-row mt-3 mb-3 justify-content-sm-around">
                             <div class="card" style="width: 18rem;">
-                                <div class="card-body">
+                                <div class="card-body text-center">
                                   <h5 class="card-title">คอร์สเรียนทั้งหมด</h5>
-                                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                  <h6 class="card-subtitle mb-2 text-muted"></h6>
+                                  <h1 class="card-text pt-5 pb-3">12</h1>
 
                                 </div>
                               </div>
                               <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                  <h5 class="card-title">คอร์สที่จำนวนคนสมัครเยอะที่สุด</h5>
-                                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                                </div>
-                              </div>
-                              <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                  <h5 class="card-title">Card title</h5>
-                                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <div class="card-body text-center" style="height: 250px">
+                                  <h5 class="card-title">คอร์สคนสมัครเยอะที่สุด</h5>
+                                  <h6 class="card-subtitle mb-2 text-muted"></h6>
+                                  <h2 class="card-text pt-5 pb-3 ">,kssdfsdfsdfsdfsdfsdfsdfsdfsdf</h2>
 
                                 </div>
                               </div>
@@ -46,6 +38,7 @@
 
                                 </div>
                               </div>
+
                         </div>
 
 

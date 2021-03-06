@@ -8,7 +8,7 @@
         <div class="row">
             <div class=" d-flex flex-row justify-content-end col-md-12">
                 <div class=" d-flex flex-row align-items-center  justify-content-center ">
-                    <a href="/profileedit" class="btn d-flex flex-row align-items-center  justify-content-center">
+                    <a href="/profileedit" class="btn d-flex  flex-row align-items-center  justify-content-center" style="color: #000;">
                         <i class="fas fa-pen fa-lg p-2"></i>
                         <p class="p-0 m-0">แก้ไขประวัติ</p>
                     </a>
@@ -197,7 +197,7 @@
                 </div>
 
                 <div class=" d-flex flex-column w-100 col-12 p-0 m-0">
-                    <div class=" col-12 d-flex flex-ro m-0 p-0">
+                    {{-- <div class=" col-12 d-flex flex-ro m-0 p-0"> --}}
 
                         {{-- //เริ่ม  ทั้ทงหมด --}}
 
@@ -239,7 +239,7 @@
 
                         </div> --}}
 {{-- // ทั้ทงหมด --}}
-                    </div>
+                    {{-- </div> --}}
                     {{-- <div class="col-md-12 d-flex flex-column">
                         <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
                         <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
@@ -273,3 +273,4 @@
 
 @endsection
 
+{{-- @include('footer.footer') --}}

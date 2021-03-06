@@ -39,34 +39,34 @@
                         </div>
                     </div>
                     {!! Form::open(array('url' => 'editDataschool', 'method'=>'post' ,'enctype' => 'multipart/form-data' )) !!}
-                    <div class="aboutme rounded p-3 " >
+                    <div class="aboutme  p-3 border-bottom-0" style="border: solid 1px #69299C;">
                         <div class=" d-flex flex-row">
                             <h1 style="font-size: 1.250em;   font-weight: 400;">คอร์สเรียนทั้งหมด</h1>
                             <h1 class="ml-2" style="font-size: 1.250em;   font-weight: 400; color: #69299C;">{{ $countschool }}</h1>
                         </div>
-                        <textarea  class="form-control" style="resize: none;height: 150px;" name="schools_detail" id="profile_aboutme" style=" height: 80%;"
-                             aria-label="aaaad" maxlength="500"
+                        <textarea  class="form-control textarea-grow " oninput="auto_grow(this)" style="resize: none;height: 150px;" name="schools_detail" id="profile_aboutme" style=" height: 80%;"
+                             aria-label="aaaad" maxlength='1000'
                             >{{ $schoolsdetails->schools_detail }}</textarea>
                     </div>
-                    <div class="col-md-12 d-flex flex-row  justify-content-start">
-                        <div class="d-flex col-md-3 p-0 m-0 ml-1 mr-1 flex-column form-group">
+                    <div class="col-md-12 d-flex flex-row p-2  border-top-0 justify-content-start flex-wrap" style="border: solid 1px #69299C;">
+                        <div class="d-flex col-md-5 p-0 m-0 ml-1 mr-1 flex-column form-group">
                             <small>facebook</small>
-                            <input class="form-control" value="{{ $schoolsdetails->facebook }}" name="school_facebook" maxlength="20" type="text"placeholder="ระบุ facebook" >
+                            <input class="form-control" value="{{ $schoolsdetails->facebook }}" name="school_facebook" maxlength="50" type="text"placeholder="ระบุ facebook" >
                         </div>
                         <div class="d-flex col-md-2 p-0 m-0 ml-1 mr-1 flex-column form-group">
                             <small>เบอร์โทรศัพท์</small>
                             <input class="form-control" value="{{ $schoolsdetails->phone }}" name="school_phone" pattern="[0]{1}[0-9]{9}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" type="text" placeholder="เบอร์โทรศัพท์">
                         </div>
-                        <div class="d-flex col-md-2 p-0 m-0 ml-1 mr-1 flex-column form-group">
+                        <div class="d-flex col-md-4 p-0 m-0 ml-1 mr-1 flex-column form-group">
                             <small>line</small>
-                            <input class="form-control" value="{{ $schoolsdetails->line }}" name="school_line" maxlength="18"  type="text" placeholder="ใส่ line">
+                            <input class="form-control" value="{{ $schoolsdetails->line }}" name="school_line" maxlength="30"  type="text" placeholder="ใส่ line">
                         </div>
-                        <div class="d-flex col-md-3 p-0 m-0 ml-1 mr-1 flex-column form-group">
+                        <div class="d-flex col-md-12 p-0 m-0 ml-1 mr-1 flex-column form-group">
                             <small>e-mail</small>
-                            <input class="form-control" value="{{ $schoolsdetails->email }}" name="school_email" type="email" maxlength="20" placeholder="ระบุ e-mail">
+                            <input class="form-control" value="{{ $schoolsdetails->email }}" name="school_email" type="email" maxlength="100" placeholder="ระบุ e-mail">
                         </div>
-                        <div class="p-0 m-0 d-flex align-items-end w-100 justify-content-center col-md-2">
-                            <button class="btn text-light" style="background-color: #9B4BB0;">บันทึก</button>
+                        <div class="p-0 mt-3 d-flex align-items-end w-100  justify-content-center col-md-12">
+                            <button class="btn text-light w-100" style="background-color: #9B4BB0;">บันทึก</button>
                         </div>
                     </div>
                     {!! Form::close() !!}

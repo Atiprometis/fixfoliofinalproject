@@ -50,15 +50,11 @@
         </div>
 
     </div>
-
-
-
-
-
-    <div class="col-12 mb-5 d-flex flex-column">
+    <div class="col-md-12 mb-5 d-flex flex-column" style="height: 300px">
         <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
-        <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
-           @foreach ($expworks as $expwork)
+        <div  class="mt-2 mb-4  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column " style="border-radius: 15px; border: solid 1px #c1c1c1;">
+
+            @foreach ($expworks as $expwork)
            <ul class="p-0 m-0">
             <li class="p-0 m-0">
                 <div class=" d-flex flex-row pt-4">

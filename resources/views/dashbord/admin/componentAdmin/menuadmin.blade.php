@@ -3,11 +3,11 @@
     <div class="line" style="height: 1px; background-color:#000;"></div>
     <ul class="list-unstyled">
 
-        <a href="/admin"><li class=" d-flex flex-row justify-content-been align-items-center">
+        {{-- <a href="/admin"><li class=" d-flex flex-row justify-content-been align-items-center">
 
                 <i class="fas fa-chart-line ml-3"></i>
                 <p class="m-1 ml-3">dashboard ADMIN</p>
-        </li></a>
+        </li></a> --}}
         <a href="/showschool">
             <li class=" d-flex flex-row justify-content-been align-items-center">
 
