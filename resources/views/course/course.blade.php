@@ -10,10 +10,10 @@
             <div class="row">
                 <div class="col-12 mt-3 mb-4 ">
 
-                    <div class="col-md-12 mt-3 position-relative d-flex flex-row flex-wrap " >
+                    <div class=" mt-3 position-relative d-flex flex-row flex-wrap " >
                 @foreach ($course_type as $index=>$type)
 
-                        <div class="col-md-2 mt-4 position-relative  p-0 m-0 pl-3 pr-2 ">
+                        <div class="col-6 col-md-3 col-lg-2 mt-4 position-relative  p-0 m-0 pl-3 pr-2 ">
                             {!! Form::open(array('url' => 'linkfilter', 'method'=>'get' )) !!}
                             <label>
                             <p class="text-c text-light m-0  w-100 " style="cursor: pointer;">{{ $type->type_name }}</p>
@@ -28,7 +28,7 @@
 
                 @endforeach
 
-                    <div class="col-md-2 mt-4 position-relative  p-0 m-0 pl-3 pr-2">
+                    <div class="col-6 col-md-3 mt-4 position-relative  p-0 m-0 pl-3 pr-2">
                         {!! Form::open(array('url' => 'linkfilter', 'method'=>'get' )) !!}
                         <label>
                         <p class="text-c text-light m-0  w-100 " style="cursor: pointer;">ทั้งหมด</p>
@@ -73,18 +73,7 @@
                         <h1 class="p-0 m-0 ml-2 mt-5 mb-2" style="font-size: 1.750em;">คอร์สเรียนทั้งหมด
 
                         </h1>
-                            {{-- <div class=" d-flex flex-row">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input  " type="checkbox" id="inlineCheckbox1" value="option1">
-                                    <label class="form-check-label" for="inlineCheckbox1">เรียนออนไลน์</label>
-                                  </div>
-                                  <div class="form-check form-check-inline">
-                                    <input class="form-check-input " type="checkbox" id="inlineCheckbox2" value="option2">
-                                    <label class="form-check-label" for="inlineCheckbox2">เรียนที่ศูนย์ฝึกอบรม</label>
-                                  </div>
 
-                                <p class="p-0 m-2"></p>
-                            </div> --}}
                     </div>
                     <div class="col-12 p-0 m-0">
                         @php
@@ -95,7 +84,7 @@
                     {{-- <a href="/coursedetail/{{$course->course_id}}" style="color: inherit;"> --}}
                                 <a href="{{route('course-detail.show', $course->course_id)}}" style="color: inherit;">
 
-                                    <div class=" col-4  p-2   float-left " >
+                                    <div class=" col-12 col-md-6 col-lg-4  p-2   float-left " >
                                         <div class=" w-100 " >
                                                 <div class=" position-relative">
                                                     <div class="d-flex flex-row w-100 justify-content-md-end p-3 position-absolute">
@@ -167,7 +156,7 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col col-12 d-flex justify-content-end">
+                    <div class="col col-12 d-flex justify-content-center justify-content-md-end">
                         {!! $allcourses->render() !!}
                     </div>
                 </div>

@@ -7,12 +7,12 @@
         <div class="row">
             <div class="col-12 d-flex flex-column p-0 m-1">
                 <div class=" col-12 w-100 p-0 m-0 mt-5 search-institution">
-                    <h1 style="font-size: 1.750em;">ค้นหาคนที่ใช่</h1>
+                    <h1 class=" text-center text-md-left" style="font-size: 1.750em;color:#69299C;">ค้นหาคนที่ใช่</h1>
                     {!! Form::open(['url' => 'searchuser', 'method'=>'POST']) !!}
-                            <div class=" d-flex flex-column mb-5">
-                                <div class=" d-flex flex-row">
-                                    <input type="search" name="search" class="form-control mr-3 " style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
-                                    <button class="btn " type="submit" style="background-color: #F9C226; width:150px; border-radius: 20px;"> ค้นหา</button>
+                            <div class=" d-flex flex-column mb-5 ">
+                                <div class=" d-flex flex-column flex-md-row justify-content-center align-items-center flex-wrap">
+                                    <input type="search" name="search" class="form-control  col-12  m-0" style="border-radius: 20px;" id="InputInstitution" aria-describedby="InputInstitution" placeholder="ค้นหา">
+                                    <button class="btn mt-3  p-2 m-0" type="submit" style="background-color: #F9C226; width:150px; border-radius: 20px;"> ค้นหา</button>
                                 </div>
 
                             </div>
@@ -21,9 +21,9 @@
                 </div>
 
                     <div class=" d-flex w-100 flex-column">
-                        <h1 class="p-0 m-0 ml-2" style="font-size: 1.750em;">คนที่น่าจะใช่สำหรับธุรกิจของคุณ</h1>
-                        <div class="d-flex flex-row mt-3 mb-3 w-100 text-institution align-items-end justify-content-between">
-                            <p class="p-0 m-0 ml-2">ว่าจ้าง และหาคนทำงานให้กับธุรกิจของคุณ</p>
+                        <h1 class="p-0 m-0 ml-2" style="font-size: 2.5vh;">คนที่น่าจะใช่สำหรับธุรกิจของคุณ</h1>
+                        <div class="d-flex flex-row mt-1 mb-3 w-100 text-institution align-items-end justify-content-between">
+                            <p class="p-0 m-0 ml-2" style="font-size: 1.8vh;">ว่าจ้าง และหาคนทำงานให้กับธุรกิจของคุณ</p>
                             <div class=" d-flex flex-row">
                                 {{-- <div class="form-check form-check-inline">
                                     <input class="form-check-input  " type="checkbox" id="inlineCheckbox1" value="option1">
@@ -46,7 +46,7 @@
                         @if ($profile_port->status != 0)
 
                         <a class="" href="{{route('searchportfolio.show',$profile_port->user_id)}}" style="color: inherit; ">
-                            <div class=" col-4  p-2   float-left " >
+                            <div class=" col-12 col-md-4  p-2   float-left " >
                                 <div class=" d-flex flex-column w-100 position-relative" style="border-radius: 15px 15px 0px 0px;">
                                     {{-- <h1>{{ $profile_port->id}}</h1> --}}
 
