@@ -14,8 +14,8 @@
             </div>
         </div>
     </div>
-    <div class=" mt-5 w-100" style="border: solid 1px #c1c1c1"></div>
-    <div class="" style="height: 50px; background-color:#F9C226;" id="hid">
+    {{-- <div class=" mt-5 w-100" style="border: solid 1px #c1c1c1"></div> --}}
+    <div class=" d-flex justify-content-center align-items-center" style="height: 100px; background-color:#F9C226;" id="hid">
         <div class="container">
             <div class="row">
                 <div class=" w-100 d-flex align-items-center " style="height: 50px; background-color:#F9C226;">

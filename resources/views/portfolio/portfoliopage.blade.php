@@ -201,7 +201,7 @@
 
                         {{-- //เริ่ม  ทั้ทงหมด --}}
 
-                        @include('portfolio.component.port-exp')
+                        @include('portfolio.cormponent.port-exp')
 
                 </div>
             </div>

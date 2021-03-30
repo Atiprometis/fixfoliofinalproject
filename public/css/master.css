@@ -1,3 +1,9 @@
+body {
+    /* overflow:-moz-hidden-unscrollable; */
+}
+::-webkit-scrollbar {
+    /* -webkit-appearance: none; */
+}
 ul {
     list-style-type: none;
 }

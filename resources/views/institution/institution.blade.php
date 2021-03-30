@@ -26,16 +26,16 @@
             </div>
 
                     <div class="d-flex flex-row w-100 text-institution align-items-end justify-content-between">
-                        <h1 class="p-0 m-0 ml-2" style="font-size: 1.750em;">สถาบันทั้งหมด</h1>
+                        <h1 class="p-0 m-0 ml-2 col-12 text-center" style="font-size: 1.750em;">สถาบันทั้งหมด</h1>
                         <div class=" d-flex flex-row">
-                            <div class="form-check form-check-inline">
+                            {{-- <div class="form-check form-check-inline">
                                 <input class="form-check-input  " type="checkbox" id="inlineCheckbox1" value="option1">
                                 <label class="form-check-label" for="inlineCheckbox1">เรียนออนไลน์</label>
                               </div>
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input " type="checkbox" id="inlineCheckbox2" value="option2">
                                 <label class="form-check-label" for="inlineCheckbox2">เรียนที่ศูนย์ฝึกอบรม</label>
-                              </div>
+                              </div> --}}
 
                             <p class="p-0 m-2"></p>
                         </div>
@@ -45,7 +45,7 @@
                     @foreach($schoolsdetails as $index=>$school)
 
                         <a class="" href="/profileinstitution/{{ $school->schools_id }}" style="color: inherit; ">
-                            <div class=" col-3  p-2   float-left " >
+                            <div class=" col-12 col-sm-12 col-md-3   p-2   float-left " >
                                 <div class="">
                                     @if ($school->school_image != null)
                                     <img class="insutition-all" src='../imagesSchools/{{ $school->schools_owner }}/{{ $school->school_image  }}' alt="Card image cap" style="height: 250px;border: 1px solid #c1c1c1;">

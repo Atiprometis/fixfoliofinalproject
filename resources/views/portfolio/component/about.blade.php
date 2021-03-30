@@ -69,7 +69,7 @@
 
                 > --}}
                 <select class="custom-select border-0 w-100 "   name="profile_province" id="province-present">
-                    <option selected style="display: none" value="กรุงเทพมหานคร">จังหวัด</option>
+                    <option selected style="display: none " value="กรุงเทพมหานคร">จังหวัด</option>
                     @foreach ($provinces as $province)
                         <option value="{{ $province->name_th }}">{{ $province->name_th }}</option>
                     @endforeach

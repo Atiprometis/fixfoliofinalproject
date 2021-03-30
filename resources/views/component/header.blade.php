@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light shadow-sm " style="background-color: #69299C;">
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm " style="background-color: #69299C;">
     <div class="container">
         <a class="navbar-brand text-light" href="{{ url('/home') }}">
             เรารักอบรม
@@ -10,21 +10,21 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto" >
+            <ul class=" navbar-nav mr-auto" >
                 <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="/home">หน้าหลัก<span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-light"style="font-weight: 300; font-size:1.8vh;" href="/home">หน้าหลัก<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="/institution">สถาบันทั้งหมด<span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link text-light"style="font-weight: 300; font-size:1.8vh;" href="/institution">สถาบันทั้งหมด<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="/courses">คอร์สเรียนทั้งหมด<span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link text-light"style="font-weight: 300; font-size:1.8vh;" href="/courses">คอร์สเรียนทั้งหมด<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="/searchportfolio">ค้นหาผลงาน<span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link text-light"style="font-weight: 300; font-size:1.8vh;" href="/searchportfolio">ค้นหาผลงาน<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link text-light"style="font-weight: 300;" href="/contact">ติดต่อเรา <span class="sr-only">(current)</span></a>
+                <li class="nav-item ">
+                    <a class="nav-link text-light"style="font-weight: 300; font-size:1.8vh;" href="/contact">ติดต่อเรา <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
 
@@ -34,11 +34,11 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link text-uppercase text-light" href="{{ route('login') }}">{{ __('เข้าสู่ระบบ') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link text-uppercase text-light" href="{{ route('register') }}">{{ __('สมัครสมาชิก') }}</a>
                         </li>
                     @endif
                 @else
