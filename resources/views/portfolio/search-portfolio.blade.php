@@ -61,11 +61,11 @@
 
                                         @foreach ($userall as $user)
                                         @if ($user->id == $profile_port->user_id)
-                                            <h1 class=" pt-3 m-0  font-weight-bold" style="font-size: 1.375em;">{{$user->name}} {{$user->lastname}}</h1>
+                                            <h1 class=" pt-3 m-0  font-weight-bold" style="font-size: 1.8vh;">{{$user->name}} {{$user->lastname}}</h1>
                                         @endif
                                         @endforeach
                                         <div class=" p-1 m-0 text-over  " style="">
-                                            <p class=" mt-0  font-weight-light " style="font-size: 1em;">{{ $profile_port->profile_aboutme }} </p>
+                                            <p class=" mt-0  font-weight-light " style="font-size: 1.4vh;">{{ $profile_port->profile_aboutme }} </p>
                                         </div>
                                     </div>
                                 </div>

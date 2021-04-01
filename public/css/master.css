@@ -21,6 +21,9 @@ body{
 background-repeat: no-repeat; */
 
 }
+/* input[type=checkbox] {
+    transform: scale(1.5);
+} */
 
 .wraper-login{
     height: 100%;

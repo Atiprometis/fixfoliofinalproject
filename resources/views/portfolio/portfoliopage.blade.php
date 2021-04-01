@@ -25,7 +25,7 @@
                 </div> --}}
             </div>
             <div class="profile rounded col-12 d-flex flex-row flex-wrap mt-2 align-items-start justify-content-between ">
-                <div class="card p-3 col-12 col-md-3" style=" height: 340px">
+                <div class="card p-3 col-12 col-md-5 col-lg-3" style=" height: 340px">
 
                     @if ($avatar_images[0]['avatar_path'] != null)
                     @foreach($avatar_images as $avatar_image)
@@ -38,7 +38,7 @@
                     @endif
 
                 </div>
-                <div class="profile-about col-12 col-md-9 p-0 m-0 pl-md-4 pt-3 pt-md-0 d-flex flex-column justify-content-between">
+                <div class="profile-about col-12 col-md-7 col-lg-9 p-0 m-0 pl-md-4 pt-3 pt-md-0 d-flex flex-column justify-content-between">
                     <div class=" d-flex flex-column   mb-4 ">
                         <div class=" d-flex flex-row   justify-content-between ">
                             <div class=" d-flex flex-column border col-12 p-0 rounded " style="width: 100%;">
