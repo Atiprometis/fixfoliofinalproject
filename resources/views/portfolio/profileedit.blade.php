@@ -7,18 +7,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-                {{-- {{ csrf_field() }}
-                {{ method_field('POST') }} --}}
 
                 @csrf
                 <div class=" d-flex flex-row col-md-12 d-flex justify-content-end  text-center ">
-                    {{-- <label class="switch m-0 mt-1 ">
-                        <input type="checkbox" class="success inline checkbox"  name="acceptRules" id="checkbox1" value="ปิดหางาน">
-                        <span class="slider round pl-2 pr-2"></span>
-                    </label> --}}
+
                     <form action="/updatestatusprofile" method="GET">
                         @csrf
-                    {{-- {!! Form::open(array('route' => array('update.profile', $profiledatas->status),'method' => 'get', )) !!} --}}
                     @if ($profiledatas->status != 0)
                     <input type="text" value="{{ $profiledatas->status }}" name="status" style="display: none">
                         <div class=" mt-1 mr-2 p-2" >
@@ -65,10 +59,10 @@
                         </label>
                     </div> --}}
                 </div>
-                <div class="profile rounded col-12 d-flex flex-row  mt-3 mb-3 align-items-start">
+                <div class="profile rounded col-12  d-flex flex-row flex-wrap mt-3 mb-3 align-items-start">
                     {{-- << รูป profile >> --}}
-                    <div class="card p-3 col-3" style=" height: 360px;">
-                        <label>
+                    <div class="card p-3 col-12 col-md-5 col-lg-3" >
+                        <label >
                         @if ($avatar_images[0]['avatar_path'] != null)
                         @foreach($avatar_images as $avatar_image)
                             <img class="card-img-top rounded w-auto" src='../avatar/{{ Auth::user()->id }}/{{ $avatar_image->avatar_path }}' id="uploadPreview"   alt="Card image cap" style="height: 250px; cursor: pointer;">
@@ -89,16 +83,16 @@
                     </div>
                     {{-- << รูป profile >> --}}
                     {{-- <<อัพเดท profile >> --}}
-                    {{-- {!! Form::open(array('url' => '/updateprofile', 'method' => 'get')) !!} --}}
-                    <form class=" form-group col-md-9 h-50" action="/updateFnameSname" method="get" enctype="multipart/form-data">
-                    <div class="d-flex flex-column col-12 p-0 h-100 ">
+
+                    <form class=" form-group col-12 col-md-7 col-lg-9 pl-md-3 pr-md-3 p-0 m-0 " action="/updateFnameSname" method="get" enctype="multipart/form-data">
+                    <div class="d-flex flex-column col-12 col-md-12 p-0 m-0  pt-3 pt-md-0 ">
 
                         @include('portfolio.component.aboutme')
 
-                        <div class="col-12 pr-0">
+                        <div class="col-12 p-0 m-0 pr-0" >
                             <h1 class=" font-weight-normal" style="font-size: 1.250em;   ">แนะนำตัว</h1>
                             @foreach($users as $user)
-                            <textarea  class="form-control" maxlength="150" style="resize: none;height: 150px;" name="profile_aboutme" id="profile_aboutme" style=" height: 80%;"
+                            <textarea  class="form-control" maxlength="150" style="resize: none;height: 140px;" name="profile_aboutme" id="profile_aboutme"
                              aria-label="aaaad"
                             >{{ $user->profile_aboutme }}</textarea>
                             @endforeach
@@ -110,7 +104,7 @@
                 </div>
 
         </div>
-                        <div class="mt-0 d-flex  flex-row justify-content-end align-items-center justify-content-start ">
+                        <div class="mt-0 d-flex  flex-row justify-content-end  align-items-center justify-content-start ">
                             <button type="submit"  class="btn mr-3" style="background-color: #F2C94C;font-size: 1em">
                                 บันทึกการแก้ไข
                             </button>
@@ -119,7 +113,7 @@
 
 
                     {{-- <<อัพเดท profile >> --}}
-        <div class=" col-12 d-flex flex-ro m-0 p-0">
+        <div class=" col-12 d-flex flex-row flex-wrap m-0 p-0">
                 @include('portfolio.component.about')
                 @include('portfolio.component.exp')
         </div>

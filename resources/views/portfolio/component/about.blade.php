@@ -1,9 +1,9 @@
-{!! Form::open(array('url' => '/updateprofile','method' => 'POST','class'=>'needs-validation','')) !!}
+{!! Form::open(array('url' => '/updateprofile','method' => 'POST','class'=>'needs-validation col-12 col-lg-3 mt-2 p-0',' ')) !!}
     @csrf
-    <div class="form-row contact col-12 pr-0 p-0  d-flex flex-column ">
-        <div class="contact-me pt-3">
-            <h2 style="font-weight: 400; font-size: 0.875em;">ข้อมูลส่วนตัว</h2>
-            <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
+    <div class="contact col-12  pr-0 p-0  d-flex d-lg-block flex-row  flex-wrap">
+        <div class="col-12 col-md-6 col-lg-12  p-0 m-0 pr-0 pl-0 pl-md-1 pr-md-1">
+            <h2 class="" style="font-weight: 400; font-size: 1.250em;">ข้อมูลส่วนตัว</h2>
+            <div class=" w-100 rounded  pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
                 <div class="" style="width: 30px ;background:#1787E2; border-radius: 5px;">
                     <i class="fas fa-pen fa-sm p-2  rounded" style="color: #fff"></i>
                 </div>
@@ -19,12 +19,12 @@
                 </div>
 
             </div>
-            <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
+            <div class=" w-100 rounded  pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
                 <div class="" style="width: 30px ;background:#FF6660; border-radius: 5px;">
 
                     <i class="fas fa-venus-mars fa-sm p-2  rounded" style="color: #fff"></i>
                 </div>
-                <div class=" d-flex flex-row col-md-10 p-0">
+                <div class=" d-flex flex-row col-md-10 p-0 pr-2 w-100">
                     <p class="m-0 p-2">เพศ </p>
                     {{-- <input type="text" class="form-control outline-none aboutme rounded " style="width: 100%;height: 100%;" name="profile_sex"
                 id="profile_sex" aria-describedby="profile_sex" placeholder=""
@@ -32,7 +32,7 @@
                 value={{ $user->profile_sex }}
                 @endforeach
                 > --}}
-                <select class="form-control border-0" id="exampleFormControlSelect1" name="profile_sex">
+                <select class="form-control border-0 w-100 " id="exampleFormControlSelect1" name="profile_sex">
                     <option style="display: none">{{ $profiledatas['profile_sex'] }}</option>
                     <option>ชาย</option>
                     <option>หญิง</option>
@@ -41,7 +41,7 @@
                 </div>
 
             </div>
-            <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
+            <div class=" w-100 rounded  pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
                 <div class="" style="width: 30px ;background:#9B51E0; border-radius: 5px;">
                     <i class="fas fa-pen fa-sm p-2  rounded" style="color: #fff"></i>
                 </div>
@@ -57,7 +57,7 @@
                 </div>
 
             </div>
-            <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
+            <div class=" w-100 rounded  pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
                 <div class="" style="width: 30px ;background:#1787E2; border-radius: 5px;">
                     <i class="fas fa-map-marker-alt fa-sm p-2  rounded" style="width: 30px;color: #fff"></i>
                 </div>
@@ -78,7 +78,7 @@
 
 
             </div>
-            <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
+            <div class=" w-100 rounded  pl-2 pr-2 d-flex mt-2 mb-2 flex-row   align-items-center d-inline-block text-truncate" style="border: solid 1px #c1c1c1">
                 <div class="" style="width: 30px ;background:#5181B8; border-radius: 5px;">
 
                     <i class="fas fa-graduation-cap fa-sm p-2  rounded" style="color: #fff"></i>
@@ -112,8 +112,10 @@
 
 
             </div>
-            <h2 class="mt-4" style="font-weight: 400; font-size: 0.875em;">ช่องทางการติดต่อ</h2>
-            <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
+        </div>
+        <div class="col-12 col-md-6 col-lg-12 p-0 m-0 pr-0 pl-0 pl-md-1 pr-md-1 ">
+            <h2 class="" style="font-weight: 400; font-size: 1.250em">ช่องทางการติดต่อ</h2>
+            <div class=" w-100 rounded  pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                 <div class="" style="width: 30px ;background:#4267B2; border-radius: 5px;">
                     <i class="fab fa-facebook-f fa-sm p-2  rounded" style="color: #fff"></i>
 
@@ -128,7 +130,7 @@
                 </div>
 
             </div>
-            <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
+            <div class=" w-100 rounded  pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                 <div class="" style="width: 30px ;background:#1DA1F2; border-radius: 5px;">
                     <i class="fas fa-phone-alt fa-sm p-2  rounded" style="color: #fff"></i>
                 </div>
@@ -146,7 +148,7 @@
                 </div>
 
             </div>
-            <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
+            <div class=" w-100 rounded pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                 <div class="" style="width: 30px ;background:#5181B8; border-radius: 5px;">
                     <i class="fas fa-envelope fa-sm p-2  rounded" style="color: #fff"></i>
                 </div>
@@ -159,7 +161,7 @@
                 >
                 </div>
             </div>
-            <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
+            <div class=" w-100 rounded  pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                 <div class="" style="width: 30px ;background:#3ACE01; border-radius: 5px;">
                     <i class="fab fa-line fa-sm p-2  rounded" style="color: #fff"></i>
 
@@ -174,7 +176,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-3 d-flex  flex-row justify-content-end align-items-center justify-content-start ">
+        <div class="mt-3 d-flex  flex-row justify-content-end align-items-center  w-100">
             <button type="submit"  class="btn mr-3" style="background-color: #F2C94C;font-size: 1em">
                 บันทึกการแก้ไข
             </button>

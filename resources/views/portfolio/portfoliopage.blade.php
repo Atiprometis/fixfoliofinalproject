@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-12 p-0 m-0 pr-0 pl-0 pl-md-1 pr-md-1 ">
                         <h2 class="mt-3" style="font-weight: 400; font-size: 0.875em;">ช่องทางการติดต่อ</h2>
-                        <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
+                        <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                             <div class="" style="width: 30px ;background:#4267B2; border-radius: 5px;">
                                 <i class="fab fa-facebook-f fa-sm p-2  rounded" style="color: #fff"></i>
 
@@ -148,7 +148,7 @@
                             </div>
 
                         </div>
-                        <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
+                        <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                             <div class="" style="width: 30px ;background:#1DA1F2; border-radius: 5px;">
                                 <i class="fas fa-phone-alt fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
@@ -159,7 +159,7 @@
                             </div>
 
                         </div>
-                        <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
+                        <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                             <div class="" style="width: 30px ;background:#5181B8; border-radius: 5px;">
                                 <i class="fas fa-envelope fa-sm p-2  rounded" style="color: #fff"></i>
                             </div>
@@ -170,7 +170,7 @@
 
                             </div>
                         </div>
-                        <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2flex-row   align-items-center" style="border: solid 1px #c1c1c1">
+                        <div class=" w-100 rounded p-1 pl-2 d-flex mt-2 mb-2 flex-row   align-items-center" style="border: solid 1px #c1c1c1">
                             <div class="" style="width: 30px ;background:#3ACE01; border-radius: 5px;">
                                 <i class="fab fa-line fa-sm p-2  rounded" style="color: #fff"></i>
 

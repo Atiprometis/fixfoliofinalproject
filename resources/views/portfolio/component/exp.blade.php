@@ -1,26 +1,28 @@
-<div class=" d-flex  flex-column col-9 p-0 m-0">
+<div class=" d-flex  flex-column col-12 col-lg-9 p-0 m-0">
     <div class="pr-3 pl-3 d-flex flex-column">
         <h1 class="m-0 mt-2 p-0 font-weight-normal" style="font-size: 1.250em;   font-weight: bold;">คอร์สที่เรียนจบ</h1>
         {{-- //เริ่ม  ทั้ทงหมด --}}
 
-        <div class="mt-2  col-sm-12 p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
+        <div class="mt-2  col-12  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
             <ul class="p-0 m-0">
                 <li class="p-0 m-0">
                     @foreach($courseandimage as $imagecourse)
 
-                    <div class=" d-flex flex-row pt-4">
+                    <div class="col-12 d-flex flex-row flex-wrap pt-4">
 
-                        <div class=" d-flex flex-column w-50 ml-2" >
-                            <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">รุ่นที่ {{$imagecourse->generation}}</h1>
-                            {{-- <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p> --}}
+                        <div class="col-12 col-md-6 d-flex flex-column w-50 " >
+                            <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">รุ่นที่ </h1>
+                            <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$imagecourse->generation}}</p>
                         </div>
-                        <div class=" d-flex flex-column w-50">
+                        <div class="col-12 col-md-4 d-flex  flex-column w-50">
                             <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$imagecourse->corse_name}}</h1>
                             <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$imagecourse->location}}</p>
                         </div>
-                        <div class="p-0 m-0 d-flex justify-content-end">
-                            <button class="btn" data-toggle="modal" data-target="#addimage{{ $imagecourse->course_final_id }} "><i class="fas fa-pen"></i></button>
-                            <button class="btn " onclick="deleteresult({{ $imagecourse->course_final_id }})"><i class="fas fa-trash-alt bg-danger p-2 rounded-circle text-light"></i></button>
+                        <div class="col-12  col-md-2 p-0 m-0 ">
+                            <div class="d-flex justify-content-center">
+                                <button class="btn w-100 p-0 m-0" style="background-color: #fff; border:solid 1px #D3D3D3;" data-toggle="modal" data-target="#addimage{{ $imagecourse->course_final_id }} "><i class="fas fa-pen"></i></button>
+                                <button class="btn w-100  m-0" style="background-color: #fff; border:solid 1px #D3D3D3;" onclick="deleteresult({{ $imagecourse->course_final_id }})"><i class="fas fa-trash-alt bg-danger p-2 rounded-circle text-light"></i></button>
+                            </div>
                         </div>
                     </div>
 
@@ -29,9 +31,9 @@
                             {{-- {{ $imagecoursefinals[1]['course_final_id'] }} --}}
                             @foreach ($imagecoursefinals as $index=>$image)
                                 @if($imagecourse->course_final_id == $imagecoursefinals[$index]['course_final_id'])
-                                <li class=" col-3 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;">
+                                <li class=" col-6 col-md-3 pr-1 pl-1 p-0 m-0 mt-2 " id="myList" style="height:150px; border-radius:10px;">
                                 <a class="con-img"  onclick="deleteimages({{$image->course_final_images_id}})">
-                                        <img class="hover-image" src="../courseimages/{{$image->images_path}}"  alt="" style="width: 90%; height:150px;border-radius: 10px;">
+                                        <img class="hover-image" src="../courseimages/{{$image->images_path}}"  alt="" style="width: 100%; height:150px;border-radius: 10px;">
                                     <div class="overlay">
                                         <div class="overred d-flex justify-content-center align-items-center ">
                                             <div class="icon">
@@ -44,9 +46,9 @@
                                 @else
                                 @endif
                             @endforeach
-                            <li class="col-3 p-0 m-0 mt-2" id="myList">
+                            <li class="col-6 col-md-3 pr-1 pl-1 p-0 m-0 mt-2" id="myList">
                                 <label class="col-12 p-0 m-0" style="cursor: pointer;"  data-toggle="modal" data-target="#addimage{{ $imagecourse->course_final_id }}">
-                                    <div  class="bg-light d-flex flex-row justify-content-center align-items-center"   style="width: 90%; height:150px; border-radius:10px;" >
+                                    <div  class="bg-light d-flex flex-row justify-content-center align-items-center"   style="width: 100%; height:150px; border-radius:10px;" >
                                             <i class="fas fa-plus bg-danger mr-1 ml-1 p-2" style="border-radius: 20px;color:#fff;"></i>
                                             <p class="p-0 m-0">เพิ่มรูป</p>
                                     </div>
@@ -122,7 +124,7 @@
                                         </li>
                                     </ul>
                                     <div class=" d-flex justify-content-md-center">
-                                        <button  onclick="history.back()" class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
+                                        <button  onclick="history.back()"  class="btn btn-secondary swa-confirm mr-2 ml-2" style="margin-top:10px">กลับ</button>
                                         <button type="submit" class="btn rounded" style="margin-top:10px; background-color:#F2C94C;">ยืนยัน</button>
                                     </div>
                                 </form>
@@ -145,28 +147,30 @@
 
     </div>
 
-    <div class="col-md-12 mb-5 d-flex flex-column" style="height: 300px">
+    <div class="col-md-12 mb-5 d-flex flex-column" >
         <h1 class="m-0 mt-2 p-0 font-weight-normal mt-4" style="font-size: 1.250em;   font-weight: bold;">ประสบการณ์ทำงาน</h1>
         <div class="mt-2  p-0 pl-3 pb-4 pr-3 m-0 d-flex flex-column position-relative" style="border-radius: 15px; border: solid 1px #c1c1c1;">
            @foreach ($expworks as $expwork)
            <ul class="p-0 m-0">
             <li class="p-0 m-0">
-                <div class=" d-flex flex-row pt-4">
-                    <div class=" d-flex flex-column w-50 ml-2" >
+                <div class="col-12 d-flex flex-row flex-wrap pt-4">
+                    <div class="col-6 d-flex flex-column w-50 " >
                         <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$expwork->company}}</h1>
-                        {{-- <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">ม.ค.2563 - ก.พ.2563</p> --}}
+
                     </div>
-                    <div class=" d-flex flex-column w-50">
-                        <h1 class="m-0 p-0 font-weight-normal" style="font-size: 1.250em;">{{$expwork->position}}</h1>
-                        <p class="m-0 p-0 font-weight-light" style="font-size: 1em;">{{$expwork->province}}</p>
+                    <div class="col-6 p-0 col-md-4 d-flex flex-column w-50">
+                        <h1 class="m-0 p-0 w-100 font-weight-normal" style="font-size: 1.250em;">{{$expwork->position}}</h1>
+                        <p class="m-0 p-0 w-100 font-weight-light" style="font-size: 1em;">{{$expwork->province}}</p>
                         <div class=" d-flex flex-row">
-                            <p class="m-0 p-0   mr-2 font-weight-light" style="font-size: 1em;">{{$expwork->year}} ปี</p>
-                            <p class="m-0 p-0 ml-2 mr-2 font-weight-light" style="font-size: 1em;">{{$expwork->month}} เดือน</p>
+                            <p class="m-0 p-0 w-100  mr-2 font-weight-light" style="font-size: 1em;">{{$expwork->year}} ปี</p>
+                            <p class="m-0 p-0 w-100 ml-2 mr-2 font-weight-light" style="font-size: 1em;">{{$expwork->month}} เดือน</p>
                         </div>
                     </div>
-                    <div class="p-0 m-0 d-flex justify-content-end">
-                        <button class="btn" data-toggle="modal" data-target="#ExpworkUpdate{{ $expwork->exp_works_id }}"><i class="fas fa-pen"></i></button>
-                        <button class="btn " onclick="deleteExpwork({{ $expwork->exp_works_id }})"><i class="fas fa-trash-alt bg-danger p-2 rounded-circle text-light"></i></button>
+                    <div class="col-12 col-md-2 p-0 m-0 ">
+                        <div class=" d-flex justify-content-center">
+                            <button class="btn w-100" style="background-color: #fff; border:solid 1px #D3D3D3;" data-toggle="modal" data-target="#ExpworkUpdate{{ $expwork->exp_works_id }}"><i class="fas fa-pen"></i></button>
+                            <button class="btn w-100" style="background-color: #fff; border:solid 1px #D3D3D3;" onclick="deleteExpwork({{ $expwork->exp_works_id }})"><i class="fas fa-trash-alt bg-danger p-2 rounded-circle text-light"></i></button>
+                        </div>
                     </div>
                 </div>
                 <div class=" mt-3 mb-3 w-100" style="border: solid 1px #c1c1c1"></div>
