@@ -12,7 +12,10 @@
 เป็นโปรเจคจบของ นักศึกษามหาวิทยาลัยศิลปากร โดย ชื่อเว็บว่า I LOVE TRAINING ( เรารักอบรม )
 
 ## SHOWREEL
-[Watch on YouTube]([https://www.youtube.com/watch?v=xxxxx](https://www.youtube.com/watch?v=Hw2humzpiiU))
+[Watch on YouTube](https://www.youtube.com/watch?v=Hw2humzpiiU)
+
+##Demo 
+[Watch on YouTube](https://www.youtube.com/watch?v=QaCa5hWsEaw)
 
 เว็บไซต์ที่ รวบรวมคอร์สเรียนฝึกอาชีพสำหรับผู้รักการพัฒนาตนเอง 
 
@@ -39,3 +42,5 @@
 ภาษาที่ใช้ 
 front-end: html,css,javascript,jQuery,bootstrap
 back-end: php,laravel,mysql
+
+## end 
