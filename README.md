@@ -41,6 +41,7 @@ Demo :
   
 ภาษาที่ใช้ 
 front-end: html,css,javascript,jQuery,bootstrap
+
 back-end: php,laravel,mysql
 
 ## end 
